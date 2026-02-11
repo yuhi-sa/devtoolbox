@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URLエンコード・デコード（オンライン無料） - DevToolBox</title>
+  <meta name="description" content="URLエンコード・デコードをオンラインで実行。日本語URLの変換にも対応。">
+  <link rel="canonical" href="https://yuhi-sa.github.io/devtoolbox/tools/url-encode/">
+  <meta property="og:title" content="URLエンコード・デコード（オンライン無料） - DevToolBox">
+  <meta property="og:description" content="URLエンコード・デコードをオンラインで実行。日本語URLの変換にも対応。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yuhi-sa.github.io/devtoolbox/tools/url-encode/">
+  <meta property="og:site_name" content="DevToolBox">
+  <meta property="og:locale" content="ja_JP">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "URLエンコード・デコード",
+    "description": "URLエンコード・デコードをオンラインで実行するツール",
+    "url": "https://yuhi-sa.github.io/devtoolbox/tools/url-encode/",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "JPY"
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "DevToolBox",
+      "url": "https://yuhi-sa.github.io/devtoolbox/"
+    }
+  }
+  </script>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="../../" class="header__logo">
+        <svg class="header__logo-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="28" height="28" rx="6" fill="currentColor" style="color: var(--color-primary)"/>
+          <path d="M8 10l4 4-4 4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 18h5" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        DevToolBox
+      </a>
+      <div class="header__right">
+        <nav class="nav" aria-label="メインナビゲーション">
+          <ul class="nav__list">
+            <li><a href="../json-formatter/" class="nav__link">JSON整形</a></li>
+            <li><a href="../char-counter/" class="nav__link">文字数カウント</a></li>
+            <li><a href="../base64/" class="nav__link">Base64</a></li>
+            <li><a href="../url-encode/" class="nav__link">URLエンコード</a></li>
+            <li><a href="../timestamp/" class="nav__link">タイムスタンプ</a></li>
+          </ul>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="テーマ切替">
+          <svg class="theme-toggle__icon theme-toggle__icon--dark" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+          </svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--light" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
+          </svg>
+        </button>
+        <button id="hamburger" class="hamburger" type="button" aria-label="メニュー" aria-expanded="false" aria-controls="mobile-nav">
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- モバイルナビ -->
+  <nav id="mobile-nav" class="mobile-nav" aria-label="モバイルナビゲーション">
+    <ul class="mobile-nav__list">
+      <li><a href="../json-formatter/" class="mobile-nav__link">JSON整形・検証</a></li>
+      <li><a href="../char-counter/" class="mobile-nav__link">文字数カウンター</a></li>
+      <li><a href="../base64/" class="mobile-nav__link">Base64エンコード/デコード</a></li>
+      <li><a href="../url-encode/" class="mobile-nav__link">URLエンコード/デコード</a></li>
+      <li><a href="../timestamp/" class="mobile-nav__link">Unixタイムスタンプ変換</a></li>
+      <li><a href="../../about.html" class="mobile-nav__link">サイトについて</a></li>
+      <li><a href="../../privacy.html" class="mobile-nav__link">プライバシーポリシー</a></li>
+      <li><a href="../../terms.html" class="mobile-nav__link">利用規約</a></li>
+    </ul>
+  </nav>
+
+  <!-- 広告枠A: ヘッダー下バナー -->
+  <div class="ad-slot" id="ad-header" data-ad-size="728x90">
+    <!-- 広告スクリプトをここに挿入 -->
+  </div>
+
+  <main class="main">
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <ol>
+        <li><a href="../../">ホーム</a></li>
+        <li aria-current="page">URLエンコード・デコード</li>
+      </ol>
+    </nav>
+
+    <div class="tool-container">
+      <h1>URLエンコード・デコード</h1>
+      <p class="tool-container__lead">URLエンコード・デコードをオンラインで実行できるツールです。</p>
+
+      <div class="tab-group">
+        <button class="tab-btn tab-btn--active" data-tab="encode">エンコード</button>
+        <button class="tab-btn" data-tab="decode">デコード</button>
+      </div>
+
+      <div class="tool-input">
+        <label for="url-input" id="url-input-label">変換するテキスト</label>
+        <textarea id="url-input" class="textarea" rows="8" placeholder="変換したいテキストやURLを入力してください..."></textarea>
+        <div class="tool-input__options">
+          <label><input type="radio" name="encode-method" value="component" checked> encodeURIComponent（推奨）</label>
+          <label><input type="radio" name="encode-method" value="uri"> encodeURI</label>
+        </div>
+        <div id="url-error" class="error-message" hidden></div>
+      </div>
+
+      <div class="tool-actions">
+        <button id="btn-convert" class="btn btn--primary">変換</button>
+        <button id="btn-clear" class="btn btn--secondary clear-btn">クリア</button>
+      </div>
+
+      <div class="tool-output">
+        <label for="url-output">出力</label>
+        <textarea id="url-output" class="textarea" rows="8" readonly></textarea>
+        <div id="url-success" class="success-message" hidden></div>
+        <button id="btn-copy" class="btn btn--secondary copy-btn">コピー</button>
+      </div>
+    </div>
+
+    <section class="tool-description">
+      <h2>URLエンコード・デコードツールの使い方</h2>
+      <p>このツールでは、テキストやURLのエンコード・デコードを簡単に行えます。「エンコード」タブで日本語などの文字をURL安全な形式（パーセントエンコーディング）に変換し、「デコード」タブでエンコード済みのURL文字列を元のテキストに戻せます。エンコード方法は「encodeURIComponent」と「encodeURI」の2種類から選択できます。encodeURIComponentはクエリパラメータの値をエンコードする際に使用し、encodeURIはURL全体をエンコードする際に使用します。通常はencodeURIComponentの使用を推奨します。</p>
+
+      <h2>URLエンコーディングの関連知識</h2>
+      <p>URLエンコーディング（パーセントエンコーディング）は、URLで使用できない文字を%に続く16進数で表現する方式です。RFC 3986で定義されており、Web上のデータ送受信で広く使われています。JavaScriptには2種類のエンコード関数があります。encodeURIComponentは、英数字と-_.!~*'()を除くすべての文字をエンコードし、URLのクエリパラメータの値などに使用します。encodeURIは、URLとして有効な文字（:, /, ?, #, &, =など）はエンコードせず、URL全体に対して使用します。日本語のURLパスやクエリパラメータを扱う際は、encodeURIComponentを使用してから適切な位置に組み込むのが安全です。Web開発では、フォームデータの送信（application/x-www-form-urlencoded）やAPIリクエストのパラメータ構築で頻繁に使用されます。</p>
+
+      <h2>よくある質問（FAQ）</h2>
+      <h3>Q. encodeURIComponentとencodeURIの違いは？</h3>
+      <p>A. encodeURIComponentは「:」「/」「?」「#」「&」「=」などURL構成文字もエンコードしますが、encodeURIはこれらをエンコードしません。パラメータの値にはencodeURIComponent、URL全体にはencodeURIを使用してください。</p>
+      <h3>Q. 日本語のURLは正しく変換できますか？</h3>
+      <p>A. はい、日本語を含むURLも正しくエンコード・デコードできます。UTF-8エンコーディングに基づいた変換を行います。</p>
+      <h3>Q. デコード時にエラーが出る原因は？</h3>
+      <p>A. パーセントエンコーディングの形式が不正な場合（%の後に有効な16進数がない場合など）にエラーが発生します。入力内容を確認してください。</p>
+    </section>
+
+    <section class="related-tools">
+      <h2>関連ツール</h2>
+      <ul>
+        <li><a href="../json-formatter/">JSON整形・検証ツール</a></li>
+        <li><a href="../char-counter/">文字数カウンター</a></li>
+        <li><a href="../base64/">Base64エンコード・デコード</a></li>
+        <li><a href="../timestamp/">Unixタイムスタンプ変換</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <div class="ad-slot" id="ad-footer" data-ad-size="728x90">
+    <!-- 広告スクリプトをここに挿入 -->
+  </div>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__grid">
+        <div>
+          <p class="footer__section-title">DevToolBox</p>
+          <ul class="footer__list">
+            <li><a href="../../about.html" class="footer__link">サイトについて</a></li>
+            <li><a href="../../privacy.html" class="footer__link">プライバシーポリシー</a></li>
+            <li><a href="../../terms.html" class="footer__link">利用規約</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">ツール一覧</p>
+          <ul class="footer__list">
+            <li><a href="../json-formatter/" class="footer__link">JSON整形・検証</a></li>
+            <li><a href="../char-counter/" class="footer__link">文字数カウンター</a></li>
+            <li><a href="../base64/" class="footer__link">Base64エンコード/デコード</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">&nbsp;</p>
+          <ul class="footer__list">
+            <li><a href="../url-encode/" class="footer__link">URLエンコード/デコード</a></li>
+            <li><a href="../timestamp/" class="footer__link">Unixタイムスタンプ変換</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 DevToolBox. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/common.js"></script>
+  <script src="../../js/tools/url-encode.js"></script>
+</body>
+</html>

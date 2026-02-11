@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unixタイムスタンプ変換ツール（オンライン無料） - DevToolBox</title>
+  <meta name="description" content="Unixタイムスタンプと日時を相互変換。現在時刻の取得やタイムゾーン変換にも対応。">
+  <link rel="canonical" href="https://yuhi-sa.github.io/devtoolbox/tools/timestamp/">
+  <meta property="og:title" content="Unixタイムスタンプ変換ツール（オンライン無料） - DevToolBox">
+  <meta property="og:description" content="Unixタイムスタンプと日時を相互変換。現在時刻の取得やタイムゾーン変換にも対応。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yuhi-sa.github.io/devtoolbox/tools/timestamp/">
+  <meta property="og:site_name" content="DevToolBox">
+  <meta property="og:locale" content="ja_JP">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Unixタイムスタンプ変換ツール",
+    "description": "Unixタイムスタンプと日時を相互変換するオンラインツール",
+    "url": "https://yuhi-sa.github.io/devtoolbox/tools/timestamp/",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "JPY"
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "DevToolBox",
+      "url": "https://yuhi-sa.github.io/devtoolbox/"
+    }
+  }
+  </script>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="../../" class="header__logo">
+        <svg class="header__logo-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="28" height="28" rx="6" fill="currentColor" style="color: var(--color-primary)"/>
+          <path d="M8 10l4 4-4 4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 18h5" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        DevToolBox
+      </a>
+      <div class="header__right">
+        <nav class="nav" aria-label="メインナビゲーション">
+          <ul class="nav__list">
+            <li><a href="../json-formatter/" class="nav__link">JSON整形</a></li>
+            <li><a href="../char-counter/" class="nav__link">文字数カウント</a></li>
+            <li><a href="../base64/" class="nav__link">Base64</a></li>
+            <li><a href="../url-encode/" class="nav__link">URLエンコード</a></li>
+            <li><a href="../timestamp/" class="nav__link">タイムスタンプ</a></li>
+          </ul>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="テーマ切替">
+          <svg class="theme-toggle__icon theme-toggle__icon--dark" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+          </svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--light" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
+          </svg>
+        </button>
+        <button id="hamburger" class="hamburger" type="button" aria-label="メニュー" aria-expanded="false" aria-controls="mobile-nav">
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- モバイルナビ -->
+  <nav id="mobile-nav" class="mobile-nav" aria-label="モバイルナビゲーション">
+    <ul class="mobile-nav__list">
+      <li><a href="../json-formatter/" class="mobile-nav__link">JSON整形・検証</a></li>
+      <li><a href="../char-counter/" class="mobile-nav__link">文字数カウンター</a></li>
+      <li><a href="../base64/" class="mobile-nav__link">Base64エンコード/デコード</a></li>
+      <li><a href="../url-encode/" class="mobile-nav__link">URLエンコード/デコード</a></li>
+      <li><a href="../timestamp/" class="mobile-nav__link">Unixタイムスタンプ変換</a></li>
+      <li><a href="../../about.html" class="mobile-nav__link">サイトについて</a></li>
+      <li><a href="../../privacy.html" class="mobile-nav__link">プライバシーポリシー</a></li>
+      <li><a href="../../terms.html" class="mobile-nav__link">利用規約</a></li>
+    </ul>
+  </nav>
+
+  <!-- 広告枠A: ヘッダー下バナー -->
+  <div class="ad-slot" id="ad-header" data-ad-size="728x90">
+    <!-- 広告スクリプトをここに挿入 -->
+  </div>
+
+  <main class="main">
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <ol>
+        <li><a href="../../">ホーム</a></li>
+        <li aria-current="page">Unixタイムスタンプ変換</li>
+      </ol>
+    </nav>
+
+    <div class="tool-container">
+      <h1>Unixタイムスタンプ変換ツール</h1>
+      <p class="tool-container__lead">Unixタイムスタンプと日時を相互変換できるオンラインツールです。</p>
+
+      <div class="tool-actions">
+        <button id="btn-now" class="btn btn--primary">現在時刻を取得</button>
+        <div class="tool-actions__group">
+          <label for="tz-select">タイムゾーン:</label>
+          <select id="tz-select">
+            <option value="local" selected>ローカル</option>
+            <option value="utc">UTC</option>
+          </select>
+        </div>
+      </div>
+
+      <section class="tool-section">
+        <h2>タイムスタンプ → 日時変換</h2>
+        <div class="tool-input">
+          <label for="ts-input">Unixタイムスタンプ（秒またはミリ秒）</label>
+          <input type="text" id="ts-input" class="textarea" placeholder="例: 1700000000 または 1700000000000" inputmode="numeric">
+          <div id="ts-error" class="error-message" hidden></div>
+        </div>
+        <div class="tool-actions">
+          <button id="btn-ts-convert" class="btn btn--primary">変換</button>
+          <button id="btn-ts-clear" class="btn btn--secondary clear-btn">クリア</button>
+        </div>
+        <div class="tool-output" id="ts-output-area" hidden>
+          <div class="timestamp-results" id="ts-results"></div>
+          <button id="btn-ts-copy" class="btn btn--secondary copy-btn">コピー</button>
+        </div>
+      </section>
+
+      <section class="tool-section">
+        <h2>日時 → タイムスタンプ変換</h2>
+        <div class="tool-input">
+          <label for="dt-input">日時を入力</label>
+          <input type="datetime-local" id="dt-input" class="textarea" step="1">
+          <div id="dt-error" class="error-message" hidden></div>
+        </div>
+        <div class="tool-actions">
+          <button id="btn-dt-convert" class="btn btn--primary">変換</button>
+          <button id="btn-dt-clear" class="btn btn--secondary clear-btn">クリア</button>
+        </div>
+        <div class="tool-output" id="dt-output-area" hidden>
+          <div class="timestamp-results" id="dt-results"></div>
+          <button id="btn-dt-copy" class="btn btn--secondary copy-btn">コピー</button>
+        </div>
+      </section>
+    </div>
+
+    <section class="tool-description">
+      <h2>Unixタイムスタンプ変換ツールの使い方</h2>
+      <p>このツールでは、Unixタイムスタンプ（エポック秒）と人間が読みやすい日時形式を相互に変換できます。上部の「タイムスタンプ → 日時変換」セクションにUnixタイムスタンプを入力すると、ISO 8601形式や日本標準形式など複数のフォーマットで日時が表示されます。秒とミリ秒は自動判別されるため、どちらの形式で入力しても正しく変換されます。下部の「日時 → タイムスタンプ変換」セクションでは、日時を入力してUnixタイムスタンプ（秒とミリ秒の両方）を取得できます。「現在時刻を取得」ボタンで現在のタイムスタンプを即座に確認できます。</p>
+
+      <h2>Unixタイムスタンプとは？</h2>
+      <p>Unixタイムスタンプ（エポック秒、POSIX時間とも呼ばれます）は、1970年1月1日00:00:00 UTC（Unixエポック）からの経過秒数で時刻を表現する形式です。プログラミングやシステム管理で広く使用されており、タイムゾーンに依存しない一意の時刻表現として便利です。多くのプログラミング言語やデータベースで標準的にサポートされています。JavaScriptのDate.now()はミリ秒単位、PythonのUnixタイムスタンプは秒単位が標準です。2038年問題として知られている通り、32ビット整数で表現できるUnixタイムスタンプは2038年1月19日03:14:07 UTCに上限を迎えます。現在のほとんどのシステムでは64ビット整数が使用されているため問題ありませんが、組み込みシステムなどでは注意が必要です。</p>
+
+      <h2>よくある質問（FAQ）</h2>
+      <h3>Q. 秒とミリ秒はどう判別されますか？</h3>
+      <p>A. 入力値が10桁以下の場合は秒、13桁の場合はミリ秒として自動判別します。これにより、JavaScriptのDate.now()の値もPythonのtime.time()の値も正しく変換できます。</p>
+      <h3>Q. タイムゾーンの切り替えはどう動作しますか？</h3>
+      <p>A. 「ローカル」を選択するとお使いのブラウザのタイムゾーン（日本であればJST/UTC+9）で表示され、「UTC」を選択すると協定世界時で表示されます。タイムスタンプの値自体はタイムゾーンに依存しません。</p>
+      <h3>Q. 負の値は入力できますか？</h3>
+      <p>A. はい、負のタイムスタンプは1970年1月1日以前の日時を表します。例えば-86400は1969年12月31日00:00:00 UTCに相当します。</p>
+    </section>
+
+    <section class="related-tools">
+      <h2>関連ツール</h2>
+      <ul>
+        <li><a href="../json-formatter/">JSON整形・検証ツール</a></li>
+        <li><a href="../char-counter/">文字数カウンター</a></li>
+        <li><a href="../base64/">Base64エンコード・デコード</a></li>
+        <li><a href="../url-encode/">URLエンコード・デコード</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <div class="ad-slot" id="ad-footer" data-ad-size="728x90">
+    <!-- 広告スクリプトをここに挿入 -->
+  </div>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__grid">
+        <div>
+          <p class="footer__section-title">DevToolBox</p>
+          <ul class="footer__list">
+            <li><a href="../../about.html" class="footer__link">サイトについて</a></li>
+            <li><a href="../../privacy.html" class="footer__link">プライバシーポリシー</a></li>
+            <li><a href="../../terms.html" class="footer__link">利用規約</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">ツール一覧</p>
+          <ul class="footer__list">
+            <li><a href="../json-formatter/" class="footer__link">JSON整形・検証</a></li>
+            <li><a href="../char-counter/" class="footer__link">文字数カウンター</a></li>
+            <li><a href="../base64/" class="footer__link">Base64エンコード/デコード</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">&nbsp;</p>
+          <ul class="footer__list">
+            <li><a href="../url-encode/" class="footer__link">URLエンコード/デコード</a></li>
+            <li><a href="../timestamp/" class="footer__link">Unixタイムスタンプ変換</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 DevToolBox. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/common.js"></script>
+  <script src="../../js/tools/timestamp.js"></script>
+</body>
+</html>

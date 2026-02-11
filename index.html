@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevToolBox - 開発者向け無料オンラインツール集</title>
+  <meta name="description" content="開発者の日常作業を効率化する無料オンラインツール集。JSON整形、文字数カウント、Base64変換、URLエンコード、タイムスタンプ変換など。">
+  <link rel="canonical" href="https://yuhi-sa.github.io/devtoolbox/">
+  <meta property="og:title" content="DevToolBox - 開発者向け無料オンラインツール集">
+  <meta property="og:description" content="開発者の日常作業を効率化する無料オンラインツール集。JSON整形、文字数カウント、Base64変換、URLエンコード、タイムスタンプ変換など。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yuhi-sa.github.io/devtoolbox/">
+  <meta property="og:site_name" content="DevToolBox">
+  <meta property="og:locale" content="ja_JP">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "DevToolBox",
+    "description": "開発者の日常作業を効率化する無料オンラインツール集",
+    "url": "https://yuhi-sa.github.io/devtoolbox/"
+  }
+  </script>
+</head>
+<body>
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="./" class="header__logo">
+        <svg class="header__logo-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="28" height="28" rx="6" fill="currentColor" style="color: var(--color-primary)"/>
+          <path d="M8 10l4 4-4 4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 18h5" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        DevToolBox
+      </a>
+      <div class="header__right">
+        <nav class="nav" aria-label="メインナビゲーション">
+          <ul class="nav__list">
+            <li><a href="tools/json-formatter/" class="nav__link">JSON整形</a></li>
+            <li><a href="tools/char-counter/" class="nav__link">文字数カウント</a></li>
+            <li><a href="tools/base64/" class="nav__link">Base64</a></li>
+            <li><a href="tools/url-encode/" class="nav__link">URLエンコード</a></li>
+            <li><a href="tools/timestamp/" class="nav__link">タイムスタンプ</a></li>
+          </ul>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="テーマ切替">
+          <svg class="theme-toggle__icon theme-toggle__icon--dark" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+          </svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--light" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
+          </svg>
+        </button>
+        <button id="hamburger" class="hamburger" type="button" aria-label="メニュー" aria-expanded="false" aria-controls="mobile-nav">
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- モバイルナビ -->
+  <nav id="mobile-nav" class="mobile-nav" aria-label="モバイルナビゲーション">
+    <ul class="mobile-nav__list">
+      <li><a href="tools/json-formatter/" class="mobile-nav__link">JSON整形・検証</a></li>
+      <li><a href="tools/char-counter/" class="mobile-nav__link">文字数カウンター</a></li>
+      <li><a href="tools/base64/" class="mobile-nav__link">Base64エンコード/デコード</a></li>
+      <li><a href="tools/url-encode/" class="mobile-nav__link">URLエンコード/デコード</a></li>
+      <li><a href="tools/timestamp/" class="mobile-nav__link">Unixタイムスタンプ変換</a></li>
+      <li><a href="about.html" class="mobile-nav__link">サイトについて</a></li>
+      <li><a href="privacy.html" class="mobile-nav__link">プライバシーポリシー</a></li>
+      <li><a href="terms.html" class="mobile-nav__link">利用規約</a></li>
+    </ul>
+  </nav>
+
+  <!-- 広告枠A: ヘッダー下バナー -->
+  <div class="ad-slot" id="ad-header" data-ad-size="728x90">
+    <!-- 広告スクリプトをここに挿入 -->
+  </div>
+
+  <!-- メインコンテンツ -->
+  <main class="main">
+    <!-- ヒーロー -->
+    <section class="hero">
+      <h1 class="hero__title">DevToolBox</h1>
+      <p class="hero__description">開発者の日常作業を効率化する、無料オンラインツール集</p>
+    </section>
+
+    <!-- ツール一覧 -->
+    <section class="tool-grid" aria-label="ツール一覧">
+      <!-- JSON整形・検証 -->
+      <a href="tools/json-formatter/" class="tool-card">
+        <svg class="tool-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="4" y="4" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
+          <path d="M13 14h2m-2 6h6m-6 6h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M25 14h2m-4 6h4m-2 6h2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <h2 class="tool-card__name">JSON整形・検証</h2>
+        <p class="tool-card__description">JSONデータをワンクリックで見やすく整形・圧縮・検証。構文エラーも分かりやすく表示します。</p>
+      </a>
+
+      <!-- 文字数カウンター -->
+      <a href="tools/char-counter/" class="tool-card">
+        <svg class="tool-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="4" y="4" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
+          <path d="M12 15h16M12 20h12M12 25h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="30" cy="27" r="5" stroke="currentColor" stroke-width="2"/>
+          <path d="M29 25v4h3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h2 class="tool-card__name">文字数カウンター</h2>
+        <p class="tool-card__description">文字数・行数・バイト数をリアルタイムでカウント。スペース含む/除くの切替にも対応。</p>
+      </a>
+
+      <!-- Base64エンコード/デコード -->
+      <a href="tools/base64/" class="tool-card">
+        <svg class="tool-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="4" y="4" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
+          <path d="M11 20l5-7v14l-5-7zm18 0l-5-7v14l5-7z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+        <h2 class="tool-card__name">Base64エンコード/デコード</h2>
+        <p class="tool-card__description">テキストをBase64にエンコード・デコード。日本語（マルチバイト文字）にも正確に対応。</p>
+      </a>
+
+      <!-- URLエンコード/デコード -->
+      <a href="tools/url-encode/" class="tool-card">
+        <svg class="tool-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="4" y="4" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
+          <path d="M16 16c-3 0-5 2-5 4s2 4 5 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M24 16c3 0 5 2 5 4s-2 4-5 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M18 14l4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <h2 class="tool-card__name">URLエンコード/デコード</h2>
+        <p class="tool-card__description">URLエンコード・デコードをオンラインで実行。日本語URLの変換にも対応。</p>
+      </a>
+
+      <!-- Unixタイムスタンプ変換 -->
+      <a href="tools/timestamp/" class="tool-card">
+        <svg class="tool-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="2"/>
+          <path d="M20 12v8l5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h2 class="tool-card__name">Unixタイムスタンプ変換</h2>
+        <p class="tool-card__description">Unixタイムスタンプと日時を相互変換。現在時刻の取得やタイムゾーン変換にも対応。</p>
+      </a>
+    </section>
+  </main>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__grid">
+        <div>
+          <p class="footer__section-title">DevToolBox</p>
+          <ul class="footer__list">
+            <li><a href="about.html" class="footer__link">サイトについて</a></li>
+            <li><a href="privacy.html" class="footer__link">プライバシーポリシー</a></li>
+            <li><a href="terms.html" class="footer__link">利用規約</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">ツール一覧</p>
+          <ul class="footer__list">
+            <li><a href="tools/json-formatter/" class="footer__link">JSON整形・検証</a></li>
+            <li><a href="tools/char-counter/" class="footer__link">文字数カウンター</a></li>
+            <li><a href="tools/base64/" class="footer__link">Base64エンコード/デコード</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">&nbsp;</p>
+          <ul class="footer__list">
+            <li><a href="tools/url-encode/" class="footer__link">URLエンコード/デコード</a></li>
+            <li><a href="tools/timestamp/" class="footer__link">Unixタイムスタンプ変換</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 DevToolBox. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+</body>
+</html>

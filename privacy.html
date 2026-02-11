@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>プライバシーポリシー - DevToolBox</title>
+  <meta name="description" content="DevToolBoxのプライバシーポリシー。当サイトはユーザーのデータを収集・送信しません。すべての処理はブラウザ上で完結します。">
+  <link rel="canonical" href="https://yuhi-sa.github.io/devtoolbox/privacy.html">
+  <meta property="og:title" content="プライバシーポリシー - DevToolBox">
+  <meta property="og:description" content="DevToolBoxのプライバシーポリシー。当サイトはユーザーのデータを収集・送信しません。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yuhi-sa.github.io/devtoolbox/privacy.html">
+  <meta property="og:site_name" content="DevToolBox">
+  <meta property="og:locale" content="ja_JP">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="./" class="header__logo">
+        <svg class="header__logo-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="28" height="28" rx="6" fill="currentColor" style="color: var(--color-primary)"/>
+          <path d="M8 10l4 4-4 4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 18h5" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        DevToolBox
+      </a>
+      <div class="header__right">
+        <nav class="nav" aria-label="メインナビゲーション">
+          <ul class="nav__list">
+            <li><a href="tools/json-formatter/" class="nav__link">JSON整形</a></li>
+            <li><a href="tools/char-counter/" class="nav__link">文字数カウント</a></li>
+            <li><a href="tools/base64/" class="nav__link">Base64</a></li>
+            <li><a href="tools/url-encode/" class="nav__link">URLエンコード</a></li>
+            <li><a href="tools/timestamp/" class="nav__link">タイムスタンプ</a></li>
+          </ul>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="テーマ切替">
+          <svg class="theme-toggle__icon theme-toggle__icon--dark" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+          </svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--light" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
+          </svg>
+        </button>
+        <button id="hamburger" class="hamburger" type="button" aria-label="メニュー" aria-expanded="false" aria-controls="mobile-nav">
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- モバイルナビ -->
+  <nav id="mobile-nav" class="mobile-nav" aria-label="モバイルナビゲーション">
+    <ul class="mobile-nav__list">
+      <li><a href="tools/json-formatter/" class="mobile-nav__link">JSON整形・検証</a></li>
+      <li><a href="tools/char-counter/" class="mobile-nav__link">文字数カウンター</a></li>
+      <li><a href="tools/base64/" class="mobile-nav__link">Base64エンコード/デコード</a></li>
+      <li><a href="tools/url-encode/" class="mobile-nav__link">URLエンコード/デコード</a></li>
+      <li><a href="tools/timestamp/" class="mobile-nav__link">Unixタイムスタンプ変換</a></li>
+      <li><a href="about.html" class="mobile-nav__link">サイトについて</a></li>
+      <li><a href="privacy.html" class="mobile-nav__link">プライバシーポリシー</a></li>
+      <li><a href="terms.html" class="mobile-nav__link">利用規約</a></li>
+    </ul>
+  </nav>
+
+  <!-- メインコンテンツ -->
+  <main class="main">
+    <article class="page">
+      <h1 class="page__title">プライバシーポリシー</h1>
+      <p class="page__updated">最終更新日: 2026年2月11日</p>
+
+      <div class="page__content">
+        <p>DevToolBox（以下「当サイト」）は、ユーザーのプライバシーを重要視しています。本プライバシーポリシーでは、当サイトにおけるデータの取り扱いについて説明します。</p>
+
+        <h2>1. データの収集について</h2>
+        <p>当サイトが提供するすべてのツール（JSON整形、文字数カウント、Base64変換、URLエンコード、Unixタイムスタンプ変換など）は、お使いのブラウザ上で処理が完結します。</p>
+        <p>ユーザーがツールに入力したデータは、一切外部のサーバーに送信されません。処理はすべてブラウザ内のJavaScriptで行われ、入力データはブラウザのメモリ上にのみ存在し、ページを離れると破棄されます。</p>
+
+        <h2>2. ローカルストレージの使用</h2>
+        <p>当サイトでは、以下の目的でブラウザのローカルストレージを使用しています:</p>
+        <ul>
+          <li>テーマ設定（ライトモード/ダークモード）の保存</li>
+        </ul>
+        <p>ローカルストレージに保存されるデータは、ユーザーの個人情報を含みません。ブラウザの設定からいつでも削除することが可能です。</p>
+
+        <h2>3. Cookie（クッキー）について</h2>
+        <p>当サイト自体は、独自のCookieを使用しません。ただし、以下のサービスがCookieを使用する場合があります。</p>
+
+        <h3>広告ネットワーク</h3>
+        <p>当サイトでは、将来的にサードパーティの広告ネットワークを利用する可能性があります。広告ネットワークは、ユーザーの興味に基づいた広告を表示するためにCookieを使用することがあります。これらのCookieの管理については、各広告ネットワークのプライバシーポリシーをご参照ください。</p>
+
+        <h3>アクセス解析</h3>
+        <p>当サイトでは、サイトの利用状況を把握するためにアクセス解析ツールを使用する場合があります。アクセス解析ツールはCookieを使用してアクセス情報を収集しますが、個人を特定する情報は含まれません。データはサイトの改善目的にのみ使用されます。</p>
+
+        <h2>4. 外部リンクについて</h2>
+        <p>当サイトには、外部のウェブサイトへのリンクが含まれる場合があります。外部サイトのプライバシーに関する取り扱いについては、当サイトでは責任を負いかねます。リンク先サイトのプライバシーポリシーをご確認ください。</p>
+
+        <h2>5. お子様のプライバシー</h2>
+        <p>当サイトは、13歳未満のお子様から意図的に個人情報を収集することはありません。</p>
+
+        <h2>6. プライバシーポリシーの変更</h2>
+        <p>当サイトは、必要に応じて本プライバシーポリシーを更新することがあります。重要な変更がある場合は、当ページにて通知いたします。</p>
+
+        <h2>7. お問い合わせ</h2>
+        <p>本プライバシーポリシーに関するご質問がございましたら、GitHubリポジトリのIssueにてお問い合わせください。</p>
+      </div>
+    </article>
+  </main>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__grid">
+        <div>
+          <p class="footer__section-title">DevToolBox</p>
+          <ul class="footer__list">
+            <li><a href="about.html" class="footer__link">サイトについて</a></li>
+            <li><a href="privacy.html" class="footer__link">プライバシーポリシー</a></li>
+            <li><a href="terms.html" class="footer__link">利用規約</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">ツール一覧</p>
+          <ul class="footer__list">
+            <li><a href="tools/json-formatter/" class="footer__link">JSON整形・検証</a></li>
+            <li><a href="tools/char-counter/" class="footer__link">文字数カウンター</a></li>
+            <li><a href="tools/base64/" class="footer__link">Base64エンコード/デコード</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">&nbsp;</p>
+          <ul class="footer__list">
+            <li><a href="tools/url-encode/" class="footer__link">URLエンコード/デコード</a></li>
+            <li><a href="tools/timestamp/" class="footer__link">Unixタイムスタンプ変換</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 DevToolBox. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+</body>
+</html>
