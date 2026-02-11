@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>パスワード生成ツール（安全・オンライン無料） - DevToolBox</title>
+  <meta name="description" content="安全なパスワードをワンクリックで生成。長さ・文字種を自由に設定可能。強度メーター付き無料オンラインツール。">
+  <link rel="canonical" href="https://yuhi-sa.github.io/devtoolbox/tools/password-generator/">
+  <meta property="og:title" content="パスワード生成ツール（安全・オンライン無料） - DevToolBox">
+  <meta property="og:description" content="安全なパスワードをワンクリックで生成。長さ・文字種を自由に設定可能。強度メーター付き無料オンラインツール。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yuhi-sa.github.io/devtoolbox/tools/password-generator/">
+  <meta property="og:site_name" content="DevToolBox">
+  <meta property="og:locale" content="ja_JP">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "パスワード生成ツール",
+    "description": "安全なパスワードをワンクリックで生成するオンラインツール",
+    "url": "https://yuhi-sa.github.io/devtoolbox/tools/password-generator/",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "JPY"
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "DevToolBox",
+      "url": "https://yuhi-sa.github.io/devtoolbox/"
+    }
+  }
+  </script>
+  <link rel="stylesheet" href="../../css/style.css">
+<script data-ad-client="ca-pub-9558545098866170" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<body>
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="../../" class="header__logo">
+        <svg class="header__logo-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="28" height="28" rx="6" fill="currentColor" style="color: var(--color-primary)"/>
+          <path d="M8 10l4 4-4 4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 18h5" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        DevToolBox
+      </a>
+      <div class="header__right">
+        <nav class="nav" aria-label="メインナビゲーション">
+          <ul class="nav__list">
+            <li><a href="../json-formatter/" class="nav__link">JSON整形</a></li>
+            <li><a href="../char-counter/" class="nav__link">文字数カウント</a></li>
+            <li><a href="../base64/" class="nav__link">Base64</a></li>
+            <li><a href="../url-encode/" class="nav__link">URLエンコード</a></li>
+            <li><a href="../timestamp/" class="nav__link">タイムスタンプ</a></li>
+          </ul>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="テーマ切替">
+          <svg class="theme-toggle__icon theme-toggle__icon--dark" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+          </svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--light" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
+          </svg>
+        </button>
+        <button id="hamburger" class="hamburger" type="button" aria-label="メニュー" aria-expanded="false" aria-controls="mobile-nav">
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- モバイルナビ -->
+  <nav id="mobile-nav" class="mobile-nav" aria-label="モバイルナビゲーション">
+    <ul class="mobile-nav__list">
+      <li><a href="../json-formatter/" class="mobile-nav__link">JSON整形・検証</a></li>
+      <li><a href="../char-counter/" class="mobile-nav__link">文字数カウンター</a></li>
+      <li><a href="../base64/" class="mobile-nav__link">Base64エンコード/デコード</a></li>
+      <li><a href="../url-encode/" class="mobile-nav__link">URLエンコード/デコード</a></li>
+      <li><a href="../timestamp/" class="mobile-nav__link">Unixタイムスタンプ変換</a></li>
+      <li><a href="../../about.html" class="mobile-nav__link">サイトについて</a></li>
+      <li><a href="../../privacy.html" class="mobile-nav__link">プライバシーポリシー</a></li>
+      <li><a href="../../terms.html" class="mobile-nav__link">利用規約</a></li>
+    </ul>
+  </nav>
+
+  <!-- 広告枠A: ヘッダー下バナー -->
+  <div class="ad-slot" id="ad-header" data-ad-size="728x90">
+    <!-- 広告スクリプトをここに挿入 -->
+  </div>
+
+  <main class="main">
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <ol>
+        <li><a href="../../">ホーム</a></li>
+        <li aria-current="page">パスワード生成ツール</li>
+      </ol>
+    </nav>
+
+    <div class="tool-container">
+      <h1>パスワード生成ツール</h1>
+      <p class="tool-container__lead">暗号学的に安全なランダムパスワードを生成します。文字種と長さをカスタマイズできます。</p>
+
+      <div class="tool-input">
+        <div style="display:flex;flex-wrap:wrap;gap:1rem;align-items:center;margin-bottom:1rem;">
+          <label class="label" for="pw-length">パスワード長: <span id="pw-length-display">16</span></label>
+          <input type="range" id="pw-length" min="8" max="128" value="16" style="flex:1;min-width:200px;">
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:1.5rem;margin-bottom:1rem;">
+          <label class="label" style="display:inline-flex;align-items:center;gap:.5rem;">
+            <input type="checkbox" id="pw-uppercase" checked>
+            大文字 (A-Z)
+          </label>
+          <label class="label" style="display:inline-flex;align-items:center;gap:.5rem;">
+            <input type="checkbox" id="pw-lowercase" checked>
+            小文字 (a-z)
+          </label>
+          <label class="label" style="display:inline-flex;align-items:center;gap:.5rem;">
+            <input type="checkbox" id="pw-digits" checked>
+            数字 (0-9)
+          </label>
+          <label class="label" style="display:inline-flex;align-items:center;gap:.5rem;">
+            <input type="checkbox" id="pw-symbols" checked>
+            記号 (!@#$%...)
+          </label>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:1rem;align-items:center;margin-bottom:1rem;">
+          <label class="label" for="pw-count">生成数</label>
+          <input type="number" id="pw-count" class="input" min="1" max="20" value="1" style="width:6rem;">
+        </div>
+
+        <div id="pw-strength-container" style="margin-bottom:1rem;">
+          <label class="label">パスワード強度</label>
+          <div style="background:var(--color-border);border-radius:4px;height:8px;overflow:hidden;margin-top:.25rem;">
+            <div id="pw-strength-bar" style="height:100%;width:0;transition:width .3s,background .3s;border-radius:4px;"></div>
+          </div>
+          <span id="pw-strength-label" style="font-size:.85rem;margin-top:.25rem;display:inline-block;"></span>
+        </div>
+      </div>
+
+      <div id="pw-error" class="error-message" hidden></div>
+
+      <div class="tool-actions">
+        <button id="btn-generate" class="btn btn--primary">生成</button>
+        <button id="btn-clear" class="btn btn--secondary clear-btn">クリア</button>
+      </div>
+
+      <div class="tool-output">
+        <label for="pw-output">生成結果</label>
+        <textarea id="pw-output" class="textarea" rows="6" readonly placeholder="「生成」ボタンをクリックしてパスワードを生成します..."></textarea>
+        <div id="pw-success" class="success-message" hidden></div>
+        <button id="btn-copy" class="btn btn--secondary copy-btn">コピー</button>
+      </div>
+    </div>
+
+    <section class="tool-description">
+      <h2>パスワード生成ツールの使い方</h2>
+      <p>スライダーでパスワードの長さ（8〜128文字）を設定し、使用する文字種（大文字・小文字・数字・記号）をチェックボックスで選択します。生成数（1〜20個）を指定して「生成」ボタンをクリックすると、安全なランダムパスワードが生成されます。パスワード強度メーターで生成されるパスワードの安全性を確認できます。</p>
+
+      <h2>安全なパスワードとは？</h2>
+      <p>安全なパスワードとは、推測や総当たり攻撃に対して十分な耐性を持つパスワードです。一般的に、12文字以上の長さで、大文字・小文字・数字・記号の4種類の文字を組み合わせることが推奨されています。本ツールでは暗号学的に安全な乱数生成器（crypto.getRandomValues）を使用しており、予測不可能なパスワードを生成します。</p>
+
+      <h2>よくある質問（FAQ）</h2>
+      <h3>Q. 生成されたパスワードはどこかに保存されますか？</h3>
+      <p>A. いいえ、すべての生成処理はお使いのブラウザ内で完結します。パスワードがサーバーに送信されたり保存されたりすることは一切ありません。</p>
+      <h3>Q. どのくらいの長さのパスワードが安全ですか？</h3>
+      <p>A. 最低でも12文字以上を推奨します。16文字以上で4種類すべての文字種を含むパスワードは、現在の計算能力では実質的に解読不可能です。</p>
+      <h3>Q. 記号を含めると使えないサービスがあるのですが？</h3>
+      <p>A. 一部のサービスでは使用できる記号が制限されています。その場合は記号のチェックを外し、代わりにパスワードの長さを長くすることで安全性を確保できます。</p>
+    </section>
+
+    <section class="related-tools">
+      <h2>関連ツール</h2>
+      <ul>
+        <li><a href="../hash-generator/">ハッシュ生成ツール</a></li>
+        <li><a href="../uuid-generator/">UUID生成ツール</a></li>
+        <li><a href="../base64/">Base64エンコード・デコード</a></li>
+        <li><a href="../url-encode/">URLエンコード・デコード</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <div class="ad-slot" id="ad-footer" data-ad-size="728x90">
+    <!-- 広告スクリプトをここに挿入 -->
+  </div>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__grid">
+        <div>
+          <p class="footer__section-title">DevToolBox</p>
+          <ul class="footer__list">
+            <li><a href="../../about.html" class="footer__link">サイトについて</a></li>
+            <li><a href="../../privacy.html" class="footer__link">プライバシーポリシー</a></li>
+            <li><a href="../../terms.html" class="footer__link">利用規約</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">ツール一覧</p>
+          <ul class="footer__list">
+            <li><a href="../json-formatter/" class="footer__link">JSON整形・検証</a></li>
+            <li><a href="../char-counter/" class="footer__link">文字数カウンター</a></li>
+            <li><a href="../base64/" class="footer__link">Base64エンコード/デコード</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">&nbsp;</p>
+          <ul class="footer__list">
+            <li><a href="../url-encode/" class="footer__link">URLエンコード/デコード</a></li>
+            <li><a href="../timestamp/" class="footer__link">Unixタイムスタンプ変換</a></li>
+            <li><a href="../password-generator/" class="footer__link">パスワード生成</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 DevToolBox. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/common.js"></script>
+  <script src="../../js/tools/password-generator.js"></script>
+</body>
+</html>

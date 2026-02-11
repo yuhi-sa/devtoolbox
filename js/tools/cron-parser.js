@@ -1,0 +1,320 @@
+"use strict";
+
+(function () {
+  document.addEventListener("DOMContentLoaded", function () {
+    var cronInput = document.getElementById("cron-input");
+    var errorEl = document.getElementById("cron-error");
+    var outputEl = document.getElementById("cron-output");
+    var descText = document.getElementById("cron-desc-text");
+    var fieldsBody = document.getElementById("cron-fields-body");
+    var nextRunsList = document.getElementById("cron-next-runs");
+    var btnParse = document.getElementById("btn-parse");
+    var btnClear = document.getElementById("btn-clear");
+    var presetBtns = document.querySelectorAll("[data-preset]");
+
+    var fieldNames = ["分", "時", "日", "月", "曜日"];
+    var fieldRanges = ["0-59", "0-23", "1-31", "1-12", "0-7"];
+    var dayNames = ["日", "月", "火", "水", "木", "金", "土"];
+    var monthNames = ["", "1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"];
+
+    function showError(msg) {
+      errorEl.textContent = msg;
+      errorEl.hidden = false;
+      outputEl.hidden = true;
+    }
+
+    function clearError() {
+      errorEl.hidden = true;
+    }
+
+    // フィールドの値を展開して数値の配列にする
+    function expandField(field, min, max) {
+      var values = [];
+      var parts = field.split(",");
+      for (var i = 0; i < parts.length; i++) {
+        var part = parts[i].trim();
+        var stepMatch = part.match(/^(.+)\/(\d+)$/);
+        var step = 1;
+        if (stepMatch) {
+          part = stepMatch[1];
+          step = parseInt(stepMatch[2], 10);
+          if (step <= 0) return null;
+        }
+
+        if (part === "*") {
+          for (var v = min; v <= max; v += step) {
+            values.push(v);
+          }
+        } else if (part.indexOf("-") !== -1) {
+          var rangeParts = part.split("-");
+          var rMin = parseInt(rangeParts[0], 10);
+          var rMax = parseInt(rangeParts[1], 10);
+          if (isNaN(rMin) || isNaN(rMax) || rMin < min || rMax > max || rMin > rMax) return null;
+          for (var v2 = rMin; v2 <= rMax; v2 += step) {
+            values.push(v2);
+          }
+        } else {
+          var num = parseInt(part, 10);
+          if (isNaN(num) || num < min || num > max) return null;
+          if (step === 1) {
+            values.push(num);
+          } else {
+            for (var v3 = num; v3 <= max; v3 += step) {
+              values.push(v3);
+            }
+          }
+        }
+      }
+      // 重複排除してソート
+      var unique = [];
+      for (var j = 0; j < values.length; j++) {
+        if (unique.indexOf(values[j]) === -1) {
+          unique.push(values[j]);
+        }
+      }
+      unique.sort(function (a, b) { return a - b; });
+      return unique.length > 0 ? unique : null;
+    }
+
+    function parseCron(expr) {
+      var parts = expr.trim().split(/\s+/);
+      if (parts.length !== 5) return null;
+
+      var mins = expandField(parts[0], 0, 59);
+      var hours = expandField(parts[1], 0, 23);
+      var days = expandField(parts[2], 1, 31);
+      var months = expandField(parts[3], 1, 12);
+      var weekdays = expandField(parts[4], 0, 7);
+
+      if (!mins || !hours || !days || !months || !weekdays) return null;
+
+      // 7（日曜）を0に統一
+      weekdays = weekdays.map(function (d) { return d === 7 ? 0 : d; });
+      var uniqueWeekdays = [];
+      for (var i = 0; i < weekdays.length; i++) {
+        if (uniqueWeekdays.indexOf(weekdays[i]) === -1) {
+          uniqueWeekdays.push(weekdays[i]);
+        }
+      }
+      uniqueWeekdays.sort(function (a, b) { return a - b; });
+
+      return {
+        fields: parts,
+        minutes: mins,
+        hours: hours,
+        days: days,
+        months: months,
+        weekdays: uniqueWeekdays
+      };
+    }
+
+    function describeField(field, values, type) {
+      if (field === "*") return "すべて";
+
+      if (type === "weekday") {
+        return values.map(function (v) { return dayNames[v] + "曜日"; }).join(", ");
+      }
+      if (type === "month") {
+        return values.map(function (v) { return monthNames[v]; }).join(", ");
+      }
+
+      // ステップ表記の検出
+      if (field.indexOf("/") !== -1) {
+        var stepParts = field.split("/");
+        var step = stepParts[1];
+        if (stepParts[0] === "*") {
+          if (type === "minute") return step + "分ごと";
+          if (type === "hour") return step + "時間ごと";
+          if (type === "day") return step + "日ごと";
+        }
+      }
+
+      return values.join(", ");
+    }
+
+    function generateDescription(parsed) {
+      var parts = [];
+      var f = parsed.fields;
+
+      // 分
+      if (f[0] === "*") {
+        parts.push("毎分");
+      } else if (f[0].indexOf("/") !== -1 && f[0].split("/")[0] === "*") {
+        parts.push(f[0].split("/")[1] + "分ごと");
+      } else {
+        parts.push(parsed.minutes.join(",") + "分");
+      }
+
+      // 時
+      if (f[1] === "*") {
+        parts.push("毎時");
+      } else if (f[1].indexOf("/") !== -1 && f[1].split("/")[0] === "*") {
+        parts.push(f[1].split("/")[1] + "時間ごと");
+      } else {
+        parts.push(parsed.hours.join(",") + "時");
+      }
+
+      // 日
+      if (f[2] !== "*") {
+        parts.push(parsed.days.join(",") + "日");
+      }
+
+      // 月
+      if (f[3] !== "*") {
+        parts.push(parsed.months.map(function (m) { return m + "月"; }).join(","));
+      }
+
+      // 曜日
+      if (f[4] !== "*") {
+        parts.push(parsed.weekdays.map(function (d) { return dayNames[d] + "曜日"; }).join(","));
+      }
+
+      return parts.join(" / ");
+    }
+
+    function pad(n) {
+      return n < 10 ? "0" + n : String(n);
+    }
+
+    function getNextRuns(parsed, count) {
+      var runs = [];
+      var now = new Date();
+      var current = new Date(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours(), now.getMinutes(), 0, 0);
+      current.setMinutes(current.getMinutes() + 1);
+
+      var maxIterations = 525600; // 1年分の分数
+      var iterations = 0;
+
+      while (runs.length < count && iterations < maxIterations) {
+        iterations++;
+        var month = current.getMonth() + 1;
+        var day = current.getDate();
+        var weekday = current.getDay();
+        var hour = current.getHours();
+        var minute = current.getMinutes();
+
+        if (parsed.months.indexOf(month) === -1) {
+          // 次の月へスキップ
+          current.setMonth(current.getMonth() + 1, 1);
+          current.setHours(0, 0, 0, 0);
+          continue;
+        }
+
+        var dayMatch = parsed.fields[2] === "*" || parsed.days.indexOf(day) !== -1;
+        var weekdayMatch = parsed.fields[4] === "*" || parsed.weekdays.indexOf(weekday) !== -1;
+
+        // 日と曜日の両方が指定されている場合はOR条件
+        var dateMatch;
+        if (parsed.fields[2] !== "*" && parsed.fields[4] !== "*") {
+          dateMatch = dayMatch || weekdayMatch;
+        } else {
+          dateMatch = dayMatch && weekdayMatch;
+        }
+
+        if (!dateMatch) {
+          current.setDate(current.getDate() + 1);
+          current.setHours(0, 0, 0, 0);
+          continue;
+        }
+
+        if (parsed.hours.indexOf(hour) === -1) {
+          current.setMinutes(0);
+          current.setHours(current.getHours() + 1);
+          continue;
+        }
+
+        if (parsed.minutes.indexOf(minute) !== -1) {
+          runs.push(new Date(current));
+        }
+
+        current.setMinutes(current.getMinutes() + 1);
+      }
+
+      return runs;
+    }
+
+    function renderFieldsTable(parsed) {
+      fieldsBody.innerHTML = "";
+      var types = ["minute", "hour", "day", "month", "weekday"];
+      for (var i = 0; i < 5; i++) {
+        var tr = document.createElement("tr");
+        var tdName = document.createElement("td");
+        tdName.textContent = fieldNames[i];
+        var tdValue = document.createElement("td");
+        tdValue.style.fontFamily = "monospace";
+        tdValue.textContent = parsed.fields[i];
+        var tdRange = document.createElement("td");
+        tdRange.textContent = fieldRanges[i];
+        var tdDesc = document.createElement("td");
+        var vals = i === 4 ? parsed.weekdays : [parsed.minutes, parsed.hours, parsed.days, parsed.months][i];
+        tdDesc.textContent = describeField(parsed.fields[i], vals, types[i]);
+        tr.appendChild(tdName);
+        tr.appendChild(tdValue);
+        tr.appendChild(tdRange);
+        tr.appendChild(tdDesc);
+        fieldsBody.appendChild(tr);
+      }
+    }
+
+    function renderNextRuns(runs) {
+      nextRunsList.innerHTML = "";
+      if (runs.length === 0) {
+        var li = document.createElement("li");
+        li.textContent = "次回の実行予定が見つかりませんでした。";
+        nextRunsList.appendChild(li);
+        return;
+      }
+      for (var i = 0; i < runs.length; i++) {
+        var d = runs[i];
+        var li2 = document.createElement("li");
+        li2.textContent = d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate()) + " " +
+          pad(d.getHours()) + ":" + pad(d.getMinutes()) + " (" + dayNames[d.getDay()] + "曜日)";
+        nextRunsList.appendChild(li2);
+      }
+    }
+
+    function doParse() {
+      clearError();
+      var expr = cronInput.value.trim();
+      if (!expr) {
+        showError("Cron式を入力してください。");
+        return;
+      }
+
+      var parsed = parseCron(expr);
+      if (!parsed) {
+        showError("無効なCron式です。5つのフィールド（分 時 日 月 曜日）を正しく入力してください。");
+        return;
+      }
+
+      descText.textContent = generateDescription(parsed);
+      renderFieldsTable(parsed);
+
+      var nextRuns = getNextRuns(parsed, 10);
+      renderNextRuns(nextRuns);
+
+      outputEl.hidden = false;
+    }
+
+    btnParse.addEventListener("click", doParse);
+
+    cronInput.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        doParse();
+      }
+    });
+
+    btnClear.addEventListener("click", function () {
+      cronInput.value = "";
+      clearError();
+      outputEl.hidden = true;
+    });
+
+    presetBtns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        cronInput.value = btn.getAttribute("data-preset");
+        doParse();
+      });
+    });
+  });
+})();

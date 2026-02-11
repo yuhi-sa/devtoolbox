@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- ベースURL: https://yuhi-sa.github.io/devtoolbox/ -->
-<!-- カスタムドメインに変更する場合は、以下のすべての https://yuhi-sa.github.io/devtoolbox/ を置換してください -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://yuhi-sa.github.io/devtoolbox/</loc>
@@ -34,6 +33,90 @@
   </url>
   <url>
     <loc>https://yuhi-sa.github.io/devtoolbox/tools/timestamp/</loc>
+    <lastmod>2026-02-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/hash-generator/</loc>
+    <lastmod>2026-02-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/uuid-generator/</loc>
+    <lastmod>2026-02-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/regex-tester/</loc>
+    <lastmod>2026-02-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/diff-checker/</loc>
+    <lastmod>2026-02-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/color-converter/</loc>
+    <lastmod>2026-02-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/jwt-decoder/</loc>
+    <lastmod>2026-02-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/markdown-preview/</loc>
+    <lastmod>2026-02-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/sql-formatter/</loc>
+    <lastmod>2026-02-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/password-generator/</loc>
+    <lastmod>2026-02-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/number-base/</loc>
+    <lastmod>2026-02-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/cron-parser/</loc>
+    <lastmod>2026-02-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/html-entity/</loc>
+    <lastmod>2026-02-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/lorem-ipsum/</loc>
+    <lastmod>2026-02-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/qr-code/</loc>
     <lastmod>2026-02-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>

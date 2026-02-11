@@ -1,0 +1,143 @@
+"use strict";
+
+(function () {
+  document.addEventListener("DOMContentLoaded", function () {
+    var binInput = document.getElementById("bin-input");
+    var octInput = document.getElementById("oct-input");
+    var decInput = document.getElementById("dec-input");
+    var hexInput = document.getElementById("hex-input");
+    var binGrouped = document.getElementById("bin-grouped");
+    var errorEl = document.getElementById("base-error");
+    var successEl = document.getElementById("base-success");
+    var btnClear = document.getElementById("btn-clear");
+    var copyBtns = document.querySelectorAll("[data-copy]");
+
+    var validPatterns = {
+      bin: /^[01]+$/,
+      oct: /^[0-7]+$/,
+      dec: /^[0-9]+$/,
+      hex: /^[0-9a-fA-F]+$/
+    };
+
+    function showError(msg) {
+      errorEl.textContent = msg;
+      errorEl.hidden = false;
+      successEl.hidden = true;
+    }
+
+    function showSuccess(msg) {
+      successEl.textContent = msg;
+      successEl.hidden = false;
+      errorEl.hidden = true;
+      setTimeout(function () { successEl.hidden = true; }, 2000);
+    }
+
+    function clearMessages() {
+      errorEl.hidden = true;
+      successEl.hidden = true;
+    }
+
+    // 2進数を4ビットごとにスペース区切り
+    function groupBinary(binStr) {
+      // 4の倍数になるようにゼロパディング
+      var padded = binStr;
+      var remainder = padded.length % 4;
+      if (remainder !== 0) {
+        padded = "0".repeat(4 - remainder) + padded;
+      }
+      var groups = [];
+      for (var i = 0; i < padded.length; i += 4) {
+        groups.push(padded.substring(i, i + 4));
+      }
+      return groups.join(" ");
+    }
+
+    function updateFromBigInt(value, source) {
+      var binStr = value.toString(2);
+      var octStr = value.toString(8);
+      var decStr = value.toString(10);
+      var hexStr = value.toString(16).toUpperCase();
+
+      if (source !== "bin") binInput.value = binStr;
+      if (source !== "oct") octInput.value = octStr;
+      if (source !== "dec") decInput.value = decStr;
+      if (source !== "hex") hexInput.value = hexStr;
+
+      binGrouped.textContent = groupBinary(binStr);
+    }
+
+    function clearAll() {
+      binInput.value = "";
+      octInput.value = "";
+      decInput.value = "";
+      hexInput.value = "";
+      binGrouped.textContent = "-";
+      clearMessages();
+    }
+
+    function handleInput(source, input, base) {
+      clearMessages();
+      var val = input.value.trim();
+
+      if (val === "") {
+        clearAll();
+        return;
+      }
+
+      if (!validPatterns[source].test(val)) {
+        showError("無効な文字が含まれています。" + base + "進数で使用できる文字のみ入力してください。");
+        return;
+      }
+
+      try {
+        var num;
+        if (source === "bin") {
+          num = BigInt("0b" + val);
+        } else if (source === "oct") {
+          num = BigInt("0o" + val);
+        } else if (source === "dec") {
+          num = BigInt(val);
+        } else if (source === "hex") {
+          num = BigInt("0x" + val);
+        }
+        updateFromBigInt(num, source);
+      } catch (e) {
+        showError("変換に失敗しました。入力値を確認してください。");
+      }
+    }
+
+    binInput.addEventListener("input", function () {
+      handleInput("bin", binInput, 2);
+    });
+
+    octInput.addEventListener("input", function () {
+      handleInput("oct", octInput, 8);
+    });
+
+    decInput.addEventListener("input", function () {
+      handleInput("dec", decInput, 10);
+    });
+
+    hexInput.addEventListener("input", function () {
+      handleInput("hex", hexInput, 16);
+    });
+
+    btnClear.addEventListener("click", clearAll);
+
+    // コピーボタン
+    copyBtns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var format = btn.getAttribute("data-copy");
+        var text = "";
+        if (format === "bin") text = binInput.value;
+        else if (format === "oct") text = octInput.value;
+        else if (format === "dec") text = decInput.value;
+        else if (format === "hex") text = hexInput.value;
+        if (!text) return;
+        navigator.clipboard.writeText(text).then(function () {
+          showSuccess("コピーしました。");
+        });
+      });
+    });
+  });
+})();

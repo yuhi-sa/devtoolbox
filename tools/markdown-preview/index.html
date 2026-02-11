@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Markdownプレビュー（オンライン無料） - DevToolBox</title>
+  <meta name="description" content="Markdownをリアルタイムでプレビュー。見出し・リスト・テーブル・コードブロック対応の無料オンラインエディタ。">
+  <link rel="canonical" href="https://yuhi-sa.github.io/devtoolbox/tools/markdown-preview/">
+  <meta property="og:title" content="Markdownプレビュー（オンライン無料） - DevToolBox">
+  <meta property="og:description" content="Markdownをリアルタイムでプレビュー。見出し・リスト・テーブル・コードブロック対応の無料オンラインエディタ。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yuhi-sa.github.io/devtoolbox/tools/markdown-preview/">
+  <meta property="og:site_name" content="DevToolBox">
+  <meta property="og:locale" content="ja_JP">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Markdownプレビュー",
+    "description": "Markdownをリアルタイムでプレビューするオンラインエディタ",
+    "url": "https://yuhi-sa.github.io/devtoolbox/tools/markdown-preview/",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "JPY"
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "DevToolBox",
+      "url": "https://yuhi-sa.github.io/devtoolbox/"
+    }
+  }
+  </script>
+  <link rel="stylesheet" href="../../css/style.css">
+<script data-ad-client="ca-pub-9558545098866170" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <style>
+    .md-editor {
+      display: flex;
+      gap: 1rem;
+      min-height: 480px;
+    }
+    .md-input,
+    .md-preview {
+      flex: 1;
+      min-width: 0;
+    }
+    .md-input textarea {
+      width: 100%;
+      height: 100%;
+      min-height: 480px;
+      resize: vertical;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.875rem;
+      line-height: 1.6;
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      background: var(--color-bg);
+      color: var(--color-text);
+      box-sizing: border-box;
+    }
+    .md-preview {
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      background: var(--color-bg);
+      overflow-y: auto;
+      max-height: 540px;
+      line-height: 1.7;
+      color: var(--color-text);
+    }
+    .md-preview h1 { font-size: 1.75rem; margin: 0.8em 0 0.4em; border-bottom: 1px solid var(--color-border); padding-bottom: 0.3em; }
+    .md-preview h2 { font-size: 1.45rem; margin: 0.8em 0 0.4em; border-bottom: 1px solid var(--color-border); padding-bottom: 0.2em; }
+    .md-preview h3 { font-size: 1.2rem; margin: 0.8em 0 0.4em; }
+    .md-preview h4 { font-size: 1.05rem; margin: 0.8em 0 0.4em; }
+    .md-preview h5 { font-size: 0.95rem; margin: 0.8em 0 0.4em; }
+    .md-preview h6 { font-size: 0.88rem; margin: 0.8em 0 0.4em; color: var(--color-text-muted); }
+    .md-preview p { margin: 0.6em 0; }
+    .md-preview code {
+      background: var(--color-surface);
+      padding: 0.15em 0.4em;
+      border-radius: 3px;
+      font-size: 0.875em;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    }
+    .md-preview pre {
+      background: var(--color-surface);
+      padding: 1em;
+      border-radius: var(--radius);
+      overflow-x: auto;
+      margin: 0.8em 0;
+    }
+    .md-preview pre code {
+      background: none;
+      padding: 0;
+    }
+    .md-preview blockquote {
+      border-left: 4px solid var(--color-primary);
+      margin: 0.8em 0;
+      padding: 0.4em 1em;
+      color: var(--color-text-muted);
+      background: var(--color-surface);
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+    .md-preview table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 0.8em 0;
+    }
+    .md-preview th,
+    .md-preview td {
+      border: 1px solid var(--color-border);
+      padding: 0.5em 0.75em;
+      text-align: left;
+    }
+    .md-preview th {
+      background: var(--color-surface);
+      font-weight: 600;
+    }
+    .md-preview img {
+      max-width: 100%;
+      height: auto;
+      border-radius: var(--radius);
+    }
+    .md-preview ul,
+    .md-preview ol {
+      margin: 0.6em 0;
+      padding-left: 1.5em;
+    }
+    .md-preview li { margin: 0.2em 0; }
+    .md-preview hr {
+      border: none;
+      border-top: 2px solid var(--color-border);
+      margin: 1.2em 0;
+    }
+    .md-preview a {
+      color: var(--color-primary);
+      text-decoration: underline;
+    }
+    .md-preview strong { font-weight: 700; }
+    .md-preview em { font-style: italic; }
+    @media (max-width: 768px) {
+      .md-editor {
+        flex-direction: column;
+      }
+      .md-input textarea,
+      .md-preview {
+        min-height: 280px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="../../" class="header__logo">
+        <svg class="header__logo-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="28" height="28" rx="6" fill="currentColor" style="color: var(--color-primary)"/>
+          <path d="M8 10l4 4-4 4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 18h5" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        DevToolBox
+      </a>
+      <div class="header__right">
+        <nav class="nav" aria-label="メインナビゲーション">
+          <ul class="nav__list">
+            <li><a href="../json-formatter/" class="nav__link">JSON整形</a></li>
+            <li><a href="../char-counter/" class="nav__link">文字数カウント</a></li>
+            <li><a href="../base64/" class="nav__link">Base64</a></li>
+            <li><a href="../url-encode/" class="nav__link">URLエンコード</a></li>
+            <li><a href="../timestamp/" class="nav__link">タイムスタンプ</a></li>
+          </ul>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="テーマ切替">
+          <svg class="theme-toggle__icon theme-toggle__icon--dark" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+          </svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--light" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
+          </svg>
+        </button>
+        <button id="hamburger" class="hamburger" type="button" aria-label="メニュー" aria-expanded="false" aria-controls="mobile-nav">
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- モバイルナビ -->
+  <nav id="mobile-nav" class="mobile-nav" aria-label="モバイルナビゲーション">
+    <ul class="mobile-nav__list">
+      <li><a href="../json-formatter/" class="mobile-nav__link">JSON整形・検証</a></li>
+      <li><a href="../char-counter/" class="mobile-nav__link">文字数カウンター</a></li>
+      <li><a href="../base64/" class="mobile-nav__link">Base64エンコード/デコード</a></li>
+      <li><a href="../url-encode/" class="mobile-nav__link">URLエンコード/デコード</a></li>
+      <li><a href="../timestamp/" class="mobile-nav__link">Unixタイムスタンプ変換</a></li>
+      <li><a href="../../about.html" class="mobile-nav__link">サイトについて</a></li>
+      <li><a href="../../privacy.html" class="mobile-nav__link">プライバシーポリシー</a></li>
+      <li><a href="../../terms.html" class="mobile-nav__link">利用規約</a></li>
+    </ul>
+  </nav>
+
+  <!-- 広告枠A: ヘッダー下バナー -->
+  <div class="ad-slot" id="ad-header" data-ad-size="728x90">
+    <!-- 広告スクリプトをここに挿入 -->
+  </div>
+
+  <main class="main">
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <ol>
+        <li><a href="../../">ホーム</a></li>
+        <li aria-current="page">Markdownプレビュー</li>
+      </ol>
+    </nav>
+
+    <div class="tool-container">
+      <h1>Markdownプレビュー</h1>
+      <p class="tool-container__lead">Markdownテキストをリアルタイムでプレビューできるオンラインエディタです。</p>
+
+      <div class="md-editor">
+        <div class="md-input">
+          <label for="md-input">Markdown入力</label>
+          <textarea id="md-input">## Markdownプレビューへようこそ
+
+これは**Markdownプレビュー**ツールです。リアルタイムで変換結果を確認できます。
+
+### 機能一覧
+
+- **太字**と*斜体*のテキスト
+- `インラインコード`の表示
+- [リンク](https://example.com)の作成
+- 画像の埋め込み
+
+### コードブロック
+
+```
+function hello() {
+  console.log("Hello, World!");
+}
+```
+
+### 引用
+
+> Markdownは軽量マークアップ言語です。
+> 簡単な記法でリッチなドキュメントを作成できます。
+
+### テーブル
+
+| 機能 | 対応状況 |
+|------|----------|
+| 見出し | 対応済み |
+| リスト | 対応済み |
+| テーブル | 対応済み |
+| コード | 対応済み |
+
+### 順序付きリスト
+
+1. 最初の項目
+2. 次の項目
+3. 最後の項目
+
+---
+
+*上のテキストを自由に編集して、プレビューを確認してください。*</textarea>
+        </div>
+        <div class="md-preview" id="md-preview">
+        </div>
+      </div>
+
+      <div class="tool-actions">
+        <button id="btn-copy-html" class="btn btn--primary">HTMLをコピー</button>
+        <button id="btn-clear" class="btn btn--secondary clear-btn">クリア</button>
+      </div>
+      <div id="md-success" class="success-message" hidden></div>
+    </div>
+
+    <section class="tool-description">
+      <h2>Markdownプレビューツールの使い方</h2>
+      <p>左側のテキストエリアにMarkdown記法でテキストを入力すると、右側にリアルタイムでプレビューが表示されます。見出し、太字、斜体、リスト、テーブル、コードブロック、引用、リンク、画像、水平線などの基本的なMarkdown記法に対応しています。「HTMLをコピー」ボタンで変換後のHTMLをクリップボードにコピーできます。</p>
+
+      <h2>Markdownとは？</h2>
+      <p>Markdownは、プレーンテキストで書かれた文書を構造化されたHTMLに変換するための軽量マークアップ言語です。2004年にJohn GruberとAaron Swartzによって開発されました。GitHubのREADMEファイル、技術ドキュメント、ブログ記事など、幅広い場面で使用されています。シンプルな記法で見出し、リスト、リンク、画像、コードブロックなどを表現でき、HTMLに変換することでリッチなドキュメントを生成できます。</p>
+
+      <h2>よくある質問（FAQ）</h2>
+      <h3>Q. 対応しているMarkdown記法は？</h3>
+      <p>A. 見出し（#〜######）、太字、斜体、インラインコード、コードブロック、リンク、画像、順序なし・順序付きリスト、引用、テーブル、水平線に対応しています。</p>
+      <h3>Q. 入力データのセキュリティは？</h3>
+      <p>A. すべての変換処理はお使いのブラウザ内で完結します。入力データがサーバーに送信されることは一切ありませんので、安心してご利用ください。</p>
+    </section>
+
+    <section class="related-tools">
+      <h2>関連ツール</h2>
+      <ul>
+        <li><a href="../json-formatter/">JSON整形・検証ツール</a></li>
+        <li><a href="../char-counter/">文字数カウンター</a></li>
+        <li><a href="../base64/">Base64エンコード・デコード</a></li>
+        <li><a href="../url-encode/">URLエンコード・デコード</a></li>
+        <li><a href="../timestamp/">Unixタイムスタンプ変換</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <div class="ad-slot" id="ad-footer" data-ad-size="728x90">
+    <!-- 広告スクリプトをここに挿入 -->
+  </div>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__grid">
+        <div>
+          <p class="footer__section-title">DevToolBox</p>
+          <ul class="footer__list">
+            <li><a href="../../about.html" class="footer__link">サイトについて</a></li>
+            <li><a href="../../privacy.html" class="footer__link">プライバシーポリシー</a></li>
+            <li><a href="../../terms.html" class="footer__link">利用規約</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">ツール一覧</p>
+          <ul class="footer__list">
+            <li><a href="../json-formatter/" class="footer__link">JSON整形・検証</a></li>
+            <li><a href="../char-counter/" class="footer__link">文字数カウンター</a></li>
+            <li><a href="../base64/" class="footer__link">Base64エンコード/デコード</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">&nbsp;</p>
+          <ul class="footer__list">
+            <li><a href="../url-encode/" class="footer__link">URLエンコード/デコード</a></li>
+            <li><a href="../timestamp/" class="footer__link">Unixタイムスタンプ変換</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 DevToolBox. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/common.js"></script>
+  <script src="../../js/tools/markdown-preview.js"></script>
+</body>
+</html>

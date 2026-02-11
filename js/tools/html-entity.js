@@ -1,0 +1,108 @@
+"use strict";
+
+(function () {
+  document.addEventListener("DOMContentLoaded", function () {
+    var inputEl = document.getElementById("entity-input");
+    var outputEl = document.getElementById("entity-output");
+    var inputLabel = document.getElementById("entity-input-label");
+    var errorEl = document.getElementById("entity-error");
+    var successEl = document.getElementById("entity-success");
+    var btnConvert = document.getElementById("btn-convert");
+    var btnClear = document.getElementById("btn-clear");
+    var btnCopy = document.getElementById("btn-copy");
+    var tabBtns = document.querySelectorAll(".tab-btn");
+    var currentMode = "encode";
+
+    function showError(msg) {
+      errorEl.textContent = msg;
+      errorEl.hidden = false;
+      successEl.hidden = true;
+    }
+
+    function showSuccess(msg) {
+      successEl.textContent = msg;
+      successEl.hidden = false;
+      errorEl.hidden = true;
+    }
+
+    function clearMessages() {
+      errorEl.hidden = true;
+      successEl.hidden = true;
+    }
+
+    function updateLabels() {
+      if (currentMode === "encode") {
+        inputLabel.textContent = "変換するテキスト";
+        inputEl.placeholder = "HTMLエンティティに変換したいテキストを入力してください...";
+      } else {
+        inputLabel.textContent = "HTMLエンティティ文字列";
+        inputEl.placeholder = "デコードしたいHTMLエンティティを入力してください...";
+      }
+    }
+
+    function encodeHtmlEntities(str) {
+      var map = {
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      };
+      return str.replace(/[&<>"']/g, function (ch) {
+        return map[ch];
+      });
+    }
+
+    function decodeHtmlEntities(str) {
+      var textarea = document.createElement("textarea");
+      textarea.innerHTML = str;
+      return textarea.value;
+    }
+
+    tabBtns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        tabBtns.forEach(function (b) { b.classList.remove("tab-btn--active"); });
+        btn.classList.add("tab-btn--active");
+        currentMode = btn.getAttribute("data-tab");
+        updateLabels();
+        clearMessages();
+      });
+    });
+
+    btnConvert.addEventListener("click", function () {
+      clearMessages();
+      var input = inputEl.value;
+      if (!input) {
+        showError("テキストを入力してください。");
+        return;
+      }
+
+      try {
+        if (currentMode === "encode") {
+          outputEl.value = encodeHtmlEntities(input);
+          showSuccess("エンコードが完了しました。");
+        } else {
+          outputEl.value = decodeHtmlEntities(input);
+          showSuccess("デコードが完了しました。");
+        }
+      } catch (e) {
+        showError("変換に失敗しました: " + e.message);
+        outputEl.value = "";
+      }
+    });
+
+    btnClear.addEventListener("click", function () {
+      inputEl.value = "";
+      outputEl.value = "";
+      clearMessages();
+    });
+
+    btnCopy.addEventListener("click", function () {
+      var text = outputEl.value;
+      if (!text) return;
+      navigator.clipboard.writeText(text).then(function () {
+        showSuccess("コピーしました。");
+      });
+    });
+  });
+})();

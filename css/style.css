@@ -971,6 +971,163 @@ ol {
   }
 }
 
+/* --- ツールページ共通 --- */
+.tool-container {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.tool-container h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+}
+
+.tool-container__lead {
+  color: var(--color-text-secondary);
+  font-size: 0.9375rem;
+  margin-bottom: var(--space-lg);
+}
+
+.tool-input {
+  margin-bottom: var(--space-md);
+}
+
+.tool-input label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: var(--space-xs);
+}
+
+.tool-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.tool-output {
+  margin-bottom: var(--space-md);
+}
+
+.tool-output label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: var(--space-xs);
+}
+
+.success-message {
+  color: var(--color-success);
+  font-size: 0.8125rem;
+  margin-top: var(--space-xs);
+}
+
+/* タブグループ */
+.tab-group {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--space-md);
+}
+
+.tab-btn {
+  padding: var(--space-sm) var(--space-md);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.tab-btn:hover {
+  color: var(--color-primary);
+}
+
+.tab-btn--active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+
+/* ツール説明セクション */
+.tool-description {
+  margin-top: var(--space-xl);
+  line-height: 1.8;
+}
+
+.tool-description h2 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.tool-description h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-sm);
+}
+
+.tool-description p {
+  margin-bottom: var(--space-md);
+  color: var(--color-text-secondary);
+}
+
+/* 関連ツール */
+.related-tools {
+  margin-top: var(--space-2xl);
+}
+
+.related-tools h2 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: var(--space-md);
+}
+
+.related-tools ul {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-sm);
+}
+
+.related-tools li a {
+  display: block;
+  padding: var(--space-md);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  transition: border-color 0.2s;
+}
+
+.related-tools li a:hover {
+  border-color: var(--color-primary);
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .related-tools ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .related-tools ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 /* --- ユーティリティ --- */
 .sr-only {
   position: absolute;
