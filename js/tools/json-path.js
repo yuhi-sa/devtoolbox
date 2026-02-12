@@ -1,0 +1,351 @@
+"use strict";
+
+(function () {
+  document.addEventListener("DOMContentLoaded", function () {
+    var inputEl = document.getElementById("json-input");
+    var errorEl = document.getElementById("json-error");
+    var treeContainer = document.getElementById("tree-container");
+    var pathDisplay = document.getElementById("path-display");
+    var pathOutput = document.getElementById("path-output");
+    var btnParse = document.getElementById("btn-parse");
+    var btnClear = document.getElementById("btn-clear");
+    var btnCopyPath = document.getElementById("btn-copy-path");
+    var queryInput = document.getElementById("query-input");
+    var btnQuery = document.getElementById("btn-query");
+    var queryResult = document.getElementById("query-result");
+    var queryError = document.getElementById("query-error");
+    var querySuccess = document.getElementById("query-success");
+
+    var parsedData = null;
+
+    function showError(el, msg) {
+      el.textContent = msg;
+      el.hidden = false;
+    }
+
+    function hideError(el) {
+      el.hidden = true;
+    }
+
+    function hideAll() {
+      hideError(errorEl);
+      hideError(queryError);
+      querySuccess.hidden = true;
+      queryResult.hidden = true;
+    }
+
+    function escapeHtml(str) {
+      var div = document.createElement("div");
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+    }
+
+    // Build tree HTML
+    function buildTree(data, path) {
+      if (data === null) {
+        return '<span class="json-tree-value json-tree-null" data-path="' + escapeHtml(path) + '">null</span>';
+      }
+      if (typeof data === "boolean") {
+        return '<span class="json-tree-value json-tree-boolean" data-path="' + escapeHtml(path) + '">' + data + '</span>';
+      }
+      if (typeof data === "number") {
+        return '<span class="json-tree-value json-tree-number" data-path="' + escapeHtml(path) + '">' + data + '</span>';
+      }
+      if (typeof data === "string") {
+        return '<span class="json-tree-value json-tree-string" data-path="' + escapeHtml(path) + '">"' + escapeHtml(data) + '"</span>';
+      }
+      if (Array.isArray(data)) {
+        if (data.length === 0) {
+          return '<span class="json-tree-value json-tree-bracket" data-path="' + escapeHtml(path) + '">[]</span>';
+        }
+        var html = '<span class="json-tree-toggle" data-action="toggle">&#9660;</span>';
+        html += '<span class="json-tree-bracket">[</span>';
+        html += '<ul>';
+        for (var i = 0; i < data.length; i++) {
+          var childPath = path + "[" + i + "]";
+          html += '<li>';
+          html += '<span class="json-tree-key" data-path="' + escapeHtml(childPath) + '">' + i + '</span>: ';
+          html += buildTree(data[i], childPath);
+          if (i < data.length - 1) html += ',';
+          html += '</li>';
+        }
+        html += '</ul>';
+        html += '<span class="json-tree-bracket">]</span>';
+        return html;
+      }
+      if (typeof data === "object") {
+        var keys = Object.keys(data);
+        if (keys.length === 0) {
+          return '<span class="json-tree-value json-tree-bracket" data-path="' + escapeHtml(path) + '">{}</span>';
+        }
+        var html = '<span class="json-tree-toggle" data-action="toggle">&#9660;</span>';
+        html += '<span class="json-tree-bracket">{</span>';
+        html += '<ul>';
+        for (var j = 0; j < keys.length; j++) {
+          var key = keys[j];
+          var childPath = needsBracket(key) ? path + '["' + key.replace(/"/g, '\\"') + '"]' : path + "." + key;
+          html += '<li>';
+          html += '<span class="json-tree-key" data-path="' + escapeHtml(childPath) + '">"' + escapeHtml(key) + '"</span>: ';
+          html += buildTree(data[key], childPath);
+          if (j < keys.length - 1) html += ',';
+          html += '</li>';
+        }
+        html += '</ul>';
+        html += '<span class="json-tree-bracket">}</span>';
+        return html;
+      }
+      return String(data);
+    }
+
+    function needsBracket(key) {
+      return !/^[a-zA-Z_$][a-zA-Z0-9_$]*$/.test(key);
+    }
+
+    // Toggle tree node collapse/expand
+    treeContainer.addEventListener("click", function (e) {
+      var target = e.target;
+      if (target.dataset.action === "toggle") {
+        var li = target.parentElement;
+        if (li) {
+          li.classList.toggle("is-collapsed");
+          target.innerHTML = li.classList.contains("is-collapsed") ? "&#9654;" : "&#9660;";
+        }
+        return;
+      }
+      // Click on value or key to show path
+      if (target.dataset.path) {
+        // Remove previous selection
+        var prev = treeContainer.querySelector(".json-tree-selected");
+        if (prev) prev.classList.remove("json-tree-selected");
+        target.classList.add("json-tree-selected");
+        pathOutput.value = target.dataset.path;
+        pathDisplay.hidden = false;
+      }
+    });
+
+    btnParse.addEventListener("click", function () {
+      hideAll();
+      var input = inputEl.value.trim();
+      if (!input) {
+        showError(errorEl, "JSONを入力してください。");
+        treeContainer.hidden = true;
+        pathDisplay.hidden = true;
+        return;
+      }
+      try {
+        parsedData = JSON.parse(input);
+      } catch (e) {
+        showError(errorEl, "JSON構文エラー: " + e.message);
+        treeContainer.hidden = true;
+        pathDisplay.hidden = true;
+        parsedData = null;
+        return;
+      }
+      treeContainer.innerHTML = '<ul><li>' + buildTree(parsedData, "$") + '</li></ul>';
+      treeContainer.hidden = false;
+      pathDisplay.hidden = true;
+      pathOutput.value = "";
+    });
+
+    btnClear.addEventListener("click", function () {
+      inputEl.value = "";
+      treeContainer.innerHTML = "";
+      treeContainer.hidden = true;
+      pathDisplay.hidden = true;
+      pathOutput.value = "";
+      queryInput.value = "";
+      queryResult.hidden = true;
+      parsedData = null;
+      hideAll();
+    });
+
+    btnCopyPath.addEventListener("click", function () {
+      var text = pathOutput.value;
+      if (!text) return;
+      navigator.clipboard.writeText(text).then(function () {
+        querySuccess.textContent = "パスをコピーしました。";
+        querySuccess.hidden = false;
+        setTimeout(function () { querySuccess.hidden = true; }, 2000);
+      });
+    });
+
+    // JSONPath query engine
+    function queryJsonPath(data, pathStr) {
+      if (!pathStr || pathStr.charAt(0) !== "$") {
+        throw new Error("JSONPathは '$' で始まる必要があります。");
+      }
+
+      var tokens = tokenizePath(pathStr.substring(1));
+      var results = [data];
+
+      for (var i = 0; i < tokens.length; i++) {
+        var token = tokens[i];
+        var nextResults = [];
+
+        for (var j = 0; j < results.length; j++) {
+          var current = results[j];
+          if (current === null || current === undefined) continue;
+
+          if (token.type === "wildcard") {
+            if (Array.isArray(current)) {
+              for (var k = 0; k < current.length; k++) {
+                nextResults.push(current[k]);
+              }
+            } else if (typeof current === "object") {
+              var objKeys = Object.keys(current);
+              for (var k = 0; k < objKeys.length; k++) {
+                nextResults.push(current[objKeys[k]]);
+              }
+            }
+          } else if (token.type === "index") {
+            var idx = parseInt(token.value, 10);
+            if (Array.isArray(current) && idx >= 0 && idx < current.length) {
+              nextResults.push(current[idx]);
+            }
+          } else if (token.type === "key") {
+            if (typeof current === "object" && current !== null && !Array.isArray(current)) {
+              if (token.value in current) {
+                nextResults.push(current[token.value]);
+              }
+            }
+          }
+        }
+
+        results = nextResults;
+      }
+
+      return results;
+    }
+
+    function tokenizePath(pathStr) {
+      var tokens = [];
+      var i = 0;
+      var len = pathStr.length;
+
+      while (i < len) {
+        var ch = pathStr.charAt(i);
+
+        if (ch === ".") {
+          i++;
+          if (i < len && pathStr.charAt(i) === "*") {
+            tokens.push({ type: "wildcard" });
+            i++;
+          } else {
+            var key = "";
+            while (i < len && pathStr.charAt(i) !== "." && pathStr.charAt(i) !== "[") {
+              key += pathStr.charAt(i);
+              i++;
+            }
+            if (key) {
+              tokens.push({ type: "key", value: key });
+            }
+          }
+        } else if (ch === "[") {
+          i++;
+          if (i < len && pathStr.charAt(i) === "*") {
+            tokens.push({ type: "wildcard" });
+            i++;
+            if (i < len && pathStr.charAt(i) === "]") i++;
+          } else if (i < len && pathStr.charAt(i) === "'") {
+            i++;
+            var key = "";
+            while (i < len && pathStr.charAt(i) !== "'") {
+              if (pathStr.charAt(i) === "\\" && i + 1 < len) {
+                i++;
+                key += pathStr.charAt(i);
+              } else {
+                key += pathStr.charAt(i);
+              }
+              i++;
+            }
+            if (i < len) i++; // skip closing quote
+            if (i < len && pathStr.charAt(i) === "]") i++;
+            tokens.push({ type: "key", value: key });
+          } else if (i < len && pathStr.charAt(i) === '"') {
+            i++;
+            var key = "";
+            while (i < len && pathStr.charAt(i) !== '"') {
+              if (pathStr.charAt(i) === "\\" && i + 1 < len) {
+                i++;
+                key += pathStr.charAt(i);
+              } else {
+                key += pathStr.charAt(i);
+              }
+              i++;
+            }
+            if (i < len) i++; // skip closing quote
+            if (i < len && pathStr.charAt(i) === "]") i++;
+            tokens.push({ type: "key", value: key });
+          } else {
+            var num = "";
+            while (i < len && pathStr.charAt(i) !== "]") {
+              num += pathStr.charAt(i);
+              i++;
+            }
+            if (i < len) i++; // skip ]
+            var parsed = parseInt(num, 10);
+            if (!isNaN(parsed)) {
+              tokens.push({ type: "index", value: parsed });
+            } else {
+              tokens.push({ type: "key", value: num });
+            }
+          }
+        } else {
+          // Handle key without leading dot (e.g. at start)
+          var key = "";
+          while (i < len && pathStr.charAt(i) !== "." && pathStr.charAt(i) !== "[") {
+            key += pathStr.charAt(i);
+            i++;
+          }
+          if (key === "*") {
+            tokens.push({ type: "wildcard" });
+          } else if (key) {
+            tokens.push({ type: "key", value: key });
+          }
+        }
+      }
+
+      return tokens;
+    }
+
+    btnQuery.addEventListener("click", function () {
+      hideError(queryError);
+      querySuccess.hidden = true;
+      queryResult.hidden = true;
+
+      if (!parsedData && parsedData !== false && parsedData !== 0 && parsedData !== "") {
+        showError(queryError, "先にJSONを解析してください。");
+        return;
+      }
+
+      var pathStr = queryInput.value.trim();
+      if (!pathStr) {
+        showError(queryError, "JSONPathクエリを入力してください。");
+        return;
+      }
+
+      try {
+        var results = queryJsonPath(parsedData, pathStr);
+        if (results.length === 0) {
+          queryResult.textContent = "（該当する値がありません）";
+        } else if (results.length === 1) {
+          queryResult.textContent = JSON.stringify(results[0], null, 2);
+        } else {
+          queryResult.textContent = JSON.stringify(results, null, 2);
+        }
+        queryResult.hidden = false;
+        querySuccess.textContent = results.length + " 件の結果が見つかりました。";
+        querySuccess.hidden = false;
+      } catch (e) {
+        showError(queryError, "クエリエラー: " + e.message);
+      }
+    });
+
+    // Allow Enter key in query input
+    queryInput.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        btnQuery.click();
+      }
+    });
+  });
+})();

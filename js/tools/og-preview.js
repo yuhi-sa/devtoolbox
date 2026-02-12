@@ -1,0 +1,137 @@
+"use strict";
+
+(function () {
+  document.addEventListener("DOMContentLoaded", function () {
+    var ogTitle = document.getElementById("og-title");
+    var ogDescription = document.getElementById("og-description");
+    var ogImage = document.getElementById("og-image");
+    var ogSitename = document.getElementById("og-sitename");
+    var ogUrl = document.getElementById("og-url");
+
+    var titleWarn = document.getElementById("title-warn");
+    var descWarn = document.getElementById("desc-warn");
+
+    // Preview elements
+    var fbImage = document.getElementById("fb-image");
+    var fbDomain = document.getElementById("fb-domain");
+    var fbTitle = document.getElementById("fb-title");
+    var fbDesc = document.getElementById("fb-desc");
+
+    var twImage = document.getElementById("tw-image");
+    var twDomain = document.getElementById("tw-domain");
+    var twTitle = document.getElementById("tw-title");
+    var twDesc = document.getElementById("tw-desc");
+
+    var slackSitename = document.getElementById("slack-sitename");
+    var slackTitle = document.getElementById("slack-title");
+    var slackDesc = document.getElementById("slack-desc");
+    var slackThumb = document.getElementById("slack-thumb");
+
+    var lineImage = document.getElementById("line-image");
+    var lineTitle = document.getElementById("line-title");
+    var lineDesc = document.getElementById("line-desc");
+
+    function escapeHtml(str) {
+      var div = document.createElement("div");
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+    }
+
+    function extractDomain(url) {
+      if (!url) return "example.com";
+      try {
+        var a = document.createElement("a");
+        a.href = url;
+        return a.hostname || "example.com";
+      } catch (e) {
+        return "example.com";
+      }
+    }
+
+    function setImageContent(container, imageUrl) {
+      if (imageUrl) {
+        var img = document.createElement("img");
+        img.src = imageUrl;
+        img.alt = "OG Image";
+        img.onerror = function () {
+          container.innerHTML = '<span class="no-image-placeholder">画像を読み込めません</span>';
+        };
+        container.innerHTML = "";
+        container.appendChild(img);
+      } else {
+        container.innerHTML = '<span class="no-image-placeholder">画像なし</span>';
+      }
+    }
+
+    function setThumbContent(container, imageUrl) {
+      if (imageUrl) {
+        var img = document.createElement("img");
+        img.src = imageUrl;
+        img.alt = "OG Thumb";
+        img.onerror = function () {
+          container.innerHTML = '<span class="no-image-placeholder" style="font-size:0.7rem;display:flex;align-items:center;justify-content:center;height:100%">なし</span>';
+        };
+        container.innerHTML = "";
+        container.appendChild(img);
+      } else {
+        container.innerHTML = '<span class="no-image-placeholder" style="font-size:0.7rem;display:flex;align-items:center;justify-content:center;height:100%">なし</span>';
+      }
+    }
+
+    function updatePreview() {
+      var title = ogTitle.value.trim() || "ページタイトル";
+      var desc = ogDescription.value.trim() || "ページの説明文がここに表示されます。";
+      var imageUrl = ogImage.value.trim();
+      var sitename = ogSitename.value.trim() || "サイト名";
+      var url = ogUrl.value.trim();
+      var domain = extractDomain(url);
+
+      // Character warnings
+      if (ogTitle.value.length > 40) {
+        titleWarn.textContent = "タイトルが40文字を超えています（" + ogTitle.value.length + "文字）。一部のプラットフォームで切り捨てられる可能性があります。";
+        titleWarn.hidden = false;
+      } else {
+        titleWarn.hidden = true;
+      }
+
+      if (ogDescription.value.length > 90) {
+        descWarn.textContent = "説明文が90文字を超えています（" + ogDescription.value.length + "文字）。一部のプラットフォームで切り捨てられる可能性があります。";
+        descWarn.hidden = false;
+      } else {
+        descWarn.hidden = true;
+      }
+
+      // Facebook
+      setImageContent(fbImage, imageUrl);
+      fbDomain.textContent = domain;
+      fbTitle.textContent = title;
+      fbDesc.textContent = desc;
+
+      // Twitter
+      setImageContent(twImage, imageUrl);
+      twDomain.textContent = domain;
+      twTitle.textContent = title;
+      twDesc.textContent = desc;
+
+      // Slack
+      setThumbContent(slackThumb, imageUrl);
+      slackSitename.textContent = sitename;
+      slackTitle.textContent = title;
+      slackDesc.textContent = desc;
+
+      // LINE
+      setImageContent(lineImage, imageUrl);
+      lineTitle.textContent = title;
+      lineDesc.textContent = desc;
+    }
+
+    // Bind input events
+    var inputs = [ogTitle, ogDescription, ogImage, ogSitename, ogUrl];
+    inputs.forEach(function (el) {
+      el.addEventListener("input", updatePreview);
+    });
+
+    // Initial render
+    updatePreview();
+  });
+})();

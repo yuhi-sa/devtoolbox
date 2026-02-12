@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Border Radiusジェネレーター（オンライン無料） - DevToolBox</title>
+  <meta name="description" content="CSSのborder-radiusをビジュアルで作成。4つの角を個別またはリンクして調整し、リアルタイムプレビュー付きの無料ツール。">
+  <link rel="canonical" href="https://yuhi-sa.github.io/devtoolbox/tools/border-radius/">
+  <meta property="og:title" content="Border Radiusジェネレーター（オンライン無料） - DevToolBox">
+  <meta property="og:description" content="CSSのborder-radiusをビジュアルで作成。4つの角を個別またはリンクして調整し、リアルタイムプレビュー付きの無料ツール。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yuhi-sa.github.io/devtoolbox/tools/border-radius/">
+  <meta property="og:site_name" content="DevToolBox">
+  <meta property="og:locale" content="ja_JP">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Border Radiusジェネレーター",
+    "description": "CSSのborder-radiusをビジュアルで作成するオンラインツール",
+    "url": "https://yuhi-sa.github.io/devtoolbox/tools/border-radius/",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" },
+    "isPartOf": { "@type": "WebSite", "name": "DevToolBox", "url": "https://yuhi-sa.github.io/devtoolbox/" }
+  }
+  </script>
+  <link rel="stylesheet" href="../../css/style.css">
+  <script data-ad-client="ca-pub-9558545098866170" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <style>
+    .radius-preview-area {
+      width: 100%;
+      min-height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--color-bg);
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius);
+      margin-bottom: 1.5rem;
+      padding: 2rem;
+    }
+    .radius-preview-box {
+      width: 200px;
+      height: 200px;
+      background: var(--color-primary);
+      transition: border-radius 0.15s ease;
+    }
+    .radius-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .radius-slider-row {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
+    .radius-slider-row label {
+      min-width: 120px;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+    .radius-slider-row input[type="range"] {
+      flex: 1;
+      min-width: 0;
+    }
+    .radius-slider-row .radius-val {
+      min-width: 3.5rem;
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+    }
+    .link-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .link-toggle label {
+      font-size: 0.875rem;
+      cursor: pointer;
+    }
+    .advanced-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .advanced-toggle label {
+      font-size: 0.875rem;
+      cursor: pointer;
+    }
+    .advanced-section {
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      background: var(--color-surface);
+    }
+    .advanced-section h3 {
+      font-size: 0.875rem;
+      margin-bottom: 0.75rem;
+    }
+    .css-output textarea {
+      width: 100%;
+      min-height: 60px;
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      resize: vertical;
+    }
+    .unit-select {
+      min-width: 60px;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header__inner">
+      <a href="../../" class="header__logo">
+        <svg class="header__logo-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="28" height="28" rx="6" fill="currentColor" style="color: var(--color-primary)"/>
+          <path d="M8 10l4 4-4 4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 18h5" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        DevToolBox
+      </a>
+      <div class="header__right">
+        <nav class="nav" aria-label="メインナビゲーション">
+          <ul class="nav__list">
+            <li><a href="../json-formatter/" class="nav__link">JSON整形</a></li>
+            <li><a href="../char-counter/" class="nav__link">文字数カウント</a></li>
+            <li><a href="../base64/" class="nav__link">Base64</a></li>
+            <li><a href="../url-encode/" class="nav__link">URLエンコード</a></li>
+            <li><a href="../timestamp/" class="nav__link">タイムスタンプ</a></li>
+          </ul>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="テーマ切替">
+          <svg class="theme-toggle__icon theme-toggle__icon--dark" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+          </svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--light" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
+          </svg>
+        </button>
+        <button id="hamburger" class="hamburger" type="button" aria-label="メニュー" aria-expanded="false" aria-controls="mobile-nav">
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <nav id="mobile-nav" class="mobile-nav" aria-label="モバイルナビゲーション">
+    <ul class="mobile-nav__list">
+      <li><a href="../json-formatter/" class="mobile-nav__link">JSON整形・検証</a></li>
+      <li><a href="../base64/" class="mobile-nav__link">Base64エンコード/デコード</a></li>
+      <li><a href="../url-encode/" class="mobile-nav__link">URLエンコード/デコード</a></li>
+      <li><a href="../timestamp/" class="mobile-nav__link">Unixタイムスタンプ変換</a></li>
+      <li><a href="../../about.html" class="mobile-nav__link">サイトについて</a></li>
+      <li><a href="../../privacy.html" class="mobile-nav__link">プライバシーポリシー</a></li>
+      <li><a href="../../terms.html" class="mobile-nav__link">利用規約</a></li>
+    </ul>
+  </nav>
+  <div class="ad-slot" id="ad-header" data-ad-size="728x90"></div>
+  <main class="main">
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <ol>
+        <li><a href="../../">ホーム</a></li>
+        <li aria-current="page">Border Radiusジェネレーター</li>
+      </ol>
+    </nav>
+    <div class="tool-container">
+      <h1>Border Radiusジェネレーター</h1>
+      <p class="tool-container__lead">CSSのborder-radiusを4つの角ごとに調整し、リアルタイムでプレビューできるツールです。</p>
+
+      <div class="radius-preview-area">
+        <div class="radius-preview-box" id="radius-preview"></div>
+      </div>
+
+      <div class="link-toggle">
+        <input type="checkbox" id="link-corners" checked>
+        <label for="link-corners">すべての角をリンクする</label>
+      </div>
+
+      <div class="radius-controls" id="radius-controls">
+        <div class="radius-slider-row">
+          <label for="radius-tl">左上</label>
+          <input type="range" id="radius-tl" min="0" max="100" value="20">
+          <span class="radius-val" id="val-tl">20px</span>
+        </div>
+        <div class="radius-slider-row">
+          <label for="radius-tr">右上</label>
+          <input type="range" id="radius-tr" min="0" max="100" value="20">
+          <span class="radius-val" id="val-tr">20px</span>
+        </div>
+        <div class="radius-slider-row">
+          <label for="radius-br">右下</label>
+          <input type="range" id="radius-br" min="0" max="100" value="20">
+          <span class="radius-val" id="val-br">20px</span>
+        </div>
+        <div class="radius-slider-row">
+          <label for="radius-bl">左下</label>
+          <input type="range" id="radius-bl" min="0" max="100" value="20">
+          <span class="radius-val" id="val-bl">20px</span>
+        </div>
+      </div>
+
+      <div class="advanced-toggle">
+        <input type="checkbox" id="advanced-mode">
+        <label for="advanced-mode">詳細モード（水平/垂直を個別指定）</label>
+      </div>
+
+      <div class="advanced-section" id="advanced-section" hidden>
+        <h3>水平方向の半径</h3>
+        <div class="radius-controls">
+          <div class="radius-slider-row">
+            <label for="radius-h-tl">左上 (H)</label>
+            <input type="range" id="radius-h-tl" min="0" max="100" value="20">
+            <span class="radius-val" id="val-h-tl">20px</span>
+          </div>
+          <div class="radius-slider-row">
+            <label for="radius-h-tr">右上 (H)</label>
+            <input type="range" id="radius-h-tr" min="0" max="100" value="20">
+            <span class="radius-val" id="val-h-tr">20px</span>
+          </div>
+          <div class="radius-slider-row">
+            <label for="radius-h-br">右下 (H)</label>
+            <input type="range" id="radius-h-br" min="0" max="100" value="20">
+            <span class="radius-val" id="val-h-br">20px</span>
+          </div>
+          <div class="radius-slider-row">
+            <label for="radius-h-bl">左下 (H)</label>
+            <input type="range" id="radius-h-bl" min="0" max="100" value="20">
+            <span class="radius-val" id="val-h-bl">20px</span>
+          </div>
+        </div>
+        <h3>垂直方向の半径</h3>
+        <div class="radius-controls">
+          <div class="radius-slider-row">
+            <label for="radius-v-tl">左上 (V)</label>
+            <input type="range" id="radius-v-tl" min="0" max="100" value="20">
+            <span class="radius-val" id="val-v-tl">20px</span>
+          </div>
+          <div class="radius-slider-row">
+            <label for="radius-v-tr">右上 (V)</label>
+            <input type="range" id="radius-v-tr" min="0" max="100" value="20">
+            <span class="radius-val" id="val-v-tr">20px</span>
+          </div>
+          <div class="radius-slider-row">
+            <label for="radius-v-br">右下 (V)</label>
+            <input type="range" id="radius-v-br" min="0" max="100" value="20">
+            <span class="radius-val" id="val-v-br">20px</span>
+          </div>
+          <div class="radius-slider-row">
+            <label for="radius-v-bl">左下 (V)</label>
+            <input type="range" id="radius-v-bl" min="0" max="100" value="20">
+            <span class="radius-val" id="val-v-bl">20px</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="css-output">
+        <label for="css-output">CSSコード</label>
+        <textarea id="css-output" class="input" readonly></textarea>
+      </div>
+      <button class="btn btn--primary" id="copy-css" style="margin-top:0.75rem;">CSSをコピー</button>
+      <div id="copy-success" class="success-message" hidden></div>
+    </div>
+
+    <section class="tool-description">
+      <h2>Border Radiusジェネレーターの使い方</h2>
+      <p>スライダーで各角の丸みを調整してください。「すべての角をリンクする」にチェックを入れると、1つのスライダーで全角を同時に変更できます。「詳細モード」では水平方向と垂直方向の半径を個別に設定でき、楕円形の角丸も作成できます。</p>
+
+      <h2>border-radiusプロパティについて</h2>
+      <p>CSSのborder-radiusプロパティは、要素の角を丸くするために使用します。4つの角（左上、右上、右下、左下）に個別の値を設定できます。さらに、各角について水平方向と垂直方向の半径を別々に指定することで、楕円形の角丸を実現できます。ショートハンド記法では「border-radius: TL TR BR BL / H-TL H-TR H-BR H-BL」のように指定します。</p>
+
+      <h2>よくある質問（FAQ）</h2>
+      <h3>Q. 詳細モードとは何ですか？</h3>
+      <p>A. 通常モードでは各角に1つの値を設定しますが、詳細モードでは水平方向と垂直方向の半径を個別に指定でき、楕円形の角丸を作成できます。</p>
+      <h3>Q. 入力データのセキュリティは？</h3>
+      <p>A. すべての処理はお使いのブラウザ内で完結します。入力データがサーバーに送信されることは一切ありません。</p>
+    </section>
+
+    <section class="related-tools">
+      <h2>関連ツール</h2>
+      <ul>
+        <li><a href="../css-gradient/">CSSグラデーションジェネレーター</a></li>
+        <li><a href="../box-shadow/">Box Shadowジェネレーター</a></li>
+        <li><a href="../flexbox-playground/">Flexboxプレイグラウンド</a></li>
+        <li><a href="../color-converter/">カラーコンバーター</a></li>
+      </ul>
+    </section>
+  </main>
+  <div class="ad-slot" id="ad-footer" data-ad-size="728x90"></div>
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__grid">
+        <div>
+          <p class="footer__section-title">DevToolBox</p>
+          <ul class="footer__list">
+            <li><a href="../../about.html" class="footer__link">サイトについて</a></li>
+            <li><a href="../../privacy.html" class="footer__link">プライバシーポリシー</a></li>
+            <li><a href="../../terms.html" class="footer__link">利用規約</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">ツール一覧</p>
+          <ul class="footer__list">
+            <li><a href="../json-formatter/" class="footer__link">JSON整形・検証</a></li>
+            <li><a href="../base64/" class="footer__link">Base64エンコード/デコード</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom"><p>&copy; 2026 DevToolBox. All rights reserved.</p></div>
+    </div>
+  </footer>
+  <script src="../../js/common.js"></script>
+  <script src="../../js/tools/border-radius.js"></script>
+</body>
+</html>

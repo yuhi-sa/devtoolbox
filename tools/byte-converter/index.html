@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>バイト単位変換ツール（オンライン無料） - DevToolBox</title>
+  <meta name="description" content="バイト単位を簡単に変換。B、KB、MB、GB、TB、PBの相互変換。10進数（1000）と2進数（1024）モード対応の無料オンラインツール。">
+  <link rel="canonical" href="https://yuhi-sa.github.io/devtoolbox/tools/byte-converter/">
+  <meta property="og:title" content="バイト単位変換ツール（オンライン無料） - DevToolBox">
+  <meta property="og:description" content="バイト単位を簡単に変換。B、KB、MB、GB、TB、PBの相互変換。10進数と2進数モード対応の無料オンラインツール。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yuhi-sa.github.io/devtoolbox/tools/byte-converter/">
+  <meta property="og:site_name" content="DevToolBox">
+  <meta property="og:locale" content="ja_JP">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "バイト単位変換ツール",
+    "description": "バイト単位（B、KB、MB、GB、TB、PB）を相互変換するオンラインツール",
+    "url": "https://yuhi-sa.github.io/devtoolbox/tools/byte-converter/",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "JPY"
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "DevToolBox",
+      "url": "https://yuhi-sa.github.io/devtoolbox/"
+    }
+  }
+  </script>
+  <link rel="stylesheet" href="../../css/style.css">
+<script data-ad-client="ca-pub-9558545098866170" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<body>
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="../../" class="header__logo">
+        <svg class="header__logo-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="28" height="28" rx="6" fill="currentColor" style="color: var(--color-primary)"/>
+          <path d="M8 10l4 4-4 4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 18h5" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        DevToolBox
+      </a>
+      <div class="header__right">
+        <nav class="nav" aria-label="メインナビゲーション">
+          <ul class="nav__list">
+            <li><a href="../json-formatter/" class="nav__link">JSON整形</a></li>
+            <li><a href="../char-counter/" class="nav__link">文字数カウント</a></li>
+            <li><a href="../base64/" class="nav__link">Base64</a></li>
+            <li><a href="../url-encode/" class="nav__link">URLエンコード</a></li>
+            <li><a href="../timestamp/" class="nav__link">タイムスタンプ</a></li>
+          </ul>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="テーマ切替">
+          <svg class="theme-toggle__icon theme-toggle__icon--dark" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+          </svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--light" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
+          </svg>
+        </button>
+        <button id="hamburger" class="hamburger" type="button" aria-label="メニュー" aria-expanded="false" aria-controls="mobile-nav">
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- モバイルナビ -->
+  <nav id="mobile-nav" class="mobile-nav" aria-label="モバイルナビゲーション">
+    <ul class="mobile-nav__list">
+      <li><a href="../json-formatter/" class="mobile-nav__link">JSON整形・検証</a></li>
+      <li><a href="../char-counter/" class="mobile-nav__link">文字数カウンター</a></li>
+      <li><a href="../base64/" class="mobile-nav__link">Base64エンコード/デコード</a></li>
+      <li><a href="../url-encode/" class="mobile-nav__link">URLエンコード/デコード</a></li>
+      <li><a href="../timestamp/" class="mobile-nav__link">Unixタイムスタンプ変換</a></li>
+      <li><a href="../../about.html" class="mobile-nav__link">サイトについて</a></li>
+      <li><a href="../../privacy.html" class="mobile-nav__link">プライバシーポリシー</a></li>
+      <li><a href="../../terms.html" class="mobile-nav__link">利用規約</a></li>
+    </ul>
+  </nav>
+
+  <!-- 広告枠A: ヘッダー下バナー -->
+  <div class="ad-slot" id="ad-header" data-ad-size="728x90">
+    <!-- 広告スクリプトをここに挿入 -->
+  </div>
+
+  <main class="main">
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <ol>
+        <li><a href="../../">ホーム</a></li>
+        <li aria-current="page">バイト単位変換</li>
+      </ol>
+    </nav>
+
+    <div class="tool-container">
+      <h1>バイト単位変換ツール</h1>
+      <p class="tool-container__lead">バイト（B）からペタバイト（PB）まで、各単位間の変換を即座に計算します。</p>
+
+      <div class="tool-input">
+        <label for="byte-input" class="label">値を入力</label>
+        <div style="display:flex;flex-wrap:wrap;gap:0.75rem;align-items:center;margin-bottom:1rem;">
+          <input type="number" id="byte-input" class="input" value="1" step="any" min="0" style="width:12rem;font-size:1.125rem;">
+          <select id="byte-unit" class="select" style="font-size:1rem;">
+            <option value="0">B (バイト)</option>
+            <option value="1">KB (キロバイト)</option>
+            <option value="2" selected>MB (メガバイト)</option>
+            <option value="3">GB (ギガバイト)</option>
+            <option value="4">TB (テラバイト)</option>
+            <option value="5">PB (ペタバイト)</option>
+          </select>
+        </div>
+
+        <label class="label">基数モード</label>
+        <div style="display:flex;gap:1.5rem;margin-bottom:1.5rem;">
+          <label class="label" style="display:inline-flex;align-items:center;gap:0.5rem;font-weight:400;">
+            <input type="radio" name="byte-base" value="1024" checked>
+            2進数 (1024) - KiB, MiB, GiB...
+          </label>
+          <label class="label" style="display:inline-flex;align-items:center;gap:0.5rem;font-weight:400;">
+            <input type="radio" name="byte-base" value="1000">
+            10進数 (1000) - KB, MB, GB...
+          </label>
+        </div>
+      </div>
+
+      <div class="tool-actions">
+        <button id="btn-clear" class="btn btn--secondary">クリア</button>
+      </div>
+
+      <div id="byte-results" class="result" style="margin-top:1rem;"></div>
+    </div>
+
+    <section class="tool-description">
+      <h2>バイト単位変換ツールの使い方</h2>
+      <p>値を入力し、変換元の単位を選択すると、すべての単位（B、KB、MB、GB、TB、PB）に変換した結果がリアルタイムで表示されます。基数モードを切り替えることで、2進数（1024ベース）と10進数（1000ベース）のどちらの計算方式でも変換できます。</p>
+
+      <h2>2進数と10進数の違い</h2>
+      <p>2進数（バイナリ）方式では1KB = 1,024バイトとして計算します。これはコンピュータが2進数で動作することに基づいており、OS上でのファイルサイズ表示やメモリ容量の計算で使われます。正式にはKiB（キビバイト）、MiB（メビバイト）と表記します。10進数（デシマル）方式では1KB = 1,000バイトとして計算します。これはハードディスクやSSDのメーカーが容量表示に使う方式で、SI接頭辞の定義に従います。</p>
+
+      <h2>よくある質問（FAQ）</h2>
+      <h3>Q. HDDの表示容量と実際の容量が違うのはなぜ？</h3>
+      <p>A. HDDメーカーは10進数（1GB = 1,000,000,000バイト）で計算しますが、OSは2進数（1GB = 1,073,741,824バイト）で表示するため、見かけ上の容量が小さくなります。例えば、1TBのHDDはOSでは約931GBと表示されます。</p>
+    </section>
+
+    <section class="related-tools">
+      <h2>関連ツール</h2>
+      <ul>
+        <li><a href="../number-base/">基数変換ツール</a></li>
+        <li><a href="../char-counter/">文字数カウンター</a></li>
+        <li><a href="../hash-generator/">ハッシュ生成ツール</a></li>
+        <li><a href="../timestamp/">Unixタイムスタンプ変換</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <div class="ad-slot" id="ad-footer" data-ad-size="728x90">
+    <!-- 広告スクリプトをここに挿入 -->
+  </div>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__grid">
+        <div>
+          <p class="footer__section-title">DevToolBox</p>
+          <ul class="footer__list">
+            <li><a href="../../about.html" class="footer__link">サイトについて</a></li>
+            <li><a href="../../privacy.html" class="footer__link">プライバシーポリシー</a></li>
+            <li><a href="../../terms.html" class="footer__link">利用規約</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">ツール一覧</p>
+          <ul class="footer__list">
+            <li><a href="../json-formatter/" class="footer__link">JSON整形・検証</a></li>
+            <li><a href="../char-counter/" class="footer__link">文字数カウンター</a></li>
+            <li><a href="../base64/" class="footer__link">Base64エンコード/デコード</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">&nbsp;</p>
+          <ul class="footer__list">
+            <li><a href="../url-encode/" class="footer__link">URLエンコード/デコード</a></li>
+            <li><a href="../timestamp/" class="footer__link">Unixタイムスタンプ変換</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 DevToolBox. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/common.js"></script>
+  <script src="../../js/tools/byte-converter.js"></script>
+</body>
+</html>

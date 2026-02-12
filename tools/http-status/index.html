@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTTPステータスコード一覧（オンライン無料） - DevToolBox</title>
+  <meta name="description" content="HTTPステータスコードの一覧と検索。各コードの意味・説明を日本語で確認できる無料オンラインリファレンス。">
+  <link rel="canonical" href="https://yuhi-sa.github.io/devtoolbox/tools/http-status/">
+  <meta property="og:title" content="HTTPステータスコード一覧（オンライン無料） - DevToolBox">
+  <meta property="og:description" content="HTTPステータスコードの一覧と検索。各コードの意味・説明を日本語で確認できる無料オンラインリファレンス。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yuhi-sa.github.io/devtoolbox/tools/http-status/">
+  <meta property="og:site_name" content="DevToolBox">
+  <meta property="og:locale" content="ja_JP">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "HTTPステータスコード一覧",
+    "description": "HTTPステータスコードの一覧と検索ができるオンラインリファレンスツール",
+    "url": "https://yuhi-sa.github.io/devtoolbox/tools/http-status/",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "JPY"
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "DevToolBox",
+      "url": "https://yuhi-sa.github.io/devtoolbox/"
+    }
+  }
+  </script>
+  <link rel="stylesheet" href="../../css/style.css">
+<script data-ad-client="ca-pub-9558545098866170" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<body>
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="../../" class="header__logo">
+        <svg class="header__logo-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="28" height="28" rx="6" fill="currentColor" style="color: var(--color-primary)"/>
+          <path d="M8 10l4 4-4 4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 18h5" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        DevToolBox
+      </a>
+      <div class="header__right">
+        <nav class="nav" aria-label="メインナビゲーション">
+          <ul class="nav__list">
+            <li><a href="../json-formatter/" class="nav__link">JSON整形</a></li>
+            <li><a href="../char-counter/" class="nav__link">文字数カウント</a></li>
+            <li><a href="../base64/" class="nav__link">Base64</a></li>
+            <li><a href="../url-encode/" class="nav__link">URLエンコード</a></li>
+            <li><a href="../timestamp/" class="nav__link">タイムスタンプ</a></li>
+          </ul>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="テーマ切替">
+          <svg class="theme-toggle__icon theme-toggle__icon--dark" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+          </svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--light" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
+          </svg>
+        </button>
+        <button id="hamburger" class="hamburger" type="button" aria-label="メニュー" aria-expanded="false" aria-controls="mobile-nav">
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- モバイルナビ -->
+  <nav id="mobile-nav" class="mobile-nav" aria-label="モバイルナビゲーション">
+    <ul class="mobile-nav__list">
+      <li><a href="../json-formatter/" class="mobile-nav__link">JSON整形・検証</a></li>
+      <li><a href="../char-counter/" class="mobile-nav__link">文字数カウンター</a></li>
+      <li><a href="../base64/" class="mobile-nav__link">Base64エンコード/デコード</a></li>
+      <li><a href="../url-encode/" class="mobile-nav__link">URLエンコード/デコード</a></li>
+      <li><a href="../timestamp/" class="mobile-nav__link">Unixタイムスタンプ変換</a></li>
+      <li><a href="../../about.html" class="mobile-nav__link">サイトについて</a></li>
+      <li><a href="../../privacy.html" class="mobile-nav__link">プライバシーポリシー</a></li>
+      <li><a href="../../terms.html" class="mobile-nav__link">利用規約</a></li>
+    </ul>
+  </nav>
+
+  <!-- 広告枠A: ヘッダー下バナー -->
+  <div class="ad-slot" id="ad-header" data-ad-size="728x90">
+    <!-- 広告スクリプトをここに挿入 -->
+  </div>
+
+  <main class="main">
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <ol>
+        <li><a href="../../">ホーム</a></li>
+        <li aria-current="page">HTTPステータスコード一覧</li>
+      </ol>
+    </nav>
+
+    <div class="tool-container">
+      <h1>HTTPステータスコード一覧</h1>
+      <p class="tool-container__lead">HTTPステータスコードを検索・確認できるリファレンスツールです。</p>
+
+      <div class="tool-input">
+        <label for="http-search" class="label">検索</label>
+        <input type="text" id="http-search" class="input" placeholder="コード番号またはキーワードで検索..." style="width:100%;margin-bottom:1rem;">
+
+        <div id="http-filters" style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1.5rem;">
+          <button class="btn btn--primary http-filter-btn" data-category="all">すべて</button>
+          <button class="btn btn--secondary http-filter-btn" data-category="1xx">1xx 情報</button>
+          <button class="btn btn--secondary http-filter-btn" data-category="2xx">2xx 成功</button>
+          <button class="btn btn--secondary http-filter-btn" data-category="3xx">3xx リダイレクト</button>
+          <button class="btn btn--secondary http-filter-btn" data-category="4xx">4xx クライアントエラー</button>
+          <button class="btn btn--secondary http-filter-btn" data-category="5xx">5xx サーバーエラー</button>
+        </div>
+      </div>
+
+      <div id="http-count" style="font-size:0.875rem;color:var(--color-text-secondary);margin-bottom:1rem;"></div>
+      <div id="http-list"></div>
+    </div>
+
+    <section class="tool-description">
+      <h2>HTTPステータスコードとは？</h2>
+      <p>HTTPステータスコードは、WebサーバーがHTTPリクエストに対する処理結果をクライアント（ブラウザなど）に伝えるための3桁の数字です。1xx（情報）、2xx（成功）、3xx（リダイレクト）、4xx（クライアントエラー）、5xx（サーバーエラー）の5つのカテゴリに分類されます。</p>
+
+      <h2>よくある質問（FAQ）</h2>
+      <h3>Q. 200と201の違いは？</h3>
+      <p>A. 200 OKはリクエストが正常に処理されたことを示し、201 Createdはリクエストが正常に処理され新しいリソースが作成されたことを示します。RESTful APIでは、POSTリクエストでリソースを作成した場合に201を返すのが一般的です。</p>
+      <h3>Q. 301と302の違いは？</h3>
+      <p>A. 301 Moved Permanentlyは恒久的なリダイレクトで、SEO評価が転送先に引き継がれます。302 Foundは一時的なリダイレクトで、元のURLのSEO評価が維持されます。</p>
+    </section>
+
+    <section class="related-tools">
+      <h2>関連ツール</h2>
+      <ul>
+        <li><a href="../json-formatter/">JSON整形・検証ツール</a></li>
+        <li><a href="../url-encode/">URLエンコード・デコード</a></li>
+        <li><a href="../jwt-decoder/">JWTデコーダー</a></li>
+        <li><a href="../base64/">Base64エンコード・デコード</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <div class="ad-slot" id="ad-footer" data-ad-size="728x90">
+    <!-- 広告スクリプトをここに挿入 -->
+  </div>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__grid">
+        <div>
+          <p class="footer__section-title">DevToolBox</p>
+          <ul class="footer__list">
+            <li><a href="../../about.html" class="footer__link">サイトについて</a></li>
+            <li><a href="../../privacy.html" class="footer__link">プライバシーポリシー</a></li>
+            <li><a href="../../terms.html" class="footer__link">利用規約</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">ツール一覧</p>
+          <ul class="footer__list">
+            <li><a href="../json-formatter/" class="footer__link">JSON整形・検証</a></li>
+            <li><a href="../char-counter/" class="footer__link">文字数カウンター</a></li>
+            <li><a href="../base64/" class="footer__link">Base64エンコード/デコード</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">&nbsp;</p>
+          <ul class="footer__list">
+            <li><a href="../url-encode/" class="footer__link">URLエンコード/デコード</a></li>
+            <li><a href="../timestamp/" class="footer__link">Unixタイムスタンプ変換</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 DevToolBox. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/common.js"></script>
+  <script src="../../js/tools/http-status.js"></script>
+</body>
+</html>

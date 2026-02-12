@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>メタタグジェネレーター（オンライン無料） - DevToolBox</title>
+  <meta name="description" content="HTMLメタタグを簡単に生成。OGP・Twitterカード・基本メタタグに対応した無料オンラインジェネレーター。">
+  <link rel="canonical" href="https://yuhi-sa.github.io/devtoolbox/tools/meta-tag-generator/">
+  <meta property="og:title" content="メタタグジェネレーター（オンライン無料） - DevToolBox">
+  <meta property="og:description" content="HTMLメタタグを簡単に生成。OGP・Twitterカード・基本メタタグに対応した無料オンラインジェネレーター。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yuhi-sa.github.io/devtoolbox/tools/meta-tag-generator/">
+  <meta property="og:site_name" content="DevToolBox">
+  <meta property="og:locale" content="ja_JP">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "メタタグジェネレーター",
+    "description": "HTMLメタタグを簡単に生成するオンラインツール",
+    "url": "https://yuhi-sa.github.io/devtoolbox/tools/meta-tag-generator/",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "JPY"
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "DevToolBox",
+      "url": "https://yuhi-sa.github.io/devtoolbox/"
+    }
+  }
+  </script>
+  <link rel="stylesheet" href="../../css/style.css">
+  <script data-ad-client="ca-pub-9558545098866170" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <style>
+    .form-section {
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      background: var(--color-surface);
+    }
+    .form-section h2 {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 0.5rem;
+      align-items: start;
+      margin-bottom: 0.75rem;
+    }
+    @media (max-width: 640px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+    .form-row label {
+      font-size: 0.9rem;
+      padding-top: 0.4rem;
+      color: var(--color-text-muted);
+    }
+    .form-row input,
+    .form-row select,
+    .form-row textarea {
+      padding: 0.4rem 0.6rem;
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      background: var(--color-bg);
+      color: var(--color-text);
+      font-size: 0.9rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .form-row textarea {
+      resize: vertical;
+    }
+    .char-count {
+      font-size: 0.8rem;
+      margin-top: 0.2rem;
+      color: var(--color-text-muted);
+    }
+    .char-count--warn {
+      color: #e67e22;
+    }
+    .char-count--over {
+      color: #e74c3c;
+    }
+    .robots-options {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .robots-options label {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.85rem;
+      padding-top: 0;
+    }
+    .output-preview {
+      margin-top: 1.5rem;
+    }
+    .output-preview .textarea {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="../../" class="header__logo">
+        <svg class="header__logo-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="28" height="28" rx="6" fill="currentColor" style="color: var(--color-primary)"/>
+          <path d="M8 10l4 4-4 4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 18h5" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        DevToolBox
+      </a>
+      <div class="header__right">
+        <nav class="nav" aria-label="メインナビゲーション">
+          <ul class="nav__list">
+            <li><a href="../json-formatter/" class="nav__link">JSON整形</a></li>
+            <li><a href="../char-counter/" class="nav__link">文字数カウント</a></li>
+            <li><a href="../base64/" class="nav__link">Base64</a></li>
+            <li><a href="../url-encode/" class="nav__link">URLエンコード</a></li>
+            <li><a href="../timestamp/" class="nav__link">タイムスタンプ</a></li>
+          </ul>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="テーマ切替">
+          <svg class="theme-toggle__icon theme-toggle__icon--dark" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+          </svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--light" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
+          </svg>
+        </button>
+        <button id="hamburger" class="hamburger" type="button" aria-label="メニュー" aria-expanded="false" aria-controls="mobile-nav">
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- モバイルナビ -->
+  <nav id="mobile-nav" class="mobile-nav" aria-label="モバイルナビゲーション">
+    <ul class="mobile-nav__list">
+      <li><a href="../json-formatter/" class="mobile-nav__link">JSON整形・検証</a></li>
+      <li><a href="../char-counter/" class="mobile-nav__link">文字数カウンター</a></li>
+      <li><a href="../base64/" class="mobile-nav__link">Base64エンコード/デコード</a></li>
+      <li><a href="../url-encode/" class="mobile-nav__link">URLエンコード/デコード</a></li>
+      <li><a href="../timestamp/" class="mobile-nav__link">Unixタイムスタンプ変換</a></li>
+      <li><a href="../../about.html" class="mobile-nav__link">サイトについて</a></li>
+      <li><a href="../../privacy.html" class="mobile-nav__link">プライバシーポリシー</a></li>
+      <li><a href="../../terms.html" class="mobile-nav__link">利用規約</a></li>
+    </ul>
+  </nav>
+
+  <!-- 広告枠A: ヘッダー下バナー -->
+  <div class="ad-slot" id="ad-header" data-ad-size="728x90">
+    <!-- 広告スクリプトをここに挿入 -->
+  </div>
+
+  <main class="main">
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <ol>
+        <li><a href="../../">ホーム</a></li>
+        <li aria-current="page">メタタグジェネレーター</li>
+      </ol>
+    </nav>
+
+    <div class="tool-container">
+      <h1>メタタグジェネレーター</h1>
+      <p class="tool-container__lead">ページ情報を入力して、HTMLメタタグを自動生成します。OGP・Twitterカードにも対応。</p>
+
+      <!-- 基本メタタグ -->
+      <div class="form-section">
+        <h2>基本メタタグ</h2>
+        <div class="form-row">
+          <label for="meta-title">ページタイトル</label>
+          <div>
+            <input type="text" id="meta-title" placeholder="ページのタイトル">
+            <div class="char-count" id="title-count">0 / 60文字（推奨）</div>
+          </div>
+        </div>
+        <div class="form-row">
+          <label for="meta-description">説明文</label>
+          <div>
+            <textarea id="meta-description" rows="3" placeholder="ページの説明文を入力"></textarea>
+            <div class="char-count" id="desc-count">0 / 160文字（推奨）</div>
+          </div>
+        </div>
+        <div class="form-row">
+          <label for="meta-keywords">キーワード</label>
+          <input type="text" id="meta-keywords" placeholder="キーワード1, キーワード2, キーワード3">
+        </div>
+        <div class="form-row">
+          <label for="meta-author">著者</label>
+          <input type="text" id="meta-author" placeholder="著者名">
+        </div>
+        <div class="form-row">
+          <label>robots設定</label>
+          <div class="robots-options">
+            <label><input type="checkbox" id="robots-index" checked> index</label>
+            <label><input type="checkbox" id="robots-follow" checked> follow</label>
+            <label><input type="checkbox" id="robots-noarchive"> noarchive</label>
+            <label><input type="checkbox" id="robots-nosnippet"> nosnippet</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Open Graph -->
+      <div class="form-section">
+        <h2>Open Graph (OGP)</h2>
+        <div class="form-row">
+          <label for="og-title">og:title</label>
+          <input type="text" id="og-title" placeholder="OGタイトル（空欄の場合はページタイトルを使用）">
+        </div>
+        <div class="form-row">
+          <label for="og-description">og:description</label>
+          <textarea id="og-description" rows="2" placeholder="OG説明文（空欄の場合は説明文を使用）"></textarea>
+        </div>
+        <div class="form-row">
+          <label for="og-type">og:type</label>
+          <select id="og-type">
+            <option value="website">website</option>
+            <option value="article">article</option>
+            <option value="blog">blog</option>
+            <option value="product">product</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="og-image">og:image</label>
+          <input type="text" id="og-image" placeholder="https://example.com/image.jpg">
+        </div>
+        <div class="form-row">
+          <label for="og-url">og:url</label>
+          <input type="text" id="og-url" placeholder="https://example.com/page">
+        </div>
+        <div class="form-row">
+          <label for="og-sitename">og:site_name</label>
+          <input type="text" id="og-sitename" placeholder="サイト名">
+        </div>
+        <div class="form-row">
+          <label for="og-locale">og:locale</label>
+          <input type="text" id="og-locale" value="ja_JP" placeholder="ja_JP">
+        </div>
+      </div>
+
+      <!-- Twitter Card -->
+      <div class="form-section">
+        <h2>Twitterカード</h2>
+        <div class="form-row">
+          <label for="tw-card">カードタイプ</label>
+          <select id="tw-card">
+            <option value="summary">summary</option>
+            <option value="summary_large_image" selected>summary_large_image</option>
+            <option value="app">app</option>
+            <option value="player">player</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="tw-title">twitter:title</label>
+          <input type="text" id="tw-title" placeholder="Twitterカードタイトル（空欄の場合はOGタイトルを使用）">
+        </div>
+        <div class="form-row">
+          <label for="tw-description">twitter:description</label>
+          <textarea id="tw-description" rows="2" placeholder="Twitterカード説明文（空欄の場合はOG説明文を使用）"></textarea>
+        </div>
+        <div class="form-row">
+          <label for="tw-image">twitter:image</label>
+          <input type="text" id="tw-image" placeholder="https://example.com/twitter-image.jpg（空欄の場合はog:imageを使用）">
+        </div>
+        <div class="form-row">
+          <label for="tw-site">twitter:site</label>
+          <input type="text" id="tw-site" placeholder="@username">
+        </div>
+      </div>
+
+      <!-- 出力 -->
+      <div class="output-preview">
+        <label for="meta-output">生成されたメタタグ</label>
+        <textarea id="meta-output" class="textarea" rows="16" readonly></textarea>
+        <div id="meta-success" class="success-message" hidden></div>
+        <div class="tool-actions" style="margin-top:0.5rem">
+          <button id="btn-generate" class="btn btn--primary">生成</button>
+          <button id="btn-copy" class="btn btn--secondary copy-btn">すべてコピー</button>
+          <button id="btn-clear" class="btn btn--secondary clear-btn">クリア</button>
+        </div>
+      </div>
+    </div>
+
+    <section class="tool-description">
+      <h2>メタタグジェネレーターの使い方</h2>
+      <p>各セクションにページの情報を入力し、「生成」ボタンをクリックすると、HTMLのメタタグが自動的に生成されます。生成されたタグをコピーして、HTMLの&lt;head&gt;タグ内に貼り付けてください。タイトルは60文字以内、説明文は160文字以内に収めることが推奨されます。Open Graph（OGP）タグを設定すると、Facebook、LINE、Slackなどでシェアされた際にリッチなプレビューが表示されます。</p>
+
+      <h2>メタタグとは？</h2>
+      <p>メタタグは、HTMLページの&lt;head&gt;要素内に記述する要素で、ページの情報を検索エンジンやSNSなどに伝えます。titleタグとdescriptionメタタグはSEOの基本であり、検索結果の表示に直接影響します。Open Graphタグはソーシャルメディアでの共有時のプレビュー表示を制御し、Twitterカードタグはツイッター上でのリンクプレビューをカスタマイズします。</p>
+
+      <h2>よくある質問（FAQ）</h2>
+      <h3>Q. OGPタグを空欄にするとどうなりますか？</h3>
+      <p>A. og:titleを空欄にした場合はページタイトル、og:descriptionを空欄にした場合は説明文の値が自動的に使用されます。Twitterカードも同様に、空欄の場合はOGPの値にフォールバックします。</p>
+      <h3>Q. robots設定は何を意味しますか？</h3>
+      <p>A. indexはページを検索結果に表示するか、followはページ内のリンクを追跡するか、noarchiveはキャッシュを無効にするか、nosnippetは検索結果のスニペット表示を無効にするかを制御します。</p>
+    </section>
+
+    <section class="related-tools">
+      <h2>関連ツール</h2>
+      <ul>
+        <li><a href="../og-preview/">OGPプレビュー</a></li>
+        <li><a href="../html-entity/">HTMLエンティティ変換</a></li>
+        <li><a href="../char-counter/">文字数カウンター</a></li>
+        <li><a href="../url-encode/">URLエンコード・デコード</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <div class="ad-slot" id="ad-footer" data-ad-size="728x90">
+    <!-- 広告スクリプトをここに挿入 -->
+  </div>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__grid">
+        <div>
+          <p class="footer__section-title">DevToolBox</p>
+          <ul class="footer__list">
+            <li><a href="../../about.html" class="footer__link">サイトについて</a></li>
+            <li><a href="../../privacy.html" class="footer__link">プライバシーポリシー</a></li>
+            <li><a href="../../terms.html" class="footer__link">利用規約</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">ツール一覧</p>
+          <ul class="footer__list">
+            <li><a href="../json-formatter/" class="footer__link">JSON整形・検証</a></li>
+            <li><a href="../base64/" class="footer__link">Base64エンコード/デコード</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 DevToolBox. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/common.js"></script>
+  <script src="../../js/tools/meta-tag-generator.js"></script>
+</body>
+</html>

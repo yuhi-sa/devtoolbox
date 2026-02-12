@@ -1,0 +1,135 @@
+"use strict";
+
+(function () {
+  document.addEventListener("DOMContentLoaded", function () {
+    var inputEl = document.getElementById("slug-input");
+    var outputEl = document.getElementById("slug-output");
+    var separatorEl = document.getElementById("slug-separator");
+    var maxlengthEl = document.getElementById("slug-maxlength");
+    var lowercaseEl = document.getElementById("slug-lowercase");
+    var successEl = document.getElementById("slug-success");
+    var btnCopy = document.getElementById("btn-copy");
+
+    // Accented Latin character map
+    var ACCENT_MAP = {
+      "\u00e0": "a", "\u00e1": "a", "\u00e2": "a", "\u00e3": "a", "\u00e4": "a", "\u00e5": "a",
+      "\u00e6": "ae",
+      "\u00e7": "c",
+      "\u00e8": "e", "\u00e9": "e", "\u00ea": "e", "\u00eb": "e",
+      "\u00ec": "i", "\u00ed": "i", "\u00ee": "i", "\u00ef": "i",
+      "\u00f0": "d",
+      "\u00f1": "n",
+      "\u00f2": "o", "\u00f3": "o", "\u00f4": "o", "\u00f5": "o", "\u00f6": "o", "\u00f8": "o",
+      "\u00f9": "u", "\u00fa": "u", "\u00fb": "u", "\u00fc": "u",
+      "\u00fd": "y",
+      "\u00fe": "th",
+      "\u00ff": "y",
+      "\u00c0": "A", "\u00c1": "A", "\u00c2": "A", "\u00c3": "A", "\u00c4": "A", "\u00c5": "A",
+      "\u00c6": "AE",
+      "\u00c7": "C",
+      "\u00c8": "E", "\u00c9": "E", "\u00ca": "E", "\u00cb": "E",
+      "\u00cc": "I", "\u00cd": "I", "\u00ce": "I", "\u00cf": "I",
+      "\u00d0": "D",
+      "\u00d1": "N",
+      "\u00d2": "O", "\u00d3": "O", "\u00d4": "O", "\u00d5": "O", "\u00d6": "O", "\u00d8": "O",
+      "\u00d9": "U", "\u00da": "U", "\u00db": "U", "\u00dc": "U",
+      "\u00dd": "Y",
+      "\u00de": "TH",
+      "\u0100": "A", "\u0101": "a", "\u0102": "A", "\u0103": "a",
+      "\u0104": "A", "\u0105": "a",
+      "\u0106": "C", "\u0107": "c", "\u0108": "C", "\u0109": "c",
+      "\u010c": "C", "\u010d": "c",
+      "\u010e": "D", "\u010f": "d", "\u0110": "D", "\u0111": "d",
+      "\u0112": "E", "\u0113": "e", "\u0116": "E", "\u0117": "e",
+      "\u0118": "E", "\u0119": "e", "\u011a": "E", "\u011b": "e",
+      "\u011c": "G", "\u011d": "g", "\u011e": "G", "\u011f": "g",
+      "\u0122": "G", "\u0123": "g",
+      "\u0124": "H", "\u0125": "h", "\u0126": "H", "\u0127": "h",
+      "\u0128": "I", "\u0129": "i", "\u012a": "I", "\u012b": "i",
+      "\u012e": "I", "\u012f": "i", "\u0130": "I", "\u0131": "i",
+      "\u0134": "J", "\u0135": "j",
+      "\u0136": "K", "\u0137": "k",
+      "\u0139": "L", "\u013a": "l", "\u013b": "L", "\u013c": "l",
+      "\u013d": "L", "\u013e": "l", "\u0141": "L", "\u0142": "l",
+      "\u0143": "N", "\u0144": "n", "\u0145": "N", "\u0146": "n",
+      "\u0147": "N", "\u0148": "n",
+      "\u014c": "O", "\u014d": "o", "\u0150": "O", "\u0151": "o",
+      "\u0152": "OE", "\u0153": "oe",
+      "\u0154": "R", "\u0155": "r", "\u0158": "R", "\u0159": "r",
+      "\u015a": "S", "\u015b": "s", "\u015c": "S", "\u015d": "s",
+      "\u015e": "S", "\u015f": "s", "\u0160": "S", "\u0161": "s",
+      "\u0162": "T", "\u0163": "t", "\u0164": "T", "\u0165": "t",
+      "\u0168": "U", "\u0169": "u", "\u016a": "U", "\u016b": "u",
+      "\u016c": "U", "\u016d": "u", "\u016e": "U", "\u016f": "u",
+      "\u0170": "U", "\u0171": "u", "\u0172": "U", "\u0173": "u",
+      "\u0174": "W", "\u0175": "w",
+      "\u0176": "Y", "\u0177": "y", "\u0178": "Y",
+      "\u0179": "Z", "\u017a": "z", "\u017b": "Z", "\u017c": "z",
+      "\u017d": "Z", "\u017e": "z",
+      "\u00df": "ss"
+    };
+
+    function replaceAccents(str) {
+      var result = "";
+      for (var i = 0; i < str.length; i++) {
+        result += ACCENT_MAP[str[i]] || str[i];
+      }
+      return result;
+    }
+
+    function generateSlug() {
+      var text = inputEl.value;
+      var separator = separatorEl.value;
+      var maxLen = parseInt(maxlengthEl.value, 10) || 0;
+      var toLower = lowercaseEl.checked;
+
+      if (!text.trim()) {
+        outputEl.value = "";
+        return;
+      }
+
+      // Replace accented characters
+      var slug = replaceAccents(text);
+
+      // Convert to lowercase if option is checked
+      if (toLower) {
+        slug = slug.toLowerCase();
+      }
+
+      // Replace non-alphanumeric characters (keep ASCII letters and digits) with separator
+      slug = slug.replace(/[^a-zA-Z0-9]+/g, separator);
+
+      // Remove leading/trailing separators
+      var sepRegex = new RegExp("^[" + separator.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "]+|[" + separator.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "]+$", "g");
+      slug = slug.replace(sepRegex, "");
+
+      // Apply max length (don't cut in the middle of a separator)
+      if (maxLen > 0 && slug.length > maxLen) {
+        slug = slug.substring(0, maxLen);
+        // Remove trailing separator if cut mid-word
+        slug = slug.replace(new RegExp("[" + separator.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "]+$"), "");
+      }
+
+      outputEl.value = slug;
+    }
+
+    function showSuccess(msg) {
+      successEl.textContent = msg;
+      successEl.hidden = false;
+      setTimeout(function () { successEl.hidden = true; }, 2000);
+    }
+
+    inputEl.addEventListener("input", generateSlug);
+    separatorEl.addEventListener("change", generateSlug);
+    maxlengthEl.addEventListener("input", generateSlug);
+    lowercaseEl.addEventListener("change", generateSlug);
+
+    btnCopy.addEventListener("click", function () {
+      var text = outputEl.value;
+      if (!text) return;
+      navigator.clipboard.writeText(text).then(function () {
+        showSuccess("コピーしました。");
+      });
+    });
+  });
+})();

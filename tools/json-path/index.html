@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSONパスファインダー（オンライン無料） - DevToolBox</title>
+  <meta name="description" content="JSONデータをツリー表示し、クリックでJSONPathを取得。JSONPathクエリの実行も可能な無料オンラインツール。">
+  <link rel="canonical" href="https://yuhi-sa.github.io/devtoolbox/tools/json-path/">
+  <meta property="og:title" content="JSONパスファインダー（オンライン無料） - DevToolBox">
+  <meta property="og:description" content="JSONデータをツリー表示し、クリックでJSONPathを取得。JSONPathクエリの実行も可能な無料オンラインツール。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yuhi-sa.github.io/devtoolbox/tools/json-path/">
+  <meta property="og:site_name" content="DevToolBox">
+  <meta property="og:locale" content="ja_JP">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "JSONパスファインダー",
+    "description": "JSONデータをツリー表示し、クリックでJSONPathを取得できるオンラインツール",
+    "url": "https://yuhi-sa.github.io/devtoolbox/tools/json-path/",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" },
+    "isPartOf": { "@type": "WebSite", "name": "DevToolBox", "url": "https://yuhi-sa.github.io/devtoolbox/" }
+  }
+  </script>
+  <link rel="stylesheet" href="../../css/style.css">
+  <script data-ad-client="ca-pub-9558545098866170" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <style>
+    .json-tree { font-family: var(--font-mono); font-size: 0.85rem; line-height: 1.6; overflow: auto; max-height: 500px; padding: var(--space-md); background-color: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius); }
+    .json-tree ul { list-style: none; padding-left: 1.5em; }
+    .json-tree > ul { padding-left: 0; }
+    .json-tree-toggle { cursor: pointer; user-select: none; color: var(--color-text-secondary); margin-right: 4px; display: inline-block; width: 1em; text-align: center; }
+    .json-tree-toggle:hover { color: var(--color-primary); }
+    .json-tree-key { color: #0451a5; font-weight: 500; }
+    [data-theme="dark"] .json-tree-key { color: #9cdcfe; }
+    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .json-tree-key { color: #9cdcfe; } }
+    .json-tree-string { color: #a31515; }
+    [data-theme="dark"] .json-tree-string { color: #ce9178; }
+    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .json-tree-string { color: #ce9178; } }
+    .json-tree-number { color: #098658; }
+    [data-theme="dark"] .json-tree-number { color: #b5cea8; }
+    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .json-tree-number { color: #b5cea8; } }
+    .json-tree-boolean { color: #0000ff; }
+    [data-theme="dark"] .json-tree-boolean { color: #569cd6; }
+    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .json-tree-boolean { color: #569cd6; } }
+    .json-tree-null { color: #808080; }
+    .json-tree-value { cursor: pointer; padding: 1px 4px; border-radius: 3px; }
+    .json-tree-value:hover { background-color: rgba(26, 115, 232, 0.1); }
+    .json-tree-bracket { color: var(--color-text-secondary); }
+    .json-tree li.is-collapsed > ul { display: none; }
+    .json-tree-selected { background-color: rgba(26, 115, 232, 0.15); }
+    .path-display { display: flex; gap: var(--space-sm); align-items: center; margin-top: var(--space-md); }
+    .path-display input { flex: 1; }
+    .query-section { margin-top: var(--space-md); }
+    .query-result { margin-top: var(--space-sm); padding: var(--space-md); background-color: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius); font-family: var(--font-mono); font-size: 0.85rem; white-space: pre-wrap; word-break: break-all; max-height: 300px; overflow: auto; }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header__inner">
+      <a href="../../" class="header__logo">
+        <svg class="header__logo-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="28" height="28" rx="6" fill="currentColor" style="color: var(--color-primary)"/>
+          <path d="M8 10l4 4-4 4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 18h5" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        DevToolBox
+      </a>
+      <div class="header__right">
+        <nav class="nav" aria-label="メインナビゲーション">
+          <ul class="nav__list">
+            <li><a href="../json-formatter/" class="nav__link">JSON整形</a></li>
+            <li><a href="../char-counter/" class="nav__link">文字数カウント</a></li>
+            <li><a href="../base64/" class="nav__link">Base64</a></li>
+            <li><a href="../url-encode/" class="nav__link">URLエンコード</a></li>
+            <li><a href="../timestamp/" class="nav__link">タイムスタンプ</a></li>
+          </ul>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="テーマ切替">
+          <svg class="theme-toggle__icon theme-toggle__icon--dark" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--light" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/></svg>
+        </button>
+        <button id="hamburger" class="hamburger" type="button" aria-label="メニュー" aria-expanded="false" aria-controls="mobile-nav">
+          <span class="hamburger__line"></span><span class="hamburger__line"></span><span class="hamburger__line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <nav id="mobile-nav" class="mobile-nav" aria-label="モバイルナビゲーション">
+    <ul class="mobile-nav__list">
+      <li><a href="../json-formatter/" class="mobile-nav__link">JSON整形・検証</a></li>
+      <li><a href="../char-counter/" class="mobile-nav__link">文字数カウンター</a></li>
+      <li><a href="../base64/" class="mobile-nav__link">Base64エンコード/デコード</a></li>
+      <li><a href="../url-encode/" class="mobile-nav__link">URLエンコード/デコード</a></li>
+      <li><a href="../timestamp/" class="mobile-nav__link">Unixタイムスタンプ変換</a></li>
+      <li><a href="../../about.html" class="mobile-nav__link">サイトについて</a></li>
+      <li><a href="../../privacy.html" class="mobile-nav__link">プライバシーポリシー</a></li>
+      <li><a href="../../terms.html" class="mobile-nav__link">利用規約</a></li>
+    </ul>
+  </nav>
+  <div class="ad-slot" id="ad-header" data-ad-size="728x90"></div>
+  <main class="main">
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <ol>
+        <li><a href="../../">ホーム</a></li>
+        <li aria-current="page">JSONパスファインダー</li>
+      </ol>
+    </nav>
+
+    <div class="tool-container">
+      <h1>JSONパスファインダー</h1>
+      <p class="tool-container__lead">JSONデータをツリー表示し、値をクリックしてJSONPathを取得できます。JSONPathクエリも実行可能です。</p>
+
+      <div class="tool-input">
+        <label for="json-input">JSON入力</label>
+        <textarea id="json-input" class="textarea" rows="8" placeholder='{"store":{"book":[{"title":"本A","price":100},{"title":"本B","price":200}],"name":"書店"}}'></textarea>
+        <div id="json-error" class="error-message" hidden></div>
+      </div>
+
+      <div class="tool-actions">
+        <button id="btn-parse" class="btn btn--primary">解析してツリー表示</button>
+        <button id="btn-clear" class="btn btn--secondary clear-btn">クリア</button>
+      </div>
+
+      <div id="tree-container" class="json-tree" hidden></div>
+
+      <div class="path-display" id="path-display" hidden>
+        <label for="path-output" style="white-space:nowrap;font-size:0.875rem;font-weight:500;">JSONPath:</label>
+        <input id="path-output" class="input" type="text" readonly>
+        <button id="btn-copy-path" class="btn btn--secondary">コピー</button>
+      </div>
+
+      <div class="query-section">
+        <label for="query-input" style="display:block;font-size:0.875rem;font-weight:500;margin-bottom:var(--space-xs);">JSONPathクエリ</label>
+        <div style="display:flex;gap:var(--space-sm);">
+          <input id="query-input" class="input" type="text" placeholder="$.store.book[0].title" style="flex:1;">
+          <button id="btn-query" class="btn btn--primary">実行</button>
+        </div>
+        <div id="query-result" class="query-result" hidden></div>
+        <div id="query-error" class="error-message" hidden></div>
+        <div id="query-success" class="success-message" hidden></div>
+      </div>
+    </div>
+
+    <section class="tool-description">
+      <h2>JSONパスファインダーの使い方</h2>
+      <p>このツールは、JSONデータを視覚的なツリー構造で表示し、任意の値をクリックすることでそのJSONPath式を取得できます。また、JSONPathクエリを入力して該当する値を検索することも可能です。APIレスポンスの解析やデータ構造の確認に便利です。</p>
+
+      <h2>JSONPathとは？</h2>
+      <p>JSONPathは、JSON文書内の特定の要素を参照するためのクエリ言語です。XPathがXML文書に対して使われるのと同様に、JSONPathはJSONデータの特定の値やノードを指定するために使用されます。ルート要素は「$」で表され、ドット記法（$.store.book）やブラケット記法（$['store']['book']）でアクセスできます。配列のインデックスアクセス（$[0]）やワイルドカード（$.*、$[*]）にも対応しています。</p>
+
+      <h2>よくある質問（FAQ）</h2>
+      <h3>Q. どのようなJSONPathの記法に対応していますか？</h3>
+      <p>A. ドット記法（$.key）、ブラケット記法（$['key']）、配列インデックス（$[0]）、ワイルドカード（$.*、$[*]）に対応しています。</p>
+      <h3>Q. 入力したデータは安全ですか？</h3>
+      <p>A. はい、安全です。すべての処理はブラウザ内で完結し、入力データがサーバーに送信されることは一切ありません。</p>
+    </section>
+
+    <section class="related-tools">
+      <h2>関連ツール</h2>
+      <ul>
+        <li><a href="../json-formatter/">JSON整形・検証</a></li>
+        <li><a href="../toml-json/">TOML-JSON変換</a></li>
+        <li><a href="../jwt-decoder/">JWTデコーダー</a></li>
+      </ul>
+    </section>
+  </main>
+  <div class="ad-slot" id="ad-footer" data-ad-size="728x90"></div>
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__grid">
+        <div>
+          <p class="footer__section-title">DevToolBox</p>
+          <ul class="footer__list">
+            <li><a href="../../about.html" class="footer__link">サイトについて</a></li>
+            <li><a href="../../privacy.html" class="footer__link">プライバシーポリシー</a></li>
+            <li><a href="../../terms.html" class="footer__link">利用規約</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">ツール一覧</p>
+          <ul class="footer__list">
+            <li><a href="../json-formatter/" class="footer__link">JSON整形・検証</a></li>
+            <li><a href="../char-counter/" class="footer__link">文字数カウンター</a></li>
+            <li><a href="../base64/" class="footer__link">Base64エンコード/デコード</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">&nbsp;</p>
+          <ul class="footer__list">
+            <li><a href="../url-encode/" class="footer__link">URLエンコード/デコード</a></li>
+            <li><a href="../timestamp/" class="footer__link">Unixタイムスタンプ変換</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 DevToolBox. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="../../js/common.js"></script>
+  <script src="../../js/tools/json-path.js"></script>
+</body>
+</html>

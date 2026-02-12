@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chmodパーミッション計算ツール（オンライン無料） - DevToolBox</title>
+  <meta name="description" content="Linuxファイルパーミッション（chmod）を数値・シンボリック形式で簡単に計算。チェックボックスで直感的に設定できる無料オンラインツール。">
+  <link rel="canonical" href="https://yuhi-sa.github.io/devtoolbox/tools/chmod-calculator/">
+  <meta property="og:title" content="Chmodパーミッション計算ツール（オンライン無料） - DevToolBox">
+  <meta property="og:description" content="Linuxファイルパーミッション（chmod）を数値・シンボリック形式で簡単に計算。チェックボックスで直感的に設定できる無料オンラインツール。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yuhi-sa.github.io/devtoolbox/tools/chmod-calculator/">
+  <meta property="og:site_name" content="DevToolBox">
+  <meta property="og:locale" content="ja_JP">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Chmodパーミッション計算ツール",
+    "description": "Linuxファイルパーミッション（chmod）を数値・シンボリック形式で計算するオンラインツール",
+    "url": "https://yuhi-sa.github.io/devtoolbox/tools/chmod-calculator/",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "JPY"
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "DevToolBox",
+      "url": "https://yuhi-sa.github.io/devtoolbox/"
+    }
+  }
+  </script>
+  <link rel="stylesheet" href="../../css/style.css">
+<script data-ad-client="ca-pub-9558545098866170" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<body>
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="../../" class="header__logo">
+        <svg class="header__logo-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="28" height="28" rx="6" fill="currentColor" style="color: var(--color-primary)"/>
+          <path d="M8 10l4 4-4 4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 18h5" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        DevToolBox
+      </a>
+      <div class="header__right">
+        <nav class="nav" aria-label="メインナビゲーション">
+          <ul class="nav__list">
+            <li><a href="../json-formatter/" class="nav__link">JSON整形</a></li>
+            <li><a href="../char-counter/" class="nav__link">文字数カウント</a></li>
+            <li><a href="../base64/" class="nav__link">Base64</a></li>
+            <li><a href="../url-encode/" class="nav__link">URLエンコード</a></li>
+            <li><a href="../timestamp/" class="nav__link">タイムスタンプ</a></li>
+          </ul>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="テーマ切替">
+          <svg class="theme-toggle__icon theme-toggle__icon--dark" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+          </svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--light" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
+          </svg>
+        </button>
+        <button id="hamburger" class="hamburger" type="button" aria-label="メニュー" aria-expanded="false" aria-controls="mobile-nav">
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- モバイルナビ -->
+  <nav id="mobile-nav" class="mobile-nav" aria-label="モバイルナビゲーション">
+    <ul class="mobile-nav__list">
+      <li><a href="../json-formatter/" class="mobile-nav__link">JSON整形・検証</a></li>
+      <li><a href="../char-counter/" class="mobile-nav__link">文字数カウンター</a></li>
+      <li><a href="../base64/" class="mobile-nav__link">Base64エンコード/デコード</a></li>
+      <li><a href="../url-encode/" class="mobile-nav__link">URLエンコード/デコード</a></li>
+      <li><a href="../timestamp/" class="mobile-nav__link">Unixタイムスタンプ変換</a></li>
+      <li><a href="../../about.html" class="mobile-nav__link">サイトについて</a></li>
+      <li><a href="../../privacy.html" class="mobile-nav__link">プライバシーポリシー</a></li>
+      <li><a href="../../terms.html" class="mobile-nav__link">利用規約</a></li>
+    </ul>
+  </nav>
+
+  <!-- 広告枠A: ヘッダー下バナー -->
+  <div class="ad-slot" id="ad-header" data-ad-size="728x90">
+    <!-- 広告スクリプトをここに挿入 -->
+  </div>
+
+  <main class="main">
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <ol>
+        <li><a href="../../">ホーム</a></li>
+        <li aria-current="page">Chmodパーミッション計算</li>
+      </ol>
+    </nav>
+
+    <div class="tool-container">
+      <h1>Chmodパーミッション計算ツール</h1>
+      <p class="tool-container__lead">チェックボックスまたは数値入力でLinuxファイルパーミッションを計算します。</p>
+
+      <div class="tool-input">
+        <label class="label">数値入力</label>
+        <div style="display:flex;gap:1rem;align-items:center;margin-bottom:1.5rem;">
+          <input type="text" id="chmod-numeric" class="input" value="755" maxlength="3" style="width:6rem;font-size:1.5rem;text-align:center;font-family:var(--font-mono);">
+          <button id="btn-copy-numeric" class="btn btn--secondary">数値をコピー</button>
+        </div>
+
+        <label class="label">パーミッション設定</label>
+        <div style="overflow-x:auto;">
+          <table id="chmod-table" style="width:100%;border-collapse:collapse;margin-bottom:1.5rem;font-size:0.875rem;">
+            <thead>
+              <tr style="border-bottom:2px solid var(--color-border);">
+                <th style="padding:0.5rem 1rem;text-align:left;"></th>
+                <th style="padding:0.5rem 1rem;text-align:center;">読み取り (r=4)</th>
+                <th style="padding:0.5rem 1rem;text-align:center;">書き込み (w=2)</th>
+                <th style="padding:0.5rem 1rem;text-align:center;">実行 (x=1)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid var(--color-border);">
+                <td style="padding:0.5rem 1rem;font-weight:600;">所有者 (Owner)</td>
+                <td style="padding:0.5rem 1rem;text-align:center;"><input type="checkbox" id="chmod-owner-r" data-who="owner" data-perm="r"></td>
+                <td style="padding:0.5rem 1rem;text-align:center;"><input type="checkbox" id="chmod-owner-w" data-who="owner" data-perm="w"></td>
+                <td style="padding:0.5rem 1rem;text-align:center;"><input type="checkbox" id="chmod-owner-x" data-who="owner" data-perm="x"></td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--color-border);">
+                <td style="padding:0.5rem 1rem;font-weight:600;">グループ (Group)</td>
+                <td style="padding:0.5rem 1rem;text-align:center;"><input type="checkbox" id="chmod-group-r" data-who="group" data-perm="r"></td>
+                <td style="padding:0.5rem 1rem;text-align:center;"><input type="checkbox" id="chmod-group-w" data-who="group" data-perm="w"></td>
+                <td style="padding:0.5rem 1rem;text-align:center;"><input type="checkbox" id="chmod-group-x" data-who="group" data-perm="x"></td>
+              </tr>
+              <tr>
+                <td style="padding:0.5rem 1rem;font-weight:600;">その他 (Others)</td>
+                <td style="padding:0.5rem 1rem;text-align:center;"><input type="checkbox" id="chmod-others-r" data-who="others" data-perm="r"></td>
+                <td style="padding:0.5rem 1rem;text-align:center;"><input type="checkbox" id="chmod-others-w" data-who="others" data-perm="w"></td>
+                <td style="padding:0.5rem 1rem;text-align:center;"><input type="checkbox" id="chmod-others-x" data-who="others" data-perm="x"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="display:flex;flex-wrap:wrap;gap:1rem;align-items:center;margin-bottom:1.5rem;">
+          <div>
+            <label class="label">シンボリック表記</label>
+            <div style="display:flex;gap:0.5rem;align-items:center;">
+              <code id="chmod-symbolic" style="font-size:1.25rem;font-family:var(--font-mono);background:var(--color-bg);padding:0.5rem 1rem;border-radius:var(--radius-sm);border:1px solid var(--color-border);">rwxr-xr-x</code>
+              <button id="btn-copy-symbolic" class="btn btn--secondary">コピー</button>
+            </div>
+          </div>
+          <div>
+            <label class="label">ls -l 形式</label>
+            <code id="chmod-ls" style="font-size:1.25rem;font-family:var(--font-mono);background:var(--color-bg);padding:0.5rem 1rem;border-radius:var(--radius-sm);border:1px solid var(--color-border);display:inline-block;">-rwxr-xr-x</code>
+          </div>
+        </div>
+
+        <label class="label">よく使うプリセット</label>
+        <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+          <button class="btn btn--secondary chmod-preset" data-value="644">644 (ファイル標準)</button>
+          <button class="btn btn--secondary chmod-preset" data-value="755">755 (ディレクトリ標準)</button>
+          <button class="btn btn--secondary chmod-preset" data-value="777">777 (全権限)</button>
+          <button class="btn btn--secondary chmod-preset" data-value="400">400 (読み取り専用)</button>
+          <button class="btn btn--secondary chmod-preset" data-value="600">600 (秘密鍵)</button>
+          <button class="btn btn--secondary chmod-preset" data-value="700">700 (所有者のみ)</button>
+          <button class="btn btn--secondary chmod-preset" data-value="444">444 (全員読み取り)</button>
+          <button class="btn btn--secondary chmod-preset" data-value="666">666 (全員読み書き)</button>
+        </div>
+      </div>
+
+      <div id="chmod-success" class="success-message" hidden></div>
+    </div>
+
+    <section class="tool-description">
+      <h2>Chmodパーミッション計算ツールの使い方</h2>
+      <p>チェックボックスで各ユーザー（所有者・グループ・その他）の読み取り・書き込み・実行権限を設定すると、対応する数値（例: 755）とシンボリック表記（例: rwxr-xr-x）がリアルタイムに表示されます。数値入力欄に直接3桁の数値を入力して、チェックボックスを更新することもできます。よく使うプリセットボタンをクリックすると、一般的なパーミッション設定を素早く適用できます。</p>
+
+      <h2>chmodコマンドとは？</h2>
+      <p>chmodはLinux/Unixシステムでファイルやディレクトリのアクセス権限を変更するコマンドです。パーミッションは「読み取り（r=4）」「書き込み（w=2）」「実行（x=1）」の3種類があり、「所有者」「グループ」「その他」の3つのカテゴリに対してそれぞれ設定します。例えば、chmod 755は所有者に全権限（7=4+2+1）、グループとその他に読み取りと実行権限（5=4+1）を付与します。</p>
+
+      <h2>よくある質問（FAQ）</h2>
+      <h3>Q. 644と755の違いは？</h3>
+      <p>A. 644はファイルの標準的なパーミッションで、所有者が読み書き可能、それ以外は読み取りのみです。755はディレクトリや実行ファイルの標準的なパーミッションで、所有者が全権限、それ以外は読み取りと実行が可能です。</p>
+      <h3>Q. 777は安全ですか？</h3>
+      <p>A. 777は全ユーザーに全権限を付与するため、セキュリティ上のリスクがあります。一般的には推奨されませんが、開発環境の一時ディレクトリなどで使用される場合があります。</p>
+    </section>
+
+    <section class="related-tools">
+      <h2>関連ツール</h2>
+      <ul>
+        <li><a href="../gitignore-generator/">.gitignoreジェネレーター</a></li>
+        <li><a href="../hash-generator/">ハッシュ生成ツール</a></li>
+        <li><a href="../password-generator/">パスワード生成ツール</a></li>
+        <li><a href="../base64/">Base64エンコード・デコード</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <div class="ad-slot" id="ad-footer" data-ad-size="728x90">
+    <!-- 広告スクリプトをここに挿入 -->
+  </div>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__grid">
+        <div>
+          <p class="footer__section-title">DevToolBox</p>
+          <ul class="footer__list">
+            <li><a href="../../about.html" class="footer__link">サイトについて</a></li>
+            <li><a href="../../privacy.html" class="footer__link">プライバシーポリシー</a></li>
+            <li><a href="../../terms.html" class="footer__link">利用規約</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">ツール一覧</p>
+          <ul class="footer__list">
+            <li><a href="../json-formatter/" class="footer__link">JSON整形・検証</a></li>
+            <li><a href="../char-counter/" class="footer__link">文字数カウンター</a></li>
+            <li><a href="../base64/" class="footer__link">Base64エンコード/デコード</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">&nbsp;</p>
+          <ul class="footer__list">
+            <li><a href="../url-encode/" class="footer__link">URLエンコード/デコード</a></li>
+            <li><a href="../timestamp/" class="footer__link">Unixタイムスタンプ変換</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 DevToolBox. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/common.js"></script>
+  <script src="../../js/tools/chmod-calculator.js"></script>
+</body>
+</html>

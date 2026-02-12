@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>テキストケース変換ツール（オンライン無料） - DevToolBox</title>
+  <meta name="description" content="テキストをcamelCase、snake_case、kebab-caseなど様々なケースに変換。無料オンラインツール。">
+  <link rel="canonical" href="https://yuhi-sa.github.io/devtoolbox/tools/text-case/">
+  <meta property="og:title" content="テキストケース変換ツール（オンライン無料） - DevToolBox">
+  <meta property="og:description" content="テキストをcamelCase、snake_case、kebab-caseなど様々なケースに変換。無料オンラインツール。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yuhi-sa.github.io/devtoolbox/tools/text-case/">
+  <meta property="og:site_name" content="DevToolBox">
+  <meta property="og:locale" content="ja_JP">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "テキストケース変換ツール",
+    "description": "テキストを様々なケース（camelCase、snake_caseなど）に変換するオンラインツール",
+    "url": "https://yuhi-sa.github.io/devtoolbox/tools/text-case/",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "JPY"
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "DevToolBox",
+      "url": "https://yuhi-sa.github.io/devtoolbox/"
+    }
+  }
+  </script>
+  <link rel="stylesheet" href="../../css/style.css">
+<script data-ad-client="ca-pub-9558545098866170" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<body>
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="../../" class="header__logo">
+        <svg class="header__logo-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="28" height="28" rx="6" fill="currentColor" style="color: var(--color-primary)"/>
+          <path d="M8 10l4 4-4 4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 18h5" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        DevToolBox
+      </a>
+      <div class="header__right">
+        <nav class="nav" aria-label="メインナビゲーション">
+          <ul class="nav__list">
+            <li><a href="../json-formatter/" class="nav__link">JSON整形</a></li>
+            <li><a href="../char-counter/" class="nav__link">文字数カウント</a></li>
+            <li><a href="../base64/" class="nav__link">Base64</a></li>
+            <li><a href="../url-encode/" class="nav__link">URLエンコード</a></li>
+            <li><a href="../timestamp/" class="nav__link">タイムスタンプ</a></li>
+          </ul>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="テーマ切替">
+          <svg class="theme-toggle__icon theme-toggle__icon--dark" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+          </svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--light" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
+          </svg>
+        </button>
+        <button id="hamburger" class="hamburger" type="button" aria-label="メニュー" aria-expanded="false" aria-controls="mobile-nav">
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- モバイルナビ -->
+  <nav id="mobile-nav" class="mobile-nav" aria-label="モバイルナビゲーション">
+    <ul class="mobile-nav__list">
+      <li><a href="../json-formatter/" class="mobile-nav__link">JSON整形・検証</a></li>
+      <li><a href="../char-counter/" class="mobile-nav__link">文字数カウンター</a></li>
+      <li><a href="../base64/" class="mobile-nav__link">Base64エンコード/デコード</a></li>
+      <li><a href="../url-encode/" class="mobile-nav__link">URLエンコード/デコード</a></li>
+      <li><a href="../timestamp/" class="mobile-nav__link">Unixタイムスタンプ変換</a></li>
+      <li><a href="../../about.html" class="mobile-nav__link">サイトについて</a></li>
+      <li><a href="../../privacy.html" class="mobile-nav__link">プライバシーポリシー</a></li>
+      <li><a href="../../terms.html" class="mobile-nav__link">利用規約</a></li>
+    </ul>
+  </nav>
+
+  <!-- 広告枠A: ヘッダー下バナー -->
+  <div class="ad-slot" id="ad-header" data-ad-size="728x90">
+    <!-- 広告スクリプトをここに挿入 -->
+  </div>
+
+  <main class="main">
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <ol>
+        <li><a href="../../">ホーム</a></li>
+        <li aria-current="page">テキストケース変換</li>
+      </ol>
+    </nav>
+
+    <div class="tool-container">
+      <h1>テキストケース変換ツール</h1>
+      <p class="tool-container__lead">テキストをcamelCase、snake_case、kebab-caseなど様々な命名規則に変換できるツールです。</p>
+
+      <div class="tool-input">
+        <label for="case-input">変換するテキスト</label>
+        <textarea id="case-input" class="textarea" rows="6" placeholder="hello world、helloWorld、hello_world など"></textarea>
+      </div>
+
+      <div class="tool-actions" style="flex-wrap: wrap;">
+        <button class="btn btn--primary case-btn" data-case="camel">camelCase</button>
+        <button class="btn btn--primary case-btn" data-case="pascal">PascalCase</button>
+        <button class="btn btn--primary case-btn" data-case="snake">snake_case</button>
+        <button class="btn btn--primary case-btn" data-case="kebab">kebab-case</button>
+        <button class="btn btn--primary case-btn" data-case="constant">CONSTANT_CASE</button>
+        <button class="btn btn--primary case-btn" data-case="title">Title Case</button>
+        <button class="btn btn--primary case-btn" data-case="sentence">Sentence case</button>
+        <button class="btn btn--primary case-btn" data-case="lower">lowercase</button>
+        <button class="btn btn--primary case-btn" data-case="upper">UPPERCASE</button>
+        <button id="btn-clear" class="btn btn--secondary clear-btn">クリア</button>
+      </div>
+
+      <div class="tool-output">
+        <label for="case-output">出力</label>
+        <textarea id="case-output" class="textarea" rows="6" readonly></textarea>
+        <div id="case-success" class="success-message" hidden></div>
+        <button id="btn-copy" class="btn btn--secondary copy-btn">コピー</button>
+      </div>
+    </div>
+
+    <section class="tool-description">
+      <h2>テキストケース変換ツールの使い方</h2>
+      <p>入力欄にテキストを入力し、変換したいケースのボタンをクリックすると、即座に変換結果が表示されます。入力はスペース区切り、camelCase、snake_case、kebab-case、PascalCaseなどどのような形式でも自動的に単語を認識して変換します。変換結果はコピーボタンでクリップボードにコピーできます。</p>
+
+      <h2>各ケースの説明</h2>
+      <p><strong>camelCase</strong>: 最初の単語は小文字、以降の単語の先頭を大文字。JavaScriptの変数名に多用。<br>
+      <strong>PascalCase</strong>: すべての単語の先頭を大文字。クラス名やコンポーネント名に使用。<br>
+      <strong>snake_case</strong>: すべて小文字でアンダースコア区切り。Python、Ruby、データベースカラム名に使用。<br>
+      <strong>kebab-case</strong>: すべて小文字でハイフン区切り。CSS、URLスラッグに使用。<br>
+      <strong>CONSTANT_CASE</strong>: すべて大文字でアンダースコア区切り。定数名に使用。<br>
+      <strong>Title Case</strong>: 各単語の先頭を大文字。見出しやタイトルに使用。<br>
+      <strong>Sentence case</strong>: 文頭のみ大文字。通常の文章形式。</p>
+
+      <h2>よくある質問（FAQ）</h2>
+      <h3>Q. 日本語テキストにも対応していますか？</h3>
+      <p>A. ケース変換は主にアルファベットテキストを対象としています。日本語テキストはそのまま出力されます。UPPERCASE/lowercaseはアルファベット部分のみ変換されます。</p>
+      <h3>Q. 複数行のテキストを変換できますか？</h3>
+      <p>A. はい、各行が個別に変換されます。</p>
+    </section>
+
+    <section class="related-tools">
+      <h2>関連ツール</h2>
+      <ul>
+        <li><a href="../char-counter/">文字数カウンター</a></li>
+        <li><a href="../backslash-escape/">バックスラッシュエスケープ/アンエスケープ</a></li>
+        <li><a href="../url-encode/">URLエンコード・デコード</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <div class="ad-slot" id="ad-footer" data-ad-size="728x90">
+    <!-- 広告スクリプトをここに挿入 -->
+  </div>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__grid">
+        <div>
+          <p class="footer__section-title">DevToolBox</p>
+          <ul class="footer__list">
+            <li><a href="../../about.html" class="footer__link">サイトについて</a></li>
+            <li><a href="../../privacy.html" class="footer__link">プライバシーポリシー</a></li>
+            <li><a href="../../terms.html" class="footer__link">利用規約</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">ツール一覧</p>
+          <ul class="footer__list">
+            <li><a href="../json-formatter/" class="footer__link">JSON整形・検証</a></li>
+            <li><a href="../char-counter/" class="footer__link">文字数カウンター</a></li>
+            <li><a href="../base64/" class="footer__link">Base64エンコード/デコード</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">&nbsp;</p>
+          <ul class="footer__list">
+            <li><a href="../url-encode/" class="footer__link">URLエンコード/デコード</a></li>
+            <li><a href="../timestamp/" class="footer__link">Unixタイムスタンプ変換</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 DevToolBox. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/common.js"></script>
+  <script src="../../js/tools/text-case.js"></script>
+</body>
+</html>

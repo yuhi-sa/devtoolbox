@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>.gitignoreジェネレーター（オンライン無料） - DevToolBox</title>
+  <meta name="description" content="プロジェクトに最適な.gitignoreファイルを簡単に生成。Node.js、Python、Java等の主要テンプレートを組み合わせて作成できる無料オンラインツール。">
+  <link rel="canonical" href="https://yuhi-sa.github.io/devtoolbox/tools/gitignore-generator/">
+  <meta property="og:title" content=".gitignoreジェネレーター（オンライン無料） - DevToolBox">
+  <meta property="og:description" content="プロジェクトに最適な.gitignoreファイルを簡単に生成。主要テンプレートを組み合わせて作成できる無料オンラインツール。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yuhi-sa.github.io/devtoolbox/tools/gitignore-generator/">
+  <meta property="og:site_name" content="DevToolBox">
+  <meta property="og:locale" content="ja_JP">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": ".gitignoreジェネレーター",
+    "description": "プロジェクトに最適な.gitignoreファイルを簡単に生成するオンラインツール",
+    "url": "https://yuhi-sa.github.io/devtoolbox/tools/gitignore-generator/",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "JPY"
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "DevToolBox",
+      "url": "https://yuhi-sa.github.io/devtoolbox/"
+    }
+  }
+  </script>
+  <link rel="stylesheet" href="../../css/style.css">
+<script data-ad-client="ca-pub-9558545098866170" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<body>
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="../../" class="header__logo">
+        <svg class="header__logo-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="28" height="28" rx="6" fill="currentColor" style="color: var(--color-primary)"/>
+          <path d="M8 10l4 4-4 4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 18h5" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        DevToolBox
+      </a>
+      <div class="header__right">
+        <nav class="nav" aria-label="メインナビゲーション">
+          <ul class="nav__list">
+            <li><a href="../json-formatter/" class="nav__link">JSON整形</a></li>
+            <li><a href="../char-counter/" class="nav__link">文字数カウント</a></li>
+            <li><a href="../base64/" class="nav__link">Base64</a></li>
+            <li><a href="../url-encode/" class="nav__link">URLエンコード</a></li>
+            <li><a href="../timestamp/" class="nav__link">タイムスタンプ</a></li>
+          </ul>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="テーマ切替">
+          <svg class="theme-toggle__icon theme-toggle__icon--dark" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+          </svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--light" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
+          </svg>
+        </button>
+        <button id="hamburger" class="hamburger" type="button" aria-label="メニュー" aria-expanded="false" aria-controls="mobile-nav">
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- モバイルナビ -->
+  <nav id="mobile-nav" class="mobile-nav" aria-label="モバイルナビゲーション">
+    <ul class="mobile-nav__list">
+      <li><a href="../json-formatter/" class="mobile-nav__link">JSON整形・検証</a></li>
+      <li><a href="../char-counter/" class="mobile-nav__link">文字数カウンター</a></li>
+      <li><a href="../base64/" class="mobile-nav__link">Base64エンコード/デコード</a></li>
+      <li><a href="../url-encode/" class="mobile-nav__link">URLエンコード/デコード</a></li>
+      <li><a href="../timestamp/" class="mobile-nav__link">Unixタイムスタンプ変換</a></li>
+      <li><a href="../../about.html" class="mobile-nav__link">サイトについて</a></li>
+      <li><a href="../../privacy.html" class="mobile-nav__link">プライバシーポリシー</a></li>
+      <li><a href="../../terms.html" class="mobile-nav__link">利用規約</a></li>
+    </ul>
+  </nav>
+
+  <!-- 広告枠A: ヘッダー下バナー -->
+  <div class="ad-slot" id="ad-header" data-ad-size="728x90">
+    <!-- 広告スクリプトをここに挿入 -->
+  </div>
+
+  <main class="main">
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <ol>
+        <li><a href="../../">ホーム</a></li>
+        <li aria-current="page">.gitignoreジェネレーター</li>
+      </ol>
+    </nav>
+
+    <div class="tool-container">
+      <h1>.gitignoreジェネレーター</h1>
+      <p class="tool-container__lead">プロジェクトに合わせたテンプレートを選択して、.gitignoreファイルを自動生成します。</p>
+
+      <div class="tool-input">
+        <label class="label">言語・フレームワーク</label>
+        <div id="gitignore-lang" style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1rem;"></div>
+
+        <label class="label">OS</label>
+        <div id="gitignore-os" style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1rem;"></div>
+
+        <label class="label">エディタ・IDE</label>
+        <div id="gitignore-editor" style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1.5rem;"></div>
+      </div>
+
+      <div class="tool-output">
+        <label for="gitignore-output">生成結果</label>
+        <textarea id="gitignore-output" class="textarea" rows="16" readonly placeholder="上のテンプレートを選択すると、ここに.gitignoreの内容が生成されます..."></textarea>
+        <div id="gitignore-success" class="success-message" hidden></div>
+        <div style="display:flex;gap:0.5rem;margin-top:0.5rem;">
+          <button id="btn-copy" class="btn btn--secondary">コピー</button>
+          <button id="btn-download" class="btn btn--secondary">ダウンロード</button>
+          <button id="btn-clear" class="btn btn--secondary">クリア</button>
+        </div>
+      </div>
+    </div>
+
+    <section class="tool-description">
+      <h2>.gitignoreジェネレーターの使い方</h2>
+      <p>プロジェクトで使用する言語・フレームワーク、OS、エディタ/IDEをチェックボックスで選択すると、対応する.gitignoreパターンが自動的に生成されます。複数のテンプレートを組み合わせることができます。生成された内容はコピーボタンでクリップボードにコピーするか、ダウンロードボタンで.gitignoreファイルとしてダウンロードできます。</p>
+
+      <h2>.gitignoreとは？</h2>
+      <p>.gitignoreはGitリポジトリでバージョン管理の対象外とするファイルやディレクトリを指定するための設定ファイルです。ビルド成果物、依存パッケージ、ログファイル、環境設定ファイルなど、リポジトリに含めるべきでないファイルを指定することで、リポジトリをクリーンに保つことができます。</p>
+
+      <h2>よくある質問（FAQ）</h2>
+      <h3>Q. 既にコミット済みのファイルを.gitignoreに追加したら？</h3>
+      <p>A. 既にGitで追跡されているファイルは.gitignoreに追加しても無視されません。追跡を解除するには「git rm --cached ファイル名」を実行する必要があります。</p>
+      <h3>Q. グローバルな.gitignoreは設定できますか？</h3>
+      <p>A. はい、「git config --global core.excludesfile ~/.gitignore_global」で、全リポジトリ共通の.gitignoreを設定できます。OSやエディタ固有のパターンはグローバルに設定するのが一般的です。</p>
+    </section>
+
+    <section class="related-tools">
+      <h2>関連ツール</h2>
+      <ul>
+        <li><a href="../chmod-calculator/">Chmodパーミッション計算</a></li>
+        <li><a href="../diff-checker/">Diff比較ツール</a></li>
+        <li><a href="../json-formatter/">JSON整形・検証ツール</a></li>
+        <li><a href="../slug-generator/">スラッグ生成ツール</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <div class="ad-slot" id="ad-footer" data-ad-size="728x90">
+    <!-- 広告スクリプトをここに挿入 -->
+  </div>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__grid">
+        <div>
+          <p class="footer__section-title">DevToolBox</p>
+          <ul class="footer__list">
+            <li><a href="../../about.html" class="footer__link">サイトについて</a></li>
+            <li><a href="../../privacy.html" class="footer__link">プライバシーポリシー</a></li>
+            <li><a href="../../terms.html" class="footer__link">利用規約</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">ツール一覧</p>
+          <ul class="footer__list">
+            <li><a href="../json-formatter/" class="footer__link">JSON整形・検証</a></li>
+            <li><a href="../char-counter/" class="footer__link">文字数カウンター</a></li>
+            <li><a href="../base64/" class="footer__link">Base64エンコード/デコード</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">&nbsp;</p>
+          <ul class="footer__list">
+            <li><a href="../url-encode/" class="footer__link">URLエンコード/デコード</a></li>
+            <li><a href="../timestamp/" class="footer__link">Unixタイムスタンプ変換</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 DevToolBox. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/common.js"></script>
+  <script src="../../js/tools/gitignore-generator.js"></script>
+</body>
+</html>

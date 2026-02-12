@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>画像Base64変換（オンライン無料） - DevToolBox</title>
+  <meta name="description" content="画像ファイルをBase64文字列に変換。PNG、JPG、GIF、SVG、WebP対応。データURL・imgタグ・CSS背景の出力形式に対応した無料オンラインツール。">
+  <link rel="canonical" href="https://yuhi-sa.github.io/devtoolbox/tools/image-base64/">
+  <meta property="og:title" content="画像Base64変換（オンライン無料） - DevToolBox">
+  <meta property="og:description" content="画像ファイルをBase64文字列に変換。PNG、JPG、GIF、SVG、WebP対応。データURL・imgタグ・CSS背景の出力形式に対応した無料オンラインツール。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yuhi-sa.github.io/devtoolbox/tools/image-base64/">
+  <meta property="og:site_name" content="DevToolBox">
+  <meta property="og:locale" content="ja_JP">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "画像Base64変換",
+    "description": "画像ファイルをBase64文字列に変換するオンラインツール",
+    "url": "https://yuhi-sa.github.io/devtoolbox/tools/image-base64/",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "JPY"
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "DevToolBox",
+      "url": "https://yuhi-sa.github.io/devtoolbox/"
+    }
+  }
+  </script>
+  <link rel="stylesheet" href="../../css/style.css">
+  <script data-ad-client="ca-pub-9558545098866170" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <style>
+    .drop-zone {
+      border: 2px dashed var(--color-border);
+      border-radius: 8px;
+      padding: 2rem;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      margin-bottom: 1rem;
+    }
+    .drop-zone:hover,
+    .drop-zone--active {
+      border-color: var(--color-primary);
+      background: var(--color-primary-bg, rgba(59,130,246,0.05));
+    }
+    .drop-zone__icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      display: block;
+      color: var(--color-text-muted);
+    }
+    .drop-zone__text {
+      color: var(--color-text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .drop-zone__formats {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+    }
+    .image-preview {
+      margin: 1rem 0;
+      text-align: center;
+    }
+    .image-preview img {
+      max-width: 100%;
+      max-height: 300px;
+      border-radius: 6px;
+      border: 1px solid var(--color-border);
+    }
+    .image-info {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+    }
+    .image-info span {
+      background: var(--color-surface);
+      padding: 0.3rem 0.8rem;
+      border-radius: 4px;
+      border: 1px solid var(--color-border);
+    }
+    .output-format-group {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    .output-format-group .tab-btn {
+      font-size: 0.85rem;
+      padding: 0.4rem 0.8rem;
+    }
+    .output-section {
+      margin-bottom: 1.5rem;
+    }
+    .output-section .textarea {
+      font-size: 0.8rem;
+    }
+    .reverse-section {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--color-border);
+    }
+  </style>
+</head>
+<body>
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="../../" class="header__logo">
+        <svg class="header__logo-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="28" height="28" rx="6" fill="currentColor" style="color: var(--color-primary)"/>
+          <path d="M8 10l4 4-4 4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 18h5" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        DevToolBox
+      </a>
+      <div class="header__right">
+        <nav class="nav" aria-label="メインナビゲーション">
+          <ul class="nav__list">
+            <li><a href="../json-formatter/" class="nav__link">JSON整形</a></li>
+            <li><a href="../char-counter/" class="nav__link">文字数カウント</a></li>
+            <li><a href="../base64/" class="nav__link">Base64</a></li>
+            <li><a href="../url-encode/" class="nav__link">URLエンコード</a></li>
+            <li><a href="../timestamp/" class="nav__link">タイムスタンプ</a></li>
+          </ul>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="テーマ切替">
+          <svg class="theme-toggle__icon theme-toggle__icon--dark" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+          </svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--light" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
+          </svg>
+        </button>
+        <button id="hamburger" class="hamburger" type="button" aria-label="メニュー" aria-expanded="false" aria-controls="mobile-nav">
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- モバイルナビ -->
+  <nav id="mobile-nav" class="mobile-nav" aria-label="モバイルナビゲーション">
+    <ul class="mobile-nav__list">
+      <li><a href="../json-formatter/" class="mobile-nav__link">JSON整形・検証</a></li>
+      <li><a href="../char-counter/" class="mobile-nav__link">文字数カウンター</a></li>
+      <li><a href="../base64/" class="mobile-nav__link">Base64エンコード/デコード</a></li>
+      <li><a href="../url-encode/" class="mobile-nav__link">URLエンコード/デコード</a></li>
+      <li><a href="../timestamp/" class="mobile-nav__link">Unixタイムスタンプ変換</a></li>
+      <li><a href="../../about.html" class="mobile-nav__link">サイトについて</a></li>
+      <li><a href="../../privacy.html" class="mobile-nav__link">プライバシーポリシー</a></li>
+      <li><a href="../../terms.html" class="mobile-nav__link">利用規約</a></li>
+    </ul>
+  </nav>
+
+  <!-- 広告枠A: ヘッダー下バナー -->
+  <div class="ad-slot" id="ad-header" data-ad-size="728x90">
+    <!-- 広告スクリプトをここに挿入 -->
+  </div>
+
+  <main class="main">
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <ol>
+        <li><a href="../../">ホーム</a></li>
+        <li aria-current="page">画像Base64変換</li>
+      </ol>
+    </nav>
+
+    <div class="tool-container">
+      <h1>画像Base64変換</h1>
+      <p class="tool-container__lead">画像ファイルをBase64文字列に変換します。ドラッグ&ドロップまたはファイル選択で画像をアップロードしてください。</p>
+
+      <div class="tab-group">
+        <button class="tab-btn tab-btn--active" data-tab="encode">画像 → Base64</button>
+        <button class="tab-btn" data-tab="decode">Base64 → 画像</button>
+      </div>
+
+      <!-- エンコードパネル -->
+      <div id="panel-encode">
+        <div id="drop-zone" class="drop-zone">
+          <span class="drop-zone__icon">&#128444;</span>
+          <p class="drop-zone__text">ここに画像をドラッグ&ドロップ、またはクリックしてファイルを選択</p>
+          <p class="drop-zone__formats">対応形式: PNG, JPG, GIF, SVG, WebP</p>
+          <input type="file" id="file-input" accept="image/png,image/jpeg,image/gif,image/svg+xml,image/webp" hidden>
+        </div>
+
+        <div id="encode-result" hidden>
+          <div class="image-preview">
+            <img id="preview-image" alt="プレビュー">
+          </div>
+          <div class="image-info" id="image-info"></div>
+
+          <label>出力形式</label>
+          <div class="output-format-group">
+            <button class="tab-btn tab-btn--active" data-format="dataurl">データURL</button>
+            <button class="tab-btn" data-format="raw">Base64（生）</button>
+            <button class="tab-btn" data-format="img">HTML imgタグ</button>
+            <button class="tab-btn" data-format="css">CSS background</button>
+          </div>
+
+          <div class="output-section">
+            <textarea id="encode-output" class="textarea" rows="6" readonly></textarea>
+            <div class="tool-actions" style="margin-top:0.5rem">
+              <button id="btn-copy-encode" class="btn btn--secondary copy-btn">コピー</button>
+              <button id="btn-clear-encode" class="btn btn--secondary clear-btn">クリア</button>
+            </div>
+          </div>
+          <div id="encode-success" class="success-message" hidden></div>
+        </div>
+      </div>
+
+      <!-- デコードパネル -->
+      <div id="panel-decode" hidden>
+        <div class="tool-input">
+          <label for="decode-input">Base64文字列またはデータURLを貼り付け</label>
+          <textarea id="decode-input" class="textarea" rows="6" placeholder="data:image/png;base64,... またはBase64文字列を貼り付けてください"></textarea>
+        </div>
+        <div class="tool-actions">
+          <button id="btn-decode" class="btn btn--primary">プレビュー</button>
+          <button id="btn-clear-decode" class="btn btn--secondary clear-btn">クリア</button>
+        </div>
+        <div id="decode-error" class="error-message" hidden></div>
+        <div id="decode-result" hidden>
+          <div class="image-preview">
+            <img id="decode-preview" alt="デコードプレビュー">
+          </div>
+          <div id="decode-success" class="success-message" hidden></div>
+        </div>
+      </div>
+    </div>
+
+    <section class="tool-description">
+      <h2>画像Base64変換ツールの使い方</h2>
+      <p>このツールは、画像ファイルをBase64エンコードされた文字列に変換します。ドラッグ&ドロップまたはファイル選択で画像をアップロードすると、自動的にBase64文字列に変換されます。出力形式として「データURL」「生Base64」「HTML imgタグ」「CSS background」の4種類を選択できます。また、Base64文字列から画像に戻すこともできます。</p>
+
+      <h2>Base64画像エンコーディングとは？</h2>
+      <p>画像をBase64にエンコードすることで、テキスト形式でバイナリ画像データを表現できます。これにより、HTMLやCSS内に画像を直接埋め込むことができ、HTTP リクエスト数を削減してページの読み込み速度を向上させることができます。小さなアイコンやロゴなどに特に有効です。ただし、Base64エンコードはデータサイズが約33%増加するため、大きな画像には適していません。</p>
+
+      <h2>よくある質問（FAQ）</h2>
+      <h3>Q. どの画像形式に対応していますか？</h3>
+      <p>A. PNG、JPEG（JPG）、GIF、SVG、WebPに対応しています。ブラウザがサポートする一般的な画像形式をすべてカバーしています。</p>
+      <h3>Q. ファイルサイズに制限はありますか？</h3>
+      <p>A. すべての処理はブラウザ内で完結するため、サーバーへのアップロードはありません。ただし、大きなファイルの場合はブラウザのメモリに依存します。一般的に数MBまでの画像であれば問題なく処理できます。</p>
+      <h3>Q. 変換されたデータは安全ですか？</h3>
+      <p>A. はい。すべての処理はお使いのブラウザ内で完結します。画像データがサーバーに送信されることは一切ありません。</p>
+    </section>
+
+    <section class="related-tools">
+      <h2>関連ツール</h2>
+      <ul>
+        <li><a href="../base64/">Base64エンコード・デコード</a></li>
+        <li><a href="../json-formatter/">JSON整形・検証ツール</a></li>
+        <li><a href="../url-encode/">URLエンコード・デコード</a></li>
+        <li><a href="../qr-code/">QRコード生成</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <div class="ad-slot" id="ad-footer" data-ad-size="728x90">
+    <!-- 広告スクリプトをここに挿入 -->
+  </div>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__grid">
+        <div>
+          <p class="footer__section-title">DevToolBox</p>
+          <ul class="footer__list">
+            <li><a href="../../about.html" class="footer__link">サイトについて</a></li>
+            <li><a href="../../privacy.html" class="footer__link">プライバシーポリシー</a></li>
+            <li><a href="../../terms.html" class="footer__link">利用規約</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">ツール一覧</p>
+          <ul class="footer__list">
+            <li><a href="../json-formatter/" class="footer__link">JSON整形・検証</a></li>
+            <li><a href="../base64/" class="footer__link">Base64エンコード/デコード</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 DevToolBox. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/common.js"></script>
+  <script src="../../js/tools/image-base64.js"></script>
+</body>
+</html>

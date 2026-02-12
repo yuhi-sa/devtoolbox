@@ -1,0 +1,145 @@
+"use strict";
+
+(function () {
+  document.addEventListener("DOMContentLoaded", function () {
+    var previewBox = document.getElementById("shadow-preview");
+    var layersContainer = document.getElementById("shadow-layers");
+    var addBtn = document.getElementById("add-shadow");
+    var removeBtn = document.getElementById("remove-shadow");
+    var cssOutput = document.getElementById("css-output");
+    var copyBtn = document.getElementById("copy-css");
+    var successEl = document.getElementById("copy-success");
+
+    var shadows = [
+      { offsetX: 5, offsetY: 5, blur: 15, spread: 0, color: "#000000", opacity: 30, inset: false }
+    ];
+
+    function hexToRgba(hex, opacity) {
+      var r = parseInt(hex.substring(1, 3), 16);
+      var g = parseInt(hex.substring(3, 5), 16);
+      var b = parseInt(hex.substring(5, 7), 16);
+      return "rgba(" + r + ", " + g + ", " + b + ", " + (opacity / 100) + ")";
+    }
+
+    function createSliderRow(label, min, max, value, unit, onChange) {
+      var row = document.createElement("div");
+      row.className = "shadow-slider-row";
+
+      var lbl = document.createElement("label");
+      lbl.textContent = label;
+
+      var slider = document.createElement("input");
+      slider.type = "range";
+      slider.min = String(min);
+      slider.max = String(max);
+      slider.value = String(value);
+
+      var val = document.createElement("span");
+      val.className = "slider-val";
+      val.textContent = value + unit;
+
+      slider.addEventListener("input", function () {
+        val.textContent = slider.value + unit;
+        onChange(parseInt(slider.value, 10));
+      });
+
+      row.appendChild(lbl);
+      row.appendChild(slider);
+      row.appendChild(val);
+      return row;
+    }
+
+    function renderLayers() {
+      layersContainer.innerHTML = "";
+      shadows.forEach(function (shadow, i) {
+        var layer = document.createElement("div");
+        layer.className = "shadow-layer";
+
+        var header = document.createElement("div");
+        header.className = "shadow-layer__header";
+        header.textContent = "シャドウ " + (i + 1);
+        layer.appendChild(header);
+
+        layer.appendChild(createSliderRow("水平オフセット", -50, 50, shadow.offsetX, "px", function (v) { shadows[i].offsetX = v; update(); }));
+        layer.appendChild(createSliderRow("垂直オフセット", -50, 50, shadow.offsetY, "px", function (v) { shadows[i].offsetY = v; update(); }));
+        layer.appendChild(createSliderRow("ぼかし", 0, 100, shadow.blur, "px", function (v) { shadows[i].blur = v; update(); }));
+        layer.appendChild(createSliderRow("広がり", -50, 50, shadow.spread, "px", function (v) { shadows[i].spread = v; update(); }));
+
+        var colorRow = document.createElement("div");
+        colorRow.className = "shadow-color-row";
+        var colorLabel = document.createElement("label");
+        colorLabel.textContent = "色";
+        colorLabel.style.minWidth = "90px";
+        colorLabel.style.fontSize = "0.875rem";
+        var colorInput = document.createElement("input");
+        colorInput.type = "color";
+        colorInput.value = shadow.color;
+        colorInput.addEventListener("input", function () { shadows[i].color = colorInput.value; update(); });
+        colorRow.appendChild(colorLabel);
+        colorRow.appendChild(colorInput);
+        layer.appendChild(colorRow);
+
+        layer.appendChild(createSliderRow("不透明度", 0, 100, shadow.opacity, "%", function (v) { shadows[i].opacity = v; update(); }));
+
+        var insetRow = document.createElement("div");
+        insetRow.className = "shadow-inset-row";
+        var insetCb = document.createElement("input");
+        insetCb.type = "checkbox";
+        insetCb.id = "inset-" + i;
+        insetCb.checked = shadow.inset;
+        insetCb.addEventListener("change", function () { shadows[i].inset = insetCb.checked; update(); });
+        var insetLabel = document.createElement("label");
+        insetLabel.htmlFor = "inset-" + i;
+        insetLabel.textContent = "内側の影（inset）";
+        insetLabel.style.fontSize = "0.875rem";
+        insetRow.appendChild(insetCb);
+        insetRow.appendChild(insetLabel);
+        layer.appendChild(insetRow);
+
+        layersContainer.appendChild(layer);
+      });
+    }
+
+    function buildCSS() {
+      var parts = shadows.map(function (s) {
+        var rgba = hexToRgba(s.color, s.opacity);
+        var vals = (s.inset ? "inset " : "") + s.offsetX + "px " + s.offsetY + "px " + s.blur + "px " + s.spread + "px " + rgba;
+        return vals;
+      });
+      return parts.join(",\n    ");
+    }
+
+    function update() {
+      var css = buildCSS();
+      previewBox.style.boxShadow = css;
+      cssOutput.value = "box-shadow: " + css + ";";
+    }
+
+    addBtn.addEventListener("click", function () {
+      if (shadows.length >= 5) return;
+      shadows.push({ offsetX: 0, offsetY: 0, blur: 10, spread: 0, color: "#000000", opacity: 20, inset: false });
+      renderLayers();
+      update();
+    });
+
+    removeBtn.addEventListener("click", function () {
+      if (shadows.length <= 1) return;
+      shadows.pop();
+      renderLayers();
+      update();
+    });
+
+    copyBtn.addEventListener("click", function () {
+      var text = cssOutput.value;
+      if (!text) return;
+      navigator.clipboard.writeText(text).then(function () {
+        successEl.textContent = "コピーしました。";
+        successEl.hidden = false;
+        setTimeout(function () { successEl.hidden = true; }, 2000);
+      });
+    });
+
+    renderLayers();
+    update();
+  });
+})();

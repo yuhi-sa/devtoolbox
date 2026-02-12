@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSSグラデーションジェネレーター（オンライン無料） - DevToolBox</title>
+  <meta name="description" content="リニア・ラジアルグラデーションをビジュアルで作成。カラーストップの追加・角度調整・リアルタイムプレビュー付きの無料CSSグラデーション生成ツール。">
+  <link rel="canonical" href="https://yuhi-sa.github.io/devtoolbox/tools/css-gradient/">
+  <meta property="og:title" content="CSSグラデーションジェネレーター（オンライン無料） - DevToolBox">
+  <meta property="og:description" content="リニア・ラジアルグラデーションをビジュアルで作成。カラーストップの追加・角度調整・リアルタイムプレビュー付きの無料CSSグラデーション生成ツール。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yuhi-sa.github.io/devtoolbox/tools/css-gradient/">
+  <meta property="og:site_name" content="DevToolBox">
+  <meta property="og:locale" content="ja_JP">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "CSSグラデーションジェネレーター",
+    "description": "リニア・ラジアルグラデーションをビジュアルで作成するオンラインツール",
+    "url": "https://yuhi-sa.github.io/devtoolbox/tools/css-gradient/",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" },
+    "isPartOf": { "@type": "WebSite", "name": "DevToolBox", "url": "https://yuhi-sa.github.io/devtoolbox/" }
+  }
+  </script>
+  <link rel="stylesheet" href="../../css/style.css">
+  <script data-ad-client="ca-pub-9558545098866170" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <style>
+    .gradient-preview {
+      width: 100%;
+      height: 250px;
+      border-radius: var(--radius);
+      border: 2px solid var(--color-border);
+      margin-bottom: 1.5rem;
+      background: linear-gradient(90deg, #1a73e8, #e91e63);
+    }
+    .gradient-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .gradient-row {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .gradient-row label {
+      min-width: 100px;
+      font-weight: 600;
+    }
+    .gradient-row select,
+    .gradient-row input[type="range"] {
+      flex: 1;
+      min-width: 0;
+    }
+    .angle-value {
+      min-width: 3.5rem;
+      text-align: center;
+      font-family: var(--font-mono);
+    }
+    .color-stops {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .color-stop {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
+    .color-stop input[type="color"] {
+      width: 50px;
+      height: 36px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      padding: 2px;
+    }
+    .color-stop input[type="range"] {
+      flex: 1;
+      min-width: 0;
+    }
+    .color-stop .stop-value {
+      min-width: 3rem;
+      text-align: center;
+      font-family: var(--font-mono);
+    }
+    .color-stop-actions {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .css-output {
+      position: relative;
+    }
+    .css-output textarea {
+      width: 100%;
+      min-height: 60px;
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      resize: vertical;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header__inner">
+      <a href="../../" class="header__logo">
+        <svg class="header__logo-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="28" height="28" rx="6" fill="currentColor" style="color: var(--color-primary)"/>
+          <path d="M8 10l4 4-4 4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 18h5" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        DevToolBox
+      </a>
+      <div class="header__right">
+        <nav class="nav" aria-label="メインナビゲーション">
+          <ul class="nav__list">
+            <li><a href="../json-formatter/" class="nav__link">JSON整形</a></li>
+            <li><a href="../char-counter/" class="nav__link">文字数カウント</a></li>
+            <li><a href="../base64/" class="nav__link">Base64</a></li>
+            <li><a href="../url-encode/" class="nav__link">URLエンコード</a></li>
+            <li><a href="../timestamp/" class="nav__link">タイムスタンプ</a></li>
+          </ul>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="テーマ切替">
+          <svg class="theme-toggle__icon theme-toggle__icon--dark" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+          </svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--light" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
+          </svg>
+        </button>
+        <button id="hamburger" class="hamburger" type="button" aria-label="メニュー" aria-expanded="false" aria-controls="mobile-nav">
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <nav id="mobile-nav" class="mobile-nav" aria-label="モバイルナビゲーション">
+    <ul class="mobile-nav__list">
+      <li><a href="../json-formatter/" class="mobile-nav__link">JSON整形・検証</a></li>
+      <li><a href="../base64/" class="mobile-nav__link">Base64エンコード/デコード</a></li>
+      <li><a href="../url-encode/" class="mobile-nav__link">URLエンコード/デコード</a></li>
+      <li><a href="../timestamp/" class="mobile-nav__link">Unixタイムスタンプ変換</a></li>
+      <li><a href="../../about.html" class="mobile-nav__link">サイトについて</a></li>
+      <li><a href="../../privacy.html" class="mobile-nav__link">プライバシーポリシー</a></li>
+      <li><a href="../../terms.html" class="mobile-nav__link">利用規約</a></li>
+    </ul>
+  </nav>
+  <div class="ad-slot" id="ad-header" data-ad-size="728x90"></div>
+  <main class="main">
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <ol>
+        <li><a href="../../">ホーム</a></li>
+        <li aria-current="page">CSSグラデーションジェネレーター</li>
+      </ol>
+    </nav>
+    <div class="tool-container">
+      <h1>CSSグラデーションジェネレーター</h1>
+      <p class="tool-container__lead">リニア・ラジアルグラデーションをビジュアルで作成し、CSSコードを生成できるツールです。</p>
+
+      <div class="gradient-preview" id="gradient-preview"></div>
+
+      <div class="gradient-controls">
+        <div class="gradient-row">
+          <label for="gradient-type">タイプ</label>
+          <select id="gradient-type" class="input">
+            <option value="linear">リニア（線形）</option>
+            <option value="radial">ラジアル（放射状）</option>
+          </select>
+        </div>
+        <div class="gradient-row" id="angle-row">
+          <label for="gradient-angle">角度</label>
+          <input type="range" id="gradient-angle" min="0" max="360" value="90">
+          <span class="angle-value" id="angle-value">90deg</span>
+        </div>
+        <div class="gradient-row" id="shape-row" hidden>
+          <label for="radial-shape">形状</label>
+          <select id="radial-shape" class="input">
+            <option value="circle">円形（circle）</option>
+            <option value="ellipse">楕円形（ellipse）</option>
+          </select>
+        </div>
+      </div>
+
+      <h2 style="font-size:1rem;margin-bottom:0.75rem;">カラーストップ</h2>
+      <div class="color-stops" id="color-stops"></div>
+      <div class="color-stop-actions">
+        <button class="btn btn--secondary" id="add-stop">ストップを追加</button>
+        <button class="btn btn--secondary" id="remove-stop">ストップを削除</button>
+      </div>
+
+      <div class="css-output">
+        <label for="css-output">CSSコード</label>
+        <textarea id="css-output" class="input" readonly></textarea>
+      </div>
+      <button class="btn btn--primary" id="copy-css" style="margin-top:0.75rem;">CSSをコピー</button>
+      <div id="copy-success" class="success-message" hidden></div>
+    </div>
+
+    <section class="tool-description">
+      <h2>CSSグラデーションジェネレーターの使い方</h2>
+      <p>グラデーションタイプ（リニアまたはラジアル）を選択し、カラーストップの色と位置を調整してください。プレビューがリアルタイムで更新されます。「CSSをコピー」ボタンで生成されたCSSコードをクリップボードにコピーできます。</p>
+
+      <h2>CSSグラデーションについて</h2>
+      <p>CSSグラデーションは、2つ以上の色の間の滑らかな遷移を表現する機能です。linear-gradient()は直線方向のグラデーション、radial-gradient()は中心から外側に向かう放射状のグラデーションを生成します。角度やカラーストップの位置を調整することで、多様なデザイン表現が可能です。</p>
+
+      <h2>よくある質問（FAQ）</h2>
+      <h3>Q. カラーストップは何個まで追加できますか？</h3>
+      <p>A. 最大10個まで追加できます。最低2個のカラーストップが必要です。</p>
+      <h3>Q. 入力データのセキュリティは？</h3>
+      <p>A. すべての処理はお使いのブラウザ内で完結します。入力データがサーバーに送信されることは一切ありません。</p>
+    </section>
+
+    <section class="related-tools">
+      <h2>関連ツール</h2>
+      <ul>
+        <li><a href="../box-shadow/">Box Shadowジェネレーター</a></li>
+        <li><a href="../border-radius/">Border Radiusジェネレーター</a></li>
+        <li><a href="../flexbox-playground/">Flexboxプレイグラウンド</a></li>
+        <li><a href="../color-converter/">カラーコンバーター</a></li>
+      </ul>
+    </section>
+  </main>
+  <div class="ad-slot" id="ad-footer" data-ad-size="728x90"></div>
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__grid">
+        <div>
+          <p class="footer__section-title">DevToolBox</p>
+          <ul class="footer__list">
+            <li><a href="../../about.html" class="footer__link">サイトについて</a></li>
+            <li><a href="../../privacy.html" class="footer__link">プライバシーポリシー</a></li>
+            <li><a href="../../terms.html" class="footer__link">利用規約</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">ツール一覧</p>
+          <ul class="footer__list">
+            <li><a href="../json-formatter/" class="footer__link">JSON整形・検証</a></li>
+            <li><a href="../base64/" class="footer__link">Base64エンコード/デコード</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom"><p>&copy; 2026 DevToolBox. All rights reserved.</p></div>
+    </div>
+  </footer>
+  <script src="../../js/common.js"></script>
+  <script src="../../js/tools/css-gradient.js"></script>
+</body>
+</html>
