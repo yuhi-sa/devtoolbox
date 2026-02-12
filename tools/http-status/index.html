@@ -12,6 +12,10 @@
   <meta property="og:url" content="https://yuhi-sa.github.io/devtoolbox/tools/http-status/">
   <meta property="og:site_name" content="DevToolBox">
   <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="HTTPステータスコード一覧（オンライン無料） - DevToolBox">
+  <meta name="twitter:description" content="HTTPステータスコードの一覧と検索。各コードの意味・説明を日本語で確認できる無料オンラインリファレンス。">
+  <meta name="theme-color" content="#1a73e8">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -31,6 +35,34 @@
       "name": "DevToolBox",
       "url": "https://yuhi-sa.github.io/devtoolbox/"
     }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://yuhi-sa.github.io/devtoolbox/" },
+      { "@type": "ListItem", "position": 2, "name": "HTTPステータスコード一覧", "item": "https://yuhi-sa.github.io/devtoolbox/tools/http-status/" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "200と201の違いは？",
+        "acceptedAnswer": { "@type": "Answer", "text": "200 OKはリクエストが正常に処理されたことを示し、201 Createdはリクエストが正常に処理され新しいリソースが作成されたことを示します。RESTful APIでは、POSTリクエストでリソースを作成した場合に201を返すのが一般的です。" }
+      },
+      {
+        "@type": "Question",
+        "name": "301と302の違いは？",
+        "acceptedAnswer": { "@type": "Answer", "text": "301 Moved Permanentlyは恒久的なリダイレクトで、SEO評価が転送先に引き継がれます。302 Foundは一時的なリダイレクトで、元のURLのSEO評価が維持されます。" }
+      }
+    ]
   }
   </script>
   <link rel="stylesheet" href="../../css/style.css">
@@ -163,18 +195,57 @@
           </ul>
         </div>
         <div>
-          <p class="footer__section-title">ツール一覧</p>
+          <p class="footer__section-title">フォーマット・エンコード</p>
           <ul class="footer__list">
             <li><a href="../json-formatter/" class="footer__link">JSON整形・検証</a></li>
-            <li><a href="../char-counter/" class="footer__link">文字数カウンター</a></li>
+            <li><a href="../sql-formatter/" class="footer__link">SQLフォーマッター</a></li>
+            <li><a href="../xml-formatter/" class="footer__link">XMLフォーマッター</a></li>
+            <li><a href="../markdown-preview/" class="footer__link">Markdownプレビュー</a></li>
             <li><a href="../base64/" class="footer__link">Base64エンコード/デコード</a></li>
+            <li><a href="../url-encode/" class="footer__link">URLエンコード/デコード</a></li>
+            <li><a href="../html-entity/" class="footer__link">HTMLエンティティ変換</a></li>
+            <li><a href="../image-base64/" class="footer__link">画像Base64変換</a></li>
+            <li><a href="../backslash-escape/" class="footer__link">エスケープ変換</a></li>
           </ul>
         </div>
         <div>
-          <p class="footer__section-title">&nbsp;</p>
+          <p class="footer__section-title">テキスト・変換・データ</p>
           <ul class="footer__list">
-            <li><a href="../url-encode/" class="footer__link">URLエンコード/デコード</a></li>
+            <li><a href="../char-counter/" class="footer__link">文字数カウンター</a></li>
+            <li><a href="../regex-tester/" class="footer__link">正規表現テスター</a></li>
+            <li><a href="../diff-checker/" class="footer__link">テキスト差分比較</a></li>
+            <li><a href="../text-case/" class="footer__link">テキストケース変換</a></li>
+            <li><a href="../slug-generator/" class="footer__link">スラッグ生成</a></li>
+            <li><a href="../yaml-json/" class="footer__link">YAML⇔JSON変換</a></li>
+            <li><a href="../csv-json/" class="footer__link">CSV⇔JSON変換</a></li>
+            <li><a href="../toml-json/" class="footer__link">TOML⇔JSON変換</a></li>
+            <li><a href="../json-to-typescript/" class="footer__link">JSON→TypeScript変換</a></li>
+            <li><a href="../json-path/" class="footer__link">JSONパスファインダー</a></li>
             <li><a href="../timestamp/" class="footer__link">Unixタイムスタンプ変換</a></li>
+            <li><a href="../color-converter/" class="footer__link">カラーコンバーター</a></li>
+            <li><a href="../number-base/" class="footer__link">進数変換ツール</a></li>
+            <li><a href="../byte-converter/" class="footer__link">バイト単位変換</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">生成・CSS・開発支援</p>
+          <ul class="footer__list">
+            <li><a href="../hash-generator/" class="footer__link">ハッシュ生成</a></li>
+            <li><a href="../uuid-generator/" class="footer__link">UUID生成</a></li>
+            <li><a href="../password-generator/" class="footer__link">パスワード生成</a></li>
+            <li><a href="../qr-code/" class="footer__link">QRコード生成</a></li>
+            <li><a href="../css-gradient/" class="footer__link">CSSグラデーション生成</a></li>
+            <li><a href="../box-shadow/" class="footer__link">Box Shadow生成</a></li>
+            <li><a href="../flexbox-playground/" class="footer__link">Flexboxプレイグラウンド</a></li>
+            <li><a href="../border-radius/" class="footer__link">Border Radius生成</a></li>
+            <li><a href="../jwt-decoder/" class="footer__link">JWTデコーダー</a></li>
+            <li><a href="../cron-parser/" class="footer__link">Cron式パーサー</a></li>
+            <li><a href="../chmod-calculator/" class="footer__link">Chmod計算機</a></li>
+            <li><a href="../http-status/" class="footer__link">HTTPステータスコード</a></li>
+            <li><a href="../gitignore-generator/" class="footer__link">.gitignore生成</a></li>
+            <li><a href="../meta-tag-generator/" class="footer__link">メタタグ生成</a></li>
+            <li><a href="../og-preview/" class="footer__link">OGPプレビュー</a></li>
+            <li><a href="../lorem-ipsum/" class="footer__link">Lorem Ipsum生成</a></li>
           </ul>
         </div>
       </div>

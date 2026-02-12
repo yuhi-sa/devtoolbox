@@ -12,6 +12,10 @@
   <meta property="og:url" content="https://yuhi-sa.github.io/devtoolbox/tools/char-counter/">
   <meta property="og:site_name" content="DevToolBox">
   <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="文字数カウンター（スペース含む/除く対応） - DevToolBox">
+  <meta name="twitter:description" content="文字数・行数・バイト数をリアルタイムでカウント。スペース含む/除くの切替対応。">
+  <meta name="theme-color" content="#1a73e8">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -31,6 +35,39 @@
       "name": "DevToolBox",
       "url": "https://yuhi-sa.github.io/devtoolbox/"
     }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://yuhi-sa.github.io/devtoolbox/" },
+      { "@type": "ListItem", "position": 2, "name": "文字数カウンター", "item": "https://yuhi-sa.github.io/devtoolbox/tools/char-counter/" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "改行コードは文字数に含まれますか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "はい、改行コードも文字数にカウントされます。ブラウザのテキストエリアでは通常LF（\n）が使用され、1文字としてカウントされます。" }
+      },
+      {
+        "@type": "Question",
+        "name": "全角スペースと半角スペースはどちらもスペースとして扱われますか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "はい、「スペース除く」のカウントでは、半角スペース・全角スペース・タブの3種類をスペースとして除外してカウントします。" }
+      },
+      {
+        "@type": "Question",
+        "name": "大量のテキストを入力しても動作しますか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "はい、10万文字以上のテキストでも問題なくカウントできます。すべての処理はブラウザ上で行われ、データが外部に送信されることはありません。" }
+      }
+    ]
   }
   </script>
   <link rel="stylesheet" href="../../css/style.css">
@@ -185,18 +222,57 @@
           </ul>
         </div>
         <div>
-          <p class="footer__section-title">ツール一覧</p>
+          <p class="footer__section-title">フォーマット・エンコード</p>
           <ul class="footer__list">
             <li><a href="../json-formatter/" class="footer__link">JSON整形・検証</a></li>
-            <li><a href="../char-counter/" class="footer__link">文字数カウンター</a></li>
+            <li><a href="../sql-formatter/" class="footer__link">SQLフォーマッター</a></li>
+            <li><a href="../xml-formatter/" class="footer__link">XMLフォーマッター</a></li>
+            <li><a href="../markdown-preview/" class="footer__link">Markdownプレビュー</a></li>
             <li><a href="../base64/" class="footer__link">Base64エンコード/デコード</a></li>
+            <li><a href="../url-encode/" class="footer__link">URLエンコード/デコード</a></li>
+            <li><a href="../html-entity/" class="footer__link">HTMLエンティティ変換</a></li>
+            <li><a href="../image-base64/" class="footer__link">画像Base64変換</a></li>
+            <li><a href="../backslash-escape/" class="footer__link">エスケープ変換</a></li>
           </ul>
         </div>
         <div>
-          <p class="footer__section-title">&nbsp;</p>
+          <p class="footer__section-title">テキスト・変換・データ</p>
           <ul class="footer__list">
-            <li><a href="../url-encode/" class="footer__link">URLエンコード/デコード</a></li>
+            <li><a href="../char-counter/" class="footer__link">文字数カウンター</a></li>
+            <li><a href="../regex-tester/" class="footer__link">正規表現テスター</a></li>
+            <li><a href="../diff-checker/" class="footer__link">テキスト差分比較</a></li>
+            <li><a href="../text-case/" class="footer__link">テキストケース変換</a></li>
+            <li><a href="../slug-generator/" class="footer__link">スラッグ生成</a></li>
+            <li><a href="../yaml-json/" class="footer__link">YAML⇔JSON変換</a></li>
+            <li><a href="../csv-json/" class="footer__link">CSV⇔JSON変換</a></li>
+            <li><a href="../toml-json/" class="footer__link">TOML⇔JSON変換</a></li>
+            <li><a href="../json-to-typescript/" class="footer__link">JSON→TypeScript変換</a></li>
+            <li><a href="../json-path/" class="footer__link">JSONパスファインダー</a></li>
             <li><a href="../timestamp/" class="footer__link">Unixタイムスタンプ変換</a></li>
+            <li><a href="../color-converter/" class="footer__link">カラーコンバーター</a></li>
+            <li><a href="../number-base/" class="footer__link">進数変換ツール</a></li>
+            <li><a href="../byte-converter/" class="footer__link">バイト単位変換</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">生成・CSS・開発支援</p>
+          <ul class="footer__list">
+            <li><a href="../hash-generator/" class="footer__link">ハッシュ生成</a></li>
+            <li><a href="../uuid-generator/" class="footer__link">UUID生成</a></li>
+            <li><a href="../password-generator/" class="footer__link">パスワード生成</a></li>
+            <li><a href="../qr-code/" class="footer__link">QRコード生成</a></li>
+            <li><a href="../css-gradient/" class="footer__link">CSSグラデーション生成</a></li>
+            <li><a href="../box-shadow/" class="footer__link">Box Shadow生成</a></li>
+            <li><a href="../flexbox-playground/" class="footer__link">Flexboxプレイグラウンド</a></li>
+            <li><a href="../border-radius/" class="footer__link">Border Radius生成</a></li>
+            <li><a href="../jwt-decoder/" class="footer__link">JWTデコーダー</a></li>
+            <li><a href="../cron-parser/" class="footer__link">Cron式パーサー</a></li>
+            <li><a href="../chmod-calculator/" class="footer__link">Chmod計算機</a></li>
+            <li><a href="../http-status/" class="footer__link">HTTPステータスコード</a></li>
+            <li><a href="../gitignore-generator/" class="footer__link">.gitignore生成</a></li>
+            <li><a href="../meta-tag-generator/" class="footer__link">メタタグ生成</a></li>
+            <li><a href="../og-preview/" class="footer__link">OGPプレビュー</a></li>
+            <li><a href="../lorem-ipsum/" class="footer__link">Lorem Ipsum生成</a></li>
           </ul>
         </div>
       </div>

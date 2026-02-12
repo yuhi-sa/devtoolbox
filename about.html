@@ -12,6 +12,10 @@
   <meta property="og:url" content="https://yuhi-sa.github.io/devtoolbox/about.html">
   <meta property="og:site_name" content="DevToolBox">
   <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="サイトについて - DevToolBox">
+  <meta name="twitter:description" content="DevToolBoxは開発者の日常作業を効率化する無料オンラインツール集です。すべての処理はブラウザ上で完結し、データをサーバーに送信しません。">
+  <meta name="theme-color" content="#1a73e8">
   <link rel="stylesheet" href="css/style.css">
 <script data-ad-client="ca-pub-9558545098866170" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
@@ -96,12 +100,76 @@
         </ul>
 
         <h2>提供ツール</h2>
+
+        <h3>フォーマット・整形</h3>
         <ul>
           <li><a href="tools/json-formatter/">JSON整形・検証</a> - JSONデータの整形・圧縮・構文検証</li>
-          <li><a href="tools/char-counter/">文字数カウンター</a> - 文字数・行数・バイト数のリアルタイムカウント</li>
+          <li><a href="tools/sql-formatter/">SQLフォーマッター</a> - SQL文の整形・キーワード大文字化</li>
+          <li><a href="tools/xml-formatter/">XMLフォーマッター</a> - XMLデータの整形・圧縮・構文検証</li>
+          <li><a href="tools/markdown-preview/">Markdownプレビュー</a> - Markdownのリアルタイムプレビュー</li>
+        </ul>
+
+        <h3>エンコード・デコード</h3>
+        <ul>
           <li><a href="tools/base64/">Base64エンコード/デコード</a> - テキストとBase64の相互変換</li>
           <li><a href="tools/url-encode/">URLエンコード/デコード</a> - URL文字列のエンコード・デコード</li>
+          <li><a href="tools/html-entity/">HTMLエンティティ変換</a> - HTML特殊文字のエンコード・デコード</li>
+          <li><a href="tools/image-base64/">画像Base64変換</a> - 画像ファイルとBase64データURLの相互変換</li>
+          <li><a href="tools/backslash-escape/">エスケープ変換</a> - バックスラッシュエスケープの変換・復元</li>
+        </ul>
+
+        <h3>テキスト処理</h3>
+        <ul>
+          <li><a href="tools/char-counter/">文字数カウンター</a> - 文字数・行数・バイト数のリアルタイムカウント</li>
+          <li><a href="tools/regex-tester/">正規表現テスター</a> - 正規表現パターンのリアルタイムテスト</li>
+          <li><a href="tools/diff-checker/">テキスト差分比較</a> - 2つのテキストの差分をハイライト表示</li>
+          <li><a href="tools/text-case/">テキストケース変換</a> - camelCase、snake_case等への変換</li>
+          <li><a href="tools/lorem-ipsum/">Lorem Ipsumジェネレーター</a> - ダミーテキストの生成</li>
+          <li><a href="tools/slug-generator/">スラッグ生成</a> - URL用スラッグの生成</li>
+        </ul>
+
+        <h3>データ変換</h3>
+        <ul>
+          <li><a href="tools/yaml-json/">YAML⇔JSON変換</a> - YAMLとJSONの相互変換</li>
+          <li><a href="tools/csv-json/">CSV⇔JSON変換</a> - CSVとJSONの相互変換</li>
+          <li><a href="tools/toml-json/">TOML⇔JSON変換</a> - TOMLとJSONの相互変換</li>
+          <li><a href="tools/json-to-typescript/">JSON→TypeScript変換</a> - JSONからTypeScript型定義を生成</li>
+          <li><a href="tools/json-path/">JSONパスファインダー</a> - JSONツリー表示とパスクエリ</li>
+        </ul>
+
+        <h3>変換ツール</h3>
+        <ul>
           <li><a href="tools/timestamp/">Unixタイムスタンプ変換</a> - タイムスタンプと日時の相互変換</li>
+          <li><a href="tools/color-converter/">カラーコンバーター</a> - HEX・RGB・HSL間の相互変換</li>
+          <li><a href="tools/number-base/">進数変換ツール</a> - 2進数・8進数・10進数・16進数の相互変換</li>
+          <li><a href="tools/byte-converter/">バイト単位変換</a> - B・KB・MB・GB・TB・PBの相互変換</li>
+        </ul>
+
+        <h3>生成ツール</h3>
+        <ul>
+          <li><a href="tools/hash-generator/">ハッシュ生成</a> - MD5・SHA-1・SHA-256・SHA-512ハッシュ値の生成</li>
+          <li><a href="tools/uuid-generator/">UUID生成</a> - UUID v4の生成（一括生成対応）</li>
+          <li><a href="tools/password-generator/">パスワード生成</a> - 安全なパスワードの生成</li>
+          <li><a href="tools/qr-code/">QRコード生成</a> - テキスト・URLからQRコードを生成</li>
+        </ul>
+
+        <h3>CSS・デザイン</h3>
+        <ul>
+          <li><a href="tools/css-gradient/">CSSグラデーション生成</a> - 線形・放射グラデーションの作成</li>
+          <li><a href="tools/box-shadow/">Box Shadow生成</a> - box-shadowの直感的な設定</li>
+          <li><a href="tools/flexbox-playground/">Flexboxプレイグラウンド</a> - Flexboxプロパティのインタラクティブ操作</li>
+          <li><a href="tools/border-radius/">Border Radius生成</a> - border-radiusの設定</li>
+        </ul>
+
+        <h3>開発支援</h3>
+        <ul>
+          <li><a href="tools/jwt-decoder/">JWTデコーダー</a> - JWTトークンのデコード・検証</li>
+          <li><a href="tools/cron-parser/">Cron式パーサー</a> - Cron式の解説と実行予定表示</li>
+          <li><a href="tools/chmod-calculator/">Chmod計算機</a> - ファイルパーミッションの計算</li>
+          <li><a href="tools/http-status/">HTTPステータスコード</a> - ステータスコードリファレンス</li>
+          <li><a href="tools/gitignore-generator/">.gitignore生成</a> - .gitignoreテンプレート生成</li>
+          <li><a href="tools/meta-tag-generator/">メタタグ生成</a> - SEO・OGPメタタグの生成</li>
+          <li><a href="tools/og-preview/">OGPプレビュー</a> - OGP設定のプレビュー</li>
         </ul>
 
         <h2>お問い合わせ</h2>
