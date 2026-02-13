@@ -4,19 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DevToolBox - 開発者向け無料オンラインツール集</title>
-  <meta name="description" content="開発者の日常作業を効率化する無料オンラインツール集。JSON整形、Base64変換、正規表現テスター、CSSジェネレーター、TypeScript変換など39種類のツールを提供。">
+  <meta name="description" content="開発者の日常作業を効率化する無料オンラインツール集。JSON整形、Base64変換、正規表現テスター、CSSジェネレーター、画像圧縮、カラーパレット生成など49種類のツールを提供。">
   <link rel="canonical" href="https://yuhi-sa.github.io/devtoolbox/">
   <meta property="og:title" content="DevToolBox - 開発者向け無料オンラインツール集">
-  <meta property="og:description" content="開発者の日常作業を効率化する無料オンラインツール集。JSON整形、Base64変換、CSSジェネレーターなど39種類のツールを提供。">
+  <meta property="og:description" content="開発者の日常作業を効率化する無料オンラインツール集。JSON整形、Base64変換、画像圧縮、カラーパレットなど49種類のツールを提供。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://yuhi-sa.github.io/devtoolbox/">
   <meta property="og:site_name" content="DevToolBox">
   <meta property="og:locale" content="ja_JP">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="DevToolBox - 開発者向け無料オンラインツール集">
-  <meta name="twitter:description" content="開発者の日常作業を効率化する無料オンラインツール集。JSON整形、Base64変換、CSSジェネレーターなど39種類のツールを提供。">
+  <meta name="twitter:description" content="開発者の日常作業を効率化する無料オンラインツール集。JSON整形、Base64変換、画像圧縮、カラーパレットなど49種類のツールを提供。">
   <meta name="theme-color" content="#1a73e8">
+  <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/enhancements.css">
   <style>
     .category { margin-bottom: var(--space-2xl); }
     .category__title { font-size: 1.25rem; font-weight: 700; margin-bottom: var(--space-md); padding-bottom: var(--space-sm); border-bottom: 2px solid var(--color-primary); color: var(--color-text); }
@@ -53,7 +55,7 @@
     "@context": "https://schema.org",
     "@type": "ItemList",
     "name": "開発者向けオンラインツール一覧",
-    "numberOfItems": 39,
+    "numberOfItems": 49,
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "JSON整形・検証", "url": "https://yuhi-sa.github.io/devtoolbox/tools/json-formatter/" },
       { "@type": "ListItem", "position": 2, "name": "SQLフォーマッター", "url": "https://yuhi-sa.github.io/devtoolbox/tools/sql-formatter/" },
@@ -64,36 +66,46 @@
       { "@type": "ListItem", "position": 7, "name": "HTMLエンティティ変換", "url": "https://yuhi-sa.github.io/devtoolbox/tools/html-entity/" },
       { "@type": "ListItem", "position": 8, "name": "画像Base64変換", "url": "https://yuhi-sa.github.io/devtoolbox/tools/image-base64/" },
       { "@type": "ListItem", "position": 9, "name": "エスケープ変換", "url": "https://yuhi-sa.github.io/devtoolbox/tools/backslash-escape/" },
-      { "@type": "ListItem", "position": 10, "name": "文字数カウンター", "url": "https://yuhi-sa.github.io/devtoolbox/tools/char-counter/" },
-      { "@type": "ListItem", "position": 11, "name": "正規表現テスター", "url": "https://yuhi-sa.github.io/devtoolbox/tools/regex-tester/" },
-      { "@type": "ListItem", "position": 12, "name": "テキスト差分比較", "url": "https://yuhi-sa.github.io/devtoolbox/tools/diff-checker/" },
-      { "@type": "ListItem", "position": 13, "name": "テキストケース変換", "url": "https://yuhi-sa.github.io/devtoolbox/tools/text-case/" },
-      { "@type": "ListItem", "position": 14, "name": "Lorem Ipsumジェネレーター", "url": "https://yuhi-sa.github.io/devtoolbox/tools/lorem-ipsum/" },
-      { "@type": "ListItem", "position": 15, "name": "スラッグ生成", "url": "https://yuhi-sa.github.io/devtoolbox/tools/slug-generator/" },
-      { "@type": "ListItem", "position": 16, "name": "YAML⇔JSON変換", "url": "https://yuhi-sa.github.io/devtoolbox/tools/yaml-json/" },
-      { "@type": "ListItem", "position": 17, "name": "CSV⇔JSON変換", "url": "https://yuhi-sa.github.io/devtoolbox/tools/csv-json/" },
-      { "@type": "ListItem", "position": 18, "name": "TOML⇔JSON変換", "url": "https://yuhi-sa.github.io/devtoolbox/tools/toml-json/" },
-      { "@type": "ListItem", "position": 19, "name": "JSON→TypeScript変換", "url": "https://yuhi-sa.github.io/devtoolbox/tools/json-to-typescript/" },
-      { "@type": "ListItem", "position": 20, "name": "JSONパスファインダー", "url": "https://yuhi-sa.github.io/devtoolbox/tools/json-path/" },
-      { "@type": "ListItem", "position": 21, "name": "Unixタイムスタンプ変換", "url": "https://yuhi-sa.github.io/devtoolbox/tools/timestamp/" },
-      { "@type": "ListItem", "position": 22, "name": "カラーコンバーター", "url": "https://yuhi-sa.github.io/devtoolbox/tools/color-converter/" },
-      { "@type": "ListItem", "position": 23, "name": "進数変換ツール", "url": "https://yuhi-sa.github.io/devtoolbox/tools/number-base/" },
-      { "@type": "ListItem", "position": 24, "name": "バイト単位変換", "url": "https://yuhi-sa.github.io/devtoolbox/tools/byte-converter/" },
-      { "@type": "ListItem", "position": 25, "name": "ハッシュ生成", "url": "https://yuhi-sa.github.io/devtoolbox/tools/hash-generator/" },
-      { "@type": "ListItem", "position": 26, "name": "UUID生成", "url": "https://yuhi-sa.github.io/devtoolbox/tools/uuid-generator/" },
-      { "@type": "ListItem", "position": 27, "name": "パスワード生成", "url": "https://yuhi-sa.github.io/devtoolbox/tools/password-generator/" },
-      { "@type": "ListItem", "position": 28, "name": "QRコード生成", "url": "https://yuhi-sa.github.io/devtoolbox/tools/qr-code/" },
-      { "@type": "ListItem", "position": 29, "name": "CSSグラデーション生成", "url": "https://yuhi-sa.github.io/devtoolbox/tools/css-gradient/" },
-      { "@type": "ListItem", "position": 30, "name": "Box Shadow生成", "url": "https://yuhi-sa.github.io/devtoolbox/tools/box-shadow/" },
-      { "@type": "ListItem", "position": 31, "name": "Flexboxプレイグラウンド", "url": "https://yuhi-sa.github.io/devtoolbox/tools/flexbox-playground/" },
-      { "@type": "ListItem", "position": 32, "name": "Border Radius生成", "url": "https://yuhi-sa.github.io/devtoolbox/tools/border-radius/" },
-      { "@type": "ListItem", "position": 33, "name": "JWTデコーダー", "url": "https://yuhi-sa.github.io/devtoolbox/tools/jwt-decoder/" },
-      { "@type": "ListItem", "position": 34, "name": "Cron式パーサー", "url": "https://yuhi-sa.github.io/devtoolbox/tools/cron-parser/" },
-      { "@type": "ListItem", "position": 35, "name": "Chmod計算機", "url": "https://yuhi-sa.github.io/devtoolbox/tools/chmod-calculator/" },
-      { "@type": "ListItem", "position": 36, "name": "HTTPステータスコード", "url": "https://yuhi-sa.github.io/devtoolbox/tools/http-status/" },
-      { "@type": "ListItem", "position": 37, "name": ".gitignore生成", "url": "https://yuhi-sa.github.io/devtoolbox/tools/gitignore-generator/" },
-      { "@type": "ListItem", "position": 38, "name": "メタタグ生成", "url": "https://yuhi-sa.github.io/devtoolbox/tools/meta-tag-generator/" },
-      { "@type": "ListItem", "position": 39, "name": "OGPプレビュー", "url": "https://yuhi-sa.github.io/devtoolbox/tools/og-preview/" }
+      { "@type": "ListItem", "position": 10, "name": "文字列エスケープ変換", "url": "https://yuhi-sa.github.io/devtoolbox/tools/string-escape/" },
+      { "@type": "ListItem", "position": 11, "name": "文字数カウンター", "url": "https://yuhi-sa.github.io/devtoolbox/tools/char-counter/" },
+      { "@type": "ListItem", "position": 12, "name": "正規表現テスター", "url": "https://yuhi-sa.github.io/devtoolbox/tools/regex-tester/" },
+      { "@type": "ListItem", "position": 13, "name": "正規表現チートシート", "url": "https://yuhi-sa.github.io/devtoolbox/tools/regex-cheatsheet/" },
+      { "@type": "ListItem", "position": 14, "name": "テキスト差分比較", "url": "https://yuhi-sa.github.io/devtoolbox/tools/diff-checker/" },
+      { "@type": "ListItem", "position": 15, "name": "テキストケース変換", "url": "https://yuhi-sa.github.io/devtoolbox/tools/text-case/" },
+      { "@type": "ListItem", "position": 16, "name": "HTML→Markdown変換", "url": "https://yuhi-sa.github.io/devtoolbox/tools/html-to-markdown/" },
+      { "@type": "ListItem", "position": 17, "name": "Lorem Ipsumジェネレーター", "url": "https://yuhi-sa.github.io/devtoolbox/tools/lorem-ipsum/" },
+      { "@type": "ListItem", "position": 18, "name": "スラッグ生成", "url": "https://yuhi-sa.github.io/devtoolbox/tools/slug-generator/" },
+      { "@type": "ListItem", "position": 19, "name": "YAML⇔JSON変換", "url": "https://yuhi-sa.github.io/devtoolbox/tools/yaml-json/" },
+      { "@type": "ListItem", "position": 20, "name": "CSV⇔JSON変換", "url": "https://yuhi-sa.github.io/devtoolbox/tools/csv-json/" },
+      { "@type": "ListItem", "position": 21, "name": "JSON→CSV変換", "url": "https://yuhi-sa.github.io/devtoolbox/tools/json-to-csv/" },
+      { "@type": "ListItem", "position": 22, "name": "TOML⇔JSON変換", "url": "https://yuhi-sa.github.io/devtoolbox/tools/toml-json/" },
+      { "@type": "ListItem", "position": 23, "name": "JSON→TypeScript変換", "url": "https://yuhi-sa.github.io/devtoolbox/tools/json-to-typescript/" },
+      { "@type": "ListItem", "position": 24, "name": "JSONパスファインダー", "url": "https://yuhi-sa.github.io/devtoolbox/tools/json-path/" },
+      { "@type": "ListItem", "position": 25, "name": "Unixタイムスタンプ変換", "url": "https://yuhi-sa.github.io/devtoolbox/tools/timestamp/" },
+      { "@type": "ListItem", "position": 26, "name": "カラーコンバーター", "url": "https://yuhi-sa.github.io/devtoolbox/tools/color-converter/" },
+      { "@type": "ListItem", "position": 27, "name": "進数変換ツール", "url": "https://yuhi-sa.github.io/devtoolbox/tools/number-base/" },
+      { "@type": "ListItem", "position": 28, "name": "バイト単位変換", "url": "https://yuhi-sa.github.io/devtoolbox/tools/byte-converter/" },
+      { "@type": "ListItem", "position": 29, "name": "ハッシュ生成", "url": "https://yuhi-sa.github.io/devtoolbox/tools/hash-generator/" },
+      { "@type": "ListItem", "position": 30, "name": "UUID生成", "url": "https://yuhi-sa.github.io/devtoolbox/tools/uuid-generator/" },
+      { "@type": "ListItem", "position": 31, "name": "パスワード生成", "url": "https://yuhi-sa.github.io/devtoolbox/tools/password-generator/" },
+      { "@type": "ListItem", "position": 32, "name": "QRコード生成", "url": "https://yuhi-sa.github.io/devtoolbox/tools/qr-code/" },
+      { "@type": "ListItem", "position": 33, "name": "カラーパレット生成", "url": "https://yuhi-sa.github.io/devtoolbox/tools/color-palette/" },
+      { "@type": "ListItem", "position": 34, "name": "CSSグラデーション生成", "url": "https://yuhi-sa.github.io/devtoolbox/tools/css-gradient/" },
+      { "@type": "ListItem", "position": 35, "name": "Box Shadow生成", "url": "https://yuhi-sa.github.io/devtoolbox/tools/box-shadow/" },
+      { "@type": "ListItem", "position": 36, "name": "Flexboxプレイグラウンド", "url": "https://yuhi-sa.github.io/devtoolbox/tools/flexbox-playground/" },
+      { "@type": "ListItem", "position": 37, "name": "Border Radius生成", "url": "https://yuhi-sa.github.io/devtoolbox/tools/border-radius/" },
+      { "@type": "ListItem", "position": 38, "name": "SVGオプティマイザー", "url": "https://yuhi-sa.github.io/devtoolbox/tools/svg-optimizer/" },
+      { "@type": "ListItem", "position": 39, "name": "画像圧縮", "url": "https://yuhi-sa.github.io/devtoolbox/tools/image-compressor/" },
+      { "@type": "ListItem", "position": 40, "name": "JWTデコーダー", "url": "https://yuhi-sa.github.io/devtoolbox/tools/jwt-decoder/" },
+      { "@type": "ListItem", "position": 41, "name": "JWTジェネレーター", "url": "https://yuhi-sa.github.io/devtoolbox/tools/jwt-generator/" },
+      { "@type": "ListItem", "position": 42, "name": "Cron式パーサー", "url": "https://yuhi-sa.github.io/devtoolbox/tools/cron-parser/" },
+      { "@type": "ListItem", "position": 43, "name": "Crontabジェネレーター", "url": "https://yuhi-sa.github.io/devtoolbox/tools/crontab-generator/" },
+      { "@type": "ListItem", "position": 44, "name": "Chmod計算機", "url": "https://yuhi-sa.github.io/devtoolbox/tools/chmod-calculator/" },
+      { "@type": "ListItem", "position": 45, "name": "HTTPステータスコード", "url": "https://yuhi-sa.github.io/devtoolbox/tools/http-status/" },
+      { "@type": "ListItem", "position": 46, "name": ".gitignore生成", "url": "https://yuhi-sa.github.io/devtoolbox/tools/gitignore-generator/" },
+      { "@type": "ListItem", "position": 47, "name": "メタタグ生成", "url": "https://yuhi-sa.github.io/devtoolbox/tools/meta-tag-generator/" },
+      { "@type": "ListItem", "position": 48, "name": "OGPプレビュー", "url": "https://yuhi-sa.github.io/devtoolbox/tools/og-preview/" },
+      { "@type": "ListItem", "position": 49, "name": "OGPテスター", "url": "https://yuhi-sa.github.io/devtoolbox/tools/og-tester/" }
     ]
   }
   </script>
@@ -119,7 +131,7 @@
             <li><a href="tools/regex-tester/" class="nav__link">正規表現</a></li>
             <li><a href="tools/hash-generator/" class="nav__link">ハッシュ</a></li>
             <li><a href="tools/diff-checker/" class="nav__link">Diff</a></li>
-            <li><a href="tools/markdown-preview/" class="nav__link">Markdown</a></li>
+            <li><a href="tools/image-compressor/" class="nav__link">画像圧縮</a></li>
           </ul>
         </nav>
         <button id="theme-toggle" class="theme-toggle" type="button" aria-label="テーマ切替">
@@ -151,14 +163,18 @@
       <li><a href="tools/html-entity/" class="mobile-nav__link">HTMLエンティティ変換</a></li>
       <li><a href="tools/image-base64/" class="mobile-nav__link">画像Base64変換</a></li>
       <li><a href="tools/backslash-escape/" class="mobile-nav__link">エスケープ変換</a></li>
+      <li><a href="tools/string-escape/" class="mobile-nav__link">文字列エスケープ変換</a></li>
       <li><a href="tools/char-counter/" class="mobile-nav__link">文字数カウンター</a></li>
       <li><a href="tools/regex-tester/" class="mobile-nav__link">正規表現テスター</a></li>
+      <li><a href="tools/regex-cheatsheet/" class="mobile-nav__link">正規表現チートシート</a></li>
       <li><a href="tools/diff-checker/" class="mobile-nav__link">テキスト差分比較</a></li>
       <li><a href="tools/text-case/" class="mobile-nav__link">テキストケース変換</a></li>
+      <li><a href="tools/html-to-markdown/" class="mobile-nav__link">HTML→Markdown変換</a></li>
       <li><a href="tools/lorem-ipsum/" class="mobile-nav__link">Lorem Ipsumジェネレーター</a></li>
       <li><a href="tools/slug-generator/" class="mobile-nav__link">スラッグ生成</a></li>
       <li><a href="tools/yaml-json/" class="mobile-nav__link">YAML⇔JSON変換</a></li>
       <li><a href="tools/csv-json/" class="mobile-nav__link">CSV⇔JSON変換</a></li>
+      <li><a href="tools/json-to-csv/" class="mobile-nav__link">JSON→CSV変換</a></li>
       <li><a href="tools/toml-json/" class="mobile-nav__link">TOML⇔JSON変換</a></li>
       <li><a href="tools/json-to-typescript/" class="mobile-nav__link">JSON→TypeScript変換</a></li>
       <li><a href="tools/json-path/" class="mobile-nav__link">JSONパスファインダー</a></li>
@@ -170,17 +186,23 @@
       <li><a href="tools/uuid-generator/" class="mobile-nav__link">UUID生成</a></li>
       <li><a href="tools/password-generator/" class="mobile-nav__link">パスワード生成</a></li>
       <li><a href="tools/qr-code/" class="mobile-nav__link">QRコード生成</a></li>
+      <li><a href="tools/color-palette/" class="mobile-nav__link">カラーパレット生成</a></li>
       <li><a href="tools/css-gradient/" class="mobile-nav__link">CSSグラデーション生成</a></li>
       <li><a href="tools/box-shadow/" class="mobile-nav__link">Box Shadow生成</a></li>
       <li><a href="tools/flexbox-playground/" class="mobile-nav__link">Flexboxプレイグラウンド</a></li>
       <li><a href="tools/border-radius/" class="mobile-nav__link">Border Radius生成</a></li>
+      <li><a href="tools/svg-optimizer/" class="mobile-nav__link">SVGオプティマイザー</a></li>
+      <li><a href="tools/image-compressor/" class="mobile-nav__link">画像圧縮</a></li>
       <li><a href="tools/jwt-decoder/" class="mobile-nav__link">JWTデコーダー</a></li>
+      <li><a href="tools/jwt-generator/" class="mobile-nav__link">JWTジェネレーター</a></li>
       <li><a href="tools/cron-parser/" class="mobile-nav__link">Cron式パーサー</a></li>
+      <li><a href="tools/crontab-generator/" class="mobile-nav__link">Crontabジェネレーター</a></li>
       <li><a href="tools/chmod-calculator/" class="mobile-nav__link">Chmod計算機</a></li>
       <li><a href="tools/http-status/" class="mobile-nav__link">HTTPステータスコード</a></li>
       <li><a href="tools/gitignore-generator/" class="mobile-nav__link">.gitignore生成</a></li>
       <li><a href="tools/meta-tag-generator/" class="mobile-nav__link">メタタグ生成</a></li>
       <li><a href="tools/og-preview/" class="mobile-nav__link">OGPプレビュー</a></li>
+      <li><a href="tools/og-tester/" class="mobile-nav__link">OGPテスター</a></li>
       <li><a href="about.html" class="mobile-nav__link">サイトについて</a></li>
       <li><a href="privacy.html" class="mobile-nav__link">プライバシーポリシー</a></li>
       <li><a href="terms.html" class="mobile-nav__link">利用規約</a></li>
@@ -198,16 +220,22 @@
       <p class="hero__description">開発者の日常作業を効率化する、無料オンラインツール集</p>
     </section>
 
-    <p class="tool-count"><strong>39</strong> 種類のツールをすべて無料で利用可能</p>
+    <p class="tool-count"><strong id="tool-count-number" data-target="49">49</strong> 種類のツールをすべて無料で利用可能</p>
 
     <!-- 検索ボックス -->
     <div class="search-box">
       <svg class="search-box__icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
         <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/>
       </svg>
-      <input type="text" id="tool-search" class="search-box__input" placeholder="ツールを検索... (例: JSON, Base64, CSS)" aria-label="ツール検索">
+      <input type="text" id="tool-search" class="search-box__input" placeholder="ツールを検索... (例: JSON, Base64, CSS, 画像)" aria-label="ツール検索">
       <button id="search-clear" class="search-box__clear" aria-label="検索クリア">&times;</button>
     </div>
+
+    <!-- お気に入りセクション（JSで動的に表示） -->
+    <div id="favorites-section"></div>
+
+    <!-- 最近使ったツール（JSで動的に表示） -->
+    <div id="recent-tools-section"></div>
 
     <div id="no-results" class="no-results">
       <div class="no-results__icon">&#128269;</div>
@@ -253,6 +281,16 @@
           </svg>
           <h3 class="tool-card__name">Markdownプレビュー</h3>
           <p class="tool-card__description">Markdownをリアルタイムでプレビュー。見出し、リスト、テーブル、コードブロックなどに対応。</p>
+        </a>
+
+        <a href="tools/svg-optimizer/" class="tool-card" data-keywords="SVG 最適化 オプティマイザー optimize minify 軽量化 アイコン">
+          <svg class="tool-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="4" y="4" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
+            <path d="M14 20l4-8 4 8-4 8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M24 14l4 6-4 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h3 class="tool-card__name">SVGオプティマイザー</h3>
+          <p class="tool-card__description">SVGコードを最適化・軽量化。コメント除去、メタデータ削除、パス簡略化に対応。</p>
         </a>
       </div>
     </section>
@@ -308,6 +346,16 @@
           <h3 class="tool-card__name">エスケープ変換</h3>
           <p class="tool-card__description">バックスラッシュエスケープの変換・復元。\\n、\\t、\\r等の特殊文字に対応。</p>
         </a>
+
+        <a href="tools/string-escape/" class="tool-card" data-keywords="文字列 エスケープ string escape unescape JavaScript Python Java C Shell">
+          <svg class="tool-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="4" y="4" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
+            <path d="M12 14h16M12 20h12M12 26h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M28 24l-4 4 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h3 class="tool-card__name">文字列エスケープ変換</h3>
+          <p class="tool-card__description">JavaScript、Python、Java、C等の各言語向け文字列エスケープ・アンエスケープ変換。</p>
+        </a>
       </div>
     </section>
 
@@ -337,6 +385,17 @@
           <p class="tool-card__description">正規表現パターンをリアルタイムでテスト。マッチ結果のハイライト表示やキャプチャグループの確認が可能。</p>
         </a>
 
+        <a href="tools/regex-cheatsheet/" class="tool-card" data-keywords="正規表現 regex チートシート リファレンス 早見表 パターン 一覧">
+          <svg class="tool-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="4" y="4" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
+            <path d="M12 12h16M12 18h12M12 24h14M12 30h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="30" cy="10" r="4" stroke="currentColor" stroke-width="2"/>
+            <path d="M30 8v4M28 10h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <h3 class="tool-card__name">正規表現チートシート</h3>
+          <p class="tool-card__description">正規表現の構文リファレンス。基本パターン、量指定子、文字クラス、先読み/後読みを一覧表示。</p>
+        </a>
+
         <a href="tools/diff-checker/" class="tool-card" data-keywords="差分 比較 diff テキスト 変更 コードレビュー">
           <svg class="tool-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <rect x="4" y="4" width="15" height="32" rx="3" stroke="currentColor" stroke-width="2"/>
@@ -356,6 +415,17 @@
           </svg>
           <h3 class="tool-card__name">テキストケース変換</h3>
           <p class="tool-card__description">camelCase、snake_case、PascalCase、kebab-case等に変換。10種類以上の変換に対応。</p>
+        </a>
+
+        <a href="tools/html-to-markdown/" class="tool-card" data-keywords="HTML Markdown 変換 コンバーター converter マークダウン GFM">
+          <svg class="tool-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="4" y="4" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
+            <path d="M10 14l4 6-4 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M20 20h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M25 16l5 4-5 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h3 class="tool-card__name">HTML→Markdown変換</h3>
+          <p class="tool-card__description">HTMLコードをMarkdown形式に変換。見出し、リスト、テーブル、コードブロックに対応。</p>
         </a>
 
         <a href="tools/lorem-ipsum/" class="tool-card" data-keywords="Lorem Ipsum ダミー テキスト 生成 placeholder">
@@ -400,6 +470,17 @@
           </svg>
           <h3 class="tool-card__name">CSV⇔JSON変換</h3>
           <p class="tool-card__description">CSVとJSONの相互変換。区切り文字の選択やヘッダー行の設定に対応。</p>
+        </a>
+
+        <a href="tools/json-to-csv/" class="tool-card" data-keywords="JSON CSV 変換 エクスポート export ダウンロード download テーブル">
+          <svg class="tool-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="4" y="4" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
+            <path d="M12 14h6M12 20h8M12 26h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M24 18l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M28 22h-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <h3 class="tool-card__name">JSON→CSV変換</h3>
+          <p class="tool-card__description">JSONデータをCSV形式に変換・ダウンロード。ネストされたオブジェクトの展開にも対応。</p>
         </a>
 
         <a href="tools/toml-json/" class="tool-card" data-keywords="TOML JSON 変換 コンバーター converter 設定 config Cargo">
@@ -475,6 +556,17 @@
           <h3 class="tool-card__name">バイト単位変換</h3>
           <p class="tool-card__description">B、KB、MB、GB、TB、PBを相互変換。10進（1000）と2進（1024）の両モード対応。</p>
         </a>
+
+        <a href="tools/image-compressor/" class="tool-card" data-keywords="画像 圧縮 compressor リサイズ resize JPEG PNG WebP 軽量化 最適化">
+          <svg class="tool-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="4" y="4" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
+            <circle cx="15" cy="15" r="3" stroke="currentColor" stroke-width="2"/>
+            <path d="M4 28l8-10 6 6 4-4 14 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M30 8l-4 4M30 12l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <h3 class="tool-card__name">画像圧縮</h3>
+          <p class="tool-card__description">ブラウザ上で画像を圧縮・リサイズ。JPEG、PNG、WebP出力に対応。品質調整可能。</p>
+        </a>
       </div>
     </section>
 
@@ -525,6 +617,16 @@
           </svg>
           <h3 class="tool-card__name">QRコード生成</h3>
           <p class="tool-card__description">テキストやURLからQRコードを生成。サイズ・色のカスタマイズやPNGダウンロードに対応。</p>
+        </a>
+
+        <a href="tools/color-palette/" class="tool-card" data-keywords="カラーパレット color palette 配色 補色 類似色 トライアド デザイン">
+          <svg class="tool-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="4" y="4" width="8" height="32" rx="2" stroke="currentColor" stroke-width="2"/>
+            <rect x="16" y="4" width="8" height="32" rx="2" stroke="currentColor" stroke-width="2"/>
+            <rect x="28" y="4" width="8" height="32" rx="2" stroke="currentColor" stroke-width="2"/>
+          </svg>
+          <h3 class="tool-card__name">カラーパレット生成</h3>
+          <p class="tool-card__description">ベースカラーから調和のとれた配色パレットを生成。補色、類似色、トライアドに対応。</p>
         </a>
       </div>
     </section>
@@ -587,6 +689,17 @@
           <p class="tool-card__description">JWTトークンをデコードしてHeader・Payload・Signatureを表示。有効期限チェック付き。</p>
         </a>
 
+        <a href="tools/jwt-generator/" class="tool-card" data-keywords="JWT トークン token 生成 generator HS256 HMAC 認証 API">
+          <svg class="tool-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="4" y="4" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
+            <path d="M12 13h16M12 18h12M12 23h14M12 28h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="30" cy="28" r="4" fill="currentColor"/>
+            <path d="M29 28h2M30 27v2" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <h3 class="tool-card__name">JWTジェネレーター</h3>
+          <p class="tool-card__description">カスタムヘッダー・ペイロードからJWTトークンを生成。HS256アルゴリズム対応。</p>
+        </a>
+
         <a href="tools/cron-parser/" class="tool-card" data-keywords="Cron クーロン 式 パーサー スケジュール 定期実行">
           <svg class="tool-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="2"/>
@@ -595,6 +708,17 @@
           </svg>
           <h3 class="tool-card__name">Cron式パーサー</h3>
           <p class="tool-card__description">Cron式を日本語で解説し、次の実行予定時刻を表示。プリセット付きで簡単入力。</p>
+        </a>
+
+        <a href="tools/crontab-generator/" class="tool-card" data-keywords="Crontab クーロン 生成 ジェネレーター スケジュール GUI 定期実行">
+          <svg class="tool-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="2"/>
+            <path d="M20 10v10l7 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="30" cy="30" r="5" fill="var(--color-surface, #fff)" stroke="currentColor" stroke-width="2"/>
+            <path d="M29 30h2M30 29v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <h3 class="tool-card__name">Crontabジェネレーター</h3>
+          <p class="tool-card__description">GUIでCron式を直感的に作成。プリセットや次回実行時刻の確認にも対応。</p>
         </a>
 
         <a href="tools/chmod-calculator/" class="tool-card" data-keywords="chmod パーミッション permission 権限 Linux Unix rwx 755">
@@ -644,6 +768,18 @@
           <h3 class="tool-card__name">OGPプレビュー</h3>
           <p class="tool-card__description">OGP設定のプレビュー。Facebook・Twitter・Slack・LINE風のカード表示で確認。</p>
         </a>
+
+        <a href="tools/og-tester/" class="tool-card" data-keywords="OGP Open Graph テスター バリデーション 検証 SNS メタタグ">
+          <svg class="tool-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="4" y="4" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
+            <rect x="8" y="8" width="24" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M8 26h16M8 30h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="30" cy="30" r="5" fill="var(--color-surface, #fff)" stroke="currentColor" stroke-width="2"/>
+            <path d="M28 30l2 2 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h3 class="tool-card__name">OGPテスター</h3>
+          <p class="tool-card__description">OGPメタタグの検証・テスト。推奨画像サイズや文字数チェック、各SNSプレビュー付き。</p>
+        </a>
       </div>
     </section>
   </main>
@@ -667,11 +803,13 @@
             <li><a href="tools/sql-formatter/" class="footer__link">SQLフォーマッター</a></li>
             <li><a href="tools/xml-formatter/" class="footer__link">XMLフォーマッター</a></li>
             <li><a href="tools/markdown-preview/" class="footer__link">Markdownプレビュー</a></li>
+            <li><a href="tools/svg-optimizer/" class="footer__link">SVGオプティマイザー</a></li>
             <li><a href="tools/base64/" class="footer__link">Base64エンコード/デコード</a></li>
             <li><a href="tools/url-encode/" class="footer__link">URLエンコード/デコード</a></li>
             <li><a href="tools/html-entity/" class="footer__link">HTMLエンティティ変換</a></li>
             <li><a href="tools/image-base64/" class="footer__link">画像Base64変換</a></li>
             <li><a href="tools/backslash-escape/" class="footer__link">エスケープ変換</a></li>
+            <li><a href="tools/string-escape/" class="footer__link">文字列エスケープ変換</a></li>
           </ul>
         </div>
         <div>
@@ -679,11 +817,14 @@
           <ul class="footer__list">
             <li><a href="tools/char-counter/" class="footer__link">文字数カウンター</a></li>
             <li><a href="tools/regex-tester/" class="footer__link">正規表現テスター</a></li>
+            <li><a href="tools/regex-cheatsheet/" class="footer__link">正規表現チートシート</a></li>
             <li><a href="tools/diff-checker/" class="footer__link">テキスト差分比較</a></li>
             <li><a href="tools/text-case/" class="footer__link">テキストケース変換</a></li>
+            <li><a href="tools/html-to-markdown/" class="footer__link">HTML→Markdown変換</a></li>
             <li><a href="tools/slug-generator/" class="footer__link">スラッグ生成</a></li>
             <li><a href="tools/yaml-json/" class="footer__link">YAML⇔JSON変換</a></li>
             <li><a href="tools/csv-json/" class="footer__link">CSV⇔JSON変換</a></li>
+            <li><a href="tools/json-to-csv/" class="footer__link">JSON→CSV変換</a></li>
             <li><a href="tools/toml-json/" class="footer__link">TOML⇔JSON変換</a></li>
             <li><a href="tools/json-to-typescript/" class="footer__link">JSON→TypeScript変換</a></li>
             <li><a href="tools/json-path/" class="footer__link">JSONパスファインダー</a></li>
@@ -691,6 +832,7 @@
             <li><a href="tools/color-converter/" class="footer__link">カラーコンバーター</a></li>
             <li><a href="tools/number-base/" class="footer__link">進数変換ツール</a></li>
             <li><a href="tools/byte-converter/" class="footer__link">バイト単位変換</a></li>
+            <li><a href="tools/image-compressor/" class="footer__link">画像圧縮</a></li>
           </ul>
         </div>
         <div>
@@ -700,17 +842,21 @@
             <li><a href="tools/uuid-generator/" class="footer__link">UUID生成</a></li>
             <li><a href="tools/password-generator/" class="footer__link">パスワード生成</a></li>
             <li><a href="tools/qr-code/" class="footer__link">QRコード生成</a></li>
+            <li><a href="tools/color-palette/" class="footer__link">カラーパレット生成</a></li>
             <li><a href="tools/css-gradient/" class="footer__link">CSSグラデーション生成</a></li>
             <li><a href="tools/box-shadow/" class="footer__link">Box Shadow生成</a></li>
             <li><a href="tools/flexbox-playground/" class="footer__link">Flexboxプレイグラウンド</a></li>
             <li><a href="tools/border-radius/" class="footer__link">Border Radius生成</a></li>
             <li><a href="tools/jwt-decoder/" class="footer__link">JWTデコーダー</a></li>
+            <li><a href="tools/jwt-generator/" class="footer__link">JWTジェネレーター</a></li>
             <li><a href="tools/cron-parser/" class="footer__link">Cron式パーサー</a></li>
+            <li><a href="tools/crontab-generator/" class="footer__link">Crontabジェネレーター</a></li>
             <li><a href="tools/chmod-calculator/" class="footer__link">Chmod計算機</a></li>
             <li><a href="tools/http-status/" class="footer__link">HTTPステータスコード</a></li>
             <li><a href="tools/gitignore-generator/" class="footer__link">.gitignore生成</a></li>
             <li><a href="tools/meta-tag-generator/" class="footer__link">メタタグ生成</a></li>
             <li><a href="tools/og-preview/" class="footer__link">OGPプレビュー</a></li>
+            <li><a href="tools/og-tester/" class="footer__link">OGPテスター</a></li>
             <li><a href="tools/lorem-ipsum/" class="footer__link">Lorem Ipsum生成</a></li>
           </ul>
         </div>
@@ -722,6 +868,9 @@
   </footer>
 
   <script src="js/common.js"></script>
+  <script src="js/favorites.js"></script>
+  <script src="js/recent-tools.js"></script>
+  <script src="js/homepage.js"></script>
   <script>
     // ツール検索機能
     (function () {
@@ -768,6 +917,11 @@
           searchInput.dispatchEvent(new Event("input"));
           searchInput.focus();
         });
+
+        // Service Worker 登録
+        if ("serviceWorker" in navigator) {
+          navigator.serviceWorker.register("sw.js").catch(function () {});
+        }
       });
     })();
   </script>

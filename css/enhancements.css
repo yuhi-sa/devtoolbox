@@ -1,0 +1,230 @@
+/* ============================================
+   DevToolBox - UX Enhancement Styles
+   ============================================ */
+
+/* --- お気に入りスターボタン --- */
+.tool-card {
+  position: relative;
+}
+
+.tool-card__favorite {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.25rem;
+  line-height: 1;
+  padding: var(--space-xs);
+  color: var(--color-text-secondary);
+  transition: color 0.2s, transform 0.2s;
+  z-index: 2;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tool-card__favorite:hover {
+  color: #f4b400;
+  transform: scale(1.2);
+}
+
+.tool-card__favorite.is-active {
+  color: #f4b400;
+}
+
+.tool-card__favorite.is-active:hover {
+  transform: scale(1.2);
+}
+
+/* --- お気に入りセクション --- */
+.favorites-section {
+  margin-bottom: var(--space-2xl);
+}
+
+.favorites-section__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: 2px solid #f4b400;
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.favorites-section__title::before {
+  content: "\2605";
+  color: #f4b400;
+}
+
+.favorites-section .tool-grid {
+  margin-top: var(--space-md);
+}
+
+/* --- 最近使ったツールセクション --- */
+.recent-tools {
+  margin-bottom: var(--space-2xl);
+}
+
+.recent-tools__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: 2px solid var(--color-primary);
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.recent-tools__title::before {
+  content: "\1F552";
+  font-size: 1.125rem;
+}
+
+.recent-tools__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-sm);
+}
+
+@media (min-width: 768px) {
+  .recent-tools__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.recent-tools__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.recent-tools__item:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow);
+  transform: translateY(-1px);
+  text-decoration: none;
+  color: var(--color-primary);
+}
+
+.recent-tools__item-icon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  color: var(--color-primary);
+}
+
+/* --- スクロールトップボタン --- */
+.scroll-top-btn {
+  position: fixed;
+  bottom: var(--space-lg);
+  right: var(--space-lg);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity 0.3s, visibility 0.3s, transform 0.3s, background-color 0.2s;
+  z-index: 90;
+}
+
+.scroll-top-btn:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.scroll-top-btn.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-top-btn__icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* --- フェードインアニメーション --- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- カウンターアニメーション --- */
+.tool-count strong {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- 人気バッジ --- */
+.tool-card__badge {
+  position: absolute;
+  top: var(--space-sm);
+  left: var(--space-sm);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  padding: 2px var(--space-sm);
+  border-radius: 999px;
+  background-color: var(--color-primary);
+  color: #fff;
+  z-index: 2;
+  letter-spacing: 0.02em;
+}
+
+/* --- スムーズトランジション共通 --- */
+.tool-card,
+.recent-tools__item,
+.scroll-top-btn,
+.tool-card__favorite {
+  will-change: transform;
+}
+
+/* --- 検索ショートカットヒント --- */
+.search-box__shortcut {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 1px 6px;
+  pointer-events: none;
+  line-height: 1.5;
+}

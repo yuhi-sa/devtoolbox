@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crontabジェネレーター（オンライン無料） - DevToolBox</title>
+  <meta name="description" content="Cron式をGUIで簡単作成。プリセット、日本語の説明表示、次の実行時刻確認、既存Cron式のパースに対応。">
+  <link rel="canonical" href="https://yuhi-sa.github.io/devtoolbox/tools/crontab-generator/">
+  <meta property="og:title" content="Crontabジェネレーター（オンライン無料） - DevToolBox">
+  <meta property="og:description" content="Cron式をGUIで簡単作成。プリセット、日本語の説明表示、次の実行時刻確認、既存Cron式のパースに対応。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yuhi-sa.github.io/devtoolbox/tools/crontab-generator/">
+  <meta property="og:site_name" content="DevToolBox">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Crontabジェネレーター（オンライン無料） - DevToolBox">
+  <meta name="twitter:description" content="Cron式をGUIで簡単作成。プリセット、日本語の説明表示、次の実行時刻確認、既存Cron式のパースに対応。">
+  <meta name="theme-color" content="#1a73e8">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Crontabジェネレーター",
+    "description": "Cron式をGUIで簡単に作成できるオンラインツール",
+    "url": "https://yuhi-sa.github.io/devtoolbox/tools/crontab-generator/",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "JPY"
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "DevToolBox",
+      "url": "https://yuhi-sa.github.io/devtoolbox/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://yuhi-sa.github.io/devtoolbox/" },
+      { "@type": "ListItem", "position": 2, "name": "Crontabジェネレーター", "item": "https://yuhi-sa.github.io/devtoolbox/tools/crontab-generator/" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Cron式のフォーマットはどうなっていますか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "Cron式は左から「分 時 日 月 曜日」の5つのフィールドで構成されます。各フィールドには数値、*(任意)、,(リスト)、-(範囲)、/(間隔)が使用できます。例えば「0 9 * * 1-5」は平日の毎朝9時を意味します。" }
+      },
+      {
+        "@type": "Question",
+        "name": "タイムゾーンはどのように扱われますか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "このツールで表示される次の実行時刻は、お使いのブラウザのローカルタイムゾーンに基づいています。サーバーのCron設定では、サーバーのタイムゾーン設定に従って実行されます。タイムゾーンの違いにご注意ください。" }
+      },
+      {
+        "@type": "Question",
+        "name": "よく使うCron式のパターンは？",
+        "acceptedAnswer": { "@type": "Answer", "text": "一般的によく使われるパターンは、「* * * * *」（毎分）、「0 * * * *」（毎時0分）、「0 0 * * *」（毎日0時）、「0 0 * * 0」（毎週日曜0時）、「0 0 1 * *」（毎月1日0時）です。プリセットボタンから簡単に選択できます。" }
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    .cron-fields{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--space-sm);margin-bottom:var(--space-md)}
+    .cron-field{text-align:center}
+    .cron-field label{display:block;font-size:.75rem;color:var(--color-text-secondary);margin-bottom:var(--space-xs);font-weight:600}
+    .cron-field input{width:100%;text-align:center;padding:var(--space-sm);font-family:var(--font-mono);font-size:1rem;color:var(--color-text);background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-sm)}
+    .cron-field input:focus{outline:none;border-color:var(--color-primary);box-shadow:0 0 0 2px rgba(26,115,232,.15)}
+    .cron-expression{font-family:var(--font-mono);font-size:1.25rem;font-weight:700;text-align:center;padding:var(--space-md);background:var(--color-bg);border-radius:var(--radius-sm);margin-bottom:var(--space-md);letter-spacing:.1em}
+    .presets{display:flex;flex-wrap:wrap;gap:var(--space-sm);margin-bottom:var(--space-md)}
+    .preset-btn{padding:var(--space-xs) var(--space-sm);font-size:.8125rem;background:var(--color-bg);border:1px solid var(--color-border);border-radius:var(--radius-sm);cursor:pointer;color:var(--color-text);transition:border-color .2s}
+    .preset-btn:hover{border-color:var(--color-primary);color:var(--color-primary)}
+    .description-box{background:var(--color-bg);border-radius:var(--radius-sm);padding:var(--space-md);margin-bottom:var(--space-md);font-size:.9375rem}
+    .description-box__label{font-size:.75rem;color:var(--color-text-secondary);margin-bottom:var(--space-xs);font-weight:600}
+    .next-runs{margin-bottom:var(--space-md)}
+    .next-runs__label{font-size:.875rem;font-weight:600;margin-bottom:var(--space-sm)}
+    .next-runs__list{list-style:none;padding:0}
+    .next-runs__list li{padding:var(--space-xs) 0;font-family:var(--font-mono);font-size:.875rem;color:var(--color-text-secondary);border-bottom:1px solid var(--color-border)}
+    .parse-section{margin-top:var(--space-md);padding-top:var(--space-md);border-top:1px solid var(--color-border)}
+    @media(max-width:600px){.cron-fields{grid-template-columns:repeat(5,1fr);gap:var(--space-xs)}.cron-field input{font-size:.875rem;padding:var(--space-xs)}}
+  </style>
+<script data-ad-client="ca-pub-9558545098866170" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<body>
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="../../" class="header__logo">
+        <svg class="header__logo-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="28" height="28" rx="6" fill="currentColor" style="color: var(--color-primary)"/>
+          <path d="M8 10l4 4-4 4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 18h5" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        DevToolBox
+      </a>
+      <div class="header__right">
+        <nav class="nav" aria-label="メインナビゲーション">
+          <ul class="nav__list">
+            <li><a href="../json-formatter/" class="nav__link">JSON整形</a></li>
+            <li><a href="../char-counter/" class="nav__link">文字数カウント</a></li>
+            <li><a href="../base64/" class="nav__link">Base64</a></li>
+            <li><a href="../url-encode/" class="nav__link">URLエンコード</a></li>
+            <li><a href="../timestamp/" class="nav__link">タイムスタンプ</a></li>
+          </ul>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="テーマ切替">
+          <svg class="theme-toggle__icon theme-toggle__icon--dark" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+          </svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--light" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
+          </svg>
+        </button>
+        <button id="hamburger" class="hamburger" type="button" aria-label="メニュー" aria-expanded="false" aria-controls="mobile-nav">
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- モバイルナビ -->
+  <nav id="mobile-nav" class="mobile-nav" aria-label="モバイルナビゲーション">
+    <ul class="mobile-nav__list">
+      <li><a href="../json-formatter/" class="mobile-nav__link">JSON整形・検証</a></li>
+      <li><a href="../char-counter/" class="mobile-nav__link">文字数カウンター</a></li>
+      <li><a href="../base64/" class="mobile-nav__link">Base64エンコード/デコード</a></li>
+      <li><a href="../url-encode/" class="mobile-nav__link">URLエンコード/デコード</a></li>
+      <li><a href="../timestamp/" class="mobile-nav__link">Unixタイムスタンプ変換</a></li>
+      <li><a href="../../about.html" class="mobile-nav__link">サイトについて</a></li>
+      <li><a href="../../privacy.html" class="mobile-nav__link">プライバシーポリシー</a></li>
+      <li><a href="../../terms.html" class="mobile-nav__link">利用規約</a></li>
+    </ul>
+  </nav>
+
+  <div class="ad-slot" id="ad-header" data-ad-size="728x90"></div>
+
+  <main class="main">
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <ol>
+        <li><a href="../../">ホーム</a></li>
+        <li aria-current="page">Crontabジェネレーター</li>
+      </ol>
+    </nav>
+
+    <div class="tool-container">
+      <h1>Crontabジェネレーター</h1>
+      <p class="tool-container__lead">GUIでCron式を簡単に作成できるツールです。日本語の説明と次の実行時刻を表示します。</p>
+
+      <div class="presets">
+        <button class="preset-btn" data-cron="* * * * *">毎分</button>
+        <button class="preset-btn" data-cron="0 * * * *">毎時</button>
+        <button class="preset-btn" data-cron="0 0 * * *">毎日0時</button>
+        <button class="preset-btn" data-cron="0 9 * * *">毎日9時</button>
+        <button class="preset-btn" data-cron="0 0 * * 0">毎週日曜</button>
+        <button class="preset-btn" data-cron="0 9 * * 1-5">平日9時</button>
+        <button class="preset-btn" data-cron="0 0 1 * *">毎月1日</button>
+        <button class="preset-btn" data-cron="*/5 * * * *">5分毎</button>
+        <button class="preset-btn" data-cron="*/15 * * * *">15分毎</button>
+        <button class="preset-btn" data-cron="0 */2 * * *">2時間毎</button>
+      </div>
+
+      <div class="cron-fields">
+        <div class="cron-field">
+          <label for="cron-minute">分</label>
+          <input type="text" id="cron-minute" value="*" placeholder="*">
+        </div>
+        <div class="cron-field">
+          <label for="cron-hour">時</label>
+          <input type="text" id="cron-hour" value="*" placeholder="*">
+        </div>
+        <div class="cron-field">
+          <label for="cron-day">日</label>
+          <input type="text" id="cron-day" value="*" placeholder="*">
+        </div>
+        <div class="cron-field">
+          <label for="cron-month">月</label>
+          <input type="text" id="cron-month" value="*" placeholder="*">
+        </div>
+        <div class="cron-field">
+          <label for="cron-dow">曜日</label>
+          <input type="text" id="cron-dow" value="*" placeholder="*">
+        </div>
+      </div>
+
+      <div class="cron-expression" id="cron-expression">* * * * *</div>
+
+      <div class="tool-actions">
+        <button id="btn-copy" class="btn btn--primary">コピー</button>
+        <button id="btn-clear" class="btn btn--secondary clear-btn">リセット</button>
+      </div>
+
+      <div class="description-box">
+        <div class="description-box__label">説明</div>
+        <div id="cron-description">毎分実行</div>
+      </div>
+
+      <div class="next-runs">
+        <div class="next-runs__label">次の5回の実行予定</div>
+        <ul class="next-runs__list" id="next-runs-list"></ul>
+      </div>
+
+      <div class="parse-section">
+        <label for="parse-input" style="font-size:.875rem;font-weight:500;display:block;margin-bottom:var(--space-xs)">既存のCron式をパース</label>
+        <div style="display:flex;gap:var(--space-sm)">
+          <input type="text" id="parse-input" class="input" style="flex:1" placeholder="例: 0 9 * * 1-5">
+          <button id="btn-parse" class="btn btn--secondary">パース</button>
+        </div>
+        <div id="parse-error" class="error-message" hidden></div>
+      </div>
+    </div>
+
+    <section class="tool-description">
+      <h2>Crontabジェネレーターの使い方</h2>
+      <p>各フィールド（分・時・日・月・曜日）に値を入力するか、プリセットボタンで一般的なスケジュールを選択できます。Cron式は自動的に生成され、日本語の説明と次の5回の実行予定時刻が表示されます。「既存のCron式をパース」欄にCron式を入力してパースボタンを押すと、各フィールドに値がセットされ内容を確認できます。</p>
+
+      <h2>Cron式のフォーマット</h2>
+      <p>Cron式は5つのフィールドで構成されます：分（0-59）、時（0-23）、日（1-31）、月（1-12）、曜日（0-7、0と7は日曜日）。特殊文字として「*」（任意の値）、「,」（複数の値を列挙）、「-」（範囲指定）、「/」（間隔指定）が使用できます。例えば「*/5 9-17 * * 1-5」は「平日の9時から17時の間、5分ごと」を意味します。</p>
+
+      <h2>よくある質問（FAQ）</h2>
+      <h3>Q. Cron式のフォーマットはどうなっていますか？</h3>
+      <p>A. Cron式は左から「分 時 日 月 曜日」の5つのフィールドで構成されます。各フィールドには数値、*(任意)、,(リスト)、-(範囲)、/(間隔)が使用できます。例えば「0 9 * * 1-5」は平日の毎朝9時を意味します。</p>
+      <h3>Q. タイムゾーンはどのように扱われますか？</h3>
+      <p>A. このツールで表示される次の実行時刻は、お使いのブラウザのローカルタイムゾーンに基づいています。サーバーのCron設定では、サーバーのタイムゾーン設定に従って実行されます。タイムゾーンの違いにご注意ください。</p>
+      <h3>Q. よく使うCron式のパターンは？</h3>
+      <p>A. 一般的によく使われるパターンは、「* * * * *」（毎分）、「0 * * * *」（毎時0分）、「0 0 * * *」（毎日0時）、「0 0 * * 0」（毎週日曜0時）、「0 0 1 * *」（毎月1日0時）です。プリセットボタンから簡単に選択できます。</p>
+    </section>
+
+    <section class="related-tools">
+      <h2>関連ツール</h2>
+      <ul>
+        <li><a href="../cron-parser/">Cron式パーサー</a></li>
+        <li><a href="../timestamp/">Unixタイムスタンプ変換</a></li>
+        <li><a href="../chmod-calculator/">Chmod計算機</a></li>
+        <li><a href="../gitignore-generator/">.gitignore生成</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <div class="ad-slot" id="ad-footer" data-ad-size="728x90"></div>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__grid">
+        <div>
+          <p class="footer__section-title">DevToolBox</p>
+          <ul class="footer__list">
+            <li><a href="../../about.html" class="footer__link">サイトについて</a></li>
+            <li><a href="../../privacy.html" class="footer__link">プライバシーポリシー</a></li>
+            <li><a href="../../terms.html" class="footer__link">利用規約</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">フォーマット・エンコード</p>
+          <ul class="footer__list">
+            <li><a href="../json-formatter/" class="footer__link">JSON整形・検証</a></li>
+            <li><a href="../sql-formatter/" class="footer__link">SQLフォーマッター</a></li>
+            <li><a href="../xml-formatter/" class="footer__link">XMLフォーマッター</a></li>
+            <li><a href="../markdown-preview/" class="footer__link">Markdownプレビュー</a></li>
+            <li><a href="../base64/" class="footer__link">Base64エンコード/デコード</a></li>
+            <li><a href="../url-encode/" class="footer__link">URLエンコード/デコード</a></li>
+            <li><a href="../html-entity/" class="footer__link">HTMLエンティティ変換</a></li>
+            <li><a href="../image-base64/" class="footer__link">画像Base64変換</a></li>
+            <li><a href="../backslash-escape/" class="footer__link">エスケープ変換</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">テキスト・変換・データ</p>
+          <ul class="footer__list">
+            <li><a href="../char-counter/" class="footer__link">文字数カウンター</a></li>
+            <li><a href="../regex-tester/" class="footer__link">正規表現テスター</a></li>
+            <li><a href="../diff-checker/" class="footer__link">テキスト差分比較</a></li>
+            <li><a href="../text-case/" class="footer__link">テキストケース変換</a></li>
+            <li><a href="../slug-generator/" class="footer__link">スラッグ生成</a></li>
+            <li><a href="../yaml-json/" class="footer__link">YAML⇔JSON変換</a></li>
+            <li><a href="../csv-json/" class="footer__link">CSV⇔JSON変換</a></li>
+            <li><a href="../toml-json/" class="footer__link">TOML⇔JSON変換</a></li>
+            <li><a href="../json-to-typescript/" class="footer__link">JSON→TypeScript変換</a></li>
+            <li><a href="../json-path/" class="footer__link">JSONパスファインダー</a></li>
+            <li><a href="../timestamp/" class="footer__link">Unixタイムスタンプ変換</a></li>
+            <li><a href="../color-converter/" class="footer__link">カラーコンバーター</a></li>
+            <li><a href="../number-base/" class="footer__link">進数変換ツール</a></li>
+            <li><a href="../byte-converter/" class="footer__link">バイト単位変換</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">生成・CSS・開発支援</p>
+          <ul class="footer__list">
+            <li><a href="../hash-generator/" class="footer__link">ハッシュ生成</a></li>
+            <li><a href="../uuid-generator/" class="footer__link">UUID生成</a></li>
+            <li><a href="../password-generator/" class="footer__link">パスワード生成</a></li>
+            <li><a href="../qr-code/" class="footer__link">QRコード生成</a></li>
+            <li><a href="../css-gradient/" class="footer__link">CSSグラデーション生成</a></li>
+            <li><a href="../box-shadow/" class="footer__link">Box Shadow生成</a></li>
+            <li><a href="../flexbox-playground/" class="footer__link">Flexboxプレイグラウンド</a></li>
+            <li><a href="../border-radius/" class="footer__link">Border Radius生成</a></li>
+            <li><a href="../jwt-decoder/" class="footer__link">JWTデコーダー</a></li>
+            <li><a href="../cron-parser/" class="footer__link">Cron式パーサー</a></li>
+            <li><a href="../chmod-calculator/" class="footer__link">Chmod計算機</a></li>
+            <li><a href="../http-status/" class="footer__link">HTTPステータスコード</a></li>
+            <li><a href="../gitignore-generator/" class="footer__link">.gitignore生成</a></li>
+            <li><a href="../meta-tag-generator/" class="footer__link">メタタグ生成</a></li>
+            <li><a href="../og-preview/" class="footer__link">OGPプレビュー</a></li>
+            <li><a href="../lorem-ipsum/" class="footer__link">Lorem Ipsum生成</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 DevToolBox. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/common.js"></script>
+  <script src="../../js/tools/crontab-generator.js"></script>
+</body>
+</html>

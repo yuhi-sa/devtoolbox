@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文字列エスケープ・アンエスケープ（オンライン無料） - DevToolBox</title>
+  <meta name="description" content="プログラミング言語別の文字列エスケープ・アンエスケープ。JavaScript、Python、Java、C/C++、HTML、SQL、Shellに対応。">
+  <link rel="canonical" href="https://yuhi-sa.github.io/devtoolbox/tools/string-escape/">
+  <meta property="og:title" content="文字列エスケープ・アンエスケープ（オンライン無料） - DevToolBox">
+  <meta property="og:description" content="プログラミング言語別の文字列エスケープ・アンエスケープ。JavaScript、Python、Java、C/C++、HTML、SQL、Shellに対応。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yuhi-sa.github.io/devtoolbox/tools/string-escape/">
+  <meta property="og:site_name" content="DevToolBox">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="文字列エスケープ・アンエスケープ（オンライン無料） - DevToolBox">
+  <meta name="twitter:description" content="プログラミング言語別の文字列エスケープ・アンエスケープ。JavaScript、Python、Java、C/C++、HTML、SQL、Shellに対応。">
+  <meta name="theme-color" content="#1a73e8">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "文字列エスケープ・アンエスケープ",
+    "description": "プログラミング言語別の文字列エスケープ・アンエスケープツール",
+    "url": "https://yuhi-sa.github.io/devtoolbox/tools/string-escape/",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "JPY"
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "DevToolBox",
+      "url": "https://yuhi-sa.github.io/devtoolbox/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://yuhi-sa.github.io/devtoolbox/" },
+      { "@type": "ListItem", "position": 2, "name": "文字列エスケープ・アンエスケープ", "item": "https://yuhi-sa.github.io/devtoolbox/tools/string-escape/" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "どのようなときに文字列エスケープが必要ですか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "プログラムのソースコード内に特殊文字（改行、タブ、引用符、バックスラッシュなど）を含む文字列を記述する場合にエスケープが必要です。また、SQLクエリやHTMLに外部データを埋め込む際にはセキュリティ対策としてもエスケープが重要です。" }
+      },
+      {
+        "@type": "Question",
+        "name": "言語によってエスケープルールは異なりますか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "はい、プログラミング言語によってエスケープルールは異なります。例えば、JavaScriptではバックスラッシュ（\\）がエスケープ文字ですが、SQLではシングルクォート（'）を2つ重ねてエスケープします。HTMLでは&amp;や&lt;のようなエンティティ表記を使います。" }
+      },
+      {
+        "@type": "Question",
+        "name": "Unicodeエスケープとは何ですか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "Unicode文字を\\uXXXXや\\UXXXXXXXX、\\xXXのような16進数表記で表すエスケープ形式です。ASCII範囲外の文字（日本語など）をソースコードに安全に埋め込む場合や、特殊な制御文字を表現する場合に使用します。" }
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="../../css/style.css">
+<script data-ad-client="ca-pub-9558545098866170" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<body>
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="../../" class="header__logo">
+        <svg class="header__logo-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="28" height="28" rx="6" fill="currentColor" style="color: var(--color-primary)"/>
+          <path d="M8 10l4 4-4 4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 18h5" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        DevToolBox
+      </a>
+      <div class="header__right">
+        <nav class="nav" aria-label="メインナビゲーション">
+          <ul class="nav__list">
+            <li><a href="../json-formatter/" class="nav__link">JSON整形</a></li>
+            <li><a href="../char-counter/" class="nav__link">文字数カウント</a></li>
+            <li><a href="../base64/" class="nav__link">Base64</a></li>
+            <li><a href="../url-encode/" class="nav__link">URLエンコード</a></li>
+            <li><a href="../timestamp/" class="nav__link">タイムスタンプ</a></li>
+          </ul>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="テーマ切替">
+          <svg class="theme-toggle__icon theme-toggle__icon--dark" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+          </svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--light" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
+          </svg>
+        </button>
+        <button id="hamburger" class="hamburger" type="button" aria-label="メニュー" aria-expanded="false" aria-controls="mobile-nav">
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav id="mobile-nav" class="mobile-nav" aria-label="モバイルナビゲーション">
+    <ul class="mobile-nav__list">
+      <li><a href="../json-formatter/" class="mobile-nav__link">JSON整形・検証</a></li>
+      <li><a href="../char-counter/" class="mobile-nav__link">文字数カウンター</a></li>
+      <li><a href="../base64/" class="mobile-nav__link">Base64エンコード/デコード</a></li>
+      <li><a href="../url-encode/" class="mobile-nav__link">URLエンコード/デコード</a></li>
+      <li><a href="../timestamp/" class="mobile-nav__link">Unixタイムスタンプ変換</a></li>
+      <li><a href="../../about.html" class="mobile-nav__link">サイトについて</a></li>
+      <li><a href="../../privacy.html" class="mobile-nav__link">プライバシーポリシー</a></li>
+      <li><a href="../../terms.html" class="mobile-nav__link">利用規約</a></li>
+    </ul>
+  </nav>
+
+  <div class="ad-slot" id="ad-header" data-ad-size="728x90"></div>
+
+  <main class="main">
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <ol>
+        <li><a href="../../">ホーム</a></li>
+        <li aria-current="page">文字列エスケープ・アンエスケープ</li>
+      </ol>
+    </nav>
+
+    <div class="tool-container">
+      <h1>文字列エスケープ・アンエスケープ</h1>
+      <p class="tool-container__lead">プログラミング言語別の文字列エスケープ・アンエスケープをリアルタイムで変換します。</p>
+
+      <div class="tab-group">
+        <button class="tab-btn tab-btn--active" data-tab="escape">エスケープ</button>
+        <button class="tab-btn" data-tab="unescape">アンエスケープ</button>
+      </div>
+
+      <div style="margin-bottom:var(--space-md)">
+        <label for="lang-select" style="font-size:.875rem;font-weight:500;display:block;margin-bottom:var(--space-xs)">言語 / 形式</label>
+        <select id="lang-select" class="select">
+          <option value="javascript">JavaScript / JSON</option>
+          <option value="python">Python</option>
+          <option value="java">Java</option>
+          <option value="c">C / C++</option>
+          <option value="html">HTML</option>
+          <option value="sql">SQL</option>
+          <option value="shell">Shell / Bash</option>
+        </select>
+      </div>
+
+      <div class="tool-input">
+        <label for="escape-input" id="escape-input-label">変換する文字列</label>
+        <textarea id="escape-input" class="textarea" rows="8" placeholder="変換したい文字列を入力してください..."></textarea>
+      </div>
+
+      <div class="tool-output">
+        <label for="escape-output">出力</label>
+        <textarea id="escape-output" class="textarea" rows="8" readonly></textarea>
+        <button id="btn-copy" class="btn btn--secondary copy-btn">コピー</button>
+      </div>
+    </div>
+
+    <section class="tool-description">
+      <h2>文字列エスケープツールの使い方</h2>
+      <p>「エスケープ」タブで文字列を入力すると、選択した言語のルールに従ってエスケープされた文字列が出力されます。「アンエスケープ」タブではエスケープされた文字列を元の文字列に戻します。言語を切り替えるとリアルタイムで変換が更新されます。JavaScript/JSON、Python、Java、C/C++、HTML、SQL、Shell/Bashの7種類の形式に対応しています。</p>
+
+      <h2>エスケープ文字の基礎</h2>
+      <p>エスケープ文字は、プログラミング言語やデータ形式において特別な意味を持つ文字を、文字通りの文字として扱うための仕組みです。たとえば、ダブルクォートで囲まれた文字列の中にダブルクォートを含めたい場合は\"とエスケープします。改行は\n、タブは\tで表現されます。HTMLでは&lt;（<）、&amp;（&）のようなエンティティ表記が使われます。SQLではシングルクォートを''（2つ重ね）でエスケープするのが一般的です。</p>
+
+      <h2>よくある質問（FAQ）</h2>
+      <h3>Q. どのようなときに文字列エスケープが必要ですか？</h3>
+      <p>A. プログラムのソースコード内に特殊文字（改行、タブ、引用符、バックスラッシュなど）を含む文字列を記述する場合にエスケープが必要です。また、SQLクエリやHTMLに外部データを埋め込む際にはセキュリティ対策としてもエスケープが重要です。</p>
+      <h3>Q. 言語によってエスケープルールは異なりますか？</h3>
+      <p>A. はい、プログラミング言語によってエスケープルールは異なります。例えば、JavaScriptではバックスラッシュ（\）がエスケープ文字ですが、SQLではシングルクォート（'）を2つ重ねてエスケープします。HTMLでは&amp;や&lt;のようなエンティティ表記を使います。</p>
+      <h3>Q. Unicodeエスケープとは何ですか？</h3>
+      <p>A. Unicode文字を\uXXXXや\UXXXXXXXX、\xXXのような16進数表記で表すエスケープ形式です。ASCII範囲外の文字（日本語など）をソースコードに安全に埋め込む場合や、特殊な制御文字を表現する場合に使用します。</p>
+    </section>
+
+    <section class="related-tools">
+      <h2>関連ツール</h2>
+      <ul>
+        <li><a href="../backslash-escape/">エスケープ変換</a></li>
+        <li><a href="../html-entity/">HTMLエンティティ変換</a></li>
+        <li><a href="../url-encode/">URLエンコード/デコード</a></li>
+        <li><a href="../base64/">Base64エンコード/デコード</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <div class="ad-slot" id="ad-footer" data-ad-size="728x90"></div>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__grid">
+        <div>
+          <p class="footer__section-title">DevToolBox</p>
+          <ul class="footer__list">
+            <li><a href="../../about.html" class="footer__link">サイトについて</a></li>
+            <li><a href="../../privacy.html" class="footer__link">プライバシーポリシー</a></li>
+            <li><a href="../../terms.html" class="footer__link">利用規約</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">フォーマット・エンコード</p>
+          <ul class="footer__list">
+            <li><a href="../json-formatter/" class="footer__link">JSON整形・検証</a></li>
+            <li><a href="../sql-formatter/" class="footer__link">SQLフォーマッター</a></li>
+            <li><a href="../xml-formatter/" class="footer__link">XMLフォーマッター</a></li>
+            <li><a href="../markdown-preview/" class="footer__link">Markdownプレビュー</a></li>
+            <li><a href="../base64/" class="footer__link">Base64エンコード/デコード</a></li>
+            <li><a href="../url-encode/" class="footer__link">URLエンコード/デコード</a></li>
+            <li><a href="../html-entity/" class="footer__link">HTMLエンティティ変換</a></li>
+            <li><a href="../image-base64/" class="footer__link">画像Base64変換</a></li>
+            <li><a href="../backslash-escape/" class="footer__link">エスケープ変換</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">テキスト・変換・データ</p>
+          <ul class="footer__list">
+            <li><a href="../char-counter/" class="footer__link">文字数カウンター</a></li>
+            <li><a href="../regex-tester/" class="footer__link">正規表現テスター</a></li>
+            <li><a href="../diff-checker/" class="footer__link">テキスト差分比較</a></li>
+            <li><a href="../text-case/" class="footer__link">テキストケース変換</a></li>
+            <li><a href="../slug-generator/" class="footer__link">スラッグ生成</a></li>
+            <li><a href="../yaml-json/" class="footer__link">YAML⇔JSON変換</a></li>
+            <li><a href="../csv-json/" class="footer__link">CSV⇔JSON変換</a></li>
+            <li><a href="../toml-json/" class="footer__link">TOML⇔JSON変換</a></li>
+            <li><a href="../json-to-typescript/" class="footer__link">JSON→TypeScript変換</a></li>
+            <li><a href="../json-path/" class="footer__link">JSONパスファインダー</a></li>
+            <li><a href="../timestamp/" class="footer__link">Unixタイムスタンプ変換</a></li>
+            <li><a href="../color-converter/" class="footer__link">カラーコンバーター</a></li>
+            <li><a href="../number-base/" class="footer__link">進数変換ツール</a></li>
+            <li><a href="../byte-converter/" class="footer__link">バイト単位変換</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">生成・CSS・開発支援</p>
+          <ul class="footer__list">
+            <li><a href="../hash-generator/" class="footer__link">ハッシュ生成</a></li>
+            <li><a href="../uuid-generator/" class="footer__link">UUID生成</a></li>
+            <li><a href="../password-generator/" class="footer__link">パスワード生成</a></li>
+            <li><a href="../qr-code/" class="footer__link">QRコード生成</a></li>
+            <li><a href="../css-gradient/" class="footer__link">CSSグラデーション生成</a></li>
+            <li><a href="../box-shadow/" class="footer__link">Box Shadow生成</a></li>
+            <li><a href="../flexbox-playground/" class="footer__link">Flexboxプレイグラウンド</a></li>
+            <li><a href="../border-radius/" class="footer__link">Border Radius生成</a></li>
+            <li><a href="../jwt-decoder/" class="footer__link">JWTデコーダー</a></li>
+            <li><a href="../cron-parser/" class="footer__link">Cron式パーサー</a></li>
+            <li><a href="../chmod-calculator/" class="footer__link">Chmod計算機</a></li>
+            <li><a href="../http-status/" class="footer__link">HTTPステータスコード</a></li>
+            <li><a href="../gitignore-generator/" class="footer__link">.gitignore生成</a></li>
+            <li><a href="../meta-tag-generator/" class="footer__link">メタタグ生成</a></li>
+            <li><a href="../og-preview/" class="footer__link">OGPプレビュー</a></li>
+            <li><a href="../lorem-ipsum/" class="footer__link">Lorem Ipsum生成</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 DevToolBox. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/common.js"></script>
+  <script src="../../js/tools/string-escape.js"></script>
+</body>
+</html>

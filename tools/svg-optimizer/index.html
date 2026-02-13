@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SVG最適化ツール（オンライン無料） - DevToolBox</title>
+  <meta name="description" content="SVGコードを最適化してファイルサイズを削減。コメント・メタデータ除去、属性の簡略化、ミニファイに対応。">
+  <link rel="canonical" href="https://yuhi-sa.github.io/devtoolbox/tools/svg-optimizer/">
+  <meta property="og:title" content="SVG最適化ツール（オンライン無料） - DevToolBox">
+  <meta property="og:description" content="SVGコードを最適化してファイルサイズを削減。コメント・メタデータ除去、属性の簡略化、ミニファイに対応。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yuhi-sa.github.io/devtoolbox/tools/svg-optimizer/">
+  <meta property="og:site_name" content="DevToolBox">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="SVG最適化ツール（オンライン無料） - DevToolBox">
+  <meta name="twitter:description" content="SVGコードを最適化してファイルサイズを削減。コメント・メタデータ除去、属性の簡略化、ミニファイに対応。">
+  <meta name="theme-color" content="#1a73e8">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "SVG最適化ツール",
+    "description": "SVGコードを最適化してファイルサイズを削減するオンラインツール",
+    "url": "https://yuhi-sa.github.io/devtoolbox/tools/svg-optimizer/",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "JPY"
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "DevToolBox",
+      "url": "https://yuhi-sa.github.io/devtoolbox/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://yuhi-sa.github.io/devtoolbox/" },
+      { "@type": "ListItem", "position": 2, "name": "SVG最適化ツール", "item": "https://yuhi-sa.github.io/devtoolbox/tools/svg-optimizer/" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "どのような最適化が行われますか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "コメントの除去、XMLメタデータの除去、空のグループ要素の除去、不要な属性（デフォルト値と同じ属性）の除去、余分な空白の除去などが行われます。これらにより、SVGの見た目を変えることなくファイルサイズを削減できます。" }
+      },
+      {
+        "@type": "Question",
+        "name": "最適化でSVGの表示が崩れることはありますか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "基本的には表示に影響しない安全な最適化のみを行います。ただし、まれにCSSで参照している属性やIDが影響を受ける場合があります。最適化後のプレビューで表示を確認してからご利用ください。" }
+      },
+      {
+        "@type": "Question",
+        "name": "入力データのセキュリティは？",
+        "acceptedAnswer": { "@type": "Answer", "text": "すべての最適化処理はお使いのブラウザ内で完結します。SVGデータがサーバーに送信されることは一切ありませんので、安心してご利用ください。" }
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    .svg-preview{border:1px solid var(--color-border);border-radius:var(--radius-sm);padding:var(--space-md);margin-bottom:var(--space-md);text-align:center;min-height:120px;background:repeating-conic-gradient(var(--color-bg) 0% 25%,var(--color-surface) 0% 50%) 50%/16px 16px}
+    .svg-preview svg{max-width:100%;max-height:300px}
+    .size-stats{display:flex;flex-wrap:wrap;gap:var(--space-md);margin-bottom:var(--space-md)}
+    .size-stat{flex:1;min-width:100px;background:var(--color-bg);border-radius:var(--radius-sm);padding:var(--space-md);text-align:center}
+    .size-stat__label{font-size:.75rem;color:var(--color-text-secondary);margin-bottom:var(--space-xs)}
+    .size-stat__value{font-size:1.125rem;font-weight:700;font-family:var(--font-mono)}
+    .size-stat__value--success{color:var(--color-success)}
+    .options-group{display:flex;flex-wrap:wrap;gap:var(--space-md);margin-bottom:var(--space-md);padding:var(--space-md);background:var(--color-bg);border-radius:var(--radius-sm)}
+    .options-group label{display:flex;align-items:center;gap:var(--space-xs);font-size:.875rem;cursor:pointer}
+  </style>
+<script data-ad-client="ca-pub-9558545098866170" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<body>
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="../../" class="header__logo">
+        <svg class="header__logo-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="28" height="28" rx="6" fill="currentColor" style="color: var(--color-primary)"/>
+          <path d="M8 10l4 4-4 4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 18h5" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        DevToolBox
+      </a>
+      <div class="header__right">
+        <nav class="nav" aria-label="メインナビゲーション">
+          <ul class="nav__list">
+            <li><a href="../json-formatter/" class="nav__link">JSON整形</a></li>
+            <li><a href="../char-counter/" class="nav__link">文字数カウント</a></li>
+            <li><a href="../base64/" class="nav__link">Base64</a></li>
+            <li><a href="../url-encode/" class="nav__link">URLエンコード</a></li>
+            <li><a href="../timestamp/" class="nav__link">タイムスタンプ</a></li>
+          </ul>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="テーマ切替">
+          <svg class="theme-toggle__icon theme-toggle__icon--dark" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+          </svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--light" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
+          </svg>
+        </button>
+        <button id="hamburger" class="hamburger" type="button" aria-label="メニュー" aria-expanded="false" aria-controls="mobile-nav">
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav id="mobile-nav" class="mobile-nav" aria-label="モバイルナビゲーション">
+    <ul class="mobile-nav__list">
+      <li><a href="../json-formatter/" class="mobile-nav__link">JSON整形・検証</a></li>
+      <li><a href="../char-counter/" class="mobile-nav__link">文字数カウンター</a></li>
+      <li><a href="../base64/" class="mobile-nav__link">Base64エンコード/デコード</a></li>
+      <li><a href="../url-encode/" class="mobile-nav__link">URLエンコード/デコード</a></li>
+      <li><a href="../timestamp/" class="mobile-nav__link">Unixタイムスタンプ変換</a></li>
+      <li><a href="../../about.html" class="mobile-nav__link">サイトについて</a></li>
+      <li><a href="../../privacy.html" class="mobile-nav__link">プライバシーポリシー</a></li>
+      <li><a href="../../terms.html" class="mobile-nav__link">利用規約</a></li>
+    </ul>
+  </nav>
+
+  <div class="ad-slot" id="ad-header" data-ad-size="728x90"></div>
+
+  <main class="main">
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <ol>
+        <li><a href="../../">ホーム</a></li>
+        <li aria-current="page">SVG最適化ツール</li>
+      </ol>
+    </nav>
+
+    <div class="tool-container">
+      <h1>SVG最適化ツール</h1>
+      <p class="tool-container__lead">SVGコードを最適化してファイルサイズを削減するオンラインツールです。</p>
+
+      <div class="options-group">
+        <label><input type="checkbox" id="opt-comments" checked> コメント除去</label>
+        <label><input type="checkbox" id="opt-metadata" checked> メタデータ除去</label>
+        <label><input type="checkbox" id="opt-empty-groups" checked> 空グループ除去</label>
+        <label><input type="checkbox" id="opt-defaults" checked> デフォルト値除去</label>
+        <label><input type="checkbox" id="opt-minify" checked> ミニファイ</label>
+      </div>
+
+      <div class="tool-input">
+        <label for="svg-input">SVGコードを入力</label>
+        <textarea id="svg-input" class="textarea" rows="10" placeholder="<svg>...</svg> を貼り付けてください"></textarea>
+      </div>
+
+      <div class="tool-actions">
+        <button id="btn-optimize" class="btn btn--primary">最適化</button>
+        <button id="btn-beautify" class="btn btn--secondary">整形（Beautify）</button>
+        <button id="btn-clear" class="btn btn--secondary clear-btn">クリア</button>
+      </div>
+
+      <div id="size-stats" class="size-stats" style="display:none">
+        <div class="size-stat">
+          <div class="size-stat__label">元のサイズ</div>
+          <div class="size-stat__value" id="original-size">-</div>
+        </div>
+        <div class="size-stat">
+          <div class="size-stat__label">最適化後サイズ</div>
+          <div class="size-stat__value" id="optimized-size">-</div>
+        </div>
+        <div class="size-stat">
+          <div class="size-stat__label">削減率</div>
+          <div class="size-stat__value size-stat__value--success" id="reduction-rate">-</div>
+        </div>
+      </div>
+
+      <div class="tool-output">
+        <label for="svg-output">出力</label>
+        <textarea id="svg-output" class="textarea" rows="10" readonly></textarea>
+        <button id="btn-copy" class="btn btn--secondary copy-btn">コピー</button>
+        <button id="btn-download" class="btn btn--secondary" style="margin-left:var(--space-sm)">ダウンロード</button>
+      </div>
+
+      <div id="svg-preview" class="svg-preview" style="display:none"></div>
+    </div>
+
+    <section class="tool-description">
+      <h2>SVG最適化ツールの使い方</h2>
+      <p>SVGコードをテキストエリアに貼り付けて「最適化」ボタンをクリックすると、不要なコメント・メタデータ・空グループなどを除去してファイルサイズを削減します。チェックボックスで最適化オプションを個別にON/OFFできます。「整形」ボタンでは最適化せずにインデントを付けて見やすく整形します。最適化後のSVGはプレビューで表示を確認でき、コピーやダウンロードが可能です。</p>
+
+      <h2>SVG最適化について</h2>
+      <p>SVGファイルはXMLベースのため、エディタが付加するコメントやメタデータ、デフォルト値の属性、空のグループ要素など、表示に不要な情報が含まれていることがよくあります。これらを除去するだけで20〜60%のファイルサイズ削減が可能です。ウェブサイトのパフォーマンス向上やSVGアイコンの最適化に役立ちます。</p>
+
+      <h2>よくある質問（FAQ）</h2>
+      <h3>Q. どのような最適化が行われますか？</h3>
+      <p>A. コメントの除去、XMLメタデータの除去、空のグループ要素の除去、不要な属性（デフォルト値と同じ属性）の除去、余分な空白の除去などが行われます。これらにより、SVGの見た目を変えることなくファイルサイズを削減できます。</p>
+      <h3>Q. 最適化でSVGの表示が崩れることはありますか？</h3>
+      <p>A. 基本的には表示に影響しない安全な最適化のみを行います。ただし、まれにCSSで参照している属性やIDが影響を受ける場合があります。最適化後のプレビューで表示を確認してからご利用ください。</p>
+      <h3>Q. 入力データのセキュリティは？</h3>
+      <p>A. すべての最適化処理はお使いのブラウザ内で完結します。SVGデータがサーバーに送信されることは一切ありませんので、安心してご利用ください。</p>
+    </section>
+
+    <section class="related-tools">
+      <h2>関連ツール</h2>
+      <ul>
+        <li><a href="../image-compressor/">画像圧縮ツール</a></li>
+        <li><a href="../xml-formatter/">XMLフォーマッター</a></li>
+        <li><a href="../image-base64/">画像Base64変換</a></li>
+        <li><a href="../css-gradient/">CSSグラデーション生成</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <div class="ad-slot" id="ad-footer" data-ad-size="728x90"></div>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__grid">
+        <div>
+          <p class="footer__section-title">DevToolBox</p>
+          <ul class="footer__list">
+            <li><a href="../../about.html" class="footer__link">サイトについて</a></li>
+            <li><a href="../../privacy.html" class="footer__link">プライバシーポリシー</a></li>
+            <li><a href="../../terms.html" class="footer__link">利用規約</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">フォーマット・エンコード</p>
+          <ul class="footer__list">
+            <li><a href="../json-formatter/" class="footer__link">JSON整形・検証</a></li>
+            <li><a href="../sql-formatter/" class="footer__link">SQLフォーマッター</a></li>
+            <li><a href="../xml-formatter/" class="footer__link">XMLフォーマッター</a></li>
+            <li><a href="../markdown-preview/" class="footer__link">Markdownプレビュー</a></li>
+            <li><a href="../base64/" class="footer__link">Base64エンコード/デコード</a></li>
+            <li><a href="../url-encode/" class="footer__link">URLエンコード/デコード</a></li>
+            <li><a href="../html-entity/" class="footer__link">HTMLエンティティ変換</a></li>
+            <li><a href="../image-base64/" class="footer__link">画像Base64変換</a></li>
+            <li><a href="../backslash-escape/" class="footer__link">エスケープ変換</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">テキスト・変換・データ</p>
+          <ul class="footer__list">
+            <li><a href="../char-counter/" class="footer__link">文字数カウンター</a></li>
+            <li><a href="../regex-tester/" class="footer__link">正規表現テスター</a></li>
+            <li><a href="../diff-checker/" class="footer__link">テキスト差分比較</a></li>
+            <li><a href="../text-case/" class="footer__link">テキストケース変換</a></li>
+            <li><a href="../slug-generator/" class="footer__link">スラッグ生成</a></li>
+            <li><a href="../yaml-json/" class="footer__link">YAML⇔JSON変換</a></li>
+            <li><a href="../csv-json/" class="footer__link">CSV⇔JSON変換</a></li>
+            <li><a href="../toml-json/" class="footer__link">TOML⇔JSON変換</a></li>
+            <li><a href="../json-to-typescript/" class="footer__link">JSON→TypeScript変換</a></li>
+            <li><a href="../json-path/" class="footer__link">JSONパスファインダー</a></li>
+            <li><a href="../timestamp/" class="footer__link">Unixタイムスタンプ変換</a></li>
+            <li><a href="../color-converter/" class="footer__link">カラーコンバーター</a></li>
+            <li><a href="../number-base/" class="footer__link">進数変換ツール</a></li>
+            <li><a href="../byte-converter/" class="footer__link">バイト単位変換</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">生成・CSS・開発支援</p>
+          <ul class="footer__list">
+            <li><a href="../hash-generator/" class="footer__link">ハッシュ生成</a></li>
+            <li><a href="../uuid-generator/" class="footer__link">UUID生成</a></li>
+            <li><a href="../password-generator/" class="footer__link">パスワード生成</a></li>
+            <li><a href="../qr-code/" class="footer__link">QRコード生成</a></li>
+            <li><a href="../css-gradient/" class="footer__link">CSSグラデーション生成</a></li>
+            <li><a href="../box-shadow/" class="footer__link">Box Shadow生成</a></li>
+            <li><a href="../flexbox-playground/" class="footer__link">Flexboxプレイグラウンド</a></li>
+            <li><a href="../border-radius/" class="footer__link">Border Radius生成</a></li>
+            <li><a href="../jwt-decoder/" class="footer__link">JWTデコーダー</a></li>
+            <li><a href="../cron-parser/" class="footer__link">Cron式パーサー</a></li>
+            <li><a href="../chmod-calculator/" class="footer__link">Chmod計算機</a></li>
+            <li><a href="../http-status/" class="footer__link">HTTPステータスコード</a></li>
+            <li><a href="../gitignore-generator/" class="footer__link">.gitignore生成</a></li>
+            <li><a href="../meta-tag-generator/" class="footer__link">メタタグ生成</a></li>
+            <li><a href="../og-preview/" class="footer__link">OGPプレビュー</a></li>
+            <li><a href="../lorem-ipsum/" class="footer__link">Lorem Ipsum生成</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 DevToolBox. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/common.js"></script>
+  <script src="../../js/tools/svg-optimizer.js"></script>
+</body>
+</html>

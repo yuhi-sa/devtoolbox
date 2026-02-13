@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JWTジェネレーター（オンライン無料） - DevToolBox</title>
+  <meta name="description" content="カスタムヘッダーとペイロードでJWTトークンを生成。HS256アルゴリズム対応。ブラウザ内で完結する安全なJWT作成ツール。">
+  <link rel="canonical" href="https://yuhi-sa.github.io/devtoolbox/tools/jwt-generator/">
+  <meta property="og:title" content="JWTジェネレーター（オンライン無料） - DevToolBox">
+  <meta property="og:description" content="カスタムヘッダーとペイロードでJWTトークンを生成。HS256アルゴリズム対応。ブラウザ内で完結する安全なJWT作成ツール。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yuhi-sa.github.io/devtoolbox/tools/jwt-generator/">
+  <meta property="og:site_name" content="DevToolBox">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="JWTジェネレーター（オンライン無料） - DevToolBox">
+  <meta name="twitter:description" content="カスタムヘッダーとペイロードでJWTトークンを生成。HS256アルゴリズム対応。ブラウザ内で完結する安全なJWT作成ツール。">
+  <meta name="theme-color" content="#1a73e8">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "JWTジェネレーター",
+    "description": "カスタムヘッダーとペイロードでJWTトークンを生成するオンラインツール",
+    "url": "https://yuhi-sa.github.io/devtoolbox/tools/jwt-generator/",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "JPY"
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "DevToolBox",
+      "url": "https://yuhi-sa.github.io/devtoolbox/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://yuhi-sa.github.io/devtoolbox/" },
+      { "@type": "ListItem", "position": 2, "name": "JWTジェネレーター", "item": "https://yuhi-sa.github.io/devtoolbox/tools/jwt-generator/" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "生成されたJWTトークンの安全性は？",
+        "acceptedAnswer": { "@type": "Answer", "text": "すべての処理はお使いのブラウザ内で完結し、秘密鍵やトークンがサーバーに送信されることはありません。ただし、このツールはテスト・開発目的であり、本番環境のJWT生成にはサーバーサイドでの実装を推奨します。" }
+      },
+      {
+        "@type": "Question",
+        "name": "どのアルゴリズムに対応していますか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "現在はHS256（HMAC-SHA256）アルゴリズムに対応しています。Web Crypto APIを使用した安全なHMAC署名を行います。RS256などの非対称鍵アルゴリズムは今後対応予定です。" }
+      },
+      {
+        "@type": "Question",
+        "name": "ペイロードにどのようなクレームを設定できますか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "標準クレーム（iss, sub, aud, exp, nbf, iat, jti）に加えて、任意のカスタムクレームを自由に設定できます。JSONエディタでヘッダーとペイロードを直接編集してください。" }
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="../../css/style.css">
+<script data-ad-client="ca-pub-9558545098866170" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<body>
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="../../" class="header__logo">
+        <svg class="header__logo-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="28" height="28" rx="6" fill="currentColor" style="color: var(--color-primary)"/>
+          <path d="M8 10l4 4-4 4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 18h5" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        DevToolBox
+      </a>
+      <div class="header__right">
+        <nav class="nav" aria-label="メインナビゲーション">
+          <ul class="nav__list">
+            <li><a href="../json-formatter/" class="nav__link">JSON整形</a></li>
+            <li><a href="../char-counter/" class="nav__link">文字数カウント</a></li>
+            <li><a href="../base64/" class="nav__link">Base64</a></li>
+            <li><a href="../url-encode/" class="nav__link">URLエンコード</a></li>
+            <li><a href="../timestamp/" class="nav__link">タイムスタンプ</a></li>
+          </ul>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="テーマ切替">
+          <svg class="theme-toggle__icon theme-toggle__icon--dark" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+          </svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--light" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
+          </svg>
+        </button>
+        <button id="hamburger" class="hamburger" type="button" aria-label="メニュー" aria-expanded="false" aria-controls="mobile-nav">
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- モバイルナビ -->
+  <nav id="mobile-nav" class="mobile-nav" aria-label="モバイルナビゲーション">
+    <ul class="mobile-nav__list">
+      <li><a href="../json-formatter/" class="mobile-nav__link">JSON整形・検証</a></li>
+      <li><a href="../char-counter/" class="mobile-nav__link">文字数カウンター</a></li>
+      <li><a href="../base64/" class="mobile-nav__link">Base64エンコード/デコード</a></li>
+      <li><a href="../url-encode/" class="mobile-nav__link">URLエンコード/デコード</a></li>
+      <li><a href="../timestamp/" class="mobile-nav__link">Unixタイムスタンプ変換</a></li>
+      <li><a href="../../about.html" class="mobile-nav__link">サイトについて</a></li>
+      <li><a href="../../privacy.html" class="mobile-nav__link">プライバシーポリシー</a></li>
+      <li><a href="../../terms.html" class="mobile-nav__link">利用規約</a></li>
+    </ul>
+  </nav>
+
+  <!-- 広告枠A: ヘッダー下バナー -->
+  <div class="ad-slot" id="ad-header" data-ad-size="728x90">
+    <!-- 広告スクリプトをここに挿入 -->
+  </div>
+
+  <main class="main">
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <ol>
+        <li><a href="../../">ホーム</a></li>
+        <li aria-current="page">JWTジェネレーター</li>
+      </ol>
+    </nav>
+
+    <div class="tool-container">
+      <h1>JWTジェネレーター</h1>
+      <p class="tool-container__lead">カスタムヘッダーとペイロードでJWTトークンを生成。HS256アルゴリズム対応。</p>
+
+      <div style="display:grid;gap:1rem;grid-template-columns:1fr 1fr;">
+        <div class="tool-input">
+          <label for="jwt-header">ヘッダー（JSON）</label>
+          <textarea id="jwt-header" class="textarea" rows="4">{
+  "alg": "HS256",
+  "typ": "JWT"
+}</textarea>
+          <div id="jwt-header-error" class="error-message" hidden></div>
+        </div>
+
+        <div class="tool-input">
+          <label for="jwt-payload">ペイロード（JSON）</label>
+          <textarea id="jwt-payload" class="textarea" rows="4">{
+  "sub": "1234567890",
+  "name": "田中太郎",
+  "iat": 1516239022
+}</textarea>
+          <div id="jwt-payload-error" class="error-message" hidden></div>
+        </div>
+      </div>
+
+      <div class="tool-input" style="margin-top:1rem;">
+        <label for="jwt-secret">秘密鍵（Secret Key）</label>
+        <input type="text" id="jwt-secret" class="input" value="your-256-bit-secret" placeholder="秘密鍵を入力">
+      </div>
+
+      <div class="tool-actions">
+        <button id="btn-generate" class="btn btn--primary">トークン生成</button>
+        <button id="btn-clear" class="btn btn--secondary clear-btn">クリア</button>
+      </div>
+
+      <div id="jwt-error" class="error-message" hidden></div>
+
+      <div class="tool-output">
+        <label for="jwt-output">生成されたJWTトークン</label>
+        <textarea id="jwt-output" class="textarea" rows="4" readonly style="word-break:break-all;"></textarea>
+        <div id="jwt-success" class="success-message" hidden></div>
+        <button id="btn-copy" class="btn btn--secondary copy-btn">コピー</button>
+      </div>
+
+      <div class="tool-output" style="margin-top:1rem;">
+        <label>デコードプレビュー</label>
+        <div id="jwt-preview" style="display:grid;gap:0.5rem;grid-template-columns:1fr 1fr;">
+          <div>
+            <label style="font-size:0.85rem;font-weight:600;">ヘッダー</label>
+            <pre id="jwt-preview-header" class="textarea" style="min-height:80px;margin:0;white-space:pre-wrap;overflow:auto;"></pre>
+          </div>
+          <div>
+            <label style="font-size:0.85rem;font-weight:600;">ペイロード</label>
+            <pre id="jwt-preview-payload" class="textarea" style="min-height:80px;margin:0;white-space:pre-wrap;overflow:auto;"></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="tool-description">
+      <h2>JWTジェネレーターの使い方</h2>
+      <p>ヘッダーとペイロードにJSON形式でデータを入力し、秘密鍵を設定して「トークン生成」ボタンを押すとJWTトークンが生成されます。生成されたトークンのデコードプレビューも同時に表示されます。すべての処理はブラウザ内のWeb Crypto APIで行われ、データがサーバーに送信されることはありません。</p>
+
+      <h2>よくある質問（FAQ）</h2>
+      <h3>Q. 生成されたJWTトークンの安全性は？</h3>
+      <p>A. すべての処理はお使いのブラウザ内で完結し、秘密鍵やトークンがサーバーに送信されることはありません。ただし、このツールはテスト・開発目的であり、本番環境のJWT生成にはサーバーサイドでの実装を推奨します。</p>
+      <h3>Q. どのアルゴリズムに対応していますか？</h3>
+      <p>A. 現在はHS256（HMAC-SHA256）アルゴリズムに対応しています。Web Crypto APIを使用した安全なHMAC署名を行います。</p>
+      <h3>Q. ペイロードにどのようなクレームを設定できますか？</h3>
+      <p>A. 標準クレーム（iss, sub, aud, exp, nbf, iat, jti）に加えて、任意のカスタムクレームを自由に設定できます。JSONエディタでヘッダーとペイロードを直接編集してください。</p>
+    </section>
+
+    <section class="related-tools">
+      <h2>関連ツール</h2>
+      <ul>
+        <li><a href="../jwt-decoder/">JWTデコーダー</a></li>
+        <li><a href="../base64/">Base64エンコード・デコード</a></li>
+        <li><a href="../hash-generator/">ハッシュ生成</a></li>
+        <li><a href="../password-generator/">パスワード生成</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <div class="ad-slot" id="ad-footer" data-ad-size="728x90">
+    <!-- 広告スクリプトをここに挿入 -->
+  </div>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__grid">
+        <div>
+          <p class="footer__section-title">DevToolBox</p>
+          <ul class="footer__list">
+            <li><a href="../../about.html" class="footer__link">サイトについて</a></li>
+            <li><a href="../../privacy.html" class="footer__link">プライバシーポリシー</a></li>
+            <li><a href="../../terms.html" class="footer__link">利用規約</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">フォーマット・エンコード</p>
+          <ul class="footer__list">
+            <li><a href="../json-formatter/" class="footer__link">JSON整形・検証</a></li>
+            <li><a href="../sql-formatter/" class="footer__link">SQLフォーマッター</a></li>
+            <li><a href="../xml-formatter/" class="footer__link">XMLフォーマッター</a></li>
+            <li><a href="../markdown-preview/" class="footer__link">Markdownプレビュー</a></li>
+            <li><a href="../base64/" class="footer__link">Base64エンコード/デコード</a></li>
+            <li><a href="../url-encode/" class="footer__link">URLエンコード/デコード</a></li>
+            <li><a href="../html-entity/" class="footer__link">HTMLエンティティ変換</a></li>
+            <li><a href="../image-base64/" class="footer__link">画像Base64変換</a></li>
+            <li><a href="../backslash-escape/" class="footer__link">エスケープ変換</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">テキスト・変換・データ</p>
+          <ul class="footer__list">
+            <li><a href="../char-counter/" class="footer__link">文字数カウンター</a></li>
+            <li><a href="../regex-tester/" class="footer__link">正規表現テスター</a></li>
+            <li><a href="../diff-checker/" class="footer__link">テキスト差分比較</a></li>
+            <li><a href="../text-case/" class="footer__link">テキストケース変換</a></li>
+            <li><a href="../slug-generator/" class="footer__link">スラッグ生成</a></li>
+            <li><a href="../yaml-json/" class="footer__link">YAML⇔JSON変換</a></li>
+            <li><a href="../csv-json/" class="footer__link">CSV⇔JSON変換</a></li>
+            <li><a href="../toml-json/" class="footer__link">TOML⇔JSON変換</a></li>
+            <li><a href="../json-to-typescript/" class="footer__link">JSON→TypeScript変換</a></li>
+            <li><a href="../json-path/" class="footer__link">JSONパスファインダー</a></li>
+            <li><a href="../timestamp/" class="footer__link">Unixタイムスタンプ変換</a></li>
+            <li><a href="../color-converter/" class="footer__link">カラーコンバーター</a></li>
+            <li><a href="../number-base/" class="footer__link">進数変換ツール</a></li>
+            <li><a href="../byte-converter/" class="footer__link">バイト単位変換</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">生成・CSS・開発支援</p>
+          <ul class="footer__list">
+            <li><a href="../hash-generator/" class="footer__link">ハッシュ生成</a></li>
+            <li><a href="../uuid-generator/" class="footer__link">UUID生成</a></li>
+            <li><a href="../password-generator/" class="footer__link">パスワード生成</a></li>
+            <li><a href="../qr-code/" class="footer__link">QRコード生成</a></li>
+            <li><a href="../css-gradient/" class="footer__link">CSSグラデーション生成</a></li>
+            <li><a href="../box-shadow/" class="footer__link">Box Shadow生成</a></li>
+            <li><a href="../flexbox-playground/" class="footer__link">Flexboxプレイグラウンド</a></li>
+            <li><a href="../border-radius/" class="footer__link">Border Radius生成</a></li>
+            <li><a href="../jwt-decoder/" class="footer__link">JWTデコーダー</a></li>
+            <li><a href="../cron-parser/" class="footer__link">Cron式パーサー</a></li>
+            <li><a href="../chmod-calculator/" class="footer__link">Chmod計算機</a></li>
+            <li><a href="../http-status/" class="footer__link">HTTPステータスコード</a></li>
+            <li><a href="../gitignore-generator/" class="footer__link">.gitignore生成</a></li>
+            <li><a href="../meta-tag-generator/" class="footer__link">メタタグ生成</a></li>
+            <li><a href="../og-preview/" class="footer__link">OGPプレビュー</a></li>
+            <li><a href="../lorem-ipsum/" class="footer__link">Lorem Ipsum生成</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 DevToolBox. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/common.js"></script>
+  <script src="../../js/tools/jwt-generator.js"></script>
+</body>
+</html>

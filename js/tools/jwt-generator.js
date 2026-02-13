@@ -1,0 +1,189 @@
+"use strict";
+
+(function () {
+  document.addEventListener("DOMContentLoaded", function () {
+    var headerEl = document.getElementById("jwt-header");
+    var payloadEl = document.getElementById("jwt-payload");
+    var secretEl = document.getElementById("jwt-secret");
+    var outputEl = document.getElementById("jwt-output");
+    var headerErrorEl = document.getElementById("jwt-header-error");
+    var payloadErrorEl = document.getElementById("jwt-payload-error");
+    var errorEl = document.getElementById("jwt-error");
+    var successEl = document.getElementById("jwt-success");
+    var previewHeader = document.getElementById("jwt-preview-header");
+    var previewPayload = document.getElementById("jwt-preview-payload");
+    var btnGenerate = document.getElementById("btn-generate");
+    var btnClear = document.getElementById("btn-clear");
+    var btnCopy = document.getElementById("btn-copy");
+
+    function showError(el, msg) {
+      el.textContent = msg;
+      el.hidden = false;
+    }
+
+    function showSuccess(msg) {
+      successEl.textContent = msg;
+      successEl.hidden = false;
+      errorEl.hidden = true;
+    }
+
+    function clearMessages() {
+      headerErrorEl.hidden = true;
+      payloadErrorEl.hidden = true;
+      errorEl.hidden = true;
+      successEl.hidden = true;
+    }
+
+    // Base64url encode
+    function base64urlEncode(str) {
+      var encoder = new TextEncoder();
+      var bytes = encoder.encode(str);
+      var binary = "";
+      for (var i = 0; i < bytes.length; i++) {
+        binary += String.fromCharCode(bytes[i]);
+      }
+      return btoa(binary).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+    }
+
+    // Base64url encode from ArrayBuffer
+    function base64urlEncodeBuffer(buffer) {
+      var bytes = new Uint8Array(buffer);
+      var binary = "";
+      for (var i = 0; i < bytes.length; i++) {
+        binary += String.fromCharCode(bytes[i]);
+      }
+      return btoa(binary).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+    }
+
+    // Base64url decode to string
+    function base64urlDecode(str) {
+      var base64 = str.replace(/-/g, "+").replace(/_/g, "/");
+      // Add padding
+      while (base64.length % 4 !== 0) {
+        base64 += "=";
+      }
+      var binary = atob(base64);
+      var bytes = new Uint8Array(binary.length);
+      for (var i = 0; i < binary.length; i++) {
+        bytes[i] = binary.charCodeAt(i);
+      }
+      return new TextDecoder().decode(bytes);
+    }
+
+    // Generate JWT using Web Crypto API (HS256)
+    async function generateJWT(headerJson, payloadJson, secret) {
+      var headerB64 = base64urlEncode(headerJson);
+      var payloadB64 = base64urlEncode(payloadJson);
+      var signingInput = headerB64 + "." + payloadB64;
+
+      // Import secret key
+      var encoder = new TextEncoder();
+      var keyData = encoder.encode(secret);
+      var key = await crypto.subtle.importKey(
+        "raw",
+        keyData,
+        { name: "HMAC", hash: "SHA-256" },
+        false,
+        ["sign"]
+      );
+
+      // Sign
+      var signatureBuffer = await crypto.subtle.sign(
+        "HMAC",
+        key,
+        encoder.encode(signingInput)
+      );
+
+      var signatureB64 = base64urlEncodeBuffer(signatureBuffer);
+      return signingInput + "." + signatureB64;
+    }
+
+    function updatePreview(token) {
+      if (!token) {
+        previewHeader.textContent = "";
+        previewPayload.textContent = "";
+        return;
+      }
+
+      var parts = token.split(".");
+      if (parts.length !== 3) return;
+
+      try {
+        var header = JSON.parse(base64urlDecode(parts[0]));
+        previewHeader.textContent = JSON.stringify(header, null, 2);
+      } catch (e) {
+        previewHeader.textContent = "デコードエラー";
+      }
+
+      try {
+        var payload = JSON.parse(base64urlDecode(parts[1]));
+        previewPayload.textContent = JSON.stringify(payload, null, 2);
+      } catch (e) {
+        previewPayload.textContent = "デコードエラー";
+      }
+    }
+
+    btnGenerate.addEventListener("click", function () {
+      clearMessages();
+
+      var headerText = headerEl.value.trim();
+      var payloadText = payloadEl.value.trim();
+      var secret = secretEl.value;
+
+      // Validate header JSON
+      var headerObj;
+      try {
+        headerObj = JSON.parse(headerText);
+      } catch (e) {
+        showError(headerErrorEl, "ヘッダーが正しいJSON形式ではありません: " + e.message);
+        return;
+      }
+
+      // Validate payload JSON
+      var payloadObj;
+      try {
+        payloadObj = JSON.parse(payloadText);
+      } catch (e) {
+        showError(payloadErrorEl, "ペイロードが正しいJSON形式ではありません: " + e.message);
+        return;
+      }
+
+      if (!secret) {
+        showError(errorEl, "秘密鍵を入力してください。");
+        return;
+      }
+
+      // Use canonical JSON (minified)
+      var headerJson = JSON.stringify(headerObj);
+      var payloadJson = JSON.stringify(payloadObj);
+
+      generateJWT(headerJson, payloadJson, secret).then(function (token) {
+        outputEl.value = token;
+        updatePreview(token);
+        showSuccess("JWTトークンを生成しました。");
+      }).catch(function (e) {
+        showError(errorEl, "トークン生成エラー: " + e.message);
+        outputEl.value = "";
+        updatePreview("");
+      });
+    });
+
+    btnClear.addEventListener("click", function () {
+      headerEl.value = '{\n  "alg": "HS256",\n  "typ": "JWT"\n}';
+      payloadEl.value = '{\n  "sub": "1234567890",\n  "name": "田中太郎",\n  "iat": 1516239022\n}';
+      secretEl.value = "your-256-bit-secret";
+      outputEl.value = "";
+      previewHeader.textContent = "";
+      previewPayload.textContent = "";
+      clearMessages();
+    });
+
+    btnCopy.addEventListener("click", function () {
+      var text = outputEl.value;
+      if (!text) return;
+      window.DevToolBox.copyToClipboard(text).then(function () {
+        showSuccess("コピーしました。");
+      });
+    });
+  });
+})();
