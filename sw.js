@@ -1,4 +1,4 @@
-var CACHE_NAME = "devtoolbox-v1";
+var CACHE_NAME = "devtoolbox-v2";
 
 var CORE_ASSETS = [
   "/devtoolbox/",

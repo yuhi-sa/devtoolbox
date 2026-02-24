@@ -135,11 +135,70 @@
   };
 
   /* ================================
-     初期化
+     シェアボタン
      ================================ */
+  function initShareButtons() {
+    document.querySelectorAll("[data-share]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var type = btn.getAttribute("data-share");
+        var url = encodeURIComponent(window.location.href);
+        var title = encodeURIComponent(document.title);
+        var shareUrl;
+
+        switch (type) {
+          case "twitter":
+            shareUrl = "https://twitter.com/intent/tweet?url=" + url + "&text=" + title;
+            break;
+          case "line":
+            shareUrl = "https://social-plugins.line.me/lineit/share?url=" + url;
+            break;
+          case "copy":
+            copyToClipboard(window.location.href).then(function () {
+              showFeedback("リンクをコピーしました", "success");
+            });
+            return;
+        }
+
+        if (shareUrl) {
+          window.open(shareUrl, "_blank", "width=600,height=400,noopener,noreferrer");
+        }
+      });
+    });
+  }
+
+  /* ================================
+     遅延読み込み（IntersectionObserver）
+     ================================ */
+  function initLazyLoad() {
+    if (!("IntersectionObserver" in window)) return;
+
+    var categories = document.querySelectorAll(".category");
+    if (categories.length < 3) return;
+
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("category--visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: "200px 0px", threshold: 0.01 }
+    );
+
+    // Skip the first 2 categories (above the fold), observe the rest
+    for (var i = 2; i < categories.length; i++) {
+      categories[i].classList.add("category--lazy");
+      observer.observe(categories[i]);
+    }
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     initTheme();
     initHamburgerMenu();
     initCopyButtons();
+    initShareButtons();
+    initLazyLoad();
   });
 })();

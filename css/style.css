@@ -1140,3 +1140,103 @@ ol {
   white-space: nowrap;
   border-width: 0;
 }
+
+
+/* --- シェアボタン --- */
+.share-buttons {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.share-buttons__label {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+.share-btn:hover {
+  border-color: var(--color-primary);
+}
+
+.share-btn--twitter:hover {
+  color: #1da1f2;
+  border-color: #1da1f2;
+}
+
+.share-btn--line:hover {
+  color: #00b900;
+  border-color: #00b900;
+}
+
+.share-btn--copy:hover {
+  color: var(--color-primary);
+}
+
+/* --- バッジ --- */
+.badge {
+  display: inline-block;
+  font-size: 0.625rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 3px;
+  vertical-align: middle;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+}
+
+.badge--popular {
+  background-color: #ff6b35;
+  color: #fff;
+}
+
+.badge--new {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+[data-theme="dark"] .badge--popular {
+  background-color: #ff8c5a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .badge--popular {
+    background-color: #ff8c5a;
+  }
+}
+
+/* --- 広告コンテナ --- */
+.ad-container {
+  text-align: center;
+  margin: 2rem 0;
+  min-height: 250px;
+}
+
+
+/* --- 遅延読み込み（Lazy Loading） --- */
+.category--lazy {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.category--lazy.category--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
