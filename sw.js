@@ -1,4 +1,4 @@
-var CACHE_NAME = "devtoolbox-v2";
+var CACHE_NAME = "devtoolbox-v3";
 
 var CORE_ASSETS = [
   "/devtoolbox/",
@@ -8,7 +8,8 @@ var CORE_ASSETS = [
   "/devtoolbox/js/common.js",
   "/devtoolbox/js/favorites.js",
   "/devtoolbox/js/recent-tools.js",
-  "/devtoolbox/js/homepage.js"
+  "/devtoolbox/js/homepage.js",
+  "/devtoolbox/js/command-palette.js"
 ];
 
 // Install: cache core assets

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index,follow">
+  <title>CSS単位変換ツール（オンライン無料） - DevToolBox</title>
+  <meta name="description" content="px、rem、em、vw、vh、%等のCSS単位を相互変換。基準値の設定にも対応。">
+  <link rel="canonical" href="https://yuhi-sa.github.io/devtoolbox/tools/css-unit-converter/">
+  <meta property="og:title" content="CSS単位変換ツール（オンライン無料） - DevToolBox">
+  <meta property="og:description" content="px、rem、em、vw、vh、%等のCSS単位を相互変換。基準値の設定にも対応。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://yuhi-sa.github.io/devtoolbox/tools/css-unit-converter/">
+  <meta property="og:site_name" content="DevToolBox">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:image" content="https://yuhi-sa.github.io/devtoolbox/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="CSS単位変換ツール（オンライン無料） - DevToolBox">
+  <meta name="twitter:description" content="px、rem、em、vw、vh、%等のCSS単位を相互変換。基準値の設定にも対応。">
+  <meta name="theme-color" content="#1a73e8">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "CSS単位変換ツール",
+    "description": "px、rem、em、vw、vh、%等のCSS単位を相互変換するオンラインツール",
+    "url": "https://yuhi-sa.github.io/devtoolbox/tools/css-unit-converter/",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "JPY"
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "DevToolBox",
+      "url": "https://yuhi-sa.github.io/devtoolbox/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://yuhi-sa.github.io/devtoolbox/" },
+      { "@type": "ListItem", "position": 2, "name": "CSS単位変換ツール", "item": "https://yuhi-sa.github.io/devtoolbox/tools/css-unit-converter/" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "remとemの違いは何ですか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "remはルート要素（html）のフォントサイズを基準とした相対単位です。emは親要素のフォントサイズを基準とした相対単位です。remはページ全体で一貫した基準値を持つため、レスポンシブデザインではremの使用が推奨されることが多いです。" }
+      },
+      {
+        "@type": "Question",
+        "name": "vwとvhはどのような場面で使いますか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "vwはビューポートの幅、vhはビューポートの高さに対する割合を指定する単位です。フルスクリーンのヒーローセクションや、画面幅に応じたフォントサイズの指定などに使われます。1vwはビューポート幅の1%に相当します。" }
+      },
+      {
+        "@type": "Question",
+        "name": "入力したデータは安全ですか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "はい、安全です。すべての処理はブラウザ内で完結し、入力データがサーバーに送信されることは一切ありません。安心してご利用ください。" }
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="../../css/style.min.css">
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+  <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+<script data-ad-client="ca-pub-9558545098866170" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<body>
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="../../" class="header__logo">
+        <svg class="header__logo-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="28" height="28" rx="6" fill="currentColor" style="color: var(--color-primary)"/>
+          <path d="M8 10l4 4-4 4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 18h5" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        DevToolBox
+      </a>
+      <div class="header__right">
+        <nav class="nav" aria-label="メインナビゲーション">
+          <ul class="nav__list">
+            <li><a href="../json-formatter/" class="nav__link">JSON整形</a></li>
+            <li><a href="../char-counter/" class="nav__link">文字数カウント</a></li>
+            <li><a href="../base64/" class="nav__link">Base64</a></li>
+            <li><a href="../url-encode/" class="nav__link">URLエンコード</a></li>
+            <li><a href="../timestamp/" class="nav__link">タイムスタンプ</a></li>
+          </ul>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="テーマ切替">
+          <svg class="theme-toggle__icon theme-toggle__icon--dark" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+          </svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--light" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
+          </svg>
+        </button>
+        <button id="hamburger" class="hamburger" type="button" aria-label="メニュー" aria-expanded="false" aria-controls="mobile-nav">
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- モバイルナビ -->
+  <nav id="mobile-nav" class="mobile-nav" aria-label="モバイルナビゲーション">
+    <ul class="mobile-nav__list">
+      <li><a href="../json-formatter/" class="mobile-nav__link">JSON整形・検証</a></li>
+      <li><a href="../char-counter/" class="mobile-nav__link">文字数カウンター</a></li>
+      <li><a href="../base64/" class="mobile-nav__link">Base64エンコード/デコード</a></li>
+      <li><a href="../url-encode/" class="mobile-nav__link">URLエンコード/デコード</a></li>
+      <li><a href="../timestamp/" class="mobile-nav__link">Unixタイムスタンプ変換</a></li>
+      <li><a href="../../about.html" class="mobile-nav__link">サイトについて</a></li>
+      <li><a href="../../privacy.html" class="mobile-nav__link">プライバシーポリシー</a></li>
+      <li><a href="../../terms.html" class="mobile-nav__link">利用規約</a></li>
+    </ul>
+  </nav>
+
+  <!-- 広告枠A: ヘッダー下バナー -->
+  <div class="ad-slot" id="ad-header" data-ad-size="728x90">
+    <!-- 広告スクリプトをここに挿入 -->
+  </div>
+
+  <main class="main">
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <ol>
+        <li><a href="../../">ホーム</a></li>
+        <li aria-current="page">CSS単位変換ツール</li>
+      </ol>
+    </nav>
+
+    <div class="tool-container">
+      <h1>CSS単位変換ツール</h1>
+      <p class="tool-container__lead">px、rem、em、vw、vh、%、pt等のCSS単位をリアルタイムに相互変換できるオンラインツールです。</p>
+
+      <div class="tool-input">
+        <label for="css-value">変換する値</label>
+        <div style="display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;">
+          <input id="css-value" type="number" class="input" style="flex:1;min-width:120px;" value="16" step="any" placeholder="数値を入力">
+          <select id="css-from-unit" class="select" style="min-width:80px;">
+            <option value="px" selected>px</option>
+            <option value="rem">rem</option>
+            <option value="em">em</option>
+            <option value="percent">%</option>
+            <option value="vw">vw</option>
+            <option value="vh">vh</option>
+            <option value="pt">pt</option>
+          </select>
+          <span style="font-weight:bold;color:var(--color-text-secondary);">→</span>
+          <select id="css-to-unit" class="select" style="min-width:80px;">
+            <option value="px">px</option>
+            <option value="rem" selected>rem</option>
+            <option value="em">em</option>
+            <option value="percent">%</option>
+            <option value="vw">vw</option>
+            <option value="vh">vh</option>
+            <option value="pt">pt</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="tool-input" style="margin-top:1rem;">
+        <label style="font-weight:600;margin-bottom:.5rem;display:block;">基準値の設定</label>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+          <div style="flex:1;min-width:160px;">
+            <label for="css-base-font">基準フォントサイズ（px）</label>
+            <input id="css-base-font" type="number" class="input" value="16" step="any" min="1" placeholder="16">
+          </div>
+          <div style="flex:1;min-width:160px;">
+            <label for="css-viewport-width">ビューポート幅（px）</label>
+            <input id="css-viewport-width" type="number" class="input" value="1920" step="any" min="1" placeholder="1920">
+          </div>
+          <div style="flex:1;min-width:160px;">
+            <label for="css-viewport-height">ビューポート高さ（px）</label>
+            <input id="css-viewport-height" type="number" class="input" value="1080" step="any" min="1" placeholder="1080">
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-output" style="margin-top:1.5rem;">
+        <label>変換結果</label>
+        <div id="css-result" class="result" style="font-size:1.5rem;font-weight:700;padding:1rem;background:var(--color-bg-secondary);border-radius:8px;text-align:center;color:var(--color-text-primary);">
+          ---
+        </div>
+        <button id="btn-copy" class="btn btn--secondary copy-btn" style="margin-top:.5rem;">コピー</button>
+      </div>
+
+      <div style="margin-top:2rem;">
+        <h2>全単位一覧表</h2>
+        <div id="css-table" class="result-table" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.5rem;"></div>
+      </div>
+    </div>
+
+    <section class="tool-description">
+      <h2>CSS単位変換ツールの使い方</h2>
+      <p>このCSS単位変換ツールは、px（ピクセル）、rem、em、%（パーセント）、vw（ビューポート幅）、vh（ビューポート高さ）、pt（ポイント）の間でリアルタイムに相互変換を行います。数値を入力し、変換元と変換先の単位を選択するだけで即座に変換結果が表示されます。rem・emの変換には基準フォントサイズ（デフォルト16px）を使用し、vw・vhの変換にはビューポート幅・高さの値を使用します。下部の全単位一覧表では、入力した値がすべての単位でどの値に相当するかを一目で確認できます。</p>
+
+      <h2>CSS単位について</h2>
+      <p>CSSの単位は大きく「絶対単位」と「相対単位」に分けられます。pxやptは絶対単位で、画面の解像度に依存した固定値です。一方、rem、em、%、vw、vhは相対単位で、基準となる値に対しての割合で指定します。レスポンシブデザインにおいては相対単位の活用が重要で、特にremはルート要素のフォントサイズを基準とするため、ページ全体のスケーリングが容易になります。vw・vhはビューポートサイズに連動するため、フルスクリーンレイアウトやダイナミックなサイズ指定に適しています。</p>
+
+      <h2>よくある質問（FAQ）</h2>
+      <h3>Q. remとemの違いは何ですか？</h3>
+      <p>A. remはルート要素（html）のフォントサイズを基準とした相対単位です。emは親要素のフォントサイズを基準とした相対単位です。remはページ全体で一貫した基準値を持つため、レスポンシブデザインではremの使用が推奨されることが多いです。</p>
+      <h3>Q. vwとvhはどのような場面で使いますか？</h3>
+      <p>A. vwはビューポートの幅、vhはビューポートの高さに対する割合を指定する単位です。フルスクリーンのヒーローセクションや、画面幅に応じたフォントサイズの指定などに使われます。1vwはビューポート幅の1%に相当します。</p>
+      <h3>Q. 入力したデータは安全ですか？</h3>
+      <p>A. はい、安全です。すべての処理はブラウザ内で完結し、入力データがサーバーに送信されることは一切ありません。安心してご利用ください。</p>
+    </section>
+
+    <section class="related-tools">
+      <h2>関連ツール</h2>
+      <ul>
+        <li><a href="../aspect-ratio/">アスペクト比計算</a></li>
+        <li><a href="../css-gradient/">CSSグラデーション生成</a></li>
+        <li><a href="../byte-converter/">バイト単位変換</a></li>
+      </ul>
+    </section>
+      <div class="share-buttons">
+        <span class="share-buttons__label">共有:</span>
+        <button class="share-btn share-btn--twitter" data-share="twitter" aria-label="Twitterで共有">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </button>
+        <button class="share-btn share-btn--line" data-share="line" aria-label="LINEで共有">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+        </button>
+        <button class="share-btn share-btn--copy" data-share="copy" aria-label="リンクをコピー">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+        </button>
+      </div>
+
+    <div class="ad-container">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-9558545098866170"
+           data-ad-slot="auto"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    </div>
+    </main>
+
+  <div class="ad-slot" id="ad-footer" data-ad-size="728x90">
+    <!-- 広告スクリプトをここに挿入 -->
+  </div>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__grid">
+        <div>
+          <p class="footer__section-title">DevToolBox</p>
+          <ul class="footer__list">
+            <li><a href="../../about.html" class="footer__link">サイトについて</a></li>
+            <li><a href="../../privacy.html" class="footer__link">プライバシーポリシー</a></li>
+            <li><a href="../../terms.html" class="footer__link">利用規約</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">フォーマット・エンコード</p>
+          <ul class="footer__list">
+            <li><a href="../json-formatter/" class="footer__link">JSON整形・検証</a></li>
+            <li><a href="../sql-formatter/" class="footer__link">SQLフォーマッター</a></li>
+            <li><a href="../xml-formatter/" class="footer__link">XMLフォーマッター</a></li>
+            <li><a href="../markdown-preview/" class="footer__link">Markdownプレビュー</a></li>
+            <li><a href="../base64/" class="footer__link">Base64エンコード/デコード</a></li>
+            <li><a href="../url-encode/" class="footer__link">URLエンコード/デコード</a></li>
+            <li><a href="../html-entity/" class="footer__link">HTMLエンティティ変換</a></li>
+            <li><a href="../image-base64/" class="footer__link">画像Base64変換</a></li>
+            <li><a href="../backslash-escape/" class="footer__link">エスケープ変換</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">テキスト・変換・データ</p>
+          <ul class="footer__list">
+            <li><a href="../char-counter/" class="footer__link">文字数カウンター</a></li>
+            <li><a href="../regex-tester/" class="footer__link">正規表現テスター</a></li>
+            <li><a href="../diff-checker/" class="footer__link">テキスト差分比較</a></li>
+            <li><a href="../text-case/" class="footer__link">テキストケース変換</a></li>
+            <li><a href="../slug-generator/" class="footer__link">スラッグ生成</a></li>
+            <li><a href="../yaml-json/" class="footer__link">YAML⇔JSON変換</a></li>
+            <li><a href="../csv-json/" class="footer__link">CSV⇔JSON変換</a></li>
+            <li><a href="../toml-json/" class="footer__link">TOML⇔JSON変換</a></li>
+            <li><a href="../json-to-typescript/" class="footer__link">JSON→TypeScript変換</a></li>
+            <li><a href="../json-path/" class="footer__link">JSONパスファインダー</a></li>
+            <li><a href="../timestamp/" class="footer__link">Unixタイムスタンプ変換</a></li>
+            <li><a href="../color-converter/" class="footer__link">カラーコンバーター</a></li>
+            <li><a href="../number-base/" class="footer__link">進数変換ツール</a></li>
+            <li><a href="../byte-converter/" class="footer__link">バイト単位変換</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">生成・CSS・開発支援</p>
+          <ul class="footer__list">
+            <li><a href="../hash-generator/" class="footer__link">ハッシュ生成</a></li>
+            <li><a href="../uuid-generator/" class="footer__link">UUID生成</a></li>
+            <li><a href="../password-generator/" class="footer__link">パスワード生成</a></li>
+            <li><a href="../qr-code/" class="footer__link">QRコード生成</a></li>
+            <li><a href="../css-gradient/" class="footer__link">CSSグラデーション生成</a></li>
+            <li><a href="../box-shadow/" class="footer__link">Box Shadow生成</a></li>
+            <li><a href="../flexbox-playground/" class="footer__link">Flexboxプレイグラウンド</a></li>
+            <li><a href="../border-radius/" class="footer__link">Border Radius生成</a></li>
+            <li><a href="../jwt-decoder/" class="footer__link">JWTデコーダー</a></li>
+            <li><a href="../cron-parser/" class="footer__link">Cron式パーサー</a></li>
+            <li><a href="../chmod-calculator/" class="footer__link">Chmod計算機</a></li>
+            <li><a href="../http-status/" class="footer__link">HTTPステータスコード</a></li>
+            <li><a href="../gitignore-generator/" class="footer__link">.gitignore生成</a></li>
+            <li><a href="../meta-tag-generator/" class="footer__link">メタタグ生成</a></li>
+            <li><a href="../og-preview/" class="footer__link">OGPプレビュー</a></li>
+            <li><a href="../lorem-ipsum/" class="footer__link">Lorem Ipsum生成</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 DevToolBox. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/common.min.js" defer></script>
+  <script src="../../js/tools/css-unit-converter.min.js" defer></script>
+</body>
+</html>
