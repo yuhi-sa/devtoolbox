@@ -1,0 +1,230 @@
+"use strict";
+
+(function () {
+  document.addEventListener("DOMContentLoaded", function () {
+    var headers = {
+      "リクエストヘッダー": [
+        { name: "Accept", desc: "クライアントが受け入れ可能なメディアタイプを指定", example: "application/json, text/html" },
+        { name: "Accept-Encoding", desc: "クライアントが受け入れ可能なエンコーディングを指定", example: "gzip, deflate, br" },
+        { name: "Accept-Language", desc: "クライアントが希望する言語を指定", example: "ja,en-US;q=0.9,en;q=0.8" },
+        { name: "Authorization", desc: "認証情報を送信", example: "Bearer eyJhbGciOiJIUzI1NiIs..." },
+        { name: "Content-Type", desc: "リクエストボディのメディアタイプを指定", example: "application/json; charset=UTF-8" },
+        { name: "Cookie", desc: "サーバーから受け取ったCookieを送信", example: "session_id=abc123; theme=dark" },
+        { name: "Host", desc: "リクエスト先のホスト名とポート番号", example: "www.example.com" },
+        { name: "Origin", desc: "リクエストの発信元オリジン", example: "https://www.example.com" },
+        { name: "Referer", desc: "リクエスト元のURLを示す", example: "https://www.example.com/page" },
+        { name: "User-Agent", desc: "クライアントのソフトウェア情報", example: "Mozilla/5.0 (Windows NT 10.0; Win64; x64)..." }
+      ],
+      "レスポンスヘッダー": [
+        { name: "Content-Type", desc: "レスポンスボディのメディアタイプ", example: "text/html; charset=UTF-8" },
+        { name: "Content-Length", desc: "レスポンスボディのバイト数", example: "3456" },
+        { name: "Content-Encoding", desc: "レスポンスボディのエンコーディング", example: "gzip" },
+        { name: "Location", desc: "リダイレクト先のURL", example: "https://www.example.com/new-page" },
+        { name: "Set-Cookie", desc: "クライアントにCookieを設定", example: "session_id=abc123; Path=/; HttpOnly; Secure" },
+        { name: "Server", desc: "サーバーソフトウェアの情報", example: "nginx/1.24.0" },
+        { name: "WWW-Authenticate", desc: "認証方式を提示", example: "Bearer realm=\"api\"" }
+      ],
+      "セキュリティヘッダー": [
+        { name: "Content-Security-Policy", desc: "コンテンツの読み込み元を制限しXSSを防止", example: "default-src 'self'; script-src 'self' 'unsafe-inline'" },
+        { name: "Strict-Transport-Security", desc: "HTTPS接続を強制（HSTS）", example: "max-age=31536000; includeSubDomains" },
+        { name: "X-Content-Type-Options", desc: "MIMEタイプのスニッフィングを防止", example: "nosniff" },
+        { name: "X-Frame-Options", desc: "iframe内での表示を制御", example: "DENY" },
+        { name: "X-XSS-Protection", desc: "ブラウザのXSSフィルタを制御", example: "1; mode=block" },
+        { name: "Referrer-Policy", desc: "Refererヘッダーの送信ポリシーを制御", example: "strict-origin-when-cross-origin" },
+        { name: "Permissions-Policy", desc: "ブラウザ機能へのアクセスを制御", example: "camera=(), microphone=(), geolocation=()" }
+      ],
+      "キャッシュヘッダー": [
+        { name: "Cache-Control", desc: "キャッシュの動作を制御", example: "public, max-age=86400" },
+        { name: "ETag", desc: "リソースのバージョン識別子", example: "\"33a64df551425fcc55e4d42a148795d9f25f89d4\"" },
+        { name: "Expires", desc: "レスポンスの有効期限（HTTP/1.0互換）", example: "Thu, 01 Dec 2025 16:00:00 GMT" },
+        { name: "If-Modified-Since", desc: "条件付きリクエスト（更新確認）", example: "Wed, 21 Oct 2025 07:28:00 GMT" },
+        { name: "If-None-Match", desc: "ETagによる条件付きリクエスト", example: "\"33a64df551425fcc55e4d42a148795d9f25f89d4\"" },
+        { name: "Last-Modified", desc: "リソースの最終更新日時", example: "Wed, 21 Oct 2025 07:28:00 GMT" }
+      ],
+      "CORSヘッダー": [
+        { name: "Access-Control-Allow-Origin", desc: "アクセスを許可するオリジンを指定", example: "https://www.example.com" },
+        { name: "Access-Control-Allow-Methods", desc: "許可するHTTPメソッドを指定", example: "GET, POST, PUT, DELETE, OPTIONS" },
+        { name: "Access-Control-Allow-Headers", desc: "許可するリクエストヘッダーを指定", example: "Content-Type, Authorization" },
+        { name: "Access-Control-Allow-Credentials", desc: "認証情報の送信を許可", example: "true" },
+        { name: "Access-Control-Max-Age", desc: "プリフライトリクエストのキャッシュ時間（秒）", example: "86400" },
+        { name: "Access-Control-Expose-Headers", desc: "JavaScriptからアクセス可能なヘッダーを指定", example: "X-Custom-Header, Content-Length" }
+      ]
+    };
+
+    // Build flat list for dropdown and lookup
+    var allHeaders = [];
+    var headerLookup = {};
+    var categories = Object.keys(headers);
+    for (var c = 0; c < categories.length; c++) {
+      var cat = categories[c];
+      var items = headers[cat];
+      for (var i = 0; i < items.length; i++) {
+        if (!headerLookup[items[i].name]) {
+          allHeaders.push(items[i]);
+          headerLookup[items[i].name.toLowerCase()] = items[i];
+        }
+      }
+    }
+
+    function escapeHtml(str) {
+      return str
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    // === Reference Tab ===
+    var referenceEl = document.getElementById("header-reference");
+    var filterInput = document.getElementById("header-filter");
+
+    function renderReference(filter) {
+      var html = "";
+      for (var c = 0; c < categories.length; c++) {
+        var cat = categories[c];
+        var items = headers[cat];
+        var filteredItems = [];
+        for (var i = 0; i < items.length; i++) {
+          if (!filter || items[i].name.toLowerCase().indexOf(filter.toLowerCase()) !== -1) {
+            filteredItems.push(items[i]);
+          }
+        }
+        if (filteredItems.length === 0) continue;
+        html += '<p class="header-category">' + escapeHtml(cat) + '</p>';
+        html += '<table class="header-table"><thead><tr><th>ヘッダー名</th><th>説明</th><th>例</th></tr></thead><tbody>';
+        for (var j = 0; j < filteredItems.length; j++) {
+          var h = filteredItems[j];
+          html += "<tr><td><code>" + escapeHtml(h.name) + "</code></td>";
+          html += "<td>" + escapeHtml(h.desc) + "</td>";
+          html += "<td><code>" + escapeHtml(h.example) + "</code></td></tr>";
+        }
+        html += "</tbody></table>";
+      }
+      referenceEl.innerHTML = html || "<p>該当するヘッダーが見つかりません。</p>";
+    }
+
+    renderReference("");
+    filterInput.addEventListener("input", function () {
+      renderReference(filterInput.value.trim());
+    });
+
+    // === Tab switching ===
+    var tabBtns = document.querySelectorAll(".tab-btn");
+    for (var t = 0; t < tabBtns.length; t++) {
+      tabBtns[t].addEventListener("click", function () {
+        for (var j = 0; j < tabBtns.length; j++) {
+          tabBtns[j].classList.remove("active");
+        }
+        this.classList.add("active");
+        var contents = document.querySelectorAll(".tab-content");
+        for (var k = 0; k < contents.length; k++) {
+          contents[k].classList.remove("active");
+        }
+        document.getElementById("tab-" + this.getAttribute("data-tab")).classList.add("active");
+      });
+    }
+
+    // === Builder Tab ===
+    var builderSelect = document.getElementById("builder-header-select");
+    var builderValue = document.getElementById("builder-value");
+    var btnAddHeader = document.getElementById("btn-add-header");
+    var builderList = document.getElementById("builder-list");
+    var builderOutput = document.getElementById("builder-output");
+    var btnCopyHeaders = document.getElementById("btn-copy-headers");
+    var builderSuccess = document.getElementById("builder-success");
+    var headerItems = [];
+
+    // Populate dropdown
+    for (var a = 0; a < allHeaders.length; a++) {
+      var opt = document.createElement("option");
+      opt.value = allHeaders[a].name;
+      opt.textContent = allHeaders[a].name;
+      builderSelect.appendChild(opt);
+    }
+
+    function renderBuilderList() {
+      var html = "";
+      for (var i = 0; i < headerItems.length; i++) {
+        html += '<div class="header-list-item">';
+        html += '<span>' + escapeHtml(headerItems[i].name) + ': ' + escapeHtml(headerItems[i].value) + '</span>';
+        html += '<button data-index="' + i + '" title="削除">&times;</button>';
+        html += '</div>';
+      }
+      builderList.innerHTML = html;
+
+      var output = "";
+      for (var j = 0; j < headerItems.length; j++) {
+        output += headerItems[j].name + ": " + headerItems[j].value + "\n";
+      }
+      builderOutput.value = output;
+
+      // Attach delete handlers
+      var deleteBtns = builderList.querySelectorAll("button");
+      for (var k = 0; k < deleteBtns.length; k++) {
+        deleteBtns[k].addEventListener("click", function () {
+          var idx = parseInt(this.getAttribute("data-index"), 10);
+          headerItems.splice(idx, 1);
+          renderBuilderList();
+        });
+      }
+    }
+
+    btnAddHeader.addEventListener("click", function () {
+      var name = builderSelect.value;
+      var value = builderValue.value.trim();
+      if (!name || !value) return;
+      headerItems.push({ name: name, value: value });
+      builderValue.value = "";
+      renderBuilderList();
+    });
+
+    btnCopyHeaders.addEventListener("click", function () {
+      var text = builderOutput.value;
+      if (!text) return;
+      navigator.clipboard.writeText(text).then(function () {
+        builderSuccess.textContent = "コピーしました。";
+        builderSuccess.hidden = false;
+        setTimeout(function () { builderSuccess.hidden = true; }, 2000);
+      });
+    });
+
+    // === Analyzer Tab ===
+    var rawHeaders = document.getElementById("raw-headers");
+    var btnAnalyze = document.getElementById("btn-analyze");
+    var btnClearAnalyze = document.getElementById("btn-clear-analyze");
+    var analyzeResult = document.getElementById("analyze-result");
+
+    btnAnalyze.addEventListener("click", function () {
+      var text = rawHeaders.value.trim();
+      if (!text) return;
+      var lines = text.split("\n");
+      var html = "";
+      for (var i = 0; i < lines.length; i++) {
+        var line = lines[i].trim();
+        if (!line) continue;
+        var colonIdx = line.indexOf(":");
+        if (colonIdx === -1) {
+          html += '<div class="parsed-header"><strong>' + escapeHtml(line) + '</strong><div class="desc">解析できない形式です。「ヘッダー名: 値」の形式で入力してください。</div></div>';
+          continue;
+        }
+        var hName = line.substring(0, colonIdx).trim();
+        var hValue = line.substring(colonIdx + 1).trim();
+        var info = headerLookup[hName.toLowerCase()];
+        html += '<div class="parsed-header">';
+        html += '<strong>' + escapeHtml(hName) + '</strong>: ' + escapeHtml(hValue);
+        if (info) {
+          html += '<div class="desc">' + escapeHtml(info.desc) + '</div>';
+        } else {
+          html += '<div class="desc">カスタムヘッダーまたは未登録のヘッダーです。</div>';
+        }
+        html += '</div>';
+      }
+      analyzeResult.innerHTML = html;
+    });
+
+    btnClearAnalyze.addEventListener("click", function () {
+      rawHeaders.value = "";
+      analyzeResult.innerHTML = "";
+    });
+  });
+})();

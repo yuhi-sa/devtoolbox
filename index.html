@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index,follow">
   <title>DevToolBox - 開発者向け無料オンラインツール集</title>
-  <meta name="description" content="開発者の日常作業を効率化する無料オンラインツール集。JSON整形、Base64変換、正規表現テスター、CSSジェネレーター、画像圧縮、カラーパレット生成など70種類のツールを提供。">
+  <meta name="description" content="開発者の日常作業を効率化する無料オンラインツール集。JSON整形、Base64変換、正規表現テスター、CSSジェネレーター、画像圧縮、カラーパレット生成など85種類のツールを提供。">
   <meta name="keywords" content="開発者ツール,JSON整形,Base64変換,URLエンコード,正規表現テスター,ハッシュ生成,UUID生成,パスワード生成,QRコード,CSSグラデーション,JWTデコーダー,タイムスタンプ変換,文字数カウント,テキスト差分比較,カラーコンバーター,進数変換,YAML変換,CSV変換,SVG最適化,画像圧縮">
   <link rel="canonical" href="https://yuhi-sa.github.io/devtoolbox/">
   <meta property="og:title" content="DevToolBox - 開発者向け無料オンラインツール集">
-  <meta property="og:description" content="開発者の日常作業を効率化する無料オンラインツール集。JSON整形、Base64変換、画像圧縮、カラーパレットなど70種類のツールを提供。">
+  <meta property="og:description" content="開発者の日常作業を効率化する無料オンラインツール集。JSON整形、Base64変換、画像圧縮、カラーパレットなど85種類のツールを提供。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://yuhi-sa.github.io/devtoolbox/">
   <meta property="og:site_name" content="DevToolBox">
@@ -19,9 +19,14 @@
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="DevToolBox - 開発者向け無料オンラインツール集">
-  <meta name="twitter:description" content="開発者の日常作業を効率化する無料オンラインツール集。JSON整形、Base64変換、画像圧縮、カラーパレットなど70種類のツールを提供。">
+  <meta name="twitter:description" content="開発者の日常作業を効率化する無料オンラインツール集。JSON整形、Base64変換、画像圧縮、カラーパレットなど85種類のツールを提供。">
   <meta name="theme-color" content="#1a73e8">
   <link rel="manifest" href="manifest.json">
+  <link rel="prefetch" href="tools/json-formatter/">
+  <link rel="prefetch" href="tools/base64/">
+  <link rel="prefetch" href="tools/regex-tester/">
+  <link rel="prefetch" href="tools/hash-generator/">
+  <link rel="prefetch" href="tools/char-counter/">
   <link rel="stylesheet" href="css/style.min.css">
   <link rel="stylesheet" href="css/enhancements.min.css">
   <style>
@@ -60,7 +65,7 @@
     "@context": "https://schema.org",
     "@type": "ItemList",
     "name": "開発者向けオンラインツール一覧",
-    "numberOfItems": 70,
+    "numberOfItems": 85,
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "JSON整形・検証", "url": "https://yuhi-sa.github.io/devtoolbox/tools/json-formatter/" },
       { "@type": "ListItem", "position": 2, "name": "SQLフォーマッター", "url": "https://yuhi-sa.github.io/devtoolbox/tools/sql-formatter/" },
@@ -131,7 +136,22 @@
       { "@type": "ListItem", "position": 67, "name": "ファビコン生成", "url": "https://yuhi-sa.github.io/devtoolbox/tools/favicon-generator/" },
       { "@type": "ListItem", "position": 68, "name": "CSS単位変換", "url": "https://yuhi-sa.github.io/devtoolbox/tools/css-unit-converter/" },
       { "@type": "ListItem", "position": 69, "name": "日時計算", "url": "https://yuhi-sa.github.io/devtoolbox/tools/datetime-calc/" },
-      { "@type": "ListItem", "position": 70, "name": "テストデータ生成", "url": "https://yuhi-sa.github.io/devtoolbox/tools/random-data/" }
+      { "@type": "ListItem", "position": 70, "name": "テストデータ生成", "url": "https://yuhi-sa.github.io/devtoolbox/tools/random-data/" },
+      { "@type": "ListItem", "position": 71, "name": "AIトークンカウンター", "url": "https://yuhi-sa.github.io/devtoolbox/tools/token-counter/" },
+      { "@type": "ListItem", "position": 72, "name": "HTMLプレビュー", "url": "https://yuhi-sa.github.io/devtoolbox/tools/html-preview/" },
+      { "@type": "ListItem", "position": 73, "name": "JSON→Go構造体変換", "url": "https://yuhi-sa.github.io/devtoolbox/tools/json-to-go/" },
+      { "@type": "ListItem", "position": 74, "name": "YAMLバリデーター", "url": "https://yuhi-sa.github.io/devtoolbox/tools/yaml-validator/" },
+      { "@type": "ListItem", "position": 75, "name": "Markdown→HTML変換", "url": "https://yuhi-sa.github.io/devtoolbox/tools/markdown-to-html/" },
+      { "@type": "ListItem", "position": 76, "name": "Unicode検索・変換", "url": "https://yuhi-sa.github.io/devtoolbox/tools/unicode-lookup/" },
+      { "@type": "ListItem", "position": 77, "name": "Docker Compose生成", "url": "https://yuhi-sa.github.io/devtoolbox/tools/docker-compose-generator/" },
+      { "@type": "ListItem", "position": 78, "name": "Nginx設定生成", "url": "https://yuhi-sa.github.io/devtoolbox/tools/nginx-config-generator/" },
+      { "@type": "ListItem", "position": 79, "name": ".env生成・管理", "url": "https://yuhi-sa.github.io/devtoolbox/tools/env-generator/" },
+      { "@type": "ListItem", "position": 80, "name": "OpenAPI/Swaggerエディター", "url": "https://yuhi-sa.github.io/devtoolbox/tools/openapi-editor/" },
+      { "@type": "ListItem", "position": 81, "name": "SQL→JSON変換", "url": "https://yuhi-sa.github.io/devtoolbox/tools/sql-to-json/" },
+      { "@type": "ListItem", "position": 82, "name": "CSSセレクターテスター", "url": "https://yuhi-sa.github.io/devtoolbox/tools/css-selector-tester/" },
+      { "@type": "ListItem", "position": 83, "name": "正規表現ジェネレーター", "url": "https://yuhi-sa.github.io/devtoolbox/tools/regex-generator/" },
+      { "@type": "ListItem", "position": 84, "name": "HTTPヘッダー確認", "url": "https://yuhi-sa.github.io/devtoolbox/tools/http-header-viewer/" },
+      { "@type": "ListItem", "position": 85, "name": "DNS検索ツール", "url": "https://yuhi-sa.github.io/devtoolbox/tools/dns-lookup/" }
     ]
   }
   </script>
@@ -256,6 +276,21 @@
       <li><a href="tools/css-unit-converter/" class="mobile-nav__link">CSS単位変換</a></li>
       <li><a href="tools/datetime-calc/" class="mobile-nav__link">日時計算</a></li>
       <li><a href="tools/random-data/" class="mobile-nav__link">テストデータ生成</a></li>
+      <li><a href="tools/token-counter/" class="mobile-nav__link">AIトークンカウンター</a></li>
+      <li><a href="tools/html-preview/" class="mobile-nav__link">HTMLプレビュー</a></li>
+      <li><a href="tools/json-to-go/" class="mobile-nav__link">JSON→Go構造体変換</a></li>
+      <li><a href="tools/yaml-validator/" class="mobile-nav__link">YAMLバリデーター</a></li>
+      <li><a href="tools/markdown-to-html/" class="mobile-nav__link">Markdown→HTML変換</a></li>
+      <li><a href="tools/unicode-lookup/" class="mobile-nav__link">Unicode検索・変換</a></li>
+      <li><a href="tools/docker-compose-generator/" class="mobile-nav__link">Docker Compose生成</a></li>
+      <li><a href="tools/nginx-config-generator/" class="mobile-nav__link">Nginx設定生成</a></li>
+      <li><a href="tools/env-generator/" class="mobile-nav__link">.env生成・管理</a></li>
+      <li><a href="tools/openapi-editor/" class="mobile-nav__link">OpenAPI/Swaggerエディター</a></li>
+      <li><a href="tools/sql-to-json/" class="mobile-nav__link">SQL→JSON変換</a></li>
+      <li><a href="tools/css-selector-tester/" class="mobile-nav__link">CSSセレクターテスター</a></li>
+      <li><a href="tools/regex-generator/" class="mobile-nav__link">正規表現ジェネレーター</a></li>
+      <li><a href="tools/http-header-viewer/" class="mobile-nav__link">HTTPヘッダー確認</a></li>
+      <li><a href="tools/dns-lookup/" class="mobile-nav__link">DNS検索ツール</a></li>
       <li><a href="about.html" class="mobile-nav__link">サイトについて</a></li>
       <li><a href="privacy.html" class="mobile-nav__link">プライバシーポリシー</a></li>
       <li><a href="terms.html" class="mobile-nav__link">利用規約</a></li>
@@ -273,7 +308,7 @@
       <p class="hero__description">開発者の日常作業を効率化する、無料オンラインツール集</p>
     </section>
 
-    <p class="tool-count"><strong id="tool-count-number" data-target="70">70</strong> 種類のツールをすべて無料で利用可能</p>
+    <p class="tool-count"><strong id="tool-count-number" data-target="85">85</strong> 種類のツールをすべて無料で利用可能</p>
 
     <!-- 検索ボックス -->
     <div class="search-box">
@@ -371,6 +406,15 @@
           </svg>
           <h3 class="tool-card__name">HTMLミニファイ/整形 <span class="badge badge--new">NEW</span></h3>
           <p class="tool-card__description">HTMLコードの圧縮と整形。コメント除去、空白正規化で軽量化。</p>
+        </a>
+
+        <a href="tools/yaml-validator/" class="tool-card" data-keywords="YAML バリデーター validator 検証 構文チェック 整形 pretty print">
+          <svg class="tool-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="4" y="4" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
+            <path d="M12 12l4 8v10M28 12l-4 8v10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h3 class="tool-card__name">YAMLバリデーター <span class="badge badge--new">NEW</span></h3>
+          <p class="tool-card__description">YAML構文の検証と整形。エラー行表示、Pretty Print対応。</p>
         </a>
       </div>
     </section>
@@ -587,6 +631,25 @@
           <h3 class="tool-card__name">Markdownテーブル生成 <span class="badge badge--new">NEW</span></h3>
           <p class="tool-card__description">GUIでMarkdownテーブルを簡単作成。行列数の指定、セル編集、配置設定に対応。</p>
         </a>
+
+        <a href="tools/unicode-lookup/" class="tool-card" data-keywords="Unicode ユニコード コードポイント UTF-8 HTMLエンティティ 文字 検索 変換">
+          <svg class="tool-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="4" y="4" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
+            <text x="10" y="26" font-size="16" font-weight="bold" fill="currentColor" font-family="serif">U+</text>
+          </svg>
+          <h3 class="tool-card__name">Unicode検索・変換 <span class="badge badge--new">NEW</span></h3>
+          <p class="tool-card__description">文字のコードポイント、UTF-8バイト列、HTMLエンティティを表示。文字列解析モード対応。</p>
+        </a>
+
+        <a href="tools/regex-generator/" class="tool-card" data-keywords="正規表現 regex ジェネレーター generator パターン 生成 テスト">
+          <svg class="tool-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="4" y="4" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
+            <text x="10" y="18" font-size="10" font-weight="bold" fill="currentColor" font-family="monospace">.*</text>
+            <path d="M12 24h16M12 28h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <h3 class="tool-card__name">正規表現ジェネレーター <span class="badge badge--new">NEW</span></h3>
+          <p class="tool-card__description">よく使う正規表現パターンを選択・組み合わせて生成。テスト機能付き。</p>
+        </a>
       </div>
     </section>
 
@@ -747,6 +810,37 @@
           <h3 class="tool-card__name">日時計算 <span class="badge badge--new">NEW</span></h3>
           <p class="tool-card__description">2つの日付の差を計算、日時の加減算。日数・時間・分・秒の単位で表示。</p>
         </a>
+
+        <a href="tools/json-to-go/" class="tool-card" data-keywords="JSON Go 構造体 struct 変換 コード生成 Golang タグ">
+          <svg class="tool-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="4" y="4" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
+            <text x="10" y="26" font-size="14" font-weight="bold" fill="currentColor" font-family="monospace">Go</text>
+          </svg>
+          <h3 class="tool-card__name">JSON→Go構造体変換 <span class="badge badge--new">NEW</span></h3>
+          <p class="tool-card__description">JSONデータからGo言語の構造体定義を自動生成。jsonタグ付き。</p>
+        </a>
+
+        <a href="tools/markdown-to-html/" class="tool-card" data-keywords="Markdown HTML 変換 マークダウン converter ライブプレビュー">
+          <svg class="tool-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="4" y="4" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
+            <path d="M10 16l3 4-3 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M18 24h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M25 14v10l3-3M25 24l-3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h3 class="tool-card__name">Markdown→HTML変換 <span class="badge badge--new">NEW</span></h3>
+          <p class="tool-card__description">Markdownテキストを安全にHTML変換。ライブプレビュー対応。</p>
+        </a>
+
+        <a href="tools/sql-to-json/" class="tool-card" data-keywords="SQL JSON 変換 CREATE TABLE INSERT スキーマ データベース">
+          <svg class="tool-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="4" y="4" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
+            <ellipse cx="20" cy="14" rx="10" ry="4" stroke="currentColor" stroke-width="2"/>
+            <path d="M10 14v12c0 2.2 4.5 4 10 4s10-1.8 10-4V14" stroke="currentColor" stroke-width="2"/>
+            <path d="M10 20c0 2.2 4.5 4 10 4s10-1.8 10-4" stroke="currentColor" stroke-width="2"/>
+          </svg>
+          <h3 class="tool-card__name">SQL→JSON変換 <span class="badge badge--new">NEW</span></h3>
+          <p class="tool-card__description">CREATE TABLE文からJSONスキーマ、INSERT文からJSONデータを生成。</p>
+        </a>
       </div>
     </section>
 
@@ -839,6 +933,38 @@
           <h3 class="tool-card__name">テストデータ生成 <span class="badge badge--new">NEW</span></h3>
           <p class="tool-card__description">ランダムなテストデータを一括生成。名前、メール、住所、電話番号、日付等に対応。</p>
         </a>
+
+        <a href="tools/docker-compose-generator/" class="tool-card" data-keywords="Docker Compose docker-compose yml YAML コンテナ サービス 生成">
+          <svg class="tool-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="4" y="4" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
+            <rect x="10" y="10" width="8" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/>
+            <rect x="22" y="10" width="8" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/>
+            <rect x="16" y="22" width="8" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M14 16v4l6 2M26 16v4l-6 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <h3 class="tool-card__name">Docker Compose生成 <span class="badge badge--new">NEW</span></h3>
+          <p class="tool-card__description">サービステンプレートからdocker-compose.ymlを簡単生成。</p>
+        </a>
+
+        <a href="tools/nginx-config-generator/" class="tool-card" data-keywords="Nginx 設定 config リバースプロキシ SPA 静的ファイル サーバー">
+          <svg class="tool-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="4" y="4" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
+            <path d="M12 28V12l8 16V12l8 16V12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h3 class="tool-card__name">Nginx設定生成 <span class="badge badge--new">NEW</span></h3>
+          <p class="tool-card__description">リバースプロキシ、SPA、静的ファイル等のNginx設定を生成。</p>
+        </a>
+
+        <a href="tools/env-generator/" class="tool-card" data-keywords="env 環境変数 dotenv .env 設定 フレームワーク シークレット 生成">
+          <svg class="tool-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="4" y="4" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
+            <path d="M12 14h8M12 20h12M12 26h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="28" cy="14" r="3" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M28 20l-2 2 2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h3 class="tool-card__name">.env生成・管理 <span class="badge badge--new">NEW</span></h3>
+          <p class="tool-card__description">フレームワークテンプレートから.envファイルを生成。シークレット自動生成対応。</p>
+        </a>
       </div>
     </section>
 
@@ -915,6 +1041,17 @@
           </svg>
           <h3 class="tool-card__name">CSS単位変換 <span class="badge badge--new">NEW</span></h3>
           <p class="tool-card__description">px、rem、em、vw、vh、%等のCSS単位を相互変換。基準値の設定にも対応。</p>
+        </a>
+
+        <a href="tools/css-selector-tester/" class="tool-card" data-keywords="CSS セレクター selector テスト マッチ ハイライト HTML クエリ">
+          <svg class="tool-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="4" y="4" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
+            <path d="M10 12h8M10 18h12M10 24h6M10 30h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="28" cy="26" r="5" stroke="currentColor" stroke-width="2"/>
+            <path d="M32 30l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <h3 class="tool-card__name">CSSセレクターテスター <span class="badge badge--new">NEW</span></h3>
+          <p class="tool-card__description">HTMLに対してCSSセレクターをテスト。マッチ要素のハイライト表示。</p>
         </a>
       </div>
     </section>
@@ -1059,6 +1196,63 @@
           <h3 class="tool-card__name">cURLコマンド変換 <span class="badge badge--new">NEW</span></h3>
           <p class="tool-card__description">cURLコマンドをPython、JavaScript(fetch)、PHP、Go等のコードに変換。</p>
         </a>
+
+        <a href="tools/token-counter/" class="tool-card" data-keywords="AI トークン token カウンター LLM GPT Claude 文字数 単語数">
+          <svg class="tool-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="4" y="4" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
+            <path d="M14 12h12M20 12v16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M12 28h16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="3 2"/>
+          </svg>
+          <h3 class="tool-card__name">AIトークンカウンター <span class="badge badge--new">NEW</span></h3>
+          <p class="tool-card__description">GPT-4、Claude等のLLMトークン数を推定。文字数・単語数も表示。</p>
+        </a>
+
+        <a href="tools/html-preview/" class="tool-card" data-keywords="HTML CSS JavaScript プレビュー preview ライブ サンドボックス 実行">
+          <svg class="tool-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="4" y="4" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
+            <path d="M4 12h32" stroke="currentColor" stroke-width="2"/>
+            <circle cx="10" cy="8" r="1.5" fill="currentColor"/>
+            <circle cx="15" cy="8" r="1.5" fill="currentColor"/>
+            <circle cx="20" cy="8" r="1.5" fill="currentColor"/>
+            <path d="M12 20l-4 4 4 4M28 20l4 4-4 4M22 18l-4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h3 class="tool-card__name">HTMLプレビュー <span class="badge badge--new">NEW</span></h3>
+          <p class="tool-card__description">HTML/CSS/JSのライブプレビュー。サンドボックス環境で安全に実行。</p>
+        </a>
+
+        <a href="tools/openapi-editor/" class="tool-card" data-keywords="OpenAPI Swagger API 仕様 エディター editor REST エンドポイント">
+          <svg class="tool-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="4" y="4" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
+            <path d="M10 12h20M10 18h14M10 24h18M10 30h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <rect x="26" y="22" width="8" height="8" rx="2" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M28 26h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <h3 class="tool-card__name">OpenAPI/Swaggerエディター <span class="badge badge--new">NEW</span></h3>
+          <p class="tool-card__description">OpenAPI 3.0仕様の編集・検証。エンドポイント一覧のビジュアル表示。</p>
+        </a>
+
+        <a href="tools/http-header-viewer/" class="tool-card" data-keywords="HTTP ヘッダー header リファレンス ビルダー 解析 リクエスト レスポンス">
+          <svg class="tool-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="4" y="4" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
+            <path d="M10 12h20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M10 18h8M22 18h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M10 24h10M24 24h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M10 30h6M20 30h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <h3 class="tool-card__name">HTTPヘッダー確認 <span class="badge badge--new">NEW</span></h3>
+          <p class="tool-card__description">HTTPヘッダーのリファレンス、ビルダー、解析ツール。</p>
+        </a>
+
+        <a href="tools/dns-lookup/" class="tool-card" data-keywords="DNS ドメイン レコード A AAAA MX CNAME ゾーンファイル 検索">
+          <svg class="tool-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="4" y="4" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
+            <circle cx="20" cy="20" r="10" stroke="currentColor" stroke-width="2"/>
+            <ellipse cx="20" cy="20" rx="4" ry="10" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M10 20h20M20 10v20" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+          <h3 class="tool-card__name">DNS検索ツール <span class="badge badge--new">NEW</span></h3>
+          <p class="tool-card__description">DNSレコードタイプのリファレンスとゾーンファイルビルダー。</p>
+        </a>
       </div>
     </section>
   </main>
@@ -1170,6 +1364,7 @@
   <script src="js/common.min.js" defer></script>
   <script src="js/favorites.min.js" defer></script>
   <script src="js/recent-tools.min.js" defer></script>
+  <script src="js/popular-tools.min.js" defer></script>
   <script src="js/homepage.min.js" defer></script>
   <script src="js/command-palette.min.js" defer></script>
   <script>
@@ -1226,5 +1421,7 @@
       });
     })();
   </script>
+  <div class="ad-anchor" id="ad-anchor"></div>
+  <script src="js/ads.min.js" defer></script>
 </body>
 </html>

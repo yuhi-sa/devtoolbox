@@ -318,6 +318,18 @@ ol {
   display: block;
 }
 
+@media (min-width: 1025px) {
+  .main--with-sidebar {
+    display: flex;
+    gap: 24px;
+  }
+
+  .main--with-sidebar > :first-child {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
 /* --- ヒーローセクション --- */
 .hero {
   text-align: center;
@@ -387,7 +399,7 @@ ol {
 /* --- 広告枠 --- */
 .ad-slot {
   text-align: center;
-  min-height: 0;
+  min-height: 90px;
   overflow: hidden;
   margin: var(--space-md) auto;
   max-width: var(--max-width);
@@ -399,6 +411,42 @@ ol {
 
 .ad-slot--sidebar {
   display: none;
+  min-height: 600px;
+}
+
+.ad-slot--sidebar__sticky {
+  position: sticky;
+  top: 80px;
+}
+
+/* アンカー広告（モバイルのみ） */
+.ad-anchor {
+  display: none;
+  min-height: 50px;
+}
+
+@media (max-width: 768px) {
+  .ad-anchor {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    background: var(--color-surface);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  body.has-anchor-ad {
+    padding-bottom: 60px;
+  }
+}
+
+/* 記事内広告 */
+.ad-in-article {
+  text-align: center;
+  margin: var(--space-xl) 0;
+  min-height: 250px;
 }
 
 /* --- パンくずリスト --- */
@@ -948,12 +996,6 @@ ol {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .main--with-sidebar {
-    display: grid;
-    grid-template-columns: 1fr 300px;
-    gap: var(--space-xl);
-  }
-
   .ad-slot--sidebar {
     display: block;
   }
@@ -1128,6 +1170,41 @@ ol {
   }
 }
 
+/* 関連ツール: enhanced card grid (injected by related-tools.js) */
+.related-tools__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+.related-tools__card {
+  display: block;
+  padding: var(--space-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: var(--color-text);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.related-tools__card:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+  text-decoration: none;
+}
+
+.related-tools__card-name {
+  font-weight: 600;
+  margin-bottom: var(--space-xs);
+}
+
+.related-tools__card-desc {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
 /* --- ユーティリティ --- */
 .sr-only {
   position: absolute;
@@ -1239,4 +1316,17 @@ ol {
 .category--lazy.category--visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* --- 使用回数カウンター --- */
+.usage-counter {
+  text-align: center;
+  padding: var(--space-md);
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+}
+.usage-counter__number {
+  font-weight: 700;
+  color: var(--color-primary);
+  font-size: 1.125rem;
 }

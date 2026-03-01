@@ -1,4 +1,4 @@
-var CACHE_NAME = "devtoolbox-v3";
+var CACHE_NAME = "devtoolbox-v4";
 
 var CORE_ASSETS = [
   "/devtoolbox/",
@@ -9,7 +9,11 @@ var CORE_ASSETS = [
   "/devtoolbox/js/favorites.js",
   "/devtoolbox/js/recent-tools.js",
   "/devtoolbox/js/homepage.js",
-  "/devtoolbox/js/command-palette.js"
+  "/devtoolbox/js/command-palette.js",
+  "/devtoolbox/js/ads.js",
+  "/devtoolbox/js/related-tools.js",
+  "/devtoolbox/js/popular-tools.js",
+  "/devtoolbox/js/usage-counter.js"
 ];
 
 // Install: cache core assets
@@ -38,7 +42,7 @@ self.addEventListener("activate", function (event) {
   self.clients.claim();
 });
 
-// Fetch: cache-first for static assets, network-first for tool pages
+// Fetch: cache-first for static assets, stale-while-revalidate for tool pages
 self.addEventListener("fetch", function (event) {
   var url = new URL(event.request.url);
 
@@ -70,18 +74,18 @@ self.addEventListener("fetch", function (event) {
     return;
   }
 
-  // Tool pages: network-first with cache fallback
+  // Tool pages: stale-while-revalidate
   event.respondWith(
-    fetch(event.request).then(function (response) {
-      if (response.ok) {
-        var clone = response.clone();
-        caches.open(CACHE_NAME).then(function (cache) {
-          cache.put(event.request, clone);
+    caches.open(CACHE_NAME).then(function(cache) {
+      return cache.match(event.request).then(function(cached) {
+        var fetchPromise = fetch(event.request).then(function(response) {
+          if (response.ok) {
+            cache.put(event.request, response.clone());
+          }
+          return response;
         });
-      }
-      return response;
-    }).catch(function () {
-      return caches.match(event.request);
+        return cached || fetchPromise;
+      });
     })
   );
 });

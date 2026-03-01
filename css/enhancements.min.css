@@ -134,6 +134,73 @@
   color: var(--color-primary);
 }
 
+/* --- 人気ツールセクション --- */
+.popular-tools {
+  margin-bottom: var(--space-2xl);
+}
+
+.popular-tools__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: 2px solid var(--color-primary);
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.popular-tools__title::before {
+  content: "\1F525";
+  font-size: 1.125rem;
+}
+
+.popular-tools__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-sm);
+}
+
+@media (min-width: 768px) {
+  .popular-tools__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.popular-tools__card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.popular-tools__card:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow);
+  transform: translateY(-1px);
+  text-decoration: none;
+  color: var(--color-primary);
+}
+
+.popular-tools__card-icon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  color: var(--color-primary);
+}
+
 /* --- スクロールトップボタン --- */
 .scroll-top-btn {
   position: fixed;

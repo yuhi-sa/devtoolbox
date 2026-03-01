@@ -1,0 +1,385 @@
+"use strict";
+
+(function () {
+  document.addEventListener("DOMContentLoaded", function () {
+    var inputEl = document.getElementById("sql-input");
+    var outputEl = document.getElementById("json-output");
+    var errorEl = document.getElementById("sql-error");
+    var successEl = document.getElementById("sql-success");
+    var btnConvert = document.getElementById("btn-convert");
+    var btnClear = document.getElementById("btn-clear");
+    var btnCopy = document.getElementById("btn-copy");
+    var btnTabSchema = document.getElementById("btn-tab-schema");
+    var btnTabData = document.getElementById("btn-tab-data");
+
+    var mode = "schema";
+
+    function showError(msg) {
+      errorEl.textContent = msg;
+      errorEl.hidden = false;
+      successEl.hidden = true;
+    }
+
+    function showSuccess(msg) {
+      successEl.textContent = msg;
+      successEl.hidden = false;
+      errorEl.hidden = true;
+    }
+
+    function clearMessages() {
+      errorEl.hidden = true;
+      successEl.hidden = true;
+    }
+
+    // Tab switching
+    function switchTab(tab) {
+      mode = tab;
+      btnTabSchema.className = tab === "schema" ? "btn btn--primary" : "btn btn--secondary";
+      btnTabData.className = tab === "data" ? "btn btn--primary" : "btn btn--secondary";
+      if (tab === "schema") {
+        inputEl.placeholder = "CREATE TABLE users (\n  id INT PRIMARY KEY,\n  name VARCHAR(100) NOT NULL,\n  email VARCHAR(255),\n  active BOOLEAN DEFAULT true\n);";
+      } else {
+        inputEl.placeholder = "INSERT INTO users (id, name, email) VALUES\n  (1, 'Alice', 'alice@example.com'),\n  (2, 'Bob', 'bob@example.com');";
+      }
+    }
+
+    btnTabSchema.addEventListener("click", function () { switchTab("schema"); });
+    btnTabData.addEventListener("click", function () { switchTab("data"); });
+
+    // SQL type to JSON type mapping
+    var typeMap = {
+      "varchar": "string",
+      "char": "string",
+      "text": "string",
+      "tinytext": "string",
+      "mediumtext": "string",
+      "longtext": "string",
+      "date": "string",
+      "datetime": "string",
+      "timestamp": "string",
+      "time": "string",
+      "year": "string",
+      "enum": "string",
+      "set": "string",
+      "uuid": "string",
+      "int": "number",
+      "integer": "number",
+      "smallint": "number",
+      "tinyint": "number",
+      "mediumint": "number",
+      "bigint": "number",
+      "float": "number",
+      "double": "number",
+      "decimal": "number",
+      "numeric": "number",
+      "real": "number",
+      "serial": "number",
+      "boolean": "boolean",
+      "bool": "boolean",
+      "json": "object",
+      "jsonb": "object",
+      "blob": "string",
+      "binary": "string",
+      "varbinary": "string"
+    };
+
+    function mapSQLType(sqlType) {
+      var base = sqlType.toLowerCase().replace(/\(.*\)/, "").trim();
+      return typeMap[base] || "string";
+    }
+
+    function parseCreateTable(sql) {
+      // Normalize whitespace
+      var normalized = sql.replace(/\r\n/g, "\n").replace(/\r/g, "\n");
+
+      // Match CREATE TABLE
+      var tableMatch = normalized.match(/CREATE\s+TABLE\s+(?:IF\s+NOT\s+EXISTS\s+)?[`"']?(\w+)[`"']?\s*\(([\s\S]*)\)/i);
+      if (!tableMatch) {
+        throw new Error("CREATE TABLE文を認識できません。");
+      }
+
+      var tableName = tableMatch[1];
+      var body = tableMatch[2];
+
+      // Split by commas, but respect parentheses
+      var parts = [];
+      var depth = 0;
+      var current = "";
+      for (var i = 0; i < body.length; i++) {
+        var ch = body[i];
+        if (ch === "(") depth++;
+        else if (ch === ")") depth--;
+        else if (ch === "," && depth === 0) {
+          parts.push(current.trim());
+          current = "";
+          continue;
+        }
+        current += ch;
+      }
+      if (current.trim()) parts.push(current.trim());
+
+      var columns = [];
+      var primaryKeys = [];
+
+      for (var p = 0; p < parts.length; p++) {
+        var part = parts[p].trim();
+
+        // Skip table-level constraints
+        if (/^(PRIMARY\s+KEY|UNIQUE|INDEX|KEY|CONSTRAINT|FOREIGN\s+KEY|CHECK)/i.test(part)) {
+          var pkMatch = part.match(/PRIMARY\s+KEY\s*\(([^)]+)\)/i);
+          if (pkMatch) {
+            var pks = pkMatch[1].split(",");
+            for (var pk = 0; pk < pks.length; pk++) {
+              primaryKeys.push(pks[pk].replace(/[`"'\s]/g, ""));
+            }
+          }
+          continue;
+        }
+
+        // Parse column definition
+        var colMatch = part.match(/^[`"']?(\w+)[`"']?\s+(\w+(?:\([^)]*\))?)\s*(.*)/i);
+        if (!colMatch) continue;
+
+        var colName = colMatch[1];
+        var colType = colMatch[2];
+        var constraints = colMatch[3] || "";
+
+        var column = {
+          name: colName,
+          type: mapSQLType(colType),
+          sqlType: colType
+        };
+
+        if (/NOT\s+NULL/i.test(constraints)) {
+          column.nullable = false;
+        } else {
+          column.nullable = true;
+        }
+
+        if (/PRIMARY\s+KEY/i.test(constraints)) {
+          column.primaryKey = true;
+          primaryKeys.push(colName);
+        }
+
+        var defaultMatch = constraints.match(/DEFAULT\s+('(?:[^']*)'|"(?:[^"]*)"|[^\s,]+)/i);
+        if (defaultMatch) {
+          var defVal = defaultMatch[1];
+          // Remove quotes
+          if ((defVal.charAt(0) === "'" && defVal.charAt(defVal.length - 1) === "'") ||
+              (defVal.charAt(0) === '"' && defVal.charAt(defVal.length - 1) === '"')) {
+            defVal = defVal.substring(1, defVal.length - 1);
+          }
+          if (column.type === "number" && /^-?\d+(\.\d+)?$/.test(defVal)) {
+            column.defaultValue = parseFloat(defVal);
+          } else if (column.type === "boolean") {
+            column.defaultValue = defVal.toLowerCase() === "true" || defVal === "1";
+          } else if (defVal.toUpperCase() === "NULL") {
+            column.defaultValue = null;
+          } else {
+            column.defaultValue = defVal;
+          }
+        }
+
+        if (/AUTO_INCREMENT|SERIAL/i.test(constraints)) {
+          column.autoIncrement = true;
+        }
+
+        columns.push(column);
+      }
+
+      // Mark primary keys from table-level constraint
+      for (var c = 0; c < columns.length; c++) {
+        if (primaryKeys.indexOf(columns[c].name) !== -1) {
+          columns[c].primaryKey = true;
+        }
+      }
+
+      // Build JSON Schema
+      var schema = {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "title": tableName,
+        "type": "object",
+        "properties": {},
+        "required": []
+      };
+
+      for (var j = 0; j < columns.length; j++) {
+        var col = columns[j];
+        var prop = { type: col.type };
+        if (col.sqlType) prop.sqlType = col.sqlType;
+        if (col.primaryKey) prop.primaryKey = true;
+        if (col.autoIncrement) prop.autoIncrement = true;
+        if (col.defaultValue !== undefined) prop["default"] = col.defaultValue;
+
+        schema.properties[col.name] = prop;
+
+        if (!col.nullable || col.primaryKey) {
+          schema.required.push(col.name);
+        }
+      }
+
+      if (schema.required.length === 0) delete schema.required;
+
+      return schema;
+    }
+
+    function parseInsertInto(sql) {
+      var normalized = sql.replace(/\r\n/g, "\n").replace(/\r/g, "\n");
+
+      // Match INSERT INTO
+      var insertMatch = normalized.match(/INSERT\s+INTO\s+[`"']?(\w+)[`"']?\s*\(([^)]+)\)\s*VALUES\s*([\s\S]+)/i);
+      if (!insertMatch) {
+        throw new Error("INSERT INTO文を認識できません。カラム名の指定が必要です。");
+      }
+
+      var columns = insertMatch[2].split(",").map(function (c) {
+        return c.replace(/[`"'\s]/g, "");
+      });
+
+      var valuesStr = insertMatch[3].trim();
+      // Remove trailing semicolon
+      if (valuesStr.charAt(valuesStr.length - 1) === ";") {
+        valuesStr = valuesStr.substring(0, valuesStr.length - 1).trim();
+      }
+
+      // Extract value groups: (...)
+      var groups = [];
+      var depth = 0;
+      var current = "";
+      for (var i = 0; i < valuesStr.length; i++) {
+        var ch = valuesStr[i];
+        if (ch === "(") {
+          depth++;
+          if (depth === 1) { current = ""; continue; }
+        } else if (ch === ")") {
+          depth--;
+          if (depth === 0) {
+            groups.push(current);
+            current = "";
+            continue;
+          }
+        }
+        if (depth > 0) current += ch;
+      }
+
+      var result = [];
+      for (var g = 0; g < groups.length; g++) {
+        var values = parseValueList(groups[g]);
+        var obj = {};
+        for (var v = 0; v < columns.length && v < values.length; v++) {
+          obj[columns[v]] = values[v];
+        }
+        result.push(obj);
+      }
+
+      return result;
+    }
+
+    function parseValueList(str) {
+      var values = [];
+      var current = "";
+      var inString = false;
+      var quote = "";
+
+      for (var i = 0; i < str.length; i++) {
+        var ch = str[i];
+
+        if (inString) {
+          if (ch === "\\" && i + 1 < str.length) {
+            current += ch + str[i + 1];
+            i++;
+            continue;
+          }
+          if (ch === quote) {
+            // Check for escaped quote
+            if (i + 1 < str.length && str[i + 1] === quote) {
+              current += ch;
+              i++;
+              continue;
+            }
+            inString = false;
+          }
+          current += ch;
+          continue;
+        }
+
+        if (ch === "'" || ch === '"') {
+          inString = true;
+          quote = ch;
+          current += ch;
+          continue;
+        }
+
+        if (ch === ",") {
+          values.push(cleanSQLValue(current.trim()));
+          current = "";
+          continue;
+        }
+
+        current += ch;
+      }
+
+      if (current.trim()) {
+        values.push(cleanSQLValue(current.trim()));
+      }
+
+      return values;
+    }
+
+    function cleanSQLValue(val) {
+      if (val.toUpperCase() === "NULL") return null;
+      if (val.toUpperCase() === "TRUE") return true;
+      if (val.toUpperCase() === "FALSE") return false;
+
+      // Remove string quotes
+      if ((val.charAt(0) === "'" && val.charAt(val.length - 1) === "'") ||
+          (val.charAt(0) === '"' && val.charAt(val.length - 1) === '"')) {
+        return val.substring(1, val.length - 1).replace(/''/g, "'").replace(/""/g, '"');
+      }
+
+      // Number
+      if (/^-?\d+(\.\d+)?$/.test(val)) return parseFloat(val);
+
+      return val;
+    }
+
+    btnConvert.addEventListener("click", function () {
+      clearMessages();
+      var input = inputEl.value.trim();
+      if (!input) {
+        showError("SQL文を入力してください。");
+        return;
+      }
+
+      try {
+        var result;
+        if (mode === "schema") {
+          result = parseCreateTable(input);
+          outputEl.value = JSON.stringify(result, null, 2);
+          var colCount = result.properties ? Object.keys(result.properties).length : 0;
+          showSuccess("変換完了: テーブル「" + result.title + "」（" + colCount + "カラム）");
+        } else {
+          result = parseInsertInto(input);
+          outputEl.value = JSON.stringify(result, null, 2);
+          showSuccess("変換完了: " + result.length + "件のレコード");
+        }
+      } catch (e) {
+        showError(e.message);
+      }
+    });
+
+    btnClear.addEventListener("click", function () {
+      inputEl.value = "";
+      outputEl.value = "";
+      clearMessages();
+    });
+
+    btnCopy.addEventListener("click", function () {
+      var text = outputEl.value;
+      if (!text) return;
+      navigator.clipboard.writeText(text).then(function () {
+        showSuccess("コピーしました。");
+      });
+    });
+  });
+})();

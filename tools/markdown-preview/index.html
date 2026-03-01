@@ -248,7 +248,7 @@
     <!-- 広告スクリプトをここに挿入 -->
   </div>
 
-  <main class="main">
+  <main class="main main--with-sidebar">
     <nav class="breadcrumb" aria-label="パンくずリスト">
       <ol>
         <li><a href="../../">ホーム</a></li>
@@ -332,6 +332,9 @@ function hello() {
       <p>A. すべての変換処理はお使いのブラウザ内で完結します。入力データがサーバーに送信されることは一切ありませんので、安心してご利用ください。</p>
     </section>
 
+
+    <div class="ad-in-article" id="ad-in-article"></div>
+
             <section class="related-tools">
       <h2>関連ツール</h2>
       <ul>
@@ -362,6 +365,10 @@ function hello() {
            data-ad-format="auto"
            data-full-width-responsive="true"></ins>
     </div>
+      <aside class="ad-slot ad-slot--sidebar" id="ad-sidebar">
+        <div class="ad-slot--sidebar__sticky"></div>
+      </aside>
+
     </main>
 
   <div class="ad-slot" id="ad-footer" data-ad-size="728x90">
@@ -392,6 +399,7 @@ function hello() {
             <li><a href="../html-entity/" class="footer__link">HTMLエンティティ変換</a></li>
             <li><a href="../image-base64/" class="footer__link">画像Base64変換</a></li>
             <li><a href="../backslash-escape/" class="footer__link">エスケープ変換</a></li>
+            <li><a href="../yaml-validator/" class="footer__link">YAMLバリデーター</a></li>
           </ul>
         </div>
         <div>
@@ -411,6 +419,11 @@ function hello() {
             <li><a href="../color-converter/" class="footer__link">カラーコンバーター</a></li>
             <li><a href="../number-base/" class="footer__link">進数変換ツール</a></li>
             <li><a href="../byte-converter/" class="footer__link">バイト単位変換</a></li>
+            <li><a href="../json-to-go/" class="footer__link">JSON→Go構造体変換</a></li>
+            <li><a href="../markdown-to-html/" class="footer__link">Markdown→HTML変換</a></li>
+            <li><a href="../unicode-lookup/" class="footer__link">Unicode検索・変換</a></li>
+            <li><a href="../sql-to-json/" class="footer__link">SQL→JSON変換</a></li>
+            <li><a href="../regex-generator/" class="footer__link">正規表現ジェネレーター</a></li>
           </ul>
         </div>
         <div>
@@ -432,6 +445,15 @@ function hello() {
             <li><a href="../meta-tag-generator/" class="footer__link">メタタグ生成</a></li>
             <li><a href="../og-preview/" class="footer__link">OGPプレビュー</a></li>
             <li><a href="../lorem-ipsum/" class="footer__link">Lorem Ipsum生成</a></li>
+            <li><a href="../token-counter/" class="footer__link">AIトークンカウンター</a></li>
+            <li><a href="../html-preview/" class="footer__link">HTMLプレビュー</a></li>
+            <li><a href="../docker-compose-generator/" class="footer__link">Docker Compose生成</a></li>
+            <li><a href="../nginx-config-generator/" class="footer__link">Nginx設定生成</a></li>
+            <li><a href="../env-generator/" class="footer__link">.env生成・管理</a></li>
+            <li><a href="../openapi-editor/" class="footer__link">OpenAPIエディター</a></li>
+            <li><a href="../css-selector-tester/" class="footer__link">CSSセレクターテスター</a></li>
+            <li><a href="../http-header-viewer/" class="footer__link">HTTPヘッダー確認</a></li>
+            <li><a href="../dns-lookup/" class="footer__link">DNS検索</a></li>
           </ul>
         </div>
       </div>
@@ -442,6 +464,10 @@ function hello() {
   </footer>
 
   <script src="../../js/common.min.js" defer></script>
+  <script src="../../js/usage-counter.min.js" defer></script>
+  <script src="../../js/related-tools.min.js" defer></script>
   <script src="../../js/tools/markdown-preview.min.js" defer></script>
+  <div class="ad-anchor" id="ad-anchor"></div>
+  <script src="../../js/ads.min.js" defer></script>
 </body>
 </html>
