@@ -48,7 +48,8 @@
     var btn = document.createElement("button");
     btn.type = "button";
     btn.className = "tool-card__favorite";
-    btn.setAttribute("aria-label", "お気に入り切替");
+    var t = window.DevToolBox && window.DevToolBox.t;
+    btn.setAttribute("aria-label", t ? t("toggleFavorite") : "お気に入り切替");
     btn.textContent = isFavorited(slug) ? "\u2605" : "\u2606";
     if (isFavorited(slug)) {
       btn.classList.add("is-active");
@@ -114,7 +115,8 @@
     section.id = "favorites-section";
     section.className = "favorites-section";
 
-    var html = '<h2 class="favorites-section__title">お気に入り</h2>';
+    var t = window.DevToolBox && window.DevToolBox.t;
+    var html = '<h2 class="favorites-section__title">' + (t ? t("favorites") : "お気に入り") + '</h2>';
     html += '<div class="tool-grid">';
 
     favCards.forEach(function (card) {

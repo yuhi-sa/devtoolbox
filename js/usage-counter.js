@@ -22,7 +22,7 @@
 
   function getSlug() {
     var path = window.location.pathname;
-    var match = path.match(/\/tools\/([^/]+)\/?$/);
+    var match = path.match(/\/tools\/([^\/]+)\/?$/);
     return match ? match[1] : null;
   }
 
@@ -46,7 +46,10 @@
     var el = document.createElement("div");
     el.className = "usage-counter";
     el.id = "usage-counter";
-    el.innerHTML = 'このツールは <span class="usage-counter__number">' + count + '</span> 回使用されました';
+    var t = window.DevToolBox && window.DevToolBox.t;
+    var msg = t ? t("usageCount", {count: '{n}'}) : "このツールは {n} 回使用されました";
+    var parts = msg.split("{n}");
+    el.innerHTML = parts[0] + '<span class="usage-counter__number">' + count + '</span>' + (parts[1] || '');
     container.parentNode.insertBefore(el, container.nextSibling);
   }
 

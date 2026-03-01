@@ -73,7 +73,8 @@
     section.className = "popular-tools";
     section.id = "popular-tools-section";
 
-    var html = '<h2 class="popular-tools__title">人気ツール</h2>';
+    var t = window.DevToolBox && window.DevToolBox.t;
+    var html = '<h2 class="popular-tools__title">' + (t ? t("popularTools") : "人気ツール") + '</h2>';
     html += '<div class="popular-tools__grid">';
 
     tools.forEach(function (tool) {

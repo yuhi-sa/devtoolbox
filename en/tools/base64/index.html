@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index,follow">
+  <title>Base64 Encoder/Decoder (Free Online) - DevToolBox</title>
+  <meta name="description" content="Encode and decode Base64 strings online. Supports multibyte characters. Free Base64 conversion tool.">
+  <link rel="canonical" href="https://yuhi-sa.github.io/devtoolbox/en/tools/base64/">
+  <link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/base64/">
+  <link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/base64/">
+  <link rel="alternate" hreflang="x-default" href="https://yuhi-sa.github.io/devtoolbox/tools/base64/">
+  <meta property="og:title" content="Base64 Encoder/Decoder (Free Online) - DevToolBox">
+  <meta property="og:description" content="Encode and decode Base64 strings online. Supports multibyte characters. Free Base64 conversion tool.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://yuhi-sa.github.io/devtoolbox/en/tools/base64/">
+  <meta property="og:site_name" content="DevToolBox">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://yuhi-sa.github.io/devtoolbox/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Base64 Encoder/Decoder (Free Online) - DevToolBox">
+  <meta name="twitter:description" content="Encode and decode Base64 strings online. Supports multibyte characters. Free Base64 conversion tool.">
+  <meta name="theme-color" content="#1a73e8">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Base64 Encoder/Decoder",
+    "description": "Online tool to encode and decode Base64 strings",
+    "url": "https://yuhi-sa.github.io/devtoolbox/en/tools/base64/",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "DevToolBox",
+      "url": "https://yuhi-sa.github.io/devtoolbox/en/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://yuhi-sa.github.io/devtoolbox/en/" },
+      { "@type": "ListItem", "position": 2, "name": "Base64 Encoder/Decoder", "item": "https://yuhi-sa.github.io/devtoolbox/en/tools/base64/" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can multibyte characters be converted correctly?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, it uses UTF-8 encoding to accurately encode and decode multibyte characters. It uses TextEncoder and TextDecoder for reliable conversion." }
+      },
+      {
+        "@type": "Question",
+        "name": "What causes Base64 decode errors?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Errors occur when the input string is not valid Base64 format. Base64 uses a limited character set, so invalid characters cause decode failures. Whitespace and line breaks in the input are automatically removed before processing." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my input data secure?",
+        "acceptedAnswer": { "@type": "Answer", "text": "All conversion processing is completed within your browser. Input data is never sent to any server." }
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="../../../css/style.min.css">
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+  <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+<script data-ad-client="ca-pub-9558545098866170" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="../../" class="header__logo">
+        <svg class="header__logo-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="28" height="28" rx="6" fill="currentColor" style="color: var(--color-primary)"/>
+          <path d="M8 10l4 4-4 4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 18h5" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        DevToolBox
+      </a>
+      <div class="header__right">
+        <nav class="nav" aria-label="Main navigation">
+          <ul class="nav__list">
+            <li><a href="../json-formatter/" class="nav__link">JSON Formatter</a></li>
+            <li><a href="../char-counter/" class="nav__link">Char Counter</a></li>
+            <li><a href="../base64/" class="nav__link">Base64</a></li>
+            <li><a href="../url-encode/" class="nav__link">URL Encode</a></li>
+            <li><a href="../timestamp/" class="nav__link">Timestamp</a></li>
+          </ul>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme">
+          <svg class="theme-toggle__icon theme-toggle__icon--dark" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+          </svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--light" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
+          </svg>
+        </button>
+        <button id="hamburger" class="hamburger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobile-nav">
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile nav -->
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
+    <ul class="mobile-nav__list">
+      <li><a href="../json-formatter/" class="mobile-nav__link">JSON Formatter & Validator</a></li>
+      <li><a href="../char-counter/" class="mobile-nav__link">Character Counter</a></li>
+      <li><a href="../base64/" class="mobile-nav__link">Base64 Encoder/Decoder</a></li>
+      <li><a href="../url-encode/" class="mobile-nav__link">URL Encoder/Decoder</a></li>
+      <li><a href="../timestamp/" class="mobile-nav__link">Unix Timestamp Converter</a></li>
+      <li><a href="../../about.html" class="mobile-nav__link">About</a></li>
+      <li><a href="../../privacy.html" class="mobile-nav__link">Privacy Policy</a></li>
+      <li><a href="../../terms.html" class="mobile-nav__link">Terms of Service</a></li>
+    </ul>
+  </nav>
+
+  <!-- Ad slot: below header -->
+  <div class="ad-slot" id="ad-header" data-ad-size="728x90">
+  </div>
+
+  <main class="main main--with-sidebar">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="../../">Home</a></li>
+        <li aria-current="page">Base64 Encoder/Decoder</li>
+      </ol>
+    </nav>
+
+<div class="tool-container">
+      <h1>Base64 Encoder/Decoder</h1>
+      <p class="tool-container__lead">An online tool to convert between text and Base64 strings.</p>
+
+
+      <div class="tab-group">
+        <button class="tab-btn tab-btn--active" data-tab="encode">Encode</button>
+        <button class="tab-btn" data-tab="decode">Decode</button>
+      </div>
+
+      <div class="tool-input">
+        <label for="base64-input" id="base64-input-label">Text to Convert</label>
+        <textarea id="base64-input" class="textarea" rows="8" placeholder="Enter text to convert..."></textarea>
+        <div id="base64-error" class="error-message" hidden></div>
+      </div>
+
+      <div class="tool-actions">
+        <button id="btn-convert" class="btn btn--primary">Convert</button>
+        <button id="btn-clear" class="btn btn--secondary clear-btn">Clear</button>
+      </div>
+
+      <div class="tool-output">
+        <label for="base64-output">Output</label>
+        <textarea id="base64-output" class="textarea" rows="8" readonly></textarea>
+        <div id="base64-success" class="success-message" hidden></div>
+        <button id="btn-copy" class="btn btn--secondary copy-btn">Copy</button>
+      </div>
+    </div>
+
+    
+    <section class="tool-description">
+      <h2>How to Use the Base64 Tool</h2>
+      <p>This Base64 conversion tool lets you convert between text and Base64 strings. Select the "Encode" tab and enter text to get a Base64-encoded string. Select the "Decode" tab and enter a Base64 string to decode it back to the original text. It supports multibyte characters using UTF-8 encoding for accurate conversion. Click the "Convert" button or enter text to see the result. Use the copy button to copy the output to your clipboard.</p>
+
+      <h2>What is Base64 Encoding?</h2>
+      <p>Base64 is an encoding scheme that converts binary data into ASCII strings. It uses 64 types of characters (A-Z, a-z, 0-9, +, /) and the padding character = to represent data. It is mainly used in email (MIME), data URI schemes, API authentication tokens (Basic auth), JSON Web Tokens (JWT), and more. Base64 encoding increases data size by about 33%, so it is not suitable for transferring large data. Base64 is not encryption but merely encoding, and should not be used for protecting sensitive data. In web development, it is commonly used as Data URIs to embed small images directly in HTML or CSS.</p>
+
+      <h2>Frequently Asked Questions (FAQ)</h2>
+      <h3>Q. Can multibyte characters be converted correctly?</h3>
+      <p>A. Yes, it uses UTF-8 encoding to accurately encode and decode multibyte characters. It uses TextEncoder and TextDecoder for reliable conversion.</p>
+      <h3>Q. What causes Base64 decode errors?</h3>
+      <p>A. Errors occur when the input string is not valid Base64 format. Base64 uses a limited character set, so invalid characters cause decode failures. Whitespace and line breaks in the input are automatically removed before processing.</p>
+      <h3>Q. Is my input data secure?</h3>
+      <p>A. All conversion processing is completed within your browser. Input data is never sent to any server.</p>
+    </section>
+
+
+    <div class="ad-in-article" id="ad-in-article"></div>
+
+            <section class="related-tools">
+      <h2>Related Tools</h2>
+      <ul>
+        <li><a href="../url-encode/">URL Encoder/Decoder</a></li>
+        <li><a href="../html-entity/">HTML Entity Converter</a></li>
+        <li><a href="../image-base64/">Image to Base64 Converter</a></li>
+        <li><a href="../string-escape/">String Escape/Unescape</a></li>
+      </ul>
+    </section>
+
+      <div class="share-buttons">
+        <span class="share-buttons__label">Share:</span>
+        <button class="share-btn share-btn--twitter" data-share="twitter" aria-label="Share on Twitter">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </button>
+        <button class="share-btn share-btn--line" data-share="line" aria-label="Share on LINE">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+        </button>
+        <button class="share-btn share-btn--copy" data-share="copy" aria-label="Copy link">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+        </button>
+      </div>
+
+    <div class="ad-container">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-9558545098866170"
+           data-ad-slot="auto"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    </div>
+
+    <aside class="ad-slot ad-slot--sidebar" id="ad-sidebar">
+      <div class="ad-slot--sidebar__sticky"></div>
+    </aside>
+
+  </main>
+
+  <div class="ad-slot" id="ad-footer" data-ad-size="728x90">
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__grid">
+        <div>
+          <p class="footer__section-title">DevToolBox</p>
+          <ul class="footer__list">
+            <li><a href="../../about.html" class="footer__link">About</a></li>
+            <li><a href="../../privacy.html" class="footer__link">Privacy Policy</a></li>
+            <li><a href="../../terms.html" class="footer__link">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">Format & Encode</p>
+          <ul class="footer__list">
+            <li><a href="../json-formatter/" class="footer__link">JSON Formatter</a></li>
+            <li><a href="../sql-formatter/" class="footer__link">SQL Formatter</a></li>
+            <li><a href="../xml-formatter/" class="footer__link">XML Formatter</a></li>
+            <li><a href="../markdown-preview/" class="footer__link">Markdown Preview</a></li>
+            <li><a href="../base64/" class="footer__link">Base64 Encode/Decode</a></li>
+            <li><a href="../url-encode/" class="footer__link">URL Encode/Decode</a></li>
+            <li><a href="../html-entity/" class="footer__link">HTML Entity Converter</a></li>
+            <li><a href="../image-base64/" class="footer__link">Image to Base64</a></li>
+            <li><a href="../backslash-escape/" class="footer__link">Escape/Unescape</a></li>
+            <li><a href="../yaml-validator/" class="footer__link">YAML Validator</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">Text & Data</p>
+          <ul class="footer__list">
+            <li><a href="../char-counter/" class="footer__link">Character Counter</a></li>
+            <li><a href="../regex-tester/" class="footer__link">Regex Tester</a></li>
+            <li><a href="../diff-checker/" class="footer__link">Text Diff Checker</a></li>
+            <li><a href="../text-case/" class="footer__link">Text Case Converter</a></li>
+            <li><a href="../slug-generator/" class="footer__link">Slug Generator</a></li>
+            <li><a href="../yaml-json/" class="footer__link">YAML to JSON</a></li>
+            <li><a href="../csv-json/" class="footer__link">CSV to JSON</a></li>
+            <li><a href="../toml-json/" class="footer__link">TOML to JSON</a></li>
+            <li><a href="../json-to-typescript/" class="footer__link">JSON to TypeScript</a></li>
+            <li><a href="../json-path/" class="footer__link">JSON Path Finder</a></li>
+            <li><a href="../timestamp/" class="footer__link">Unix Timestamp</a></li>
+            <li><a href="../color-converter/" class="footer__link">Color Converter</a></li>
+            <li><a href="../number-base/" class="footer__link">Number Base Converter</a></li>
+            <li><a href="../byte-converter/" class="footer__link">Byte Converter</a></li>
+            <li><a href="../json-to-go/" class="footer__link">JSON to Go Struct</a></li>
+            <li><a href="../markdown-to-html/" class="footer__link">Markdown to HTML</a></li>
+            <li><a href="../unicode-lookup/" class="footer__link">Unicode Lookup</a></li>
+            <li><a href="../sql-to-json/" class="footer__link">SQL to JSON</a></li>
+            <li><a href="../regex-generator/" class="footer__link">Regex Generator</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__section-title">Generators & Dev Tools</p>
+          <ul class="footer__list">
+            <li><a href="../hash-generator/" class="footer__link">Hash Generator</a></li>
+            <li><a href="../uuid-generator/" class="footer__link">UUID Generator</a></li>
+            <li><a href="../password-generator/" class="footer__link">Password Generator</a></li>
+            <li><a href="../qr-code/" class="footer__link">QR Code Generator</a></li>
+            <li><a href="../css-gradient/" class="footer__link">CSS Gradient Generator</a></li>
+            <li><a href="../box-shadow/" class="footer__link">Box Shadow Generator</a></li>
+            <li><a href="../flexbox-playground/" class="footer__link">Flexbox Playground</a></li>
+            <li><a href="../border-radius/" class="footer__link">Border Radius Generator</a></li>
+            <li><a href="../jwt-decoder/" class="footer__link">JWT Decoder</a></li>
+            <li><a href="../cron-parser/" class="footer__link">Cron Expression Parser</a></li>
+            <li><a href="../chmod-calculator/" class="footer__link">Chmod Calculator</a></li>
+            <li><a href="../http-status/" class="footer__link">HTTP Status Codes</a></li>
+            <li><a href="../gitignore-generator/" class="footer__link">.gitignore Generator</a></li>
+            <li><a href="../meta-tag-generator/" class="footer__link">Meta Tag Generator</a></li>
+            <li><a href="../og-preview/" class="footer__link">OGP Preview</a></li>
+            <li><a href="../lorem-ipsum/" class="footer__link">Lorem Ipsum Generator</a></li>
+            <li><a href="../token-counter/" class="footer__link">AI Token Counter</a></li>
+            <li><a href="../html-preview/" class="footer__link">HTML Preview</a></li>
+            <li><a href="../docker-compose-generator/" class="footer__link">Docker Compose Generator</a></li>
+            <li><a href="../nginx-config-generator/" class="footer__link">Nginx Config Generator</a></li>
+            <li><a href="../env-generator/" class="footer__link">.env Generator</a></li>
+            <li><a href="../openapi-editor/" class="footer__link">OpenAPI Editor</a></li>
+            <li><a href="../css-selector-tester/" class="footer__link">CSS Selector Tester</a></li>
+            <li><a href="../http-header-viewer/" class="footer__link">HTTP Header Viewer</a></li>
+            <li><a href="../dns-lookup/" class="footer__link">DNS Lookup</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 DevToolBox. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../../js/i18n.min.js" defer></script>
+  <script src="../../../js/common.min.js" defer></script>
+  <script src="../../../js/usage-counter.min.js" defer></script>
+  <script src="../../../js/related-tools.min.js" defer></script>
+  <script src="../../../js/tools/base64.min.js" defer></script>
+  <script src="../../../js/lang-switcher.min.js" defer></script>
+  <div class="ad-anchor" id="ad-anchor"></div>
+  <script src="../../../js/ads.min.js" defer></script>
+</body>
+</html>

@@ -1,537 +1,1428 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://yuhi-sa.github.io/devtoolbox/</loc>
-    <lastmod>2026-02-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/" />
+    <lastmod>2026-03-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/json-formatter/</loc>
-    <lastmod>2026-02-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/sql-formatter/</loc>
-    <lastmod>2026-02-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/xml-formatter/</loc>
-    <lastmod>2026-02-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/markdown-preview/</loc>
-    <lastmod>2026-02-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/base64/</loc>
-    <lastmod>2026-02-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/url-encode/</loc>
-    <lastmod>2026-02-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/html-entity/</loc>
-    <lastmod>2026-02-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/image-base64/</loc>
-    <lastmod>2026-02-12</lastmod>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/aspect-ratio/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/aspect-ratio/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/aspect-ratio/" />
+    <lastmod>2026-03-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://yuhi-sa.github.io/devtoolbox/tools/backslash-escape/</loc>
-    <lastmod>2026-02-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/backslash-escape/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/backslash-escape/" />
+    <lastmod>2026-03-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/char-counter/</loc>
-    <lastmod>2026-02-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/regex-tester/</loc>
-    <lastmod>2026-02-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/diff-checker/</loc>
-    <lastmod>2026-02-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/text-case/</loc>
-    <lastmod>2026-02-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/lorem-ipsum/</loc>
-    <lastmod>2026-02-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/slug-generator/</loc>
-    <lastmod>2026-02-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/yaml-json/</loc>
-    <lastmod>2026-02-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/csv-json/</loc>
-    <lastmod>2026-02-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/toml-json/</loc>
-    <lastmod>2026-02-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/json-to-typescript/</loc>
-    <lastmod>2026-02-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/json-path/</loc>
-    <lastmod>2026-02-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/timestamp/</loc>
-    <lastmod>2026-02-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/color-converter/</loc>
-    <lastmod>2026-02-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/number-base/</loc>
-    <lastmod>2026-02-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/byte-converter/</loc>
-    <lastmod>2026-02-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/hash-generator/</loc>
-    <lastmod>2026-02-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/uuid-generator/</loc>
-    <lastmod>2026-02-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/password-generator/</loc>
-    <lastmod>2026-02-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/qr-code/</loc>
-    <lastmod>2026-02-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/css-gradient/</loc>
-    <lastmod>2026-02-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/box-shadow/</loc>
-    <lastmod>2026-02-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/flexbox-playground/</loc>
-    <lastmod>2026-02-12</lastmod>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/base64/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/base64/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/base64/" />
+    <lastmod>2026-03-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://yuhi-sa.github.io/devtoolbox/tools/border-radius/</loc>
-    <lastmod>2026-02-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/border-radius/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/border-radius/" />
+    <lastmod>2026-03-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/jwt-decoder/</loc>
-    <lastmod>2026-02-12</lastmod>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/box-shadow/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/box-shadow/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/box-shadow/" />
+    <lastmod>2026-03-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/cron-parser/</loc>
-    <lastmod>2026-02-12</lastmod>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/byte-converter/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/byte-converter/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/byte-converter/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/char-counter/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/char-counter/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/char-counter/" />
+    <lastmod>2026-03-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://yuhi-sa.github.io/devtoolbox/tools/chmod-calculator/</loc>
-    <lastmod>2026-02-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/chmod-calculator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/chmod-calculator/" />
+    <lastmod>2026-03-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/http-status/</loc>
-    <lastmod>2026-02-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/gitignore-generator/</loc>
-    <lastmod>2026-02-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/meta-tag-generator/</loc>
-    <lastmod>2026-02-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/og-preview/</loc>
-    <lastmod>2026-02-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/json-to-csv/</loc>
-    <lastmod>2026-02-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/html-to-markdown/</loc>
-    <lastmod>2026-02-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/jwt-generator/</loc>
-    <lastmod>2026-02-14</lastmod>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/color-converter/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/color-converter/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/color-converter/" />
+    <lastmod>2026-03-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://yuhi-sa.github.io/devtoolbox/tools/color-palette/</loc>
-    <lastmod>2026-02-14</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/color-palette/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/color-palette/" />
+    <lastmod>2026-03-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/regex-cheatsheet/</loc>
-    <lastmod>2026-02-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/image-compressor/</loc>
-    <lastmod>2026-02-14</lastmod>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/cron-parser/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/cron-parser/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/cron-parser/" />
+    <lastmod>2026-03-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://yuhi-sa.github.io/devtoolbox/tools/crontab-generator/</loc>
-    <lastmod>2026-02-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/svg-optimizer/</loc>
-    <lastmod>2026-02-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/string-escape/</loc>
-    <lastmod>2026-02-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/og-tester/</loc>
-    <lastmod>2026-02-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/css-minifier/</loc>
-    <lastmod>2026-02-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/js-minifier/</loc>
-    <lastmod>2026-02-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/html-minifier/</loc>
-    <lastmod>2026-02-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/json-schema-validator/</loc>
-    <lastmod>2026-02-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/aspect-ratio/</loc>
-    <lastmod>2026-02-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/css-grid-generator/</loc>
-    <lastmod>2026-02-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/placeholder-image/</loc>
-    <lastmod>2026-02-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/word-counter/</loc>
-    <lastmod>2026-02-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/text-to-html/</loc>
-    <lastmod>2026-02-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/robots-generator/</loc>
-    <lastmod>2026-02-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/json-diff/</loc>
-    <lastmod>2026-02-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/markdown-table/</loc>
-    <lastmod>2026-02-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/line-sort/</loc>
-    <lastmod>2026-02-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/crontab-generator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/crontab-generator/" />
+    <lastmod>2026-03-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://yuhi-sa.github.io/devtoolbox/tools/css-animation/</loc>
-    <lastmod>2026-02-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/text-binary/</loc>
-    <lastmod>2026-02-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/ip-calculator/</loc>
-    <lastmod>2026-02-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/curl-converter/</loc>
-    <lastmod>2026-02-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/favicon-generator/</loc>
-    <lastmod>2026-02-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/css-unit-converter/</loc>
-    <lastmod>2026-02-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/datetime-calc/</loc>
-    <lastmod>2026-02-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/random-data/</loc>
-    <lastmod>2026-02-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/token-counter/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/css-animation/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/css-animation/" />
     <lastmod>2026-03-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/html-preview/</loc>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/css-gradient/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/css-gradient/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/css-gradient/" />
     <lastmod>2026-03-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/json-to-go/</loc>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/css-grid-generator/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/css-grid-generator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/css-grid-generator/" />
     <lastmod>2026-03-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/yaml-validator/</loc>
-    <lastmod>2026-03-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/markdown-to-html/</loc>
-    <lastmod>2026-03-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/unicode-lookup/</loc>
-    <lastmod>2026-03-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/docker-compose-generator/</loc>
-    <lastmod>2026-03-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/nginx-config-generator/</loc>
-    <lastmod>2026-03-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/env-generator/</loc>
-    <lastmod>2026-03-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/openapi-editor/</loc>
-    <lastmod>2026-03-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/sql-to-json/</loc>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/css-minifier/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/css-minifier/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/css-minifier/" />
     <lastmod>2026-03-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://yuhi-sa.github.io/devtoolbox/tools/css-selector-tester/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/css-selector-tester/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/css-selector-tester/" />
     <lastmod>2026-03-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/regex-generator/</loc>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/css-unit-converter/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/css-unit-converter/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/css-unit-converter/" />
     <lastmod>2026-03-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://yuhi-sa.github.io/devtoolbox/tools/http-header-viewer/</loc>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/csv-json/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/csv-json/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/csv-json/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/curl-converter/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/curl-converter/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/curl-converter/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/datetime-calc/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/datetime-calc/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/datetime-calc/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/diff-checker/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/diff-checker/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/diff-checker/" />
     <lastmod>2026-03-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://yuhi-sa.github.io/devtoolbox/tools/dns-lookup/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/dns-lookup/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/dns-lookup/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/docker-compose-generator/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/docker-compose-generator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/docker-compose-generator/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/env-generator/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/env-generator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/env-generator/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/favicon-generator/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/favicon-generator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/favicon-generator/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/flexbox-playground/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/flexbox-playground/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/flexbox-playground/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/gitignore-generator/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/gitignore-generator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/gitignore-generator/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/hash-generator/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/hash-generator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/hash-generator/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/html-entity/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/html-entity/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/html-entity/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/html-minifier/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/html-minifier/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/html-minifier/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/html-preview/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/html-preview/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/html-preview/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/html-to-markdown/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/html-to-markdown/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/html-to-markdown/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/http-header-viewer/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/http-header-viewer/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/http-header-viewer/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/http-status/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/http-status/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/http-status/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/image-base64/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/image-base64/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/image-base64/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/image-compressor/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/image-compressor/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/image-compressor/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/ip-calculator/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/ip-calculator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/ip-calculator/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/js-minifier/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/js-minifier/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/js-minifier/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/json-diff/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/json-diff/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/json-diff/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/json-formatter/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/json-formatter/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/json-formatter/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/json-path/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/json-path/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/json-path/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/json-schema-validator/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/json-schema-validator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/json-schema-validator/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/json-to-csv/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/json-to-csv/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/json-to-csv/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/json-to-go/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/json-to-go/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/json-to-go/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/json-to-typescript/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/json-to-typescript/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/json-to-typescript/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/jwt-decoder/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/jwt-decoder/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/jwt-decoder/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/jwt-generator/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/jwt-generator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/jwt-generator/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/line-sort/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/line-sort/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/line-sort/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/lorem-ipsum/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/lorem-ipsum/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/lorem-ipsum/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/markdown-preview/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/markdown-preview/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/markdown-preview/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/markdown-table/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/markdown-table/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/markdown-table/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/markdown-to-html/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/markdown-to-html/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/markdown-to-html/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/meta-tag-generator/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/meta-tag-generator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/meta-tag-generator/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/nginx-config-generator/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/nginx-config-generator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/nginx-config-generator/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/number-base/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/number-base/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/number-base/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/og-preview/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/og-preview/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/og-preview/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/og-tester/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/og-tester/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/og-tester/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/openapi-editor/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/openapi-editor/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/openapi-editor/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/password-generator/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/password-generator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/password-generator/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/placeholder-image/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/placeholder-image/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/placeholder-image/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/qr-code/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/qr-code/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/qr-code/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/random-data/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/random-data/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/random-data/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/regex-cheatsheet/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/regex-cheatsheet/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/regex-cheatsheet/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/regex-generator/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/regex-generator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/regex-generator/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/regex-tester/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/regex-tester/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/regex-tester/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/robots-generator/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/robots-generator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/robots-generator/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/slug-generator/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/slug-generator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/slug-generator/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/sql-formatter/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/sql-formatter/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/sql-formatter/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/sql-to-json/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/sql-to-json/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/sql-to-json/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/string-escape/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/string-escape/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/string-escape/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/svg-optimizer/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/svg-optimizer/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/svg-optimizer/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/text-binary/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/text-binary/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/text-binary/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/text-case/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/text-case/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/text-case/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/text-to-html/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/text-to-html/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/text-to-html/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/timestamp/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/timestamp/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/timestamp/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/token-counter/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/token-counter/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/token-counter/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/toml-json/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/toml-json/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/toml-json/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/unicode-lookup/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/unicode-lookup/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/unicode-lookup/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/url-encode/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/url-encode/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/url-encode/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/uuid-generator/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/uuid-generator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/uuid-generator/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/word-counter/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/word-counter/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/word-counter/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/xml-formatter/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/xml-formatter/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/xml-formatter/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/yaml-json/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/yaml-json/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/yaml-json/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/tools/yaml-validator/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/yaml-validator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/yaml-validator/" />
     <lastmod>2026-03-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://yuhi-sa.github.io/devtoolbox/about.html</loc>
-    <lastmod>2026-02-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/about.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/about.html" />
+    <lastmod>2026-03-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://yuhi-sa.github.io/devtoolbox/privacy.html</loc>
-    <lastmod>2026-02-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/privacy.html" />
+    <lastmod>2026-03-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://yuhi-sa.github.io/devtoolbox/terms.html</loc>
-    <lastmod>2026-02-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/terms.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/terms.html" />
+    <lastmod>2026-03-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/about.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/about.html" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/privacy.html" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/terms.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/terms.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/terms.html" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/aspect-ratio/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/aspect-ratio/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/aspect-ratio/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/backslash-escape/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/backslash-escape/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/backslash-escape/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/base64/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/base64/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/base64/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/border-radius/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/border-radius/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/border-radius/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/box-shadow/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/box-shadow/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/box-shadow/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/byte-converter/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/byte-converter/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/byte-converter/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/char-counter/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/char-counter/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/char-counter/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/chmod-calculator/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/chmod-calculator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/chmod-calculator/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/color-converter/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/color-converter/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/color-converter/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/color-palette/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/color-palette/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/color-palette/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/cron-parser/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/cron-parser/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/cron-parser/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/crontab-generator/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/crontab-generator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/crontab-generator/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/css-animation/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/css-animation/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/css-animation/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/css-gradient/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/css-gradient/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/css-gradient/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/css-grid-generator/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/css-grid-generator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/css-grid-generator/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/css-minifier/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/css-minifier/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/css-minifier/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/css-selector-tester/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/css-selector-tester/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/css-selector-tester/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/css-unit-converter/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/css-unit-converter/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/css-unit-converter/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/csv-json/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/csv-json/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/csv-json/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/curl-converter/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/curl-converter/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/curl-converter/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/datetime-calc/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/datetime-calc/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/datetime-calc/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/diff-checker/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/diff-checker/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/diff-checker/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/dns-lookup/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/dns-lookup/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/dns-lookup/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/docker-compose-generator/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/docker-compose-generator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/docker-compose-generator/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/env-generator/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/env-generator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/env-generator/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/favicon-generator/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/favicon-generator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/favicon-generator/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/flexbox-playground/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/flexbox-playground/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/flexbox-playground/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/gitignore-generator/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/gitignore-generator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/gitignore-generator/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/hash-generator/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/hash-generator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/hash-generator/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/html-entity/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/html-entity/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/html-entity/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/html-minifier/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/html-minifier/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/html-minifier/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/html-preview/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/html-preview/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/html-preview/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/html-to-markdown/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/html-to-markdown/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/html-to-markdown/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/http-header-viewer/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/http-header-viewer/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/http-header-viewer/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/http-status/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/http-status/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/http-status/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/image-base64/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/image-base64/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/image-base64/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/image-compressor/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/image-compressor/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/image-compressor/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/ip-calculator/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/ip-calculator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/ip-calculator/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/js-minifier/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/js-minifier/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/js-minifier/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/json-diff/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/json-diff/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/json-diff/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/json-formatter/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/json-formatter/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/json-formatter/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/json-path/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/json-path/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/json-path/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/json-schema-validator/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/json-schema-validator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/json-schema-validator/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/json-to-csv/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/json-to-csv/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/json-to-csv/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/json-to-go/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/json-to-go/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/json-to-go/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/json-to-typescript/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/json-to-typescript/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/json-to-typescript/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/jwt-decoder/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/jwt-decoder/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/jwt-decoder/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/jwt-generator/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/jwt-generator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/jwt-generator/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/line-sort/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/line-sort/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/line-sort/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/lorem-ipsum/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/lorem-ipsum/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/lorem-ipsum/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/markdown-preview/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/markdown-preview/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/markdown-preview/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/markdown-table/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/markdown-table/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/markdown-table/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/markdown-to-html/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/markdown-to-html/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/markdown-to-html/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/meta-tag-generator/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/meta-tag-generator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/meta-tag-generator/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/nginx-config-generator/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/nginx-config-generator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/nginx-config-generator/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/number-base/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/number-base/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/number-base/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/og-preview/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/og-preview/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/og-preview/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/og-tester/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/og-tester/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/og-tester/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/openapi-editor/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/openapi-editor/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/openapi-editor/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/password-generator/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/password-generator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/password-generator/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/placeholder-image/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/placeholder-image/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/placeholder-image/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/qr-code/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/qr-code/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/qr-code/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/random-data/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/random-data/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/random-data/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/regex-cheatsheet/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/regex-cheatsheet/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/regex-cheatsheet/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/regex-generator/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/regex-generator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/regex-generator/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/regex-tester/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/regex-tester/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/regex-tester/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/robots-generator/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/robots-generator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/robots-generator/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/slug-generator/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/slug-generator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/slug-generator/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/sql-formatter/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/sql-formatter/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/sql-formatter/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/sql-to-json/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/sql-to-json/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/sql-to-json/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/string-escape/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/string-escape/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/string-escape/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/svg-optimizer/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/svg-optimizer/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/svg-optimizer/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/text-binary/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/text-binary/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/text-binary/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/text-case/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/text-case/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/text-case/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/text-to-html/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/text-to-html/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/text-to-html/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/timestamp/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/timestamp/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/timestamp/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/token-counter/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/token-counter/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/token-counter/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/toml-json/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/toml-json/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/toml-json/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/unicode-lookup/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/unicode-lookup/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/unicode-lookup/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/url-encode/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/url-encode/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/url-encode/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/uuid-generator/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/uuid-generator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/uuid-generator/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/word-counter/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/word-counter/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/word-counter/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/xml-formatter/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/xml-formatter/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/xml-formatter/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/yaml-json/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/yaml-json/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/yaml-json/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yuhi-sa.github.io/devtoolbox/en/tools/yaml-validator/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yuhi-sa.github.io/devtoolbox/tools/yaml-validator/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuhi-sa.github.io/devtoolbox/en/tools/yaml-validator/" />
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
 </urlset>

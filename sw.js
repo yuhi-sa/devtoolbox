@@ -1,4 +1,4 @@
-var CACHE_NAME = "devtoolbox-v4";
+var CACHE_NAME = "devtoolbox-v5";
 
 var CORE_ASSETS = [
   "/devtoolbox/",
@@ -13,7 +13,11 @@ var CORE_ASSETS = [
   "/devtoolbox/js/ads.js",
   "/devtoolbox/js/related-tools.js",
   "/devtoolbox/js/popular-tools.js",
-  "/devtoolbox/js/usage-counter.js"
+  "/devtoolbox/js/usage-counter.js",
+  "/devtoolbox/js/i18n.js",
+  "/devtoolbox/js/lang-switcher.js",
+  "/devtoolbox/en/",
+  "/devtoolbox/en/index.html"
 ];
 
 // Install: cache core assets
@@ -54,7 +58,8 @@ self.addEventListener("fetch", function (event) {
   // Static assets: cache-first
   var isStaticAsset = /\.(css|js|svg|png|jpg|jpeg|woff2?)$/.test(url.pathname) ||
                       url.pathname === "/devtoolbox/" ||
-                      url.pathname === "/devtoolbox/index.html";
+                      url.pathname === "/devtoolbox/index.html" ||
+                      url.pathname.indexOf("/devtoolbox/en/") === 0;
 
   if (isStaticAsset) {
     event.respondWith(

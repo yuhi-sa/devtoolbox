@@ -91,7 +91,7 @@
         if (!target) return;
         var text = target.value !== undefined ? target.value : target.textContent;
         copyToClipboard(text).then(function () {
-          showFeedback("コピーしました", "success");
+          showFeedback(window.DevToolBox && window.DevToolBox.t ? window.DevToolBox.t("copied") : "コピーしました", "success");
         });
       });
     });
@@ -129,10 +129,10 @@
   }
 
   // グローバルに公開（ツール固有JSから利用）
-  window.DevToolBox = {
+  window.DevToolBox = Object.assign(window.DevToolBox || {}, {
     copyToClipboard: copyToClipboard,
     showFeedback: showFeedback,
-  };
+  });
 
   /* ================================
      シェアボタン
@@ -154,7 +154,7 @@
             break;
           case "copy":
             copyToClipboard(window.location.href).then(function () {
-              showFeedback("リンクをコピーしました", "success");
+              showFeedback(window.DevToolBox && window.DevToolBox.t ? window.DevToolBox.t("linkCopied") : "リンクをコピーしました", "success");
             });
             return;
         }

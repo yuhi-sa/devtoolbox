@@ -113,10 +113,17 @@
 
   function getBasePath() {
     var path = window.location.pathname;
+    var isEn = path.indexOf("/en/") !== -1;
     if (path.indexOf("/tools/") !== -1) {
-      return "../../tools/";
+      return isEn ? "../../tools/" : "../../tools/";
     }
-    return "tools/";
+    return isEn ? "tools/" : "tools/";
+  }
+
+  function getToolDisplayName(tool) {
+    var t = window.DevToolBox && window.DevToolBox.t;
+    if (t) return t("tool." + tool.slug);
+    return tool.name;
   }
 
   function createPalette() {
@@ -131,7 +138,8 @@
     palette = document.createElement("div");
     palette.className = "cmd-palette";
     palette.setAttribute("role", "dialog");
-    palette.setAttribute("aria-label", "ツール検索");
+    var t = window.DevToolBox && window.DevToolBox.t;
+    palette.setAttribute("aria-label", t ? t("toolSearch") : "ツール検索");
 
     var header = document.createElement("div");
     header.className = "cmd-palette__header";
@@ -143,7 +151,8 @@
     input = document.createElement("input");
     input.type = "text";
     input.className = "cmd-palette__input";
-    input.placeholder = "ツール名を入力して検索...";
+    var tFn = window.DevToolBox && window.DevToolBox.t;
+    input.placeholder = tFn ? tFn("searchToolName") : "ツール名を入力して検索...";
     input.setAttribute("autocomplete", "off");
     input.setAttribute("spellcheck", "false");
 
@@ -285,7 +294,8 @@
     if (filteredTools.length === 0) {
       var empty = document.createElement("div");
       empty.className = "cmd-palette__empty";
-      empty.textContent = "該当するツールが見つかりません";
+      var tMsg = window.DevToolBox && window.DevToolBox.t;
+      empty.textContent = tMsg ? tMsg("noToolsFound") : "該当するツールが見つかりません";
       list.appendChild(empty);
       return;
     }
@@ -298,11 +308,12 @@
       item.setAttribute("role", "option");
       item.setAttribute("data-index", String(i));
 
-      var nameHtml = highlightMatch(tool.name, query || "");
+      var displayName = getToolDisplayName(tool);
+      var nameHtml = highlightMatch(displayName, query || "");
       item.innerHTML =
         '<span class="cmd-palette__item-category">' + tool.category + '</span>' +
         '<span class="cmd-palette__item-name">' + nameHtml + '</span>' +
-        (tool.isRecent ? '<span class="cmd-palette__item-badge">最近</span>' : '') +
+        (tool.isRecent ? '<span class="cmd-palette__item-badge">' + (window.DevToolBox && window.DevToolBox.t ? window.DevToolBox.t("recentBadge") : "最近") + '</span>' : '') +
         '<span class="cmd-palette__item-arrow">&rarr;</span>';
 
       (function (slug) {
@@ -323,7 +334,8 @@
     if (filteredTools.length > max) {
       var more = document.createElement("div");
       more.className = "cmd-palette__more";
-      more.textContent = "他 " + (filteredTools.length - max) + " 件";
+      var tMore = window.DevToolBox && window.DevToolBox.t;
+      more.textContent = tMore ? tMore("moreResults", {count: filteredTools.length - max}) : "他 " + (filteredTools.length - max) + " 件";
       list.appendChild(more);
     }
   }

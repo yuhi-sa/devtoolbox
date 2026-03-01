@@ -45,7 +45,7 @@
    */
   function detectAndRecordToolPage() {
     var path = window.location.pathname;
-    var match = path.match(/\/tools\/([^/]+)\/?$/);
+    var match = path.match(/\/tools\/([^\/]+)\/?$/);
     if (!match) return;
 
     var slug = match[1];
@@ -89,7 +89,8 @@
     section.className = "recent-tools";
     section.id = "recent-tools-section";
 
-    var html = '<h2 class="recent-tools__title">最近使ったツール</h2>';
+    var t = window.DevToolBox && window.DevToolBox.t;
+    var html = '<h2 class="recent-tools__title">' + (t ? t("recentTools") : "最近使ったツール") + '</h2>';
     html += '<div class="recent-tools__grid">';
 
     recent.forEach(function (tool) {
