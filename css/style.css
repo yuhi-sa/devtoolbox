@@ -320,13 +320,19 @@ ol {
 
 @media (min-width: 1025px) {
   .main--with-sidebar {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto;
     gap: 24px;
   }
 
-  .main--with-sidebar > :first-child {
-    flex: 1;
+  .main--with-sidebar > * {
+    grid-column: 1;
     min-width: 0;
+  }
+
+  .main--with-sidebar > .ad-slot--sidebar {
+    grid-column: 2;
+    grid-row: 1 / -1;
   }
 }
 
