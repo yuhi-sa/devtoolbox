@@ -1,21 +1,21 @@
-var CACHE_NAME = "devtoolbox-v5";
+var CACHE_NAME = "devtoolbox-v6";
 
 var CORE_ASSETS = [
   "/devtoolbox/",
   "/devtoolbox/index.html",
-  "/devtoolbox/css/style.css",
-  "/devtoolbox/css/enhancements.css",
-  "/devtoolbox/js/common.js",
-  "/devtoolbox/js/favorites.js",
-  "/devtoolbox/js/recent-tools.js",
-  "/devtoolbox/js/homepage.js",
-  "/devtoolbox/js/command-palette.js",
-  "/devtoolbox/js/ads.js",
-  "/devtoolbox/js/related-tools.js",
-  "/devtoolbox/js/popular-tools.js",
-  "/devtoolbox/js/usage-counter.js",
-  "/devtoolbox/js/i18n.js",
-  "/devtoolbox/js/lang-switcher.js",
+  "/devtoolbox/css/style.min.css",
+  "/devtoolbox/css/enhancements.min.css",
+  "/devtoolbox/js/common.min.js",
+  "/devtoolbox/js/favorites.min.js",
+  "/devtoolbox/js/recent-tools.min.js",
+  "/devtoolbox/js/homepage.min.js",
+  "/devtoolbox/js/command-palette.min.js",
+  "/devtoolbox/js/ads.min.js",
+  "/devtoolbox/js/related-tools.min.js",
+  "/devtoolbox/js/popular-tools.min.js",
+  "/devtoolbox/js/usage-counter.min.js",
+  "/devtoolbox/js/i18n.min.js",
+  "/devtoolbox/js/lang-switcher.min.js",
   "/devtoolbox/en/",
   "/devtoolbox/en/index.html"
 ];
