@@ -8,12 +8,12 @@
   // values will cause ads to render as auto-sized units via AdSense auto ads,
   // but explicit slot IDs are required for per-unit reporting and optimization.
   var AD_SLOTS = {
-    header: "",
-    footer: "",
-    inContent: "",
-    sidebar: "",
-    anchor: "",
-    inArticle: ""
+    header: "", // TODO: AdSenseコンソールで広告ユニットを作成し、スロットID（数字10桁）を設定
+    footer: "", // TODO: AdSenseコンソールで広告ユニットを作成し、スロットID（数字10桁）を設定
+    inContent: "", // TODO: AdSenseコンソールで広告ユニットを作成し、スロットID（数字10桁）を設定
+    sidebar: "", // TODO: AdSenseコンソールで広告ユニットを作成し、スロットID（数字10桁）を設定
+    anchor: "", // TODO: AdSenseコンソールで広告ユニットを作成し、スロットID（数字10桁）を設定
+    inArticle: "" // TODO: AdSenseコンソールで広告ユニットを作成し、スロットID（数字10桁）を設定
   };
 
   /* ================================
