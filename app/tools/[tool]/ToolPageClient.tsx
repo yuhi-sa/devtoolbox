@@ -11,6 +11,12 @@ import MarkdownPreview from "@/tools/markdown-preview/MarkdownPreview";
 import JsonPathTool from "@/tools/json-path/JsonPathTool";
 import HashGenerator from "@/tools/hash-generator/HashGenerator";
 import PasswordGenerator from "@/tools/password-generator/PasswordGenerator";
+import ColorConverter from "@/tools/color-converter/ColorConverter";
+import TimestampConverter from "@/tools/timestamp-converter/TimestampConverter";
+import UuidGenerator from "@/tools/uuid-generator/UuidGenerator";
+import JwtDecoder from "@/tools/jwt-decoder/JwtDecoder";
+import HtmlEntityTool from "@/tools/html-entity/HtmlEntityTool";
+import CronParser from "@/tools/cron-parser/CronParser";
 
 const toolComponents: Record<string, React.ComponentType> = {
   "json-formatter": JsonFormatter,
@@ -22,6 +28,12 @@ const toolComponents: Record<string, React.ComponentType> = {
   "json-path": JsonPathTool,
   "hash-generator": HashGenerator,
   "password-generator": PasswordGenerator,
+  "color-converter": ColorConverter,
+  "timestamp-converter": TimestampConverter,
+  "uuid-generator": UuidGenerator,
+  "jwt-decoder": JwtDecoder,
+  "html-entity": HtmlEntityTool,
+  "cron-parser": CronParser,
 };
 
 export default function ToolPageClient({ toolId }: { toolId: string }) {

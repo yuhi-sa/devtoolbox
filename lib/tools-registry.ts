@@ -79,7 +79,7 @@ export const tools: ToolDefinition[] = [
     description: "HEX/RGB/HSL変換",
     category: "Converter",
     icon: "CLR",
-    implemented: false,
+    implemented: true,
   },
   {
     id: "timestamp-converter",
@@ -87,7 +87,7 @@ export const tools: ToolDefinition[] = [
     description: "Unix Timestamp変換",
     category: "Converter",
     icon: "TS",
-    implemented: false,
+    implemented: true,
   },
   {
     id: "uuid-generator",
@@ -95,7 +95,7 @@ export const tools: ToolDefinition[] = [
     description: "UUID生成",
     category: "Generator",
     icon: "ID",
-    implemented: false,
+    implemented: true,
   },
   {
     id: "jwt-decoder",
@@ -103,7 +103,7 @@ export const tools: ToolDefinition[] = [
     description: "JWTトークンデコード",
     category: "Decoder",
     icon: "JWT",
-    implemented: false,
+    implemented: true,
   },
   {
     id: "html-entity",
@@ -111,7 +111,7 @@ export const tools: ToolDefinition[] = [
     description: "HTMLエンティティ変換",
     category: "Encoder",
     icon: "&;",
-    implemented: false,
+    implemented: true,
   },
   {
     id: "cron-parser",
@@ -119,7 +119,7 @@ export const tools: ToolDefinition[] = [
     description: "Cron式パーサー",
     category: "Parser",
     icon: "CRN",
-    implemented: false,
+    implemented: true,
   },
 ];
 
