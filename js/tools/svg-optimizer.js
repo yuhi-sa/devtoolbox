@@ -120,7 +120,15 @@
     function showPreview(svg) {
       // Sanitize: remove script tags to prevent XSS
       var safeSvg = svg.replace(/<script[\s\S]*?<\/script>/gi, "");
-      safeSvg = safeSvg.replace(/on\w+="[^"]*"/gi, "");
+      // Remove all on* event handler attributes (double-quoted, single-quoted, or unquoted)
+      safeSvg = safeSvg.replace(/\s+on[a-z][a-z0-9]*\s*=\s*"[^"]*"/gi, "");
+      safeSvg = safeSvg.replace(/\s+on[a-z][a-z0-9]*\s*=\s*'[^']*'/gi, "");
+      safeSvg = safeSvg.replace(/\s+on[a-z][a-z0-9]*\s*=\s*[^\s>]+/gi, "");
+      // Remove javascript: and data: URIs from href/xlink:href attributes
+      safeSvg = safeSvg.replace(/\s+(xlink:)?href\s*=\s*"javascript:[^"]*"/gi, "");
+      safeSvg = safeSvg.replace(/\s+(xlink:)?href\s*=\s*'javascript:[^']*'/gi, "");
+      safeSvg = safeSvg.replace(/\s+(xlink:)?href\s*=\s*"data:[^"]*"/gi, "");
+      safeSvg = safeSvg.replace(/\s+(xlink:)?href\s*=\s*'data:[^']*'/gi, "");
       svgPreview.innerHTML = safeSvg;
       svgPreview.style.display = "";
     }

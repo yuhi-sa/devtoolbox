@@ -107,9 +107,13 @@
           errors.push(path + ": 文字数が最大 " + schema.maxLength + " 文字を超えています（" + data.length + " 文字）");
         }
         if (schema.pattern) {
-          var re = new RegExp(schema.pattern);
-          if (!re.test(data)) {
-            errors.push(path + ': パターン "' + schema.pattern + '" に一致しません');
+          try {
+            var re = new RegExp(schema.pattern);
+            if (!re.test(data)) {
+              errors.push(path + ': パターン "' + schema.pattern + '" に一致しません');
+            }
+          } catch (regexErr) {
+            errors.push(path + ': パターン "' + schema.pattern + '" は無効な正規表現です: ' + regexErr.message);
           }
         }
         if (schema.format) {
@@ -180,9 +184,13 @@
             if (allowed.indexOf(dataKeys[ak]) === -1) {
               var patternMatch = false;
               for (var pp = 0; pp < patternProps.length; pp++) {
-                if (new RegExp(patternProps[pp]).test(dataKeys[ak])) {
-                  patternMatch = true;
-                  break;
+                try {
+                  if (new RegExp(patternProps[pp]).test(dataKeys[ak])) {
+                    patternMatch = true;
+                    break;
+                  }
+                } catch (regexErr) {
+                  errors.push(path + ': patternProperties のパターン "' + patternProps[pp] + '" は無効な正規表現です: ' + regexErr.message);
                 }
               }
               if (!patternMatch) {
@@ -195,11 +203,15 @@
         if (schema.patternProperties) {
           var patKeys = Object.keys(schema.patternProperties);
           for (var pk = 0; pk < patKeys.length; pk++) {
-            var pat = new RegExp(patKeys[pk]);
-            for (var dk = 0; dk < dataKeys.length; dk++) {
-              if (pat.test(dataKeys[dk])) {
-                errors = errors.concat(validateSchema(data[dataKeys[dk]], schema.patternProperties[patKeys[pk]], path + "." + dataKeys[dk]));
+            try {
+              var pat = new RegExp(patKeys[pk]);
+              for (var dk = 0; dk < dataKeys.length; dk++) {
+                if (pat.test(dataKeys[dk])) {
+                  errors = errors.concat(validateSchema(data[dataKeys[dk]], schema.patternProperties[patKeys[pk]], path + "." + dataKeys[dk]));
+                }
               }
+            } catch (regexErr) {
+              errors.push(path + ': patternProperties のパターン "' + patKeys[pk] + '" は無効な正規表現です: ' + regexErr.message);
             }
           }
         }

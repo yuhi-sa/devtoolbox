@@ -24,11 +24,22 @@
         .replace(/"/g, "&quot;");
     }
 
+    function isSafeUrl(url) {
+      var trimmed = url.trim().toLowerCase();
+      return /^https?:\/\//.test(trimmed) || /^mailto:/.test(trimmed) || /^#/.test(trimmed) || /^\/[^\/]/.test(trimmed);
+    }
+
     function parseInline(text) {
       // Images: ![alt](url)
-      text = text.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1">');
+      text = text.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, function (m, alt, url) {
+        if (!isSafeUrl(url)) return escapeHtml(m);
+        return '<img src="' + escapeHtml(url) + '" alt="' + escapeHtml(alt) + '">';
+      });
       // Links: [text](url)
-      text = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+      text = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, function (m, linkText, url) {
+        if (!isSafeUrl(url)) return escapeHtml(m);
+        return '<a href="' + escapeHtml(url) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(linkText) + '</a>';
+      });
       // Bold: **text** or __text__
       text = text.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
       text = text.replace(/__(.+?)__/g, "<strong>$1</strong>");
@@ -212,6 +223,9 @@
       var html = parseMarkdown(md);
       navigator.clipboard.writeText(html).then(function () {
         showSuccess("HTMLをコピーしました。");
+      }).catch(function () {
+        successEl.textContent = "クリップボードへのコピーに失敗しました。";
+        successEl.hidden = false;
       });
     });
 

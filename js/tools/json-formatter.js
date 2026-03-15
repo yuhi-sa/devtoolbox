@@ -114,6 +114,8 @@
       if (!text) return;
       navigator.clipboard.writeText(text).then(function () {
         showSuccess("コピーしました。");
+      }).catch(function () {
+        showError("クリップボードへのコピーに失敗しました。");
       });
     });
   });

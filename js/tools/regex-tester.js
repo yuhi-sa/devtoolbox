@@ -32,6 +32,46 @@
         .replace(/"/g, "&quot;");
     }
 
+    var MAX_TEST_STRING_LENGTH = 100000;
+    var REGEX_TIMEOUT_MS = 2000;
+
+    var MAX_MATCH_ITERATIONS = 10000;
+
+    function runRegexWithTimeout(regex, testString) {
+      var matches = [];
+      var startTime = Date.now();
+      var iterations = 0;
+
+      if (regex.global) {
+        var match;
+        while ((match = regex.exec(testString)) !== null) {
+          iterations++;
+          matches.push({
+            value: match[0],
+            index: match.index,
+            groups: Array.prototype.slice.call(match, 1)
+          });
+          if (match[0].length === 0) {
+            regex.lastIndex++;
+          }
+          if (iterations >= MAX_MATCH_ITERATIONS || Date.now() - startTime > REGEX_TIMEOUT_MS) {
+            return { matches: matches, timedOut: true };
+          }
+        }
+      } else {
+        var match = regex.exec(testString);
+        if (match) {
+          matches.push({
+            value: match[0],
+            index: match.index,
+            groups: Array.prototype.slice.call(match, 1)
+          });
+        }
+      }
+
+      return { matches: matches, timedOut: false };
+    }
+
     function updateHighlight() {
       var pattern = patternEl.value;
       var testString = testStringEl.value;
@@ -43,6 +83,13 @@
 
       if (!pattern || !testString) {
         highlightEl.innerHTML = escapeHtml(testString || "");
+        return;
+      }
+
+      if (testString.length > MAX_TEST_STRING_LENGTH) {
+        errorEl.textContent = "テスト文字列が長すぎます（最大 " + MAX_TEST_STRING_LENGTH.toLocaleString() + " 文字）。";
+        errorEl.hidden = false;
+        highlightEl.innerHTML = "";
         return;
       }
 
@@ -63,29 +110,14 @@
       }
       regex.lastIndex = 0;
 
-      var matches = [];
-      var match;
+      var result = runRegexWithTimeout(regex, testString);
+      var matches = result.matches;
 
-      if (regex.global) {
-        while ((match = regex.exec(testString)) !== null) {
-          matches.push({
-            value: match[0],
-            index: match.index,
-            groups: Array.prototype.slice.call(match, 1)
-          });
-          if (match[0].length === 0) {
-            regex.lastIndex++;
-          }
-        }
-      } else {
-        match = regex.exec(testString);
-        if (match) {
-          matches.push({
-            value: match[0],
-            index: match.index,
-            groups: Array.prototype.slice.call(match, 1)
-          });
-        }
+      if (result.timedOut) {
+        errorEl.textContent = "正規表現の実行がタイムアウトしました（" + (REGEX_TIMEOUT_MS / 1000) + "秒）。パターンを見直してください。";
+        errorEl.hidden = false;
+        highlightEl.innerHTML = escapeHtml(testString);
+        return;
       }
 
       // Build highlighted HTML
