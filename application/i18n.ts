@@ -75,4 +75,11 @@ export const toolTranslations: Record<string, { name: string; description: strin
   'markdown-table': { name: 'Markdown Table Generator', description: 'Build Markdown tables with a visual grid editor.' },
   'placeholder-image': { name: 'Placeholder Image Generator', description: 'Generate SVG placeholder images with custom size and colors.' },
   'regex-builder': { name: 'Regex Builder', description: 'Build regular expressions visually from common patterns.' },
+  'svg-viewer': { name: 'SVG Viewer / Optimizer', description: 'Preview, optimize, and analyze SVG files.' },
+  'color-palette': { name: 'Color Palette Generator', description: 'Generate color palettes from a base color.' },
+  'robots-txt': { name: 'robots.txt Generator', description: 'Generate robots.txt files with custom rules.' },
+  'nginx-config': { name: 'Nginx Config Generator', description: 'Generate Nginx server block configurations.' },
+  'docker-compose': { name: 'Docker Run to Compose', description: 'Convert docker run commands to docker-compose.yml.' },
+  'favicon-generator': { name: 'Favicon Generator', description: 'Generate SVG favicons from emoji or text.' },
+  'unicode-lookup': { name: 'Unicode Lookup', description: 'Search Unicode characters by name or code point.' },
 };

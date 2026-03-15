@@ -42,6 +42,13 @@ import GitignoreGenerator from "@/tools/gitignore-generator/GitignoreGenerator";
 import MarkdownTable from "@/tools/markdown-table/MarkdownTable";
 import PlaceholderImage from "@/tools/placeholder-image/PlaceholderImage";
 import RegexBuilder from "@/tools/regex-builder/RegexBuilder";
+import SvgViewer from "@/tools/svg-viewer/SvgViewer";
+import ColorPalette from "@/tools/color-palette/ColorPalette";
+import RobotsTxtGenerator from "@/tools/robots-txt/RobotsTxtGenerator";
+import NginxConfig from "@/tools/nginx-config/NginxConfig";
+import DockerCompose from "@/tools/docker-compose/DockerCompose";
+import FaviconGenerator from "@/tools/favicon-generator/FaviconGenerator";
+import UnicodeLookup from "@/tools/unicode-lookup/UnicodeLookup";
 
 const toolComponents: Record<string, React.ComponentType> = {
   "json-formatter": JsonFormatter,
@@ -84,6 +91,13 @@ const toolComponents: Record<string, React.ComponentType> = {
   "markdown-table": MarkdownTable,
   "placeholder-image": PlaceholderImage,
   "regex-builder": RegexBuilder,
+  "svg-viewer": SvgViewer,
+  "color-palette": ColorPalette,
+  "robots-txt": RobotsTxtGenerator,
+  "nginx-config": NginxConfig,
+  "docker-compose": DockerCompose,
+  "favicon-generator": FaviconGenerator,
+  "unicode-lookup": UnicodeLookup,
 };
 
 export default function ToolPageClient({ toolId }: { toolId: string }) {
