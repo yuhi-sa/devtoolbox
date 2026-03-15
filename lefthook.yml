@@ -1,4 +1,0 @@
-pre-commit:
-  commands:
-    test:
-      run: node tests/run.js

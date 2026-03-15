@@ -3,3 +3,11 @@
 .env
 *.log
 node_modules/
+
+# Next.js
+/.next/
+/out/
+
+# misc
+*.tsbuildinfo
+next-env.d.ts

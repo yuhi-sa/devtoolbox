@@ -1,7 +1,0 @@
-# DevToolBox robots.txt
-# ベースURL: https://yuhi-sa.github.io/devtoolbox/
-
-User-agent: *
-Allow: /
-
-Sitemap: https://yuhi-sa.github.io/devtoolbox/sitemap.xml
