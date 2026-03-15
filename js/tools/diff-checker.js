@@ -10,13 +10,7 @@
     var btnSwap = document.getElementById("btn-swap");
     var btnClear = document.getElementById("btn-clear");
 
-    function escapeHtml(str) {
-      return str
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;");
-    }
+    var escapeHtml = window.DevToolBox.escapeHtml;
 
     // LCS-based line diff algorithm
     function computeLCS(a, b) {

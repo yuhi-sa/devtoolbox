@@ -336,7 +336,7 @@
     <!-- 最近使ったツール（JSで動的に表示） -->
     <div id="recent-tools-section"></div>
 
-    <div id="no-results" class="no-results">
+    <div id="no-results" class="no-results" role="status" aria-live="polite">
       <div class="no-results__icon">&#128269;</div>
       <p>該当するツールが見つかりません。別のキーワードで検索してください。</p>
     </div>
@@ -344,7 +344,7 @@
     <!-- フォーマット・整形 -->
     <section class="category" data-category="format">
       <h2 class="category__title">フォーマット・整形</h2>
-      <div class="tool-grid" aria-label="フォーマット・整形ツール">
+      <div class="tool-grid" role="region" aria-label="フォーマット・整形ツール">
         <a href="tools/json-formatter/" class="tool-card" data-keywords="JSON 整形 検証 フォーマット バリデーション pretty print minify">
           <svg class="tool-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <rect x="4" y="4" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
@@ -433,7 +433,7 @@
     <!-- エンコード・デコード -->
     <section class="category" data-category="encode">
       <h2 class="category__title">エンコード・デコード</h2>
-      <div class="tool-grid" aria-label="エンコード・デコードツール">
+      <div class="tool-grid" role="region" aria-label="エンコード・デコードツール">
         <a href="tools/base64/" class="tool-card" data-keywords="Base64 エンコード デコード encode decode 変換">
           <svg class="tool-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <rect x="4" y="4" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
@@ -518,7 +518,7 @@
     <!-- テキスト処理 -->
     <section class="category" data-category="text">
       <h2 class="category__title">テキスト処理</h2>
-      <div class="tool-grid" aria-label="テキスト処理ツール">
+      <div class="tool-grid" role="region" aria-label="テキスト処理ツール">
         <a href="tools/char-counter/" class="tool-card" data-keywords="文字数 カウンター 行数 バイト数 ワード word count">
           <svg class="tool-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <rect x="4" y="4" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
@@ -667,7 +667,7 @@
     <!-- データ変換 -->
     <section class="category" data-category="data">
       <h2 class="category__title">データ変換</h2>
-      <div class="tool-grid" aria-label="データ変換ツール">
+      <div class="tool-grid" role="region" aria-label="データ変換ツール">
         <a href="tools/yaml-json/" class="tool-card" data-keywords="YAML JSON 変換 コンバーター converter 設定ファイル config">
           <svg class="tool-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <rect x="4" y="4" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
@@ -743,7 +743,7 @@
     <!-- 変換ツール -->
     <section class="category" data-category="convert">
       <h2 class="category__title">変換ツール</h2>
-      <div class="tool-grid" aria-label="変換ツール">
+      <div class="tool-grid" role="region" aria-label="変換ツール">
         <a href="tools/timestamp/" class="tool-card" data-keywords="Unix タイムスタンプ timestamp 日時 変換 epoch">
           <svg class="tool-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="2"/>
@@ -858,7 +858,7 @@
     <!-- 生成ツール -->
     <section class="category" data-category="generate">
       <h2 class="category__title">生成ツール</h2>
-      <div class="tool-grid" aria-label="生成ツール">
+      <div class="tool-grid" role="region" aria-label="生成ツール">
         <a href="tools/hash-generator/" class="tool-card" data-keywords="ハッシュ hash MD5 SHA SHA-256 SHA-512 チェックサム">
           <svg class="tool-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <rect x="4" y="4" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
@@ -982,7 +982,7 @@
     <!-- CSS・デザイン -->
     <section class="category" data-category="css">
       <h2 class="category__title">CSS・デザイン</h2>
-      <div class="tool-grid" aria-label="CSS・デザインツール">
+      <div class="tool-grid" role="region" aria-label="CSS・デザインツール">
         <a href="tools/css-gradient/" class="tool-card" data-keywords="CSS グラデーション gradient 背景 linear radial">
           <svg class="tool-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:currentColor;stop-opacity:0.3"/><stop offset="100%" style="stop-color:currentColor;stop-opacity:1"/></linearGradient></defs>
@@ -1070,7 +1070,7 @@
     <!-- 開発支援 -->
     <section class="category" data-category="dev">
       <h2 class="category__title">開発支援</h2>
-      <div class="tool-grid" aria-label="開発支援ツール">
+      <div class="tool-grid" role="region" aria-label="開発支援ツール">
         <a href="tools/jwt-decoder/" class="tool-card" data-keywords="JWT トークン token デコード decode Header Payload 認証">
           <svg class="tool-card__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <rect x="4" y="4" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2"/>

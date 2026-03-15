@@ -128,10 +128,22 @@
     }, 2000);
   }
 
+  /* ================================
+     HTMLエスケープ（ツール共通）
+     ================================ */
+  function escapeHtml(str) {
+    return str
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
   // グローバルに公開（ツール固有JSから利用）
   window.DevToolBox = Object.assign(window.DevToolBox || {}, {
     copyToClipboard: copyToClipboard,
     showFeedback: showFeedback,
+    escapeHtml: escapeHtml,
   });
 
   /* ================================

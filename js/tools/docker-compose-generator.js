@@ -82,9 +82,7 @@
       return s.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
     }
 
-    function escapeHtml(s) {
-      return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-    }
+    var escapeHtml = window.DevToolBox.escapeHtml;
 
     function getAllServiceNames() {
       var names = [];

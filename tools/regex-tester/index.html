@@ -217,7 +217,7 @@
           <label><input type="checkbox" id="flag-m"> m（複数行）</label>
           <label><input type="checkbox" id="flag-s"> s（dotAll）</label>
         </div>
-        <div id="regex-error" class="error-message" hidden></div>
+        <div id="regex-error" class="error-message" role="alert" hidden></div>
       </div>
 
       <div class="tool-input">
@@ -231,9 +231,9 @@
 
       <div class="tool-output">
         <label>マッチ結果</label>
-        <div id="regex-highlight" class="regex-highlight" contenteditable="false"></div>
-        <p id="match-count" class="match-count" hidden></p>
-        <div id="match-list" class="match-list"></div>
+        <div id="regex-highlight" class="regex-highlight" role="region" aria-label="マッチハイライト" contenteditable="false"></div>
+        <p id="match-count" class="match-count" role="status" hidden></p>
+        <div id="match-list" class="match-list" role="region" aria-label="マッチ一覧"></div>
       </div>
     </div>
 

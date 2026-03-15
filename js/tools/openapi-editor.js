@@ -309,9 +309,7 @@
       return lines.join("\n");
     }
 
-    function escapeHtml(str) {
-      return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-    }
+    var escapeHtml = window.DevToolBox.escapeHtml;
 
     var template = 'openapi: "3.0.0"\n' +
       'info:\n' +

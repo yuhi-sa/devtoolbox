@@ -34,11 +34,7 @@
       queryResult.hidden = true;
     }
 
-    function escapeHtml(str) {
-      var div = document.createElement("div");
-      div.appendChild(document.createTextNode(str));
-      return div.innerHTML;
-    }
+    var escapeHtml = window.DevToolBox.escapeHtml;
 
     // Build tree HTML
     function buildTree(data, path) {

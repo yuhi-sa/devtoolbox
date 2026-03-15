@@ -1,0 +1,11 @@
+{
+  "name": "devtoolbox",
+  "private": true,
+  "devDependencies": {
+    "eslint": "^8.57.0"
+  },
+  "scripts": {
+    "test": "node tests/run.js",
+    "lint": "eslint js/common.js js/tools/*.js --ignore-pattern '*.min.js'"
+  }
+}

@@ -24,13 +24,7 @@
       return flags;
     }
 
-    function escapeHtml(str) {
-      return str
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;");
-    }
+    var escapeHtml = window.DevToolBox.escapeHtml;
 
     var MAX_TEST_STRING_LENGTH = 100000;
     var REGEX_TIMEOUT_MS = 2000;

@@ -159,15 +159,15 @@
       <p class="tool-container__lead">テキストとBase64文字列を相互変換できるオンラインツールです。</p>
 
 
-      <div class="tab-group">
-        <button class="tab-btn tab-btn--active" data-tab="encode">エンコード</button>
-        <button class="tab-btn" data-tab="decode">デコード</button>
+      <div class="tab-group" role="tablist" aria-label="変換モード選択">
+        <button class="tab-btn tab-btn--active" data-tab="encode" role="tab" aria-selected="true">エンコード</button>
+        <button class="tab-btn" data-tab="decode" role="tab" aria-selected="false">デコード</button>
       </div>
 
       <div class="tool-input">
         <label for="base64-input" id="base64-input-label">変換するテキスト</label>
         <textarea id="base64-input" class="textarea" rows="8" placeholder="変換したいテキストを入力してください..."></textarea>
-        <div id="base64-error" class="error-message" hidden></div>
+        <div id="base64-error" class="error-message" role="alert" hidden></div>
       </div>
 
       <div class="tool-actions">
@@ -178,7 +178,7 @@
       <div class="tool-output">
         <label for="base64-output">出力</label>
         <textarea id="base64-output" class="textarea" rows="8" readonly></textarea>
-        <div id="base64-success" class="success-message" hidden></div>
+        <div id="base64-success" class="success-message" role="status" hidden></div>
         <button id="btn-copy" class="btn btn--secondary copy-btn">コピー</button>
       </div>
     </div>

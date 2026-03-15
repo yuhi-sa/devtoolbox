@@ -120,11 +120,7 @@
       reader.readAsDataURL(file);
     }
 
-    function escapeHtml(str) {
-      var div = document.createElement("div");
-      div.appendChild(document.createTextNode(str));
-      return div.innerHTML;
-    }
+    var escapeHtml = window.DevToolBox.escapeHtml;
 
     function updateOutput() {
       if (!currentDataUrl) return;
