@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { copyToClipboard } from "@/lib/clipboard";
+import { copyToClipboard } from "@/infrastructure/clipboard";
 
 interface CopyButtonProps {
   text: string;

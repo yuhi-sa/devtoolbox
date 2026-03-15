@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { ToolDefinition } from "@/lib/types";
+import { ToolDefinition } from "@/domain/types";
 
 interface ToolCardProps {
   tool: ToolDefinition;

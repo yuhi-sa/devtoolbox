@@ -1,4 +1,4 @@
-import { getImplementedTools } from "@/lib/tools-registry";
+import { getImplementedTools } from "@/application/registry";
 import EnToolPageClient from "./EnToolPageClient";
 
 export function generateStaticParams() {

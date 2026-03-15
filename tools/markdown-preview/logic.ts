@@ -1,4 +1,4 @@
-import { escapeHtml } from "@/lib/escapeHtml";
+import { escapeHtml } from "@/domain/escapeHtml";
 
 export function parseMarkdown(input: string): string {
   let html = input;

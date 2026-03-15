@@ -2,8 +2,8 @@
 
 import { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
-import { tools } from "@/lib/tools-registry";
-import { toolTranslations } from "@/lib/i18n";
+import { tools } from "@/application/registry";
+import { toolTranslations } from "@/application/i18n";
 import ToolCard from "@/components/ToolCard";
 
 export default function EnglishHome() {

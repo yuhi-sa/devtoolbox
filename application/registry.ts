@@ -1,4 +1,4 @@
-import { ToolDefinition } from "./types";
+import { ToolDefinition } from "@/domain/types";
 
 export const tools: ToolDefinition[] = [
   {

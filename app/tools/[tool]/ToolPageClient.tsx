@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { getToolById } from "@/lib/tools-registry";
+import { getToolById } from "@/application/registry";
 import JsonFormatter from "@/tools/json-formatter/JsonFormatter";
 import Base64Tool from "@/tools/base64/Base64Tool";
 import UrlEncodeTool from "@/tools/url-encode/UrlEncodeTool";

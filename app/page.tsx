@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
-import { tools } from "@/lib/tools-registry";
+import { tools } from "@/application/registry";
 import ToolCard from "@/components/ToolCard";
 
 export default function Home() {
