@@ -6,9 +6,10 @@ import { ToolDefinition } from "@/lib/types";
 
 interface ToolCardProps {
   tool: ToolDefinition;
+  linkPrefix?: string;
 }
 
-export default function ToolCard({ tool }: ToolCardProps) {
+export default function ToolCard({ tool, linkPrefix = "/tools" }: ToolCardProps) {
   const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
@@ -30,7 +31,7 @@ export default function ToolCard({ tool }: ToolCardProps) {
   };
 
   const href =
-    tool.id === "pipeline" ? "/pipeline" : `/tools/${tool.id}`;
+    tool.id === "pipeline" ? "/pipeline" : `${linkPrefix}/${tool.id}`;
 
   const card = (
     <div

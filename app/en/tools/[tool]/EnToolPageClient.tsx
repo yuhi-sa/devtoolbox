@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { getToolById } from "@/lib/tools-registry";
+import { toolTranslations } from "@/lib/i18n";
 import JsonFormatter from "@/tools/json-formatter/JsonFormatter";
 import Base64Tool from "@/tools/base64/Base64Tool";
 import UrlEncodeTool from "@/tools/url-encode/UrlEncodeTool";
@@ -17,16 +18,6 @@ import UuidGenerator from "@/tools/uuid-generator/UuidGenerator";
 import JwtDecoder from "@/tools/jwt-decoder/JwtDecoder";
 import HtmlEntityTool from "@/tools/html-entity/HtmlEntityTool";
 import CronParser from "@/tools/cron-parser/CronParser";
-import IpCalculator from "@/tools/ip-calc/IpCalculator";
-import GradientGenerator from "@/tools/gradient/GradientGenerator";
-import ChmodCalculator from "@/tools/chmod/ChmodCalculator";
-import CsvJsonConverter from "@/tools/csv-json/CsvJsonConverter";
-import SqlFormatter from "@/tools/sql-formatter/SqlFormatter";
-import ByteConverter from "@/tools/byte-converter/ByteConverter";
-import HttpStatusReference from "@/tools/http-status/HttpStatusReference";
-import LoremGenerator from "@/tools/lorem/LoremGenerator";
-import QrGenerator from "@/tools/qr-generator/QrGenerator";
-import BaseConverter from "@/tools/base-converter/BaseConverter";
 
 const toolComponents: Record<string, React.ComponentType> = {
   "json-formatter": JsonFormatter,
@@ -44,27 +35,18 @@ const toolComponents: Record<string, React.ComponentType> = {
   "jwt-decoder": JwtDecoder,
   "html-entity": HtmlEntityTool,
   "cron-parser": CronParser,
-  "ip-calc": IpCalculator,
-  gradient: GradientGenerator,
-  chmod: ChmodCalculator,
-  "csv-json": CsvJsonConverter,
-  "sql-formatter": SqlFormatter,
-  "byte-converter": ByteConverter,
-  "http-status": HttpStatusReference,
-  lorem: LoremGenerator,
-  "qr-generator": QrGenerator,
-  "base-converter": BaseConverter,
 };
 
-export default function ToolPageClient({ toolId }: { toolId: string }) {
+export default function EnToolPageClient({ toolId }: { toolId: string }) {
   const tool = getToolById(toolId);
   const Component = toolComponents[toolId];
+  const en = toolTranslations[toolId];
 
   if (!tool || !Component) {
     return (
       <div className="text-center py-20">
         <h1 className="text-2xl font-bold mb-2">Tool not found</h1>
-        <Link href="/" className="text-blue-600 dark:text-blue-400 underline">
+        <Link href="/en" className="text-blue-600 dark:text-blue-400 underline">
           Back to tools
         </Link>
       </div>
@@ -75,13 +57,15 @@ export default function ToolPageClient({ toolId }: { toolId: string }) {
     <div>
       <div className="mb-6">
         <Link
-          href="/"
+          href="/en"
           className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
         >
           &larr; All Tools
         </Link>
-        <h1 className="text-2xl font-bold mt-2">{tool.name}</h1>
-        <p className="text-gray-600 dark:text-gray-400">{tool.description}</p>
+        <h1 className="text-2xl font-bold mt-2">{en?.name || tool.name}</h1>
+        <p className="text-gray-600 dark:text-gray-400">
+          {en?.description || tool.description}
+        </p>
       </div>
       <Component />
     </div>

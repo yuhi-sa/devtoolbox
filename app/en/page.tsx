@@ -3,9 +3,10 @@
 import { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 import { tools } from "@/lib/tools-registry";
+import { toolTranslations } from "@/lib/i18n";
 import ToolCard from "@/components/ToolCard";
 
-export default function Home() {
+export default function EnglishHome() {
   const [favorites, setFavorites] = useState<string[]>([]);
   const [filter, setFilter] = useState("");
 
@@ -24,12 +25,16 @@ export default function Home() {
   const sortedTools = useMemo(() => {
     let list = [...tools];
     if (filter) {
-      list = list.filter(
-        (t) =>
-          t.name.toLowerCase().includes(filter.toLowerCase()) ||
-          t.description.toLowerCase().includes(filter.toLowerCase()) ||
+      list = list.filter((t) => {
+        const en = toolTranslations[t.id];
+        const name = en?.name || t.name;
+        const desc = en?.description || t.description;
+        return (
+          name.toLowerCase().includes(filter.toLowerCase()) ||
+          desc.toLowerCase().includes(filter.toLowerCase()) ||
           t.category.toLowerCase().includes(filter.toLowerCase())
-      );
+        );
+      });
     }
     // Favorites first, then implemented, then coming soon
     list.sort((a, b) => {
@@ -49,10 +54,10 @@ export default function Home() {
         <div className="flex items-center justify-between">
           <h1 className="text-2xl font-bold mb-2">Developer Tools</h1>
           <Link
-            href="/en"
+            href="/"
             className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
           >
-            🇺🇸 English
+            🇯🇵 日本語版
           </Link>
         </div>
         <p className="text-gray-600 dark:text-gray-400 mb-4">
@@ -72,9 +77,15 @@ export default function Home() {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-        {sortedTools.map((tool) => (
-          <ToolCard key={tool.id} tool={tool} />
-        ))}
+        {sortedTools.map((tool) => {
+          const en = toolTranslations[tool.id];
+          const enTool = en
+            ? { ...tool, name: en.name, description: en.description }
+            : tool;
+          return (
+            <ToolCard key={tool.id} tool={enTool} linkPrefix="/en/tools" />
+          );
+        })}
       </div>
     </div>
   );
