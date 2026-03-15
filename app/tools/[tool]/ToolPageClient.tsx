@@ -27,6 +27,16 @@ import HttpStatusReference from "@/tools/http-status/HttpStatusReference";
 import LoremGenerator from "@/tools/lorem/LoremGenerator";
 import QrGenerator from "@/tools/qr-generator/QrGenerator";
 import BaseConverter from "@/tools/base-converter/BaseConverter";
+import YamlFormatter from "@/tools/yaml-formatter/YamlFormatter";
+import TextCaseConverter from "@/tools/text-case/TextCaseConverter";
+import UrlParser from "@/tools/url-parser/UrlParser";
+import JsonToTs from "@/tools/json-to-ts/JsonToTs";
+import StringEscape from "@/tools/string-escape/StringEscape";
+import CssMinifier from "@/tools/css-minifier/CssMinifier";
+import HtmlFormatter from "@/tools/html-formatter/HtmlFormatter";
+import AsciiTable from "@/tools/ascii-table/AsciiTable";
+import CrontabGenerator from "@/tools/crontab-generator/CrontabGenerator";
+import JwtGenerator from "@/tools/jwt-generator/JwtGenerator";
 
 const toolComponents: Record<string, React.ComponentType> = {
   "json-formatter": JsonFormatter,
@@ -54,6 +64,16 @@ const toolComponents: Record<string, React.ComponentType> = {
   lorem: LoremGenerator,
   "qr-generator": QrGenerator,
   "base-converter": BaseConverter,
+  "yaml-formatter": YamlFormatter,
+  "text-case": TextCaseConverter,
+  "url-parser": UrlParser,
+  "json-to-ts": JsonToTs,
+  "string-escape": StringEscape,
+  "css-minifier": CssMinifier,
+  "html-formatter": HtmlFormatter,
+  "ascii-table": AsciiTable,
+  "crontab-generator": CrontabGenerator,
+  "jwt-generator": JwtGenerator,
 };
 
 export default function ToolPageClient({ toolId }: { toolId: string }) {
