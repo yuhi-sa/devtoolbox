@@ -281,6 +281,46 @@ export const tools: ToolDefinition[] = [
     icon: "JWT",
     implemented: true,
   },
+  {
+    id: "meta-tag",
+    name: "Meta Tag / OGP",
+    description: "メタタグ・OGPプレビュー生成",
+    category: "Generator",
+    icon: "OG",
+    implemented: true,
+  },
+  {
+    id: "gitignore-generator",
+    name: ".gitignore Generator",
+    description: "言語・フレームワーク別.gitignore生成",
+    category: "Generator",
+    icon: ".gi",
+    implemented: true,
+  },
+  {
+    id: "markdown-table",
+    name: "Markdown Table",
+    description: "GUIでMarkdownテーブル生成",
+    category: "Generator",
+    icon: "TBL",
+    implemented: true,
+  },
+  {
+    id: "placeholder-image",
+    name: "Placeholder Image",
+    description: "SVGプレースホルダー画像生成",
+    category: "Generator",
+    icon: "IMG",
+    implemented: true,
+  },
+  {
+    id: "regex-builder",
+    name: "Regex Builder",
+    description: "ビジュアル正規表現ビルダー",
+    category: "Generator",
+    icon: "RE",
+    implemented: true,
+  },
 ];
 
 export function getToolById(id: string): ToolDefinition | undefined {

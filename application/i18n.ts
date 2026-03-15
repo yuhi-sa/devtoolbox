@@ -70,4 +70,9 @@ export const toolTranslations: Record<string, { name: string; description: strin
   'ascii-table': { name: 'ASCII Table', description: 'Searchable ASCII character reference table.' },
   'crontab-generator': { name: 'Crontab Generator', description: 'Build cron expressions visually with next execution times.' },
   'jwt-generator': { name: 'JWT Generator', description: 'Generate JWT tokens with HS256 signing.' },
+  'meta-tag': { name: 'Meta Tag / OGP Generator', description: 'Generate meta tags and preview OGP cards for social sharing.' },
+  'gitignore-generator': { name: '.gitignore Generator', description: 'Generate .gitignore files for various languages and frameworks.' },
+  'markdown-table': { name: 'Markdown Table Generator', description: 'Build Markdown tables with a visual grid editor.' },
+  'placeholder-image': { name: 'Placeholder Image Generator', description: 'Generate SVG placeholder images with custom size and colors.' },
+  'regex-builder': { name: 'Regex Builder', description: 'Build regular expressions visually from common patterns.' },
 };

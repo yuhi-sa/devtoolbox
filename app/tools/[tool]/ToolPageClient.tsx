@@ -37,6 +37,11 @@ import HtmlFormatter from "@/tools/html-formatter/HtmlFormatter";
 import AsciiTable from "@/tools/ascii-table/AsciiTable";
 import CrontabGenerator from "@/tools/crontab-generator/CrontabGenerator";
 import JwtGenerator from "@/tools/jwt-generator/JwtGenerator";
+import MetaTagGenerator from "@/tools/meta-tag/MetaTagGenerator";
+import GitignoreGenerator from "@/tools/gitignore-generator/GitignoreGenerator";
+import MarkdownTable from "@/tools/markdown-table/MarkdownTable";
+import PlaceholderImage from "@/tools/placeholder-image/PlaceholderImage";
+import RegexBuilder from "@/tools/regex-builder/RegexBuilder";
 
 const toolComponents: Record<string, React.ComponentType> = {
   "json-formatter": JsonFormatter,
@@ -74,6 +79,11 @@ const toolComponents: Record<string, React.ComponentType> = {
   "ascii-table": AsciiTable,
   "crontab-generator": CrontabGenerator,
   "jwt-generator": JwtGenerator,
+  "meta-tag": MetaTagGenerator,
+  "gitignore-generator": GitignoreGenerator,
+  "markdown-table": MarkdownTable,
+  "placeholder-image": PlaceholderImage,
+  "regex-builder": RegexBuilder,
 };
 
 export default function ToolPageClient({ toolId }: { toolId: string }) {
