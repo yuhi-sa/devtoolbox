@@ -49,6 +49,46 @@ import NginxConfig from "@/tools/nginx-config/NginxConfig";
 import DockerCompose from "@/tools/docker-compose/DockerCompose";
 import FaviconGenerator from "@/tools/favicon-generator/FaviconGenerator";
 import UnicodeLookup from "@/tools/unicode-lookup/UnicodeLookup";
+import HexEncoder from "@/tools/hex-encoder/HexEncoder";
+import Rot13Tool from "@/tools/rot13/Rot13Tool";
+import MorseCode from "@/tools/morse-code/MorseCode";
+import TomlConverter from "@/tools/toml-converter/TomlConverter";
+import NumberFormatter from "@/tools/number-formatter/NumberFormatter";
+import CssUnitConverter from "@/tools/css-unit-converter/CssUnitConverter";
+import XmlJsonConverter from "@/tools/xml-json/XmlJsonConverter";
+import MarkdownHtml from "@/tools/markdown-html/MarkdownHtml";
+import JsFormatter from "@/tools/js-formatter/JsFormatter";
+import XmlFormatter from "@/tools/xml-formatter/XmlFormatter";
+import SlugGenerator from "@/tools/slug-generator/SlugGenerator";
+import DataUrlGenerator from "@/tools/data-url/DataUrlGenerator";
+import BoxShadow from "@/tools/box-shadow/BoxShadow";
+import BorderRadius from "@/tools/border-radius/BorderRadius";
+import FlexboxGenerator from "@/tools/flexbox-generator/FlexboxGenerator";
+import GridGenerator from "@/tools/grid-generator/GridGenerator";
+import TextCounter from "@/tools/text-counter/TextCounter";
+import JsonSize from "@/tools/json-size/JsonSize";
+import DateCalculator from "@/tools/date-calculator/DateCalculator";
+import AspectRatio from "@/tools/aspect-ratio/AspectRatio";
+import ColorContrast from "@/tools/color-contrast/ColorContrast";
+import EmojiPicker from "@/tools/emoji-picker/EmojiPicker";
+import JsonValidator from "@/tools/json-validator/JsonValidator";
+import SemverTester from "@/tools/semver-tester/SemverTester";
+import HtmlColors from "@/tools/html-colors/HtmlColors";
+import MimeTypes from "@/tools/mime-types/MimeTypes";
+import KeyboardCodes from "@/tools/keyboard-codes/KeyboardCodes";
+import CssSpecificity from "@/tools/css-specificity/CssSpecificity";
+import EmailValidator from "@/tools/email-validator/EmailValidator";
+import HtaccessGenerator from "@/tools/htaccess-generator/HtaccessGenerator";
+import EditorConfig from "@/tools/editorconfig/EditorConfig";
+import TsconfigGenerator from "@/tools/tsconfig/TsconfigGenerator";
+import NanoidGenerator from "@/tools/nanoid/NanoidGenerator";
+import PunycodeTool from "@/tools/punycode/PunycodeTool";
+import SqlGenerator from "@/tools/sql-generator/SqlGenerator";
+import EslintConfig from "@/tools/eslint-config/EslintConfig";
+import TextDiffInline from "@/tools/text-diff-inline/TextDiffInline";
+import JsonToGo from "@/tools/json-to-go/JsonToGo";
+import JsonToPython from "@/tools/json-to-python/JsonToPython";
+import Base58Tool from "@/tools/base58/Base58Tool";
 
 const toolComponents: Record<string, React.ComponentType> = {
   "json-formatter": JsonFormatter,
@@ -98,6 +138,46 @@ const toolComponents: Record<string, React.ComponentType> = {
   "docker-compose": DockerCompose,
   "favicon-generator": FaviconGenerator,
   "unicode-lookup": UnicodeLookup,
+  "hex-encoder": HexEncoder,
+  rot13: Rot13Tool,
+  "morse-code": MorseCode,
+  "toml-converter": TomlConverter,
+  "number-formatter": NumberFormatter,
+  "css-unit-converter": CssUnitConverter,
+  "xml-json": XmlJsonConverter,
+  "markdown-html": MarkdownHtml,
+  "js-formatter": JsFormatter,
+  "xml-formatter": XmlFormatter,
+  "slug-generator": SlugGenerator,
+  "data-url": DataUrlGenerator,
+  "box-shadow": BoxShadow,
+  "border-radius": BorderRadius,
+  "flexbox-generator": FlexboxGenerator,
+  "grid-generator": GridGenerator,
+  "text-counter": TextCounter,
+  "json-size": JsonSize,
+  "date-calculator": DateCalculator,
+  "aspect-ratio": AspectRatio,
+  "color-contrast": ColorContrast,
+  "emoji-picker": EmojiPicker,
+  "json-validator": JsonValidator,
+  "semver-tester": SemverTester,
+  "html-colors": HtmlColors,
+  "mime-types": MimeTypes,
+  "keyboard-codes": KeyboardCodes,
+  "css-specificity": CssSpecificity,
+  "email-validator": EmailValidator,
+  "htaccess-generator": HtaccessGenerator,
+  editorconfig: EditorConfig,
+  tsconfig: TsconfigGenerator,
+  nanoid: NanoidGenerator,
+  punycode: PunycodeTool,
+  "sql-generator": SqlGenerator,
+  "eslint-config": EslintConfig,
+  "text-diff-inline": TextDiffInline,
+  "json-to-go": JsonToGo,
+  "json-to-python": JsonToPython,
+  base58: Base58Tool,
 };
 
 export default function ToolPageClient({ toolId }: { toolId: string }) {
