@@ -7,9 +7,29 @@ import { ToolDefinition } from "@/domain/types";
 interface ToolCardProps {
   tool: ToolDefinition;
   linkPrefix?: string;
+  onFavoriteToggle?: () => void;
 }
 
-export default function ToolCard({ tool, linkPrefix = "/tools" }: ToolCardProps) {
+function addToRecent(toolId: string) {
+  try {
+    const recent: string[] = JSON.parse(
+      localStorage.getItem("recentTools") || "[]"
+    );
+    const updated = [toolId, ...recent.filter((id) => id !== toolId)].slice(
+      0,
+      10
+    );
+    localStorage.setItem("recentTools", JSON.stringify(updated));
+  } catch {
+    // ignore
+  }
+}
+
+export default function ToolCard({
+  tool,
+  linkPrefix = "/tools",
+  onFavoriteToggle,
+}: ToolCardProps) {
   const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
@@ -28,6 +48,14 @@ export default function ToolCard({ tool, linkPrefix = "/tools" }: ToolCardProps)
       : [...favs, tool.id];
     localStorage.setItem("favorites", JSON.stringify(newFavs));
     setIsFavorite(!isFavorite);
+    onFavoriteToggle?.();
+    window.dispatchEvent(new Event("favorites-changed"));
+  };
+
+  const handleClick = () => {
+    if (tool.implemented) {
+      addToRecent(tool.id);
+    }
   };
 
   const href =
@@ -78,5 +106,9 @@ export default function ToolCard({ tool, linkPrefix = "/tools" }: ToolCardProps)
     return card;
   }
 
-  return <Link href={href}>{card}</Link>;
+  return (
+    <Link href={href} onClick={handleClick}>
+      {card}
+    </Link>
+  );
 }

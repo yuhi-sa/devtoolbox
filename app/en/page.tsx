@@ -1,41 +1,93 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import Link from "next/link";
 import { tools } from "@/application/registry";
 import { toolTranslations } from "@/application/i18n";
 import ToolCard from "@/components/ToolCard";
 
+const ALL_CATEGORY = "All";
+const FAVORITES_CATEGORY = "Favorites";
+const RECENT_CATEGORY = "Recent";
+
+const categories = [
+  ALL_CATEGORY,
+  FAVORITES_CATEGORY,
+  RECENT_CATEGORY,
+  ...Array.from(new Set(tools.map((t) => t.category))).sort(),
+];
+
+function getRecent(): string[] {
+  try {
+    return JSON.parse(localStorage.getItem("recentTools") || "[]");
+  } catch {
+    return [];
+  }
+}
+
+function getFavorites(): string[] {
+  try {
+    return JSON.parse(localStorage.getItem("favorites") || "[]");
+  } catch {
+    return [];
+  }
+}
+
 export default function EnglishHome() {
   const [favorites, setFavorites] = useState<string[]>([]);
+  const [recent, setRecent] = useState<string[]>([]);
   const [filter, setFilter] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState(ALL_CATEGORY);
 
   useEffect(() => {
-    const favs = JSON.parse(localStorage.getItem("favorites") || "[]");
-    setFavorites(favs);
+    setFavorites(getFavorites());
+    setRecent(getRecent());
 
     const handler = () => {
-      const favs = JSON.parse(localStorage.getItem("favorites") || "[]");
-      setFavorites(favs);
+      setFavorites(getFavorites());
+      setRecent(getRecent());
     };
     window.addEventListener("storage", handler);
-    return () => window.removeEventListener("storage", handler);
+    window.addEventListener("favorites-changed", handler);
+    return () => {
+      window.removeEventListener("storage", handler);
+      window.removeEventListener("favorites-changed", handler);
+    };
+  }, []);
+
+  const onFavoriteToggle = useCallback(() => {
+    setFavorites(getFavorites());
   }, []);
 
   const sortedTools = useMemo(() => {
     let list = [...tools];
+
+    // Filter by search text
     if (filter) {
+      const q = filter.toLowerCase();
       list = list.filter((t) => {
         const en = toolTranslations[t.id];
         const name = en?.name || t.name;
         const desc = en?.description || t.description;
         return (
-          name.toLowerCase().includes(filter.toLowerCase()) ||
-          desc.toLowerCase().includes(filter.toLowerCase()) ||
-          t.category.toLowerCase().includes(filter.toLowerCase())
+          name.toLowerCase().includes(q) ||
+          desc.toLowerCase().includes(q) ||
+          t.category.toLowerCase().includes(q)
         );
       });
     }
+
+    // Filter by category
+    if (selectedCategory === FAVORITES_CATEGORY) {
+      list = list.filter((t) => favorites.includes(t.id));
+    } else if (selectedCategory === RECENT_CATEGORY) {
+      list = list.filter((t) => recent.includes(t.id));
+      list.sort((a, b) => recent.indexOf(a.id) - recent.indexOf(b.id));
+      return list;
+    } else if (selectedCategory !== ALL_CATEGORY) {
+      list = list.filter((t) => t.category === selectedCategory);
+    }
+
     // Favorites first, then implemented, then coming soon
     list.sort((a, b) => {
       const aFav = favorites.includes(a.id) ? 0 : 1;
@@ -46,7 +98,7 @@ export default function EnglishHome() {
       return aImpl - bImpl;
     });
     return list;
-  }, [filter, favorites]);
+  }, [filter, favorites, recent, selectedCategory]);
 
   return (
     <div>
@@ -57,7 +109,7 @@ export default function EnglishHome() {
             href="/"
             className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
           >
-            🇯🇵 日本語版
+            Japanese
           </Link>
         </div>
         <p className="text-gray-600 dark:text-gray-400 mb-4">
@@ -74,19 +126,63 @@ export default function EnglishHome() {
           className="w-full max-w-md px-4 py-2 border dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 focus:outline-none"
           placeholder="Filter tools..."
         />
+
+        {/* Category filter pills */}
+        <div className="flex flex-wrap gap-2 mt-4">
+          {categories.map((cat) => {
+            const isActive = selectedCategory === cat;
+            const count =
+              cat === ALL_CATEGORY
+                ? tools.length
+                : cat === FAVORITES_CATEGORY
+                  ? favorites.length
+                  : cat === RECENT_CATEGORY
+                    ? recent.length
+                    : tools.filter((t) => t.category === cat).length;
+            return (
+              <button
+                key={cat}
+                onClick={() => setSelectedCategory(cat)}
+                className={`px-3 py-1 text-sm rounded-full border transition-colors ${
+                  isActive
+                    ? "bg-blue-600 text-white border-blue-600"
+                    : "bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-400 border-gray-300 dark:border-gray-600 hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400"
+                }`}
+              >
+                {cat}
+                <span className="ml-1 text-xs opacity-70">({count})</span>
+              </button>
+            );
+          })}
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-        {sortedTools.map((tool) => {
-          const en = toolTranslations[tool.id];
-          const enTool = en
-            ? { ...tool, name: en.name, description: en.description }
-            : tool;
-          return (
-            <ToolCard key={tool.id} tool={enTool} linkPrefix="/en/tools" />
-          );
-        })}
-      </div>
+      {sortedTools.length === 0 ? (
+        <div className="text-center py-12 text-gray-500 dark:text-gray-400">
+          {selectedCategory === FAVORITES_CATEGORY
+            ? "No favorite tools yet. Click the star icon on a tool to add it."
+            : selectedCategory === RECENT_CATEGORY
+              ? "No recently used tools yet. Open a tool to see it here."
+              : "No tools found."}
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          {sortedTools.map((tool) => {
+            const en = toolTranslations[tool.id];
+            const enTool = en
+              ? { ...tool, name: en.name, description: en.description }
+              : tool;
+            return (
+              <ToolCard
+                key={tool.id}
+                tool={enTool}
+                linkPrefix="/en/tools"
+                onFavoriteToggle={onFavoriteToggle}
+              />
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }
